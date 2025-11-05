@@ -92,7 +92,7 @@ const Navbar = () => {
   const navbarStyle = {
     position: "sticky",
     top: 0,
-    zIndex: 40,
+    zIndex: 60, // FIXED: Increased from 40 to 60 to stay above floating buttons
     background: colors.white,
     transition: "all 0.3s ease",
     boxShadow: isScrolled
@@ -599,74 +599,8 @@ const Navbar = () => {
                       ))}
                     </div>
                   </div>
-
-                  {/* Contact Info */}
-                  <div
-                    className="px-6 pt-6 border-t"
-                    style={{ borderColor: "rgba(255, 255, 255, 0.2)" }}
-                  >
-                    <p
-                      className="text-xs font-semibold uppercase tracking-wider mb-3"
-                      style={{ color: colors.amber }}
-                    >
-                      Contact Us
-                    </p>
-                    <div className="space-y-3">
-                      <a
-                        href="mailto:info@globalshopfitters.co.zw"
-                        className="flex items-center gap-3 py-2 transition-colors"
-                        style={{ color: colors.white }}
-                        onMouseEnter={(e) =>
-                          (e.currentTarget.style.color = colors.amber)
-                        }
-                        onMouseLeave={(e) =>
-                          (e.currentTarget.style.color = colors.white)
-                        }
-                      >
-                        <Mail size={18} />
-                        <span className="text-sm">
-                          info@globalshopfitters.co.zw
-                        </span>
-                      </a>
-                      <a
-                        href="tel:+263123456789"
-                        className="flex items-center gap-3 py-2 transition-colors"
-                        style={{ color: colors.white }}
-                        onMouseEnter={(e) =>
-                          (e.currentTarget.style.color = colors.amber)
-                        }
-                        onMouseLeave={(e) =>
-                          (e.currentTarget.style.color = colors.white)
-                        }
-                      >
-                        <Phone size={18} />
-                        <span className="text-sm">+263 123 456 789</span>
-                      </a>
-                      <div
-                        className="flex items-center gap-3 py-2"
-                        style={{ color: colors.white }}
-                      >
-                        <MapPin size={18} />
-                        <span className="text-sm">Harare, Zimbabwe</span>
-                      </div>
-                    </div>
-                  </div>
                 </motion.div>
               </div>
-
-              {/* Footer */}
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 1 }}
-                className="p-6 text-center border-t"
-                style={{
-                  borderColor: "rgba(255, 255, 255, 0.2)",
-                  color: "rgba(255, 255, 255, 0.8)",
-                }}
-              >
-                <p className="text-sm">Excellence in Shopfitting Solutions</p>
-              </motion.div>
             </div>
           </motion.div>
         )}

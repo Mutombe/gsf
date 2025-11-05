@@ -65,6 +65,26 @@ const Footer = () => {
     background: `linear-gradient(135deg, #1a1a1a 0%, ${colors.darkGray} 50%, #2a2a2a 100%)`,
     color: colors.white,
     position: 'relative',
+    overflow: 'hidden',
+  };
+
+  const backgroundOverlayStyle = {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    width: '100%',
+    height: '100%',
+    backgroundImage: 'url(https://images.unsplash.com/photo-1497366216548-37526070297c?w=1600&q=80)',
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+    opacity: 0.15,
+    mixBlendMode: 'overlay',
+    zIndex: 0,
+  };
+
+  const contentWrapperStyle = {
+    position: 'relative',
+    zIndex: 1,
   };
 
   const containerStyle = {
@@ -127,12 +147,16 @@ const Footer = () => {
     width: '100%',
     height: '4px',
     background: `linear-gradient(90deg, ${colors.chiliRed} 0%, ${colors.brightOrange} 33%, ${colors.amber} 66%, ${colors.mustard} 100%)`,
+    zIndex: 2,
   };
 
   return (
     <footer style={footerStyle}>
+      {/* Background Image with Blend Effect */}
+      <div style={backgroundOverlayStyle}></div>
+      
       {/* Main Footer Content */}
-      <div style={containerStyle}>
+      <div style={{...containerStyle, ...contentWrapperStyle}}>
         <div style={{ 
           display: 'grid', 
           gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', 
@@ -353,7 +377,7 @@ const Footer = () => {
       </div>
 
       {/* Bottom Bar */}
-      <div style={bottomBarStyle}>
+      <div style={{...bottomBarStyle, ...contentWrapperStyle}}>
         <div style={{ 
           maxWidth: '1280px', 
           margin: '0 auto',

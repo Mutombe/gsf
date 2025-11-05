@@ -48,6 +48,7 @@ const Services = () => {
       ],
       colorFrom: colors.chiliRed,
       colorTo: colors.brightOrange,
+      size: 'large', // Featured card
     },
     {
       icon: Wrench,
@@ -63,6 +64,7 @@ const Services = () => {
       ],
       colorFrom: colors.brightOrange,
       colorTo: colors.amber,
+      size: 'medium',
     },
     {
       icon: Snowflake,
@@ -78,6 +80,7 @@ const Services = () => {
       ],
       colorFrom: colors.scarlet,
       colorTo: colors.darkOrange,
+      size: 'medium',
     },
     {
       icon: PenTool,
@@ -93,6 +96,7 @@ const Services = () => {
       ],
       colorFrom: colors.darkOrange,
       colorTo: colors.chiliRed,
+      size: 'large',
     },
     {
       icon: MessageCircle,
@@ -108,6 +112,7 @@ const Services = () => {
       ],
       colorFrom: colors.flame,
       colorTo: colors.safetyOrange,
+      size: 'small',
     },
     {
       icon: Hammer,
@@ -123,6 +128,7 @@ const Services = () => {
       ],
       colorFrom: colors.safetyOrange,
       colorTo: colors.amber,
+      size: 'small',
     },
   ];
 
@@ -163,8 +169,10 @@ const Services = () => {
   // Styles
   const heroSectionStyle = {
     position: 'relative',
-    padding: '80px 20px',
-    background: `linear-gradient(135deg, #1a1a1a 0%, ${colors.darkGray} 50%, #2a2a2a 100%)`,
+    padding: '120px 20px',
+    minHeight: '70vh',
+    display: 'flex',
+    alignItems: 'center',
     color: colors.white,
     overflow: 'hidden',
   };
@@ -178,7 +186,7 @@ const Services = () => {
 
   const heroSubtitleStyle = {
     fontSize: 'clamp(1.25rem, 3vw, 1.75rem)',
-    color: 'rgba(255, 255, 255, 0.85)',
+    color: 'rgba(255, 255, 255, 0.95)',
     lineHeight: '1.6',
   };
 
@@ -206,17 +214,6 @@ const Services = () => {
     marginBottom: '64px',
   };
 
-  const cardStyle = {
-    background: colors.white,
-    borderRadius: '16px',
-    padding: '24px',
-    boxShadow: '0 4px 20px rgba(0, 0, 0, 0.08)',
-    transition: 'all 0.3s ease',
-    height: '100%',
-    display: 'flex',
-    flexDirection: 'column',
-  };
-
   const ctaSectionStyle = {
     padding: '80px 20px',
     background: `linear-gradient(135deg, ${colors.chiliRed} 0%, ${colors.safetyOrange} 50%, ${colors.amber} 100%)`,
@@ -237,14 +234,59 @@ const Services = () => {
     transition: 'all 0.3s ease',
   };
 
+  // Grid area assignments for masonry layout
+  const getGridArea = (size) => {
+    switch(size) {
+      case 'large':
+        return { gridColumn: 'span 2', gridRow: 'span 2' };
+      case 'medium':
+        return { gridColumn: 'span 1', gridRow: 'span 2' };
+      case 'small':
+        return { gridColumn: 'span 1', gridRow: 'span 1' };
+      default:
+        return { gridColumn: 'span 1', gridRow: 'span 1' };
+    }
+  };
+
   return (
     <div style={{ overflow: 'hidden' }}>
-      {/* Hero Section */}
+      {/* Hero Section with Blended Background */}
       <section style={heroSectionStyle}>
+        {/* Background Image Layer */}
         <div style={{
           position: 'absolute',
           inset: 0,
-          opacity: 0.1,
+          backgroundImage: 'url("/27.jpg")',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+        }}></div>
+
+        {/* Gradient Overlay Blend */}
+        <div style={{
+          position: 'absolute',
+          inset: 0,
+          background: `linear-gradient(135deg, 
+            ${colors.chiliRed}ee 0%, 
+            ${colors.flame}dd 25%,
+            ${colors.darkOrange}cc 50%, 
+            ${colors.safetyOrange}dd 75%,
+            ${colors.amber}ee 100%)`,
+          mixBlendMode: 'multiply',
+        }}></div>
+
+        {/* Dark Overlay for Better Text Contrast */}
+        <div style={{
+          position: 'absolute',
+          inset: 0,
+          background: 'rgba(0, 0, 0, 0.3)',
+        }}></div>
+
+        {/* Pattern Overlay */}
+        <div style={{
+          position: 'absolute',
+          inset: 0,
+          opacity: 0.08,
           backgroundImage: 'url("data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%23ffffff\' fill-opacity=\'1\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")',
         }}></div>
 
@@ -255,6 +297,24 @@ const Services = () => {
             transition={{ duration: 0.8 }}
             style={{ textAlign: 'center', maxWidth: '896px', margin: '0 auto' }}
           >
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ delay: 0.2, duration: 0.6 }}
+              style={{
+                display: 'inline-block',
+                padding: '8px 20px',
+                background: 'rgba(255, 255, 255, 0.2)',
+                backdropFilter: 'blur(10px)',
+                borderRadius: '50px',
+                marginBottom: '24px',
+                border: '1px solid rgba(255, 255, 255, 0.3)',
+              }}
+            >
+              <span style={{ fontSize: '14px', fontWeight: '600', letterSpacing: '1px' }}>
+                PREMIUM SHOPFITTING SERVICES
+              </span>
+            </motion.div>
             <h1 style={heroTitleStyle}>
               {t('services.title')}
             </h1>
@@ -265,91 +325,200 @@ const Services = () => {
         </div>
       </section>
 
-      {/* Services Grid */}
+      {/* Services Grid - Dynamic Masonry Layout */}
       <section style={{ ...sectionStyle, background: colors.white }}>
         <div style={containerStyle}>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '32px' }}>
-            {services.map((service, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1, duration: 0.6 }}
-                whileHover={{ y: -10 }}
-                style={cardStyle}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.boxShadow = `0 12px 40px ${service.colorFrom}25`;
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.08)';
-                }}
-              >
-                <div 
-                  style={{
-                    width: '64px',
-                    height: '64px',
-                    background: `linear-gradient(135deg, ${service.colorFrom}, ${service.colorTo})`,
-                    borderRadius: '12px',
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    marginBottom: '16px',
-                    boxShadow: `0 4px 15px ${service.colorFrom}30`,
-                    transition: 'transform 0.3s ease',
-                  }}
-                >
-                  <service.icon size={28} style={{ color: colors.white }} />
-                </div>
-                <h3 style={{ fontSize: '1.5rem', fontWeight: '700', color: colors.darkGray, marginBottom: '12px' }}>
-                  {service.title}
-                </h3>
-                <p style={{ color: colors.mediumGray, marginBottom: '16px', lineHeight: '1.6' }}>
-                  {service.description}
-                </p>
-                <ul style={{ listStyle: 'none', padding: 0, margin: '0 0 24px 0', flex: 1 }}>
-                  {service.features.map((feature, idx) => (
-                    <li 
-                      key={idx} 
-                      style={{ 
-                        display: 'flex', 
-                        alignItems: 'flex-start', 
-                        gap: '8px', 
-                        fontSize: '14px', 
-                        color: colors.mediumGray,
-                        marginBottom: '8px',
-                      }}
-                    >
-                      <CheckCircle2 size={16} style={{ color: colors.chiliRed, marginTop: '2px', flexShrink: 0 }} />
-                      <span>{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-                <Link 
-                  to="/contact" 
-                  style={{
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    gap: '8px',
-                    color: colors.chiliRed,
-                    fontWeight: '600',
-                    textDecoration: 'none',
-                    transition: 'gap 0.3s ease',
-                  }}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            style={{ marginBottom: '64px', textAlign: 'center' }}
+          >
+            <h2 style={sectionTitleStyle}>Our Services</h2>
+            <p style={sectionSubtitleStyle}>
+              Comprehensive solutions tailored to your needs
+            </p>
+          </motion.div>
+
+          {/* Masonry Grid */}
+          <div 
+            className="services-grid"
+            style={{ 
+              display: 'grid', 
+              gap: '24px',
+            }}
+          >
+            <style>{`
+              .services-grid {
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                grid-auto-rows: 200px;
+              }
+
+              @media (max-width: 768px) {
+                .services-grid {
+                  grid-template-columns: 1fr !important;
+                  grid-auto-rows: auto !important;
+                }
+                .services-grid > * {
+                  grid-column: span 1 !important;
+                  grid-row: span 1 !important;
+                  min-height: 380px;
+                }
+              }
+
+              @media (min-width: 769px) and (max-width: 1024px) {
+                .services-grid {
+                  grid-template-columns: repeat(2, 1fr) !important;
+                  grid-auto-rows: 220px;
+                }
+              }
+            `}</style>
+            {services.map((service, index) => {
+              const gridArea = getGridArea(service.size);
+              const cardStyle = {
+                gridColumn: gridArea.gridColumn,
+                gridRow: gridArea.gridRow,
+                background: colors.white,
+                borderRadius: '20px',
+                padding: service.size === 'large' ? '32px' : '24px',
+                boxShadow: '0 4px 20px rgba(0, 0, 0, 0.08)',
+                transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
+                display: 'flex',
+                flexDirection: 'column',
+                position: 'relative',
+                overflow: 'hidden',
+                cursor: 'pointer',
+              };
+
+              return (
+                <motion.div
+                  key={index}
+                  className="service-card"
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1, duration: 0.6 }}
+                  whileHover={{ y: -8, scale: 1.02 }}
+                  style={cardStyle}
                   onMouseEnter={(e) => {
-                    e.currentTarget.style.gap = '12px';
-                    e.currentTarget.style.color = colors.flame;
+                    e.currentTarget.style.boxShadow = `0 20px 60px ${service.colorFrom}30`;
                   }}
                   onMouseLeave={(e) => {
-                    e.currentTarget.style.gap = '8px';
-                    e.currentTarget.style.color = colors.chiliRed;
+                    e.currentTarget.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.08)';
                   }}
                 >
-                  <span>Get Quote</span>
-                  <ArrowRight size={16} />
-                </Link>
-              </motion.div>
-            ))}
+                  {/* Background Gradient Effect */}
+                  <div style={{
+                    position: 'absolute',
+                    top: 0,
+                    right: 0,
+                    width: '200px',
+                    height: '200px',
+                    background: `linear-gradient(135deg, ${service.colorFrom}15, ${service.colorTo}15)`,
+                    borderRadius: '50%',
+                    transform: 'translate(50%, -50%)',
+                    transition: 'transform 0.4s ease',
+                  }}></div>
+
+                  <div style={{ position: 'relative', zIndex: 1 }}>
+                    {/* Icon */}
+                    <motion.div 
+                      whileHover={{ rotate: 360, scale: 1.1 }}
+                      transition={{ duration: 0.6 }}
+                      style={{
+                        width: service.size === 'large' ? '80px' : '64px',
+                        height: service.size === 'large' ? '80px' : '64px',
+                        background: `linear-gradient(135deg, ${service.colorFrom}, ${service.colorTo})`,
+                        borderRadius: '16px',
+                        display: 'inline-flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        marginBottom: '20px',
+                        boxShadow: `0 8px 20px ${service.colorFrom}40`,
+                      }}
+                    >
+                      <service.icon 
+                        size={service.size === 'large' ? 36 : 28} 
+                        style={{ color: colors.white }} 
+                      />
+                    </motion.div>
+
+                    {/* Content */}
+                    <h3 style={{ 
+                      fontSize: service.size === 'large' ? '1.75rem' : '1.5rem', 
+                      fontWeight: '700', 
+                      color: colors.darkGray, 
+                      marginBottom: '12px',
+                      lineHeight: '1.2',
+                    }}>
+                      {service.title}
+                    </h3>
+                    <p style={{ 
+                      color: colors.mediumGray, 
+                      marginBottom: '20px', 
+                      lineHeight: '1.6',
+                      fontSize: service.size === 'small' ? '14px' : '15px',
+                    }}>
+                      {service.description}
+                    </p>
+
+                    {/* Features List - Show more for larger cards */}
+                    {service.size !== 'small' && (
+                      <ul style={{ 
+                        listStyle: 'none', 
+                        padding: 0, 
+                        margin: '0 0 24px 0', 
+                        flex: 1 
+                      }}>
+                        {service.features.slice(0, service.size === 'large' ? 6 : 4).map((feature, idx) => (
+                          <li 
+                            key={idx} 
+                            style={{ 
+                              display: 'flex', 
+                              alignItems: 'flex-start', 
+                              gap: '8px', 
+                              fontSize: '14px', 
+                              color: colors.mediumGray,
+                              marginBottom: '8px',
+                            }}
+                          >
+                            <CheckCircle2 
+                              size={16} 
+                              style={{ color: service.colorFrom, marginTop: '2px', flexShrink: 0 }} 
+                            />
+                            <span>{feature}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+
+                    {/* CTA Link */}
+                    <Link 
+                      to="/contact" 
+                      style={{
+                        display: 'inline-flex',
+                        alignItems: 'center',
+                        gap: '8px',
+                        color: service.colorFrom,
+                        fontWeight: '600',
+                        textDecoration: 'none',
+                        transition: 'gap 0.3s ease',
+                        marginTop: 'auto',
+                      }}
+                      onMouseEnter={(e) => {
+                        e.currentTarget.style.gap = '12px';
+                      }}
+                      onMouseLeave={(e) => {
+                        e.currentTarget.style.gap = '8px';
+                      }}
+                    >
+                      <span>Get Quote</span>
+                      <ArrowRight size={16} />
+                    </Link>
+                  </div>
+                </motion.div>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -426,30 +595,92 @@ const Services = () => {
                 <p style={{ color: colors.mediumGray, lineHeight: '1.6' }}>
                   {item.description}
                 </p>
-                {index < process.length - 1 && (
-                  <ArrowRight 
-                    size={24} 
-                    style={{ 
-                      display: 'none',
-                      position: 'absolute',
-                      top: '48px',
-                      right: '-16px',
-                      color: colors.amber,
-                      opacity: 0.5,
-                    }} 
-                    className="lg:block"
-                  />
-                )}
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Benefits Section */}
-      <section style={{ ...sectionStyle, background: colors.white }}>
-        <div style={containerStyle}>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '24px' }}>
+      {/* Benefits Section with Blended Background */}
+      <section style={{ 
+        ...sectionStyle, 
+        position: 'relative',
+        minHeight: '60vh',
+        display: 'flex',
+        alignItems: 'center',
+      }}>
+        {/* Background Image */}
+        <div style={{
+          position: 'absolute',
+          inset: 0,
+          backgroundImage: 'url("/27.jpg")',
+          opacity: 0.7,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+        }}></div>
+
+        {/* White Overlay Blend */}
+        <div style={{
+          position: 'absolute',
+          inset: 0,
+          background: `linear-gradient(135deg, ${colors.white}f5 10%, )`,
+          mixBlendMode: 'normal',
+        }}></div>
+
+        {/* Subtle Pattern */}
+        <div style={{
+          position: 'absolute',
+          inset: 0,
+          opacity: 0.03,
+          backgroundImage: 'url("")',
+        }}></div>
+
+        <div style={{ ...containerStyle, position: 'relative', zIndex: 10 }}>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            style={{ marginBottom: '48px', textAlign: 'center' }}
+          >
+            <h2 style={sectionTitleStyle}>Why Choose Us</h2>
+            <p style={sectionSubtitleStyle}>
+              The benefits of working with professionals
+            </p>
+          </motion.div>
+
+          <div 
+            className="benefits-grid"
+            style={{ 
+              display: 'grid', 
+              gap: '24px',
+            }}
+          >
+            <style>{`
+              .benefits-grid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+              }
+
+              @media (max-width: 640px) {
+                .benefits-grid {
+                  grid-template-columns: 1fr;
+                }
+              }
+
+              @media (min-width: 641px) and (max-width: 1024px) {
+                .benefits-grid {
+                  grid-template-columns: repeat(2, 1fr);
+                }
+              }
+
+              @media (min-width: 1025px) {
+                .benefits-grid {
+                  grid-template-columns: repeat(4, 1fr);
+                  max-width: 1200px;
+                  margin: 0 auto;
+                }
+              }
+            `}</style>
             {benefits.map((benefit, index) => (
               <motion.div
                 key={index}
@@ -457,28 +688,50 @@ const Services = () => {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1, duration: 0.5 }}
+                whileHover={{ y: -8 }}
                 style={{
                   textAlign: 'center',
-                  padding: '24px',
-                  borderRadius: '12px',
-                  background: colors.lightGray,
+                  padding: '32px 24px',
+                  borderRadius: '16px',
+                  background: 'rgba(255, 255, 255, 0.9)',
+                  backdropFilter: 'blur(10px)',
+                  border: '1px solid rgba(255, 255, 255, 0.5)',
+                  boxShadow: '0 4px 20px rgba(0, 0, 0, 0.05)',
                   transition: 'all 0.3s ease',
                   cursor: 'pointer',
                 }}
                 onMouseEnter={(e) => {
-                  e.currentTarget.style.background = colors.white;
-                  e.currentTarget.style.boxShadow = '0 8px 30px rgba(0, 0, 0, 0.1)';
+                  e.currentTarget.style.background = 'rgba(255, 255, 255, 1)';
+                  e.currentTarget.style.boxShadow = `0 12px 40px ${colors.chiliRed}20`;
+                  e.currentTarget.style.transform = 'translateY(-8px)';
                 }}
                 onMouseLeave={(e) => {
-                  e.currentTarget.style.background = colors.lightGray;
-                  e.currentTarget.style.boxShadow = 'none';
+                  e.currentTarget.style.background = 'rgba(255, 255, 255, 0.9)';
+                  e.currentTarget.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.05)';
+                  e.currentTarget.style.transform = 'translateY(0)';
                 }}
               >
-                <benefit.icon size={40} style={{ color: colors.chiliRed, margin: '0 auto 16px' }} />
-                <h3 style={{ fontSize: '1.125rem', fontWeight: '700', color: colors.darkGray, marginBottom: '8px' }}>
+                <motion.div
+                  whileHover={{ rotate: 360, scale: 1.1 }}
+                  transition={{ duration: 0.6 }}
+                  style={{
+                    width: '72px',
+                    height: '72px',
+                    background: `linear-gradient(135deg, ${colors.chiliRed}, ${colors.amber})`,
+                    borderRadius: '50%',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    margin: '0 auto 20px',
+                    boxShadow: `0 8px 20px ${colors.chiliRed}30`,
+                  }}
+                >
+                  <benefit.icon size={32} style={{ color: colors.white }} />
+                </motion.div>
+                <h3 style={{ fontSize: '1.25rem', fontWeight: '700', color: colors.darkGray, marginBottom: '8px' }}>
                   {benefit.title}
                 </h3>
-                <p style={{ fontSize: '14px', color: colors.mediumGray }}>
+                <p style={{ fontSize: '14px', color: colors.mediumGray, lineHeight: '1.6' }}>
                   {benefit.description}
                 </p>
               </motion.div>

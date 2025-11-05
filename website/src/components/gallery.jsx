@@ -1,8 +1,31 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { Image, Grid3x3 } from 'lucide-react';
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { 
+  X, 
+  ZoomIn, 
+  ZoomOut, 
+  Download, 
+  Share2, 
+  RotateCw, 
+  Maximize2,
+  ChevronLeft,
+  ChevronRight,
+  Grid3x3,
+  Layout,
+  Facebook,
+  Twitter,
+  Link as LinkIcon,
+  Check
+} from 'lucide-react';
 
 const Gallery = () => {
+  const [selectedImage, setSelectedImage] = useState(null);
+  const [zoom, setZoom] = useState(1);
+  const [rotation, setRotation] = useState(0);
+  const [showShareMenu, setShowShareMenu] = useState(false);
+  const [copied, setCopied] = useState(false);
+  const [layoutMode, setLayoutMode] = useState('masonry'); // 'masonry' or 'grid'
+
   // Color palette
   const colors = {
     chiliRed: '#E3180D',
@@ -26,147 +49,919 @@ const Gallery = () => {
     white: '#FFFFFF',
   };
 
-  const images = Array.from({ length: 12 }, (_, i) => ({
-    id: i + 1,
-    category: ['shelving', 'displays', 'refrigeration', 'signage'][i % 4],
-    alt: `Project ${i + 1}`,
-    gradient: [
-      `linear-gradient(135deg, ${colors.peach} 0%, ${colors.sunset} 100%)`,
-      `linear-gradient(135deg, ${colors.sunset} 0%, ${colors.amber} 100%)`,
-      `linear-gradient(135deg, ${colors.mustardLight} 0%, ${colors.mustard} 100%)`,
-      `linear-gradient(135deg, ${colors.brightOrange} 0%, ${colors.safetyOrange} 100%)`,
-    ][i % 4],
-  }));
+  const images = [
+    {
+      id: 1,
+      category: 'Retail Shelving',
+      title: 'Modern Store Display',
+      url: '/1.jpg',
+      size: 'large', // large, medium, small
+      color: colors.chiliRed,
+    },
+    {
+      id: 2,
+      category: 'Refrigeration',
+      title: 'Commercial Cooling',
+      url: '/2.jpg',
+      size: 'medium',
+      color: colors.brightOrange,
+    },
+    {
+      id: 3,
+      category: 'Custom Displays',
+      title: 'Luxury Boutique',
+      url: '/3.jpg',
+      size: 'small',
+      color: colors.amber,
+    },
+    {
+      id: 4,
+      category: 'Store Design',
+      title: 'Supermarket Layout',
+      url: '/4.jpg',
+      size: 'medium',
+      color: colors.scarlet,
+    },
+    {
+      id: 5,
+      category: 'Fixtures',
+      title: 'Premium Shelving',
+      url: '/5.jpg',
+      size: 'large',
+      color: colors.darkOrange,
+    },
+    {
+      id: 6,
+      category: 'Signage',
+      title: 'LED Displays',
+      url: '/6.png',
+      size: 'small',
+      color: colors.safetyOrange,
+    },
+    {
+      id: 7,
+      category: 'Café Setup',
+      title: 'Coffee Bar Design',
+      url: '/7.png',
+      size: 'medium',
+      color: colors.tangerine,
+    },
+    {
+      id: 8,
+      category: 'Retail Displays',
+      title: 'Fashion Store',
+      url: '/8.jpg',
+      size: 'large',
+      color: colors.mustardYellow,
+    },
+    {
+      id: 9,
+      category: 'Custom Furniture',
+      title: 'Checkout Counters',
+      url: '/9.jpg',
+      size: 'small',
+      color: colors.persimmon,
+    },
+    {
+      id: 10,
+      category: 'Store Fronts',
+      title: 'Entrance Design',
+      url: '/10.jpg',
+      size: 'medium',
+      color: colors.flame,
+    },
+    {
+      id: 11,
+      category: 'Interior Design',
+      title: 'Retail Space',
+      url: '/11.png',
+      size: 'large',
+      color: colors.bloodOrange,
+    },
+    {
+      id: 12,
+      category: 'Display Cases',
+      title: 'Product Showcases',
+      url: '/12.png',
+      size: 'medium',
+      color: colors.brightOrange,
+    },
+  ];
 
-  // Styles
-  const heroSectionStyle = {
-    position: 'relative',
-    padding: '80px 20px',
-    background: `linear-gradient(135deg, #1a1a1a 0%, ${colors.darkGray} 50%, #2a2a2a 100%)`,
-    color: colors.white,
+  const openModal = (image) => {
+    setSelectedImage(image);
+    setZoom(1);
+    setRotation(0);
+    setShowShareMenu(false);
   };
 
-  const heroTitleStyle = {
-    fontSize: 'clamp(2.5rem, 8vw, 5rem)',
-    fontWeight: '800',
-    lineHeight: '1.1',
-    marginBottom: '24px',
+  const closeModal = () => {
+    setSelectedImage(null);
+    setZoom(1);
+    setRotation(0);
+    setShowShareMenu(false);
   };
 
-  const heroSubtitleStyle = {
-    fontSize: 'clamp(1.25rem, 3vw, 1.75rem)',
-    color: 'rgba(255, 255, 255, 0.85)',
-    lineHeight: '1.6',
+  const handleZoomIn = () => {
+    setZoom(prev => Math.min(prev + 0.25, 3));
   };
 
-  const sectionStyle = {
-    padding: '80px 20px',
-    background: colors.lightGray,
+  const handleZoomOut = () => {
+    setZoom(prev => Math.max(prev - 0.25, 0.5));
   };
 
-  const containerStyle = {
-    maxWidth: '1280px',
-    margin: '0 auto',
+  const handleRotate = () => {
+    setRotation(prev => (prev + 90) % 360);
   };
 
-  const galleryItemStyle = {
-    aspectRatio: '1 / 1',
-    borderRadius: '12px',
-    overflow: 'hidden',
-    boxShadow: '0 4px 15px rgba(0, 0, 0, 0.1)',
-    transition: 'all 0.3s ease',
-    cursor: 'pointer',
-    position: 'relative',
+  const handleDownload = () => {
+    if (selectedImage) {
+      const link = document.createElement('a');
+      link.href = selectedImage.url;
+      link.download = `${selectedImage.title}.jpg`;
+      link.click();
+    }
+  };
+
+  const handleShare = (platform) => {
+    if (!selectedImage) return;
+    
+    const url = window.location.href;
+    const text = `Check out ${selectedImage.title} - ${selectedImage.category}`;
+    
+    switch(platform) {
+      case 'facebook':
+        window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`, '_blank');
+        break;
+      case 'twitter':
+        window.open(`https://twitter.com/intent/tweet?url=${encodeURIComponent(url)}&text=${encodeURIComponent(text)}`, '_blank');
+        break;
+      case 'copy':
+        navigator.clipboard.writeText(url);
+        setCopied(true);
+        setTimeout(() => setCopied(false), 2000);
+        break;
+      default:
+        break;
+    }
+  };
+
+  const navigateImage = (direction) => {
+    const currentIndex = images.findIndex(img => img.id === selectedImage.id);
+    let newIndex;
+    
+    if (direction === 'next') {
+      newIndex = (currentIndex + 1) % images.length;
+    } else {
+      newIndex = currentIndex === 0 ? images.length - 1 : currentIndex - 1;
+    }
+    
+    setSelectedImage(images[newIndex]);
+    setZoom(1);
+    setRotation(0);
+  };
+
+  const getSizeClass = (size) => {
+    if (layoutMode === 'grid') return 'span 1';
+    
+    switch(size) {
+      case 'large':
+        return window.innerWidth > 768 ? 'span 2' : 'span 1';
+      case 'medium':
+        return 'span 1';
+      case 'small':
+        return 'span 1';
+      default:
+        return 'span 1';
+    }
   };
 
   return (
-    <div style={{ overflow: 'hidden' }}>
+    <div style={{ overflow: 'hidden', background: colors.white }}>
       {/* Hero Section */}
-      <section style={heroSectionStyle}>
-        <div style={{ ...containerStyle, position: 'relative', zIndex: 10 }}>
+      <section style={{
+        position: 'relative',
+        padding: '100px 20px 60px',
+        background: `linear-gradient(135deg, ${colors.darkGray} 0%, #1a1a1a 100%)`,
+        overflow: 'hidden',
+      }}>
+        {/* Decorative Elements */}
+        <div style={{
+          position: 'absolute',
+          top: '20%',
+          right: '10%',
+          width: '300px',
+          height: '300px',
+          background: `radial-gradient(circle, ${colors.chiliRed}20, transparent)`,
+          borderRadius: '50%',
+          filter: 'blur(60px)',
+        }}></div>
+
+        <div style={{ maxWidth: '1280px', margin: '0 auto', position: 'relative', zIndex: 10 }}>
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            style={{ textAlign: 'center', maxWidth: '896px', margin: '0 auto' }}
+            style={{ textAlign: 'center', marginBottom: '40px' }}
           >
-            <h1 style={heroTitleStyle}>
-              Gallery
+            <motion.div
+              initial={{ scale: 0 }}
+              animate={{ scale: 1 }}
+              transition={{ type: 'spring', stiffness: 200 }}
+              style={{
+                display: 'inline-block',
+                padding: '10px 24px',
+                background: 'rgba(255, 255, 255, 0.1)',
+                backdropFilter: 'blur(10px)',
+                borderRadius: '50px',
+                border: '1px solid rgba(255, 255, 255, 0.2)',
+                marginBottom: '24px',
+              }}
+            >
+              <span style={{
+                background: `linear-gradient(90deg, ${colors.mustardLight}, ${colors.amber})`,
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                backgroundClip: 'text',
+                fontSize: '14px',
+                fontWeight: '600',
+              }}>
+                Explore Our Work
+              </span>
+            </motion.div>
+
+            <h1 style={{
+              fontSize: 'clamp(2.5rem, 8vw, 5rem)',
+              fontWeight: '900',
+              lineHeight: '1.1',
+              marginBottom: '24px',
+              color: colors.white,
+            }}>
+              Project{' '}
+              <span style={{
+                background: `linear-gradient(90deg, ${colors.chiliRed}, ${colors.amber})`,
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                backgroundClip: 'text',
+              }}>
+                Gallery
+              </span>
             </h1>
-            <p style={heroSubtitleStyle}>
-              Explore our portfolio of completed projects
+            
+            <p style={{
+              fontSize: 'clamp(1.125rem, 2vw, 1.5rem)',
+              color: 'rgba(255, 255, 255, 0.8)',
+              lineHeight: '1.6',
+              maxWidth: '700px',
+              margin: '0 auto',
+            }}>
+              Browse through our portfolio of completed shopfitting projects
             </p>
+          </motion.div>
+
+          {/* Layout Toggle */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3 }}
+            style={{
+              display: 'flex',
+              justifyContent: 'center',
+              gap: '12px',
+            }}
+          >
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={() => setLayoutMode('masonry')}
+              style={{
+                padding: '12px 24px',
+                borderRadius: '50px',
+                border: layoutMode === 'masonry' ? `2px solid ${colors.chiliRed}` : '2px solid transparent',
+                background: layoutMode === 'masonry' ? colors.white : 'rgba(255, 255, 255, 0.1)',
+                color: layoutMode === 'masonry' ? colors.darkGray : colors.white,
+                fontWeight: '600',
+                fontSize: '14px',
+                cursor: 'pointer',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '8px',
+                transition: 'all 0.3s ease',
+                backdropFilter: 'blur(10px)',
+              }}
+            >
+              <Layout size={16} />
+              Masonry View
+            </motion.button>
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={() => setLayoutMode('grid')}
+              style={{
+                padding: '12px 24px',
+                borderRadius: '50px',
+                border: layoutMode === 'grid' ? `2px solid ${colors.chiliRed}` : '2px solid transparent',
+                background: layoutMode === 'grid' ? colors.white : 'rgba(255, 255, 255, 0.1)',
+                color: layoutMode === 'grid' ? colors.darkGray : colors.white,
+                fontWeight: '600',
+                fontSize: '14px',
+                cursor: 'pointer',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '8px',
+                transition: 'all 0.3s ease',
+                backdropFilter: 'blur(10px)',
+              }}
+            >
+              <Grid3x3 size={16} />
+              Grid View
+            </motion.button>
           </motion.div>
         </div>
       </section>
 
-      {/* Gallery Grid */}
-      <section style={sectionStyle}>
-        <div style={containerStyle}>
-          <div style={{ 
-            display: 'grid', 
-            gridTemplateColumns: 'repeat(auto-fill, minmax(250px, 1fr))', 
-            gap: '16px',
-          }}>
-            {images.map((img, index) => (
+      {/* Gallery Section */}
+      <section style={{ 
+        padding: '80px 20px',
+        background: colors.lightGray,
+      }}>
+        <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
+          <motion.div
+            key={layoutMode}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5 }}
+            style={{ 
+              display: 'grid',
+              gridTemplateColumns: layoutMode === 'grid' 
+                ? 'repeat(auto-fill, minmax(300px, 1fr))'
+                : 'repeat(auto-fit, minmax(280px, 1fr))',
+              gap: '24px',
+              gridAutoRows: layoutMode === 'grid' ? '300px' : 'auto',
+            }}
+          >
+            {images.map((image, index) => (
               <motion.div
-                key={img.id}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
+                key={image.id}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.05, duration: 0.4 }}
-                whileHover={{ scale: 1.05 }}
+                whileHover={{ y: -8 }}
+                onClick={() => openModal(image)}
                 style={{
-                  ...galleryItemStyle,
-                  background: img.gradient,
+                  gridColumn: getSizeClass(image.size),
+                  gridRow: layoutMode === 'masonry' && image.size === 'large' ? 'span 2' : 'span 1',
+                  borderRadius: '16px',
+                  overflow: 'hidden',
+                  cursor: 'pointer',
+                  position: 'relative',
+                  boxShadow: '0 4px 20px rgba(0, 0, 0, 0.1)',
+                  transition: 'all 0.3s ease',
+                  height: layoutMode === 'grid' ? '100%' : 'auto',
                 }}
                 onMouseEnter={(e) => {
-                  e.currentTarget.style.boxShadow = `0 8px 30px ${colors.chiliRed}30`;
+                  e.currentTarget.style.boxShadow = `0 12px 40px ${image.color}30`;
                 }}
                 onMouseLeave={(e) => {
-                  e.currentTarget.style.boxShadow = '0 4px 15px rgba(0, 0, 0, 0.1)';
+                  e.currentTarget.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.1)';
                 }}
               >
-                <div style={{ 
-                  position: 'relative', 
-                  width: '100%', 
-                  height: '100%', 
-                  display: 'flex', 
-                  alignItems: 'center', 
-                  justifyContent: 'center',
+                {/* Image */}
+                <div style={{
+                  width: '100%',
+                  height: layoutMode === 'grid' ? '100%' : image.size === 'large' ? '500px' : '250px',
+                  position: 'relative',
+                  overflow: 'hidden',
                 }}>
-                  <Image 
-                    size={50} 
-                    style={{ 
-                      color: 'rgba(255, 255, 255, 0.7)',
-                      transition: 'transform 0.3s ease',
-                    }} 
+                  <img
+                    src={image.url}
+                    alt={image.title}
+                    style={{
+                      width: '100%',
+                      height: '100%',
+                      objectFit: 'cover',
+                      transition: 'transform 0.5s ease',
+                    }}
+                    onMouseEnter={(e) => {
+                      e.target.style.transform = 'scale(1.1)';
+                    }}
+                    onMouseLeave={(e) => {
+                      e.target.style.transform = 'scale(1)';
+                    }}
                   />
-                  <div style={{ 
-                    position: 'absolute', 
-                    inset: 0, 
-                    background: 'linear-gradient(to top, rgba(0, 0, 0, 0.6) 0%, transparent 50%)',
-                    opacity: 0,
-                    transition: 'opacity 0.3s ease',
-                  }}></div>
+
+                  {/* Overlay */}
                   <div style={{
                     position: 'absolute',
-                    bottom: '12px',
-                    left: '12px',
-                    color: colors.white,
-                    fontSize: '14px',
-                    fontWeight: '600',
+                    inset: 0,
+                    background: 'linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, transparent 60%)',
                     opacity: 0,
                     transition: 'opacity 0.3s ease',
-                    textTransform: 'capitalize',
-                  }}>
-                    {img.category}
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.opacity = '1';
+                  }}
+                  ></div>
+
+                  {/* Info */}
+                  <div style={{
+                    position: 'absolute',
+                    bottom: '0',
+                    left: '0',
+                    right: '0',
+                    padding: '24px',
+                    opacity: 0,
+                    transform: 'translateY(20px)',
+                    transition: 'all 0.3s ease',
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.opacity = '1';
+                    e.currentTarget.style.transform = 'translateY(0)';
+                  }}
+                  >
+                    <div style={{
+                      display: 'inline-block',
+                      padding: '6px 12px',
+                      background: image.color,
+                      borderRadius: '6px',
+                      fontSize: '0.75rem',
+                      fontWeight: '600',
+                      color: colors.white,
+                      marginBottom: '8px',
+                      textTransform: 'uppercase',
+                      letterSpacing: '0.5px',
+                    }}>
+                      {image.category}
+                    </div>
+                    <h3 style={{
+                      fontSize: '1.25rem',
+                      fontWeight: '700',
+                      color: colors.white,
+                      margin: 0,
+                    }}>
+                      {image.title}
+                    </h3>
+                  </div>
+
+                  {/* Hover Icon */}
+                  <div style={{
+                    position: 'absolute',
+                    top: '50%',
+                    left: '50%',
+                    transform: 'translate(-50%, -50%) scale(0)',
+                    width: '64px',
+                    height: '64px',
+                    background: colors.white,
+                    borderRadius: '50%',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    transition: 'transform 0.3s ease',
+                    boxShadow: '0 8px 24px rgba(0, 0, 0, 0.3)',
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.transform = 'translate(-50%, -50%) scale(1)';
+                  }}
+                  >
+                    <Maximize2 size={24} style={{ color: image.color }} />
                   </div>
                 </div>
               </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
+
+      {/* Image Modal */}
+      <AnimatePresence>
+        {selectedImage && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            style={{
+              position: 'fixed',
+              inset: 0,
+              background: 'rgba(0, 0, 0, 0.95)',
+              zIndex: 9999,
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              padding: '20px',
+            }}
+            onClick={closeModal}
+          >
+            {/* Modal Content */}
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              onClick={(e) => e.stopPropagation()}
+              style={{
+                position: 'relative',
+                maxWidth: '1200px',
+                maxHeight: '90vh',
+                width: '100%',
+                display: 'flex',
+                flexDirection: 'column',
+              }}
+            >
+              {/* Header */}
+              <div style={{
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'space-between',
+                padding: '20px',
+                background: 'rgba(0, 0, 0, 0.5)',
+                backdropFilter: 'blur(10px)',
+                borderRadius: '12px 12px 0 0',
+              }}>
+                <div>
+                  <h2 style={{
+                    fontSize: '1.5rem',
+                    fontWeight: '700',
+                    color: colors.white,
+                    margin: '0 0 4px 0',
+                  }}>
+                    {selectedImage.title}
+                  </h2>
+                  <p style={{
+                    fontSize: '0.875rem',
+                    color: 'rgba(255, 255, 255, 0.7)',
+                    margin: 0,
+                  }}>
+                    {selectedImage.category}
+                  </p>
+                </div>
+
+                <motion.button
+                  whileHover={{ scale: 1.1, rotate: 90 }}
+                  whileTap={{ scale: 0.9 }}
+                  onClick={closeModal}
+                  style={{
+                    width: '40px',
+                    height: '40px',
+                    borderRadius: '50%',
+                    border: 'none',
+                    background: 'rgba(255, 255, 255, 0.1)',
+                    color: colors.white,
+                    cursor: 'pointer',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    transition: 'all 0.3s ease',
+                  }}
+                >
+                  <X size={20} />
+                </motion.button>
+              </div>
+
+              {/* Image Container */}
+              <div style={{
+                flex: 1,
+                position: 'relative',
+                background: '#000',
+                borderRadius: '0 0 12px 12px',
+                overflow: 'hidden',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+              }}>
+                <motion.img
+                  key={selectedImage.id}
+                  initial={{ scale: 0.8, opacity: 0 }}
+                  animate={{ 
+                    scale: zoom, 
+                    opacity: 1,
+                    rotate: rotation,
+                  }}
+                  transition={{ type: 'spring', stiffness: 100 }}
+                  src={selectedImage.url}
+                  alt={selectedImage.title}
+                  style={{
+                    maxWidth: '100%',
+                    maxHeight: '100%',
+                    objectFit: 'contain',
+                  }}
+                />
+
+                {/* Navigation Arrows */}
+                <motion.button
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.9 }}
+                  onClick={() => navigateImage('prev')}
+                  style={{
+                    position: 'absolute',
+                    left: '20px',
+                    top: '50%',
+                    transform: 'translateY(-50%)',
+                    width: '48px',
+                    height: '48px',
+                    borderRadius: '50%',
+                    border: 'none',
+                    background: 'rgba(255, 255, 255, 0.9)',
+                    color: colors.darkGray,
+                    cursor: 'pointer',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    boxShadow: '0 4px 12px rgba(0, 0, 0, 0.3)',
+                    transition: 'all 0.3s ease',
+                  }}
+                >
+                  <ChevronLeft size={24} />
+                </motion.button>
+
+                <motion.button
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.9 }}
+                  onClick={() => navigateImage('next')}
+                  style={{
+                    position: 'absolute',
+                    right: '20px',
+                    top: '50%',
+                    transform: 'translateY(-50%)',
+                    width: '48px',
+                    height: '48px',
+                    borderRadius: '50%',
+                    border: 'none',
+                    background: 'rgba(255, 255, 255, 0.9)',
+                    color: colors.darkGray,
+                    cursor: 'pointer',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    boxShadow: '0 4px 12px rgba(0, 0, 0, 0.3)',
+                    transition: 'all 0.3s ease',
+                  }}
+                >
+                  <ChevronRight size={24} />
+                </motion.button>
+              </div>
+
+              {/* Control Bar */}
+              <div style={{
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                gap: '12px',
+                padding: '20px',
+                background: 'rgba(0, 0, 0, 0.5)',
+                backdropFilter: 'blur(10px)',
+                borderRadius: '0 0 12px 12px',
+              }}>
+                {/* Zoom Out */}
+                <motion.button
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.9 }}
+                  onClick={handleZoomOut}
+                  disabled={zoom <= 0.5}
+                  style={{
+                    width: '44px',
+                    height: '44px',
+                    borderRadius: '50%',
+                    border: 'none',
+                    background: zoom <= 0.5 ? 'rgba(255, 255, 255, 0.2)' : 'rgba(255, 255, 255, 0.9)',
+                    color: colors.darkGray,
+                    cursor: zoom <= 0.5 ? 'not-allowed' : 'pointer',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    transition: 'all 0.3s ease',
+                  }}
+                >
+                  <ZoomOut size={20} />
+                </motion.button>
+
+                {/* Zoom Level */}
+                <div style={{
+                  padding: '8px 16px',
+                  background: 'rgba(255, 255, 255, 0.1)',
+                  borderRadius: '8px',
+                  color: colors.white,
+                  fontSize: '14px',
+                  fontWeight: '600',
+                  minWidth: '60px',
+                  textAlign: 'center',
+                }}>
+                  {Math.round(zoom * 100)}%
+                </div>
+
+                {/* Zoom In */}
+                <motion.button
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.9 }}
+                  onClick={handleZoomIn}
+                  disabled={zoom >= 3}
+                  style={{
+                    width: '44px',
+                    height: '44px',
+                    borderRadius: '50%',
+                    border: 'none',
+                    background: zoom >= 3 ? 'rgba(255, 255, 255, 0.2)' : 'rgba(255, 255, 255, 0.9)',
+                    color: colors.darkGray,
+                    cursor: zoom >= 3 ? 'not-allowed' : 'pointer',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    transition: 'all 0.3s ease',
+                  }}
+                >
+                  <ZoomIn size={20} />
+                </motion.button>
+
+                {/* Divider */}
+                <div style={{
+                  width: '1px',
+                  height: '30px',
+                  background: 'rgba(255, 255, 255, 0.2)',
+                  margin: '0 8px',
+                }}></div>
+
+                {/* Rotate */}
+                <motion.button
+                  whileHover={{ scale: 1.1, rotate: 90 }}
+                  whileTap={{ scale: 0.9 }}
+                  onClick={handleRotate}
+                  style={{
+                    width: '44px',
+                    height: '44px',
+                    borderRadius: '50%',
+                    border: 'none',
+                    background: 'rgba(255, 255, 255, 0.9)',
+                    color: colors.darkGray,
+                    cursor: 'pointer',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    transition: 'all 0.3s ease',
+                  }}
+                >
+                  <RotateCw size={20} />
+                </motion.button>
+
+                {/* Download */}
+                <motion.button
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.9 }}
+                  onClick={handleDownload}
+                  style={{
+                    width: '44px',
+                    height: '44px',
+                    borderRadius: '50%',
+                    border: 'none',
+                    background: 'rgba(255, 255, 255, 0.9)',
+                    color: colors.darkGray,
+                    cursor: 'pointer',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    transition: 'all 0.3s ease',
+                  }}
+                >
+                  <Download size={20} />
+                </motion.button>
+
+                {/* Share */}
+                <div style={{ position: 'relative' }}>
+                  <motion.button
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.9 }}
+                    onClick={() => setShowShareMenu(!showShareMenu)}
+                    style={{
+                      width: '44px',
+                      height: '44px',
+                      borderRadius: '50%',
+                      border: 'none',
+                      background: 'rgba(255, 255, 255, 0.9)',
+                      color: colors.darkGray,
+                      cursor: 'pointer',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      transition: 'all 0.3s ease',
+                    }}
+                  >
+                    <Share2 size={20} />
+                  </motion.button>
+
+                  {/* Share Menu */}
+                  <AnimatePresence>
+                    {showShareMenu && (
+                      <motion.div
+                        initial={{ opacity: 0, y: 10, scale: 0.9 }}
+                        animate={{ opacity: 1, y: 0, scale: 1 }}
+                        exit={{ opacity: 0, y: 10, scale: 0.9 }}
+                        style={{
+                          position: 'absolute',
+                          bottom: '60px',
+                          right: 0,
+                          background: colors.white,
+                          borderRadius: '12px',
+                          padding: '8px',
+                          boxShadow: '0 8px 24px rgba(0, 0, 0, 0.3)',
+                          minWidth: '160px',
+                          zIndex: 10,
+                        }}
+                      >
+                        <button
+                          onClick={() => handleShare('facebook')}
+                          style={{
+                            width: '100%',
+                            padding: '12px 16px',
+                            border: 'none',
+                            background: 'transparent',
+                            color: colors.darkGray,
+                            cursor: 'pointer',
+                            display: 'flex',
+                            alignItems: 'center',
+                            gap: '12px',
+                            fontSize: '14px',
+                            fontWeight: '500',
+                            borderRadius: '8px',
+                            transition: 'background 0.2s ease',
+                          }}
+                          onMouseEnter={(e) => {
+                            e.currentTarget.style.background = colors.lightGray;
+                          }}
+                          onMouseLeave={(e) => {
+                            e.currentTarget.style.background = 'transparent';
+                          }}
+                        >
+                          <Facebook size={18} style={{ color: '#1877F2' }} />
+                          Facebook
+                        </button>
+                        <button
+                          onClick={() => handleShare('twitter')}
+                          style={{
+                            width: '100%',
+                            padding: '12px 16px',
+                            border: 'none',
+                            background: 'transparent',
+                            color: colors.darkGray,
+                            cursor: 'pointer',
+                            display: 'flex',
+                            alignItems: 'center',
+                            gap: '12px',
+                            fontSize: '14px',
+                            fontWeight: '500',
+                            borderRadius: '8px',
+                            transition: 'background 0.2s ease',
+                          }}
+                          onMouseEnter={(e) => {
+                            e.currentTarget.style.background = colors.lightGray;
+                          }}
+                          onMouseLeave={(e) => {
+                            e.currentTarget.style.background = 'transparent';
+                          }}
+                        >
+                          <Twitter size={18} style={{ color: '#1DA1F2' }} />
+                          Twitter
+                        </button>
+                        <button
+                          onClick={() => handleShare('copy')}
+                          style={{
+                            width: '100%',
+                            padding: '12px 16px',
+                            border: 'none',
+                            background: 'transparent',
+                            color: colors.darkGray,
+                            cursor: 'pointer',
+                            display: 'flex',
+                            alignItems: 'center',
+                            gap: '12px',
+                            fontSize: '14px',
+                            fontWeight: '500',
+                            borderRadius: '8px',
+                            transition: 'background 0.2s ease',
+                          }}
+                          onMouseEnter={(e) => {
+                            e.currentTarget.style.background = colors.lightGray;
+                          }}
+                          onMouseLeave={(e) => {
+                            e.currentTarget.style.background = 'transparent';
+                          }}
+                        >
+                          {copied ? (
+                            <>
+                              <Check size={18} style={{ color: colors.chiliRed }} />
+                              Copied!
+                            </>
+                          ) : (
+                            <>
+                              <LinkIcon size={18} />
+                              Copy Link
+                            </>
+                          )}
+                        </button>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };
