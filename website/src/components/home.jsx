@@ -4,7 +4,7 @@ import { motion, useInView, useMotionValue, useSpring } from "framer-motion";
 import {
   Store,
   Phone,
-    Mail,
+  Mail,
   Wrench,
   Snowflake,
   PenTool,
@@ -21,6 +21,10 @@ import {
 } from "lucide-react";
 import { useLanguage } from "./lunguageContext";
 import { IoLogoWhatsapp } from "react-icons/io";
+import { GrProjects } from "react-icons/gr";
+import { FaJenkins } from "react-icons/fa";
+import { RxTimer } from "react-icons/rx";
+import { TiArrowRepeatOutline } from "react-icons/ti";
 
 
 // Counter component for count-up effect
@@ -82,28 +86,28 @@ const Home = () => {
 
   const stats = [
     {
-      icon: CheckCircle2,
+      icon: GrProjects,
       value: "500+",
       label: t("home.stats.projects"),
       colorFrom: colors.chiliRed,
       colorTo: colors.brightOrange,
     },
     {
-      icon: Users,
+      icon: FaJenkins,
       value: "350+",
       label: t("home.stats.clients"),
       colorFrom: colors.scarlet,
       colorTo: colors.darkOrange,
     },
     {
-      icon: Clock,
+      icon: RxTimer,
       value: "15+",
       label: t("home.stats.experience"),
       colorFrom: colors.brightOrange,
       colorTo: colors.amber,
     },
     {
-      icon: Target,
+      icon: TiArrowRepeatOutline,
       value: "98%",
       label: t("home.stats.satisfaction"),
       colorFrom: colors.darkOrange,
@@ -206,7 +210,7 @@ const Home = () => {
     marginBottom: "16px",
   };
 
-    const handleAction = (action) => {
+  const handleAction = (action) => {
     if (action === "call") {
       window.location.href = "tel:+263785948128";
     } else if (action === "email") {
@@ -312,151 +316,139 @@ const Home = () => {
 
   return (
     <div style={{ overflow: "hidden" }}>
-      {/* Hero Section */}
+{/* Hero Section */}
       <section style={heroSectionStyle}>
         {/* Image Mosaic Background */}
-        <div style={{ position: "absolute", inset: 0, overflow: "hidden" }}>
+        <div className="absolute inset-0 overflow-hidden">
           {/* Base gradient */}
           <div
+            className="absolute inset-0 bg-gradient-to-br z-0"
             style={{
-              position: "absolute",
-              inset: 0,
               background: `linear-gradient(135deg, ${colors.chiliRed} 0%, ${colors.scarlet} 50%, ${colors.darkOrange} 100%)`,
-              zIndex: 0,
             }}
           />
 
-          {/* Image Mosaic Grid */}
-          <div
-            style={{
-              position: "absolute",
-              inset: 0,
-              display: "grid",
-              gridTemplateColumns: "repeat(10, 1fr)",
-              gap: "8px",
-              padding: "16px",
-              transform: "rotate(-12deg) scale(1.25)",
-            }}
-          >
+          {/* Image Mosaic Grid - Responsive columns: 4 mobile, 6 tablet, 10 desktop */}
+          <div className="absolute inset-0 grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 lg:grid-cols-10 gap-2 p-4 transform -rotate-12 scale-125">
             {[
-  // Modern architecture & skyscrapers
-  "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=400",
-  "https://images.unsplash.com/photo-1497366216548-37526070297c?w=400",
-  "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=400",
-  "https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=400",
-  "https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=400",
-  "https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?w=400",
-  "https://images.unsplash.com/photo-1449157291145-7efd050a4d0e?w=400",
-  "https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=400",
-  "https://images.unsplash.com/photo-1486718448742-163732cd1544?w=400",
-  "https://images.unsplash.com/photo-1514565131-fce0801e5785?w=400",
-  
-  // Glass buildings & facades
-  "https://images.unsplash.com/photo-1513467535987-fd81bc7d62f8?w=400",
-  "https://images.unsplash.com/photo-1534237886190-ced735ca4b73?w=400",
-  "https://images.unsplash.com/photo-1493246507139-91e8fad9978e?w=400",
-  "https://images.unsplash.com/photo-1511818966892-d7d671e672a2?w=400",
-  "https://images.unsplash.com/photo-1518005020951-eccb494ad742?w=400",
-  "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=400",
-  "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=400",
-  "https://images.unsplash.com/photo-1565008576549-57569a49371d?w=400",
-  "https://images.unsplash.com/photo-1524813686514-a57563d77965?w=400",
-  "https://images.unsplash.com/photo-1511452885600-a3d2c9148a31?w=400",
-  
-  // Industrial & construction
-  "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=400",
-  "https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=400",
-  "https://images.unsplash.com/photo-1590496793907-4ab0b597de87?w=400",
-  "https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=400",
-  "https://images.unsplash.com/photo-1589939705384-5185137a7f0f?w=400",
-  "https://images.unsplash.com/photo-1572981806497-2effb3a6e652?w=400",
-  "https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=400",
-  "https://images.unsplash.com/photo-1635350736475-c8cef4b21906?w=400",
-  "https://images.unsplash.com/photo-1617343267882-0f5b41e88d6f?w=400",
-  "https://images.unsplash.com/photo-1597476478422-6d5e5a1d4c2f?w=400",
-  
-  // Doors & entrances
-  "https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?w=400",
-  "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400",
-  "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400",
-  "https://images.unsplash.com/photo-1605774337664-7a846e9cdf17?w=400",
-  "https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?w=400",
-  "https://images.unsplash.com/photo-1530990744664-33d611b9d38c?w=400",
-  "https://images.unsplash.com/photo-1572120360610-d971b9d7767c?w=400",
-  "https://images.unsplash.com/photo-1551504734-5ee1c4a1479b?w=400",
-  "https://images.unsplash.com/photo-1579567761406-4684ee0c75b6?w=400",
-  "https://images.unsplash.com/photo-1557958114-4e9e32e6c3e4?w=400",
-  
-  // Windows & window systems
-  "https://images.unsplash.com/photo-1538991383142-36c4edeaffde?w=400",
-  "https://images.unsplash.com/photo-1604079628040-94301bb21b91?w=400",
-  "https://images.unsplash.com/photo-1524492412937-b28074a5d7da?w=400",
-  "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=400",
-  "https://images.unsplash.com/photo-1513002749550-c59d786b8e6c?w=400",
-  "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400",
-  "https://images.unsplash.com/photo-1515542622106-78bda8ba0e5b?w=400",
-  "https://images.unsplash.com/photo-1550581190-9c1c48d21d6c?w=400",
-  "https://images.unsplash.com/photo-1540497077202-7c8a3999166f?w=400",
-  "https://images.unsplash.com/photo-1553095066-5014bc7b7f2d?w=400",
-  
-  // Commercial buildings & offices
-  "https://images.unsplash.com/photo-1519567241046-7f570eee3ce6?w=400",
-  "https://images.unsplash.com/photo-1528698827591-e19ccd7bc23d?w=400",
-  "https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?w=400",
-  "https://images.unsplash.com/photo-1554469384-e58fac16e23a?w=400",
-  "https://images.unsplash.com/photo-1516156008625-3a9d6067fab5?w=400",
-  "https://images.unsplash.com/photo-1486325212027-8081e485255e?w=400",
-  "https://images.unsplash.com/photo-1497215728101-856f4ea42174?w=400",
-  "https://images.unsplash.com/photo-1564760055775-d63b17a55c44?w=400",
-  "https://images.unsplash.com/photo-1497366412874-3415097a27e7?w=400",
-  "https://images.unsplash.com/photo-1494145904049-0dca59b4bbad?w=400",
-  
-  // Roofing & exterior materials
-  "https://images.unsplash.com/photo-1504309092620-4d0ec726efa4?w=400",
-  "https://images.unsplash.com/photo-1588880331179-bc9b93a8cb5e?w=400",
-  "https://images.unsplash.com/photo-1592595896551-12b371d546d5?w=400",
-  "https://images.unsplash.com/photo-1600585154084-4e5fe7c39198?w=400",
-  "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=400",
-  "https://images.unsplash.com/photo-1600566752355-35792bedcfea?w=400",
-  "https://images.unsplash.com/photo-1600607687644-c7171b42498b?w=400",
-  "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=400",
-  "https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=400",
-  "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=400",
-  
-  // Metal & aluminum structures [Here]
-  "/11.jpg",
-  "/7.png",
-  "https://images.unsplash.com/photo-1587582423116-ec07293f0395?w=400",
-  "/10.jpg",
-  "/9.jpg",
-  "https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=400",
-  "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=400",
-  "https://images.unsplash.com/photo-1589939705384-5185137a7f0f?w=400",
-  "https://images.unsplash.com/photo-1600585152220-90363fe7e115?w=400",
-  "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=400",
-  
-  // Retail & shopfitting
-  "https://images.unsplash.com/photo-1555529669-e69e7aa0ba9a?w=400",
-  "https://images.unsplash.com/photo-1567958451986-2de427a4a0be?w=400",
-  "https://images.unsplash.com/photo-1580674285054-bed31e145f59?w=400",
-  "https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=400",
-  "https://images.unsplash.com/photo-1555529902-5261145633bf?w=400",
-  "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=400",
-  "https://images.unsplash.com/photo-1558449028-b53a39d100fc?w=400",
-  "https://images.unsplash.com/photo-1567401893414-76b7b1e5a7a5?w=400",
-  "https://images.unsplash.com/photo-1548438294-1ad5d5f4f063?w=400",
-  "/8.jpg",
-  
-  // Contemporary architecture
-  "https://images.unsplash.com/photo-1529408632839-a54952c491e5?w=400",
-  "/2.jpg",
-  "/6.png",
-  "/5.jpg",
-  "/4.jpg",
-  "/3.jpg",
-  "/1.jpg",
-  "/2.jpg"
-].map((img, index) => (
+              // Modern architecture & skyscrapers
+              "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=300&q=75",
+              "https://images.unsplash.com/photo-1497366216548-37526070297c?w=300&q=75",
+              "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=300&q=75",
+              "https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=300&q=75",
+              "https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=300&q=75",
+              "https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?w=300&q=75",
+              "https://images.unsplash.com/photo-1449157291145-7efd050a4d0e?w=300&q=75",
+              "https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=300&q=75",
+              "https://images.unsplash.com/photo-1486718448742-163732cd1544?w=300&q=75",
+              "https://images.unsplash.com/photo-1514565131-fce0801e5785?w=300&q=75",
+
+              // Glass buildings & facades
+              "https://images.unsplash.com/photo-1513467535987-fd81bc7d62f8?w=300&q=75",
+              "/31.jpg",
+              "https://images.unsplash.com/photo-1493246507139-91e8fad9978e?w=300&q=75",
+              "https://images.unsplash.com/photo-1511818966892-d7d671e672a2?w=300&q=75",
+              "https://images.unsplash.com/photo-1518005020951-eccb494ad742?w=300&q=75",
+              "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=300&q=75",
+              "/30.jpg",
+              "https://images.unsplash.com/photo-1565008576549-57569a49371d?w=300&q=75",
+              "https://images.unsplash.com/photo-1524813686514-a57563d77965?w=300&q=75",
+              "https://images.unsplash.com/photo-1511452885600-a3d2c9148a31?w=300&q=75",
+
+              // Industrial & construction
+              "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=300&q=75",
+              "/29.jpg",
+              "/28.jpg",
+              "https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=300&q=75",
+              "https://images.unsplash.com/photo-1589939705384-5185137a7f0f?w=300&q=75",
+              "/27.jpg",
+              "https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=300&q=75",
+              "/26.jpg",
+              "/25.jpg",
+              "/24.jpg",
+
+              // Doors & entrances
+              "/23.jpg",
+              "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=300&q=75",
+              "/21.jpg",
+              "https://images.unsplash.com/photo-1605774337664-7a846e9cdf17?w=300&q=75",
+              "https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?w=300&q=75",
+              "/32.jpg",
+              "https://images.unsplash.com/photo-1572120360610-d971b9d7767c?w=300&q=75",
+              "/22.jpg",
+              "https://images.unsplash.com/photo-1579567761406-4684ee0c75b6?w=300&q=75",
+              "/20.jpg",
+
+              // Windows & window systems
+              "/19.jpg",
+              "/18.jpg",
+              "/17.jpg",
+              "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=300&q=75",
+              "/16.jpg",
+              "/15.jpg",
+              "/33.jpg",
+              "https://images.unsplash.com/photo-1550581190-9c1c48d21d6c?w=300&q=75",
+              "https://images.unsplash.com/photo-1540497077202-7c8a3999166f?w=300&q=75",
+              "https://images.unsplash.com/photo-1553095066-5014bc7b7f2d?w=300&q=75",
+
+              // Commercial buildings & offices
+              "https://images.unsplash.com/photo-1519567241046-7f570eee3ce6?w=300&q=75",
+              "https://images.unsplash.com/photo-1528698827591-e19ccd7bc23d?w=300&q=75",
+              "https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?w=300&q=75",
+              "https://images.unsplash.com/photo-1554469384-e58fac16e23a?w=300&q=75",
+              "https://images.unsplash.com/photo-1516156008625-3a9d6067fab5?w=300&q=75",
+              "https://images.unsplash.com/photo-1486325212027-8081e485255e?w=300&q=75",
+              "https://images.unsplash.com/photo-1497215728101-856f4ea42174?w=300&q=75",
+              "/14.jpg",
+              "https://images.unsplash.com/photo-1497366412874-3415097a27e7?w=300&q=75",
+              "https://images.unsplash.com/photo-1494145904049-0dca59b4bbad?w=300&q=75",
+
+              // Roofing & exterior materials
+              "https://images.unsplash.com/photo-1504309092620-4d0ec726efa4?w=300&q=75",
+              "/13.jpg",
+              "https://images.unsplash.com/photo-1592595896551-12b371d546d5?w=300&q=75",
+              "https://images.unsplash.com/photo-1600585154084-4e5fe7c39198?w=300&q=75",
+              "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=300&q=75",
+              "https://images.unsplash.com/photo-1600566752355-35792bedcfea?w=300&q=75",
+              "/12.png",
+              "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=300&q=75",
+              "https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=300&q=75",
+              "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=300&q=75",
+
+              // Metal & aluminum structures
+              "/11.png",
+              "/7.png",
+              "https://images.unsplash.com/photo-1587582423116-ec07293f0395?w=300&q=75",
+              "/10.jpg",
+              "/9.jpg",
+              "https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=300&q=75",
+              "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=300&q=75",
+              "https://images.unsplash.com/photo-1589939705384-5185137a7f0f?w=300&q=75",
+              "https://images.unsplash.com/photo-1600585152220-90363fe7e115?w=300&q=75",
+              "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=300&q=75",
+
+              // Retail & shopfitting
+              "https://images.unsplash.com/photo-1555529669-e69e7aa0ba9a?w=300&q=75",
+              "https://images.unsplash.com/photo-1567958451986-2de427a4a0be?w=300&q=75",
+              "https://images.unsplash.com/photo-1580674285054-bed31e145f59?w=300&q=75",
+              "https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=300&q=75",
+              "https://images.unsplash.com/photo-1555529902-5261145633bf?w=300&q=75",
+              "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=300&q=75",
+              "https://images.unsplash.com/photo-1558449028-b53a39d100fc?w=300&q=75",
+              "https://images.unsplash.com/photo-1567401893414-76b7b1e5a7a5?w=300&q=75",
+              "https://images.unsplash.com/photo-1548438294-1ad5d5f4f063?w=300&q=75",
+              "/8.jpg",
+
+              // Contemporary architecture
+              "https://images.unsplash.com/photo-1529408632839-a54952c491e5?w=300&q=75",
+              "/2.jpg",
+              "/6.png",
+              "/5.jpg",
+              "/4.jpg",
+              "/3.jpg",
+              "/1.jpg",
+              "/2.jpg",
+            ].map((img, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, scale: 0.8 }}
@@ -468,22 +460,14 @@ const Home = () => {
                   repeatType: "reverse",
                   repeatDelay: Math.random() * 5 + 3,
                 }}
-                style={{
-                  position: "relative",
-                  aspectRatio: "1",
-                  borderRadius: "8px",
-                  overflow: "hidden",
-                }}
+                className="relative aspect-square rounded-lg overflow-hidden"
               >
                 <img
                   src={img}
                   alt="Shopfitting project"
-                  style={{
-                    width: "100%",
-                    height: "100%",
-                    opacity: 0.7,
-                    objectFit: "cover",
-                  }}
+                  loading="lazy"
+                  decoding="async"
+                  className="w-full h-full object-cover opacity-70"
                 />
               </motion.div>
             ))}
@@ -491,33 +475,20 @@ const Home = () => {
 
           {/* Overlays for text readability */}
           <div
+            className="absolute inset-0 opacity-50 z-10"
             style={{
-              position: "absolute",
-              inset: 0,
               background: `linear-gradient(135deg, ${colors.chiliRed}E0 0%, ${colors.scarlet}D0 50%, ${colors.darkOrange}E0 50%)`,
-              opacity: 0.5,
-              zIndex: 10,
             }}
           />
 
-          <div
-            style={{
-              position: "absolute",
-              inset: 0,
-              background: "rgba(0, 0, 0, 0.2)",
-              opacity: 0.5,
-              zIndex: 20,
-            }}
-          />
+          <div className="absolute inset-0 bg-black/20 opacity-50 z-20" />
 
           {/* Radial gradient for center focus */}
           <div
+            className="absolute inset-0 z-30"
             style={{
-              position: "absolute",
-              inset: 0,
               background:
                 "radial-gradient(circle at center, transparent 0%, rgba(0, 0, 0, 0.3) 100%)",
-              zIndex: 30,
             }}
           />
         </div>
@@ -699,7 +670,6 @@ const Home = () => {
           </div>
         </motion.div>
       </section>
-
       {/* Stats Section with Count-Up Effect */}
       <section style={{ ...sectionStyle, background: colors.white }}>
         <div style={containerStyle}>
@@ -942,7 +912,7 @@ const Home = () => {
         </div>
       </section>
 
-                  {/* Floating Action Elements */}
+      {/* Floating Action Elements */}
       <div className="fixed bottom-6 right-6 z-50 flex flex-col gap-3">
         <button
           className="group bg-gradient-to-br from-[#1a1a1a] via-[#2d0000] to-[#1a1a1a] hover:bg-green-300 text-white p-3 rounded-full shadow-2xl transform hover:scale-110 transition-all duration-300"
