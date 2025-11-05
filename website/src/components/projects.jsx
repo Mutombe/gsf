@@ -1,11 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
   Store, Building2, ShoppingBag, Coffee, MapPin, Calendar, ArrowRight,
   X, Download, Share2, Facebook, Twitter, Linkedin, Mail, ExternalLink,
-  ChevronLeft, ChevronRight, ZoomIn, Image as ImageIcon
+  ChevronLeft, ChevronRight, ZoomIn, Image as ImageIcon, Menu
 } from 'lucide-react';
-import { Link } from 'react-router-dom';
 
 const Projects = () => {
   const [activeFilter, setActiveFilter] = useState('all');
@@ -13,6 +12,18 @@ const Projects = () => {
   const [showShareMenu, setShowShareMenu] = useState(false);
   const [curtainPosition, setCurtainPosition] = useState(50);
   const [isDragging, setIsDragging] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+  const [touchStart, setTouchStart] = useState(null);
+
+  // Check if mobile
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   // Color palette
   const colors = {
@@ -50,12 +61,12 @@ const Projects = () => {
       fullDescription: 'A comprehensive transformation of a 2000m² retail space featuring state-of-the-art shelving systems, commercial refrigeration units, and custom checkout counters. The project included complete electrical and lighting redesign to create an inviting shopping environment.',
       icon: ShoppingBag,
       stats: { area: '2000m²', duration: '3 months', fixtures: '150+', budget: '$250K' },
-      beforeImage: '/13.jpg',
-      afterImage: '/14.jpg',
+      beforeImage: '/api/placeholder/800/600',
+      afterImage: '/api/placeholder/800/600',
       gallery: [
-        '/13.jpg',
-        '/14.jpg',
-        '/15.jpg',
+        '/api/placeholder/400/300',
+        '/api/placeholder/400/300',
+        '/api/placeholder/400/300',
       ],
       features: [
         'Custom refrigeration systems',
@@ -76,11 +87,11 @@ const Projects = () => {
       fullDescription: 'A complete retail fitout project delivering modern shopping experience with custom-built fixtures and contemporary design elements.',
       icon: Store,
       stats: { area: '1500m²', duration: '2 months', fixtures: '120+', budget: '$180K' },
-      beforeImage: '/16.jpg',
-      afterImage: '/17.jpg',
+      beforeImage: '/api/placeholder/800/600',
+      afterImage: '/api/placeholder/800/600',
       gallery: [
-        '/16.jpg',
-        '/17.jpg',
+        '/api/placeholder/400/300',
+        '/api/placeholder/400/300',
       ],
       features: [
         'Custom checkout counters',
@@ -100,11 +111,11 @@ const Projects = () => {
       fullDescription: 'An elegant café transformation featuring bespoke furniture, ambient lighting, and premium finishes to create a sophisticated dining atmosphere.',
       icon: Coffee,
       stats: { area: '300m²', duration: '1 month', fixtures: '50+', budget: '$80K' },
-      beforeImage: '/18.jpg',
-      afterImage: '/19.jpg',
+      beforeImage: '/api/placeholder/800/600',
+      afterImage: '/api/placeholder/800/600',
       gallery: [
-        '/18.jpg',
-        '/19.jpg',
+        '/api/placeholder/400/300',
+        '/api/placeholder/400/300',
       ],
       features: [
         'Custom furniture design',
@@ -124,11 +135,11 @@ const Projects = () => {
       fullDescription: 'Professional office space featuring ergonomic furniture, efficient storage systems, and modern design aesthetic for enhanced productivity.',
       icon: Building2,
       stats: { area: '800m²', duration: '6 weeks', fixtures: '80+', budget: '$120K' },
-      beforeImage: '/20.jpg',
-      afterImage: '/21.jpg',
+      beforeImage: '/api/placeholder/800/600',
+      afterImage: '/api/placeholder/800/600',
       gallery: [
-        '/20.jpg',
-        '/21.jpg',
+        '/api/placeholder/400/300',
+        '/api/placeholder/400/300',
       ],
       features: [
         'Ergonomic workstations',
@@ -148,11 +159,11 @@ const Projects = () => {
       fullDescription: 'Large-scale retail project combining advanced refrigeration systems with modern shelving and attractive display solutions.',
       icon: ShoppingBag,
       stats: { area: '1800m²', duration: '10 weeks', fixtures: '140+', budget: '$220K' },
-      beforeImage: '/22.jpg',
-      afterImage: '/23.jpg',
+      beforeImage: '/api/placeholder/800/600',
+      afterImage: '/api/placeholder/800/600',
       gallery: [
-        '/22.jpg',
-        '/23.jpg',
+        '/api/placeholder/400/300',
+        '/api/placeholder/400/300',
       ],
       features: [
         'Commercial refrigeration',
@@ -172,11 +183,11 @@ const Projects = () => {
       fullDescription: 'Luxury boutique fitout with premium display systems, sophisticated lighting design, and elegant finishes.',
       icon: Store,
       stats: { area: '200m²', duration: '3 weeks', fixtures: '40+', budget: '$60K' },
-      beforeImage: '/24.jpg',
-      afterImage: '/25.jpg',
+      beforeImage: '/api/placeholder/800/600',
+      afterImage: '/api/placeholder/800/600',
       gallery: [
-        '/24.jpg',
-        '/25.jpg',
+        '/api/placeholder/400/300',
+        '/api/placeholder/400/300',
       ],
       features: [
         'Premium display fixtures',
@@ -192,28 +203,36 @@ const Projects = () => {
     ? projects
     : projects.filter(p => p.category === activeFilter);
 
-  // Handle curtain drag
+  // Handle curtain drag for desktop
   const handleMouseMove = (e) => {
-    if (!isDragging) return;
-    const modal = e.currentTarget.querySelector('.before-after-container');
-    if (!modal) return;
+    if (!isDragging || isMobile) return;
+    const modal = e.currentTarget;
     const rect = modal.getBoundingClientRect();
     const x = e.clientX - rect.left;
     const percent = (x / rect.width) * 100;
     setCurtainPosition(Math.max(0, Math.min(100, percent)));
   };
 
+  // Handle touch for mobile
+  const handleTouchStart = (e) => {
+    setTouchStart(e.touches[0].clientX);
+  };
+
+  const handleTouchMove = (e) => {
+    if (!touchStart) return;
+    const modal = e.currentTarget;
+    const rect = modal.getBoundingClientRect();
+    const x = e.touches[0].clientX - rect.left;
+    const percent = (x / rect.width) * 100;
+    setCurtainPosition(Math.max(0, Math.min(100, percent)));
+  };
+
+  const handleTouchEnd = () => {
+    setTouchStart(null);
+  };
+
   // Handle brochure download
   const handleDownloadBrochure = (project) => {
-    // In a real app, this would generate/fetch a PDF
-    const link = document.createElement('a');
-    link.href = '#'; // Would be actual PDF URL
-    link.download = `${project.title.replace(/\s+/g, '-')}-Brochure.pdf`;
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-    
-    // Show notification
     alert(`Downloading brochure for ${project.title}`);
   };
 
@@ -235,128 +254,18 @@ const Projects = () => {
     setShowShareMenu(false);
   };
 
-  // Grid area assignments for masonry layout
-  const getGridArea = (size) => {
-    switch(size) {
-      case 'large':
-        return { gridColumn: 'span 2', gridRow: 'span 2' };
-      case 'medium':
-        return { gridColumn: 'span 1', gridRow: 'span 2' };
-      case 'small':
-        return { gridColumn: 'span 1', gridRow: 'span 1' };
-      default:
-        return { gridColumn: 'span 1', gridRow: 'span 1' };
-    }
-  };
-
-  // Styles
-  const heroSectionStyle = {
-    position: 'relative',
-    padding: '120px 20px',
-    minHeight: '70vh',
-    display: 'flex',
-    alignItems: 'center',
-    color: colors.white,
-    overflow: 'hidden',
-  };
-
-  const heroTitleStyle = {
-    fontSize: 'clamp(2.5rem, 8vw, 5rem)',
-    fontWeight: '800',
-    lineHeight: '1.1',
-    marginBottom: '24px',
-  };
-
-  const heroSubtitleStyle = {
-    fontSize: 'clamp(1.25rem, 3vw, 1.75rem)',
-    color: 'rgba(255, 255, 255, 0.95)',
-    lineHeight: '1.6',
-  };
-
-  const filterSectionStyle = {
-    padding: '32px 20px',
-    background: colors.white,
-    boxShadow: '0 2px 8px rgba(0, 0, 0, 0.1)',
-    position: 'sticky',
-    top: '72px',
-    zIndex: 30,
-  };
-
-  const filterButtonStyle = (isActive) => ({
-    padding: '12px 24px',
-    borderRadius: '8px',
-    fontWeight: '600',
-    textTransform: 'capitalize',
-    border: 'none',
-    cursor: 'pointer',
-    transition: 'all 0.3s ease',
-    background: isActive 
-      ? `linear-gradient(90deg, ${colors.chiliRed}, ${colors.scarlet})`
-      : colors.lightGray,
-    color: isActive ? colors.white : colors.darkGray,
-    boxShadow: isActive ? `0 4px 15px ${colors.chiliRed}40` : 'none',
-    transform: isActive ? 'scale(1.05)' : 'scale(1)',
-  });
-
-  const sectionStyle = {
-    padding: '80px 20px',
-    background: colors.lightGray,
-  };
-
-  const containerStyle = {
-    maxWidth: '1280px',
-    margin: '0 auto',
-  };
-
-  const modalOverlayStyle = {
-    position: 'fixed',
-    inset: 0,
-    background: 'rgba(0, 0, 0, 0.8)',
-    backdropFilter: 'blur(8px)',
-    zIndex: 1000,
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    padding: '20px',
-    overflowY: 'auto',
-  };
-
-  const modalContentStyle = {
-    background: colors.white,
-    borderRadius: '24px',
-    maxWidth: '1200px',
-    width: '100%',
-    maxHeight: '90vh',
-    overflowY: 'auto',
-    position: 'relative',
-  };
-
-  const ctaSectionStyle = {
-    padding: '80px 20px',
-    background: `linear-gradient(135deg, ${colors.chiliRed} 0%, ${colors.safetyOrange} 50%, ${colors.amber} 100%)`,
-    position: 'relative',
-  };
-
-  const ctaButtonStyle = {
-    display: 'inline-flex',
-    alignItems: 'center',
-    gap: '8px',
-    padding: '14px 32px',
-    background: colors.white,
-    color: colors.darkGray,
-    borderRadius: '8px',
-    fontWeight: '600',
-    textDecoration: 'none',
-    boxShadow: '0 4px 20px rgba(0, 0, 0, 0.2)',
-    transition: 'all 0.3s ease',
-    border: 'none',
-    cursor: 'pointer',
-  };
-
   return (
     <div style={{ overflow: 'hidden' }}>
-      {/* Hero Section with Blended Background */}
-      <section style={heroSectionStyle}>
+      {/* Hero Section */}
+      <section style={{
+        position: 'relative',
+        padding: isMobile ? '80px 16px 60px' : '120px 20px',
+        minHeight: isMobile ? '50vh' : '70vh',
+        display: 'flex',
+        alignItems: 'center',
+        color: colors.white,
+        overflow: 'hidden',
+      }}>
         {/* Background Image */}
         <div style={{
           position: 'absolute',
@@ -381,7 +290,13 @@ const Projects = () => {
           background: 'rgba(0, 0, 0, 0.3)',
         }}></div>
 
-        <div style={{ ...containerStyle, position: 'relative', zIndex: 10 }}>
+        <div style={{ 
+          maxWidth: '1280px', 
+          margin: '0 auto',
+          width: '100%',
+          position: 'relative', 
+          zIndex: 10,
+        }}>
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -394,22 +309,36 @@ const Projects = () => {
               transition={{ delay: 0.2, duration: 0.6 }}
               style={{
                 display: 'inline-block',
-                padding: '8px 20px',
+                padding: isMobile ? '6px 16px' : '8px 20px',
                 background: 'rgba(255, 255, 255, 0.2)',
                 backdropFilter: 'blur(10px)',
                 borderRadius: '50px',
-                marginBottom: '24px',
+                marginBottom: isMobile ? '16px' : '24px',
                 border: '1px solid rgba(255, 255, 255, 0.3)',
               }}
             >
-              <span style={{ fontSize: '14px', fontWeight: '600', letterSpacing: '1px' }}>
+              <span style={{ 
+                fontSize: isMobile ? '12px' : '14px', 
+                fontWeight: '600', 
+                letterSpacing: '1px',
+              }}>
                 OUR PORTFOLIO
               </span>
             </motion.div>
-            <h1 style={heroTitleStyle}>
+            <h1 style={{
+              fontSize: isMobile ? '2.5rem' : 'clamp(2.5rem, 8vw, 5rem)',
+              fontWeight: '800',
+              lineHeight: '1.1',
+              marginBottom: isMobile ? '16px' : '24px',
+            }}>
               Our Projects
             </h1>
-            <p style={heroSubtitleStyle}>
+            <p style={{
+              fontSize: isMobile ? '1.125rem' : 'clamp(1.25rem, 3vw, 1.75rem)',
+              color: 'rgba(255, 255, 255, 0.95)',
+              lineHeight: '1.6',
+              padding: isMobile ? '0 8px' : '0',
+            }}>
               Showcasing our commitment to excellence in every project
             </p>
           </motion.div>
@@ -417,23 +346,40 @@ const Projects = () => {
       </section>
 
       {/* Filter Buttons */}
-      <section style={filterSectionStyle}>
-        <div style={containerStyle}>
-          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '12px', justifyContent: 'center' }}>
+      <section style={{
+        padding: isMobile ? '20px 16px' : '32px 20px',
+        background: colors.white,
+        boxShadow: '0 2px 8px rgba(0, 0, 0, 0.1)',
+        position: 'sticky',
+        top: isMobile ? '60px' : '72px',
+        zIndex: 30,
+      }}>
+        <div style={{ maxWidth: '1280px', margin: '0 auto' }}>
+          <div style={{ 
+            display: 'flex', 
+            flexWrap: 'wrap', 
+            gap: isMobile ? '8px' : '12px', 
+            justifyContent: 'center',
+          }}>
             {filters.map((filter) => (
               <button
                 key={filter}
                 onClick={() => setActiveFilter(filter)}
-                style={filterButtonStyle(activeFilter === filter)}
-                onMouseEnter={(e) => {
-                  if (activeFilter !== filter) {
-                    e.currentTarget.style.background = '#E5E7EB';
-                  }
-                }}
-                onMouseLeave={(e) => {
-                  if (activeFilter !== filter) {
-                    e.currentTarget.style.background = colors.lightGray;
-                  }
+                style={{
+                  padding: isMobile ? '10px 18px' : '12px 24px',
+                  borderRadius: '8px',
+                  fontWeight: '600',
+                  textTransform: 'capitalize',
+                  border: 'none',
+                  cursor: 'pointer',
+                  transition: 'all 0.3s ease',
+                  background: activeFilter === filter
+                    ? `linear-gradient(90deg, ${colors.chiliRed}, ${colors.scarlet})`
+                    : colors.lightGray,
+                  color: activeFilter === filter ? colors.white : colors.darkGray,
+                  boxShadow: activeFilter === filter ? `0 4px 15px ${colors.chiliRed}40` : 'none',
+                  transform: activeFilter === filter ? 'scale(1.05)' : 'scale(1)',
+                  fontSize: isMobile ? '13px' : '14px',
                 }}
               >
                 {filter}
@@ -443,235 +389,117 @@ const Projects = () => {
         </div>
       </section>
 
-      {/* Projects Grid - Creative Masonry Layout */}
-      <section style={sectionStyle}>
-        <div style={containerStyle}>
-          <div 
-            className="projects-grid"
-            style={{ 
-              display: 'grid',
-              gap: '24px',
-            }}
-          >
-            <style>{`
-              .projects-grid {
-                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-                grid-auto-rows: 280px;
-              }
-
-              @media (max-width: 768px) {
-                .projects-grid {
-                  grid-template-columns: 1fr !important;
-                  grid-auto-rows: auto !important;
-                }
-                .projects-grid > * {
-                  grid-column: span 1 !important;
-                  grid-row: span 1 !important;
-                }
-              }
-
-              @media (min-width: 769px) and (max-width: 1024px) {
-                .projects-grid {
-                  grid-template-columns: repeat(2, 1fr) !important;
-                  grid-auto-rows: 300px;
-                }
-              }
-            `}</style>
-
-            {filteredProjects.map((project, index) => {
-              const gridArea = getGridArea(project.size);
-              const cardStyle = {
-                gridColumn: gridArea.gridColumn,
-                gridRow: gridArea.gridRow,
-                background: colors.white,
-                borderRadius: '20px',
-                overflow: 'hidden',
-                boxShadow: '0 4px 20px rgba(0, 0, 0, 0.08)',
-                transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
-                cursor: 'pointer',
-                position: 'relative',
-              };
-
-              return (
-                <motion.div
-                  key={project.id}
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.1, duration: 0.6 }}
-                  whileHover={{ y: -10, scale: 1.02 }}
-                  style={cardStyle}
-                  onClick={() => setSelectedProject(project)}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.boxShadow = `0 20px 60px ${colors.chiliRed}30`;
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.08)';
-                  }}
-                >
-                  {/* Image Section */}
-                  <div style={{ 
-                    position: 'relative', 
-                    height: '60%',
-                    background: `linear-gradient(135deg, ${colors.peach} 0%, ${colors.sunset} 100%)`,
-                    overflow: 'hidden',
+      {/* Projects Grid */}
+      <section style={{
+        padding: isMobile ? '40px 16px' : '80px 20px',
+        background: colors.lightGray,
+      }}>
+        <div style={{ maxWidth: '1280px', margin: '0 auto' }}>
+          <div style={{ 
+            display: 'grid',
+            gridTemplateColumns: isMobile ? '1fr' : 'repeat(auto-fit, minmax(300px, 1fr))',
+            gap: isMobile ? '20px' : '24px',
+          }}>
+            {filteredProjects.map((project, index) => (
+              <motion.div
+                key={project.id}
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.1, duration: 0.6 }}
+                style={{
+                  background: colors.white,
+                  borderRadius: '20px',
+                  overflow: 'hidden',
+                  boxShadow: '0 4px 20px rgba(0, 0, 0, 0.08)',
+                  cursor: 'pointer',
+                  position: 'relative',
+                }}
+                onClick={() => setSelectedProject(project)}
+              >
+                {/* Image Section */}
+                <div style={{ 
+                  position: 'relative', 
+                  height: isMobile ? '200px' : '250px',
+                  background: `linear-gradient(135deg, ${colors.peach} 0%, ${colors.sunset} 100%)`,
+                  overflow: 'hidden',
+                }}>
+                  <div style={{
+                    position: 'absolute',
+                    inset: 0,
+                    backgroundImage: `url(${project.afterImage})`,
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center',
+                  }}></div>
+                  
+                  {/* Date Badge */}
+                  <div style={{
+                    position: 'absolute',
+                    top: '12px',
+                    right: '12px',
+                    padding: isMobile ? '4px 12px' : '6px 14px',
+                    background: 'rgba(255, 255, 255, 0.95)',
+                    backdropFilter: 'blur(10px)',
+                    borderRadius: '50px',
+                    fontSize: isMobile ? '11px' : '12px',
+                    fontWeight: '700',
+                    color: colors.darkGray,
+                    boxShadow: '0 2px 8px rgba(0, 0, 0, 0.1)',
                   }}>
-                    <div style={{
-                      position: 'absolute',
-                      inset: 0,
-                      backgroundImage: `url(${project.afterImage})`,
-                      backgroundSize: 'cover',
-                      backgroundPosition: 'center',
-                      transition: 'transform 0.6s ease',
-                    }}></div>
-                    
-                    {/* Overlay on hover */}
-                    <div style={{ 
-                      position: 'absolute', 
-                      inset: 0, 
-                      background: `linear-gradient(to top, ${colors.darkGray}dd 0%, transparent 80%)`,
-                      opacity: 0,
-                      transition: 'opacity 0.3s ease',
-                    }} className="hover-overlay"></div>
-
-                    {/* Date Badge */}
-                    <div style={{
-                      position: 'absolute',
-                      top: '16px',
-                      right: '16px',
-                      padding: '6px 14px',
-                      background: 'rgba(255, 255, 255, 0.95)',
-                      backdropFilter: 'blur(10px)',
-                      borderRadius: '50px',
-                      fontSize: '12px',
-                      fontWeight: '700',
-                      color: colors.darkGray,
-                      boxShadow: '0 2px 8px rgba(0, 0, 0, 0.1)',
-                    }}>
-                      {project.date}
-                    </div>
-
-                    {/* Category Badge */}
-                    <div style={{
-                      position: 'absolute',
-                      top: '16px',
-                      left: '16px',
-                      padding: '6px 14px',
-                      background: `linear-gradient(135deg, ${colors.chiliRed}, ${colors.scarlet})`,
-                      backdropFilter: 'blur(10px)',
-                      borderRadius: '50px',
-                      fontSize: '11px',
-                      fontWeight: '700',
-                      color: colors.white,
-                      textTransform: 'uppercase',
-                      letterSpacing: '0.5px',
-                    }}>
-                      {project.category}
-                    </div>
-
-                    {/* View Details on Hover */}
-                    <div style={{
-                      position: 'absolute',
-                      bottom: '16px',
-                      left: '50%',
-                      transform: 'translateX(-50%)',
-                      padding: '10px 24px',
-                      background: colors.white,
-                      color: colors.chiliRed,
-                      borderRadius: '8px',
-                      fontSize: '14px',
-                      fontWeight: '700',
-                      opacity: 0,
-                      transition: 'opacity 0.3s ease',
-                      display: 'flex',
-                      alignItems: 'center',
-                      gap: '8px',
-                    }} className="view-details-btn">
-                      <ZoomIn size={16} />
-                      <span>View Details</span>
-                    </div>
+                    {project.date}
                   </div>
 
-                  {/* Content Section */}
-                  <div style={{ 
-                    padding: project.size === 'large' ? '24px' : '20px',
-                    height: '40%',
-                    display: 'flex',
-                    flexDirection: 'column',
+                  {/* Category Badge */}
+                  <div style={{
+                    position: 'absolute',
+                    top: '12px',
+                    left: '12px',
+                    padding: isMobile ? '4px 12px' : '6px 14px',
+                    background: `linear-gradient(135deg, ${colors.chiliRed}, ${colors.scarlet})`,
+                    borderRadius: '50px',
+                    fontSize: isMobile ? '10px' : '11px',
+                    fontWeight: '700',
+                    color: colors.white,
+                    textTransform: 'uppercase',
+                    letterSpacing: '0.5px',
                   }}>
-                    <div style={{ 
-                      display: 'flex', 
-                      alignItems: 'center', 
-                      gap: '8px', 
-                      fontSize: '13px', 
-                      color: colors.mediumGray,
-                      marginBottom: '8px',
-                    }}>
-                      <MapPin size={14} style={{ color: colors.chiliRed }} />
-                      <span>{project.location}</span>
-                    </div>
-                    
-                    <h3 style={{ 
-                      fontSize: project.size === 'large' ? '1.5rem' : '1.25rem',
-                      fontWeight: '800', 
-                      color: colors.darkGray, 
-                      marginBottom: '8px',
-                      lineHeight: '1.2',
-                    }}>
-                      {project.title}
-                    </h3>
-                    
-                    <p style={{ 
-                      color: colors.mediumGray, 
-                      lineHeight: '1.5',
-                      flex: 1,
-                      fontSize: '14px',
-                      display: '-webkit-box',
-                      WebkitLineClamp: 2,
-                      WebkitBoxOrient: 'vertical',
-                      overflow: 'hidden',
-                    }}>
-                      {project.description}
-                    </p>
-
-                    {/* Quick Stats */}
-                    {project.size === 'large' && (
-                      <div style={{
-                        display: 'flex',
-                        gap: '16px',
-                        marginTop: '12px',
-                        paddingTop: '12px',
-                        borderTop: `1px solid ${colors.lightGray}`,
-                      }}>
-                        <div>
-                          <p style={{ fontSize: '11px', color: colors.mediumGray, marginBottom: '2px' }}>Area</p>
-                          <p style={{ fontSize: '13px', fontWeight: '700', color: colors.darkGray }}>{project.stats.area}</p>
-                        </div>
-                        <div>
-                          <p style={{ fontSize: '11px', color: colors.mediumGray, marginBottom: '2px' }}>Duration</p>
-                          <p style={{ fontSize: '13px', fontWeight: '700', color: colors.darkGray }}>{project.stats.duration}</p>
-                        </div>
-                        <div>
-                          <p style={{ fontSize: '11px', color: colors.mediumGray, marginBottom: '2px' }}>Fixtures</p>
-                          <p style={{ fontSize: '13px', fontWeight: '700', color: colors.darkGray }}>{project.stats.fixtures}</p>
-                        </div>
-                      </div>
-                    )}
+                    {project.category}
                   </div>
+                </div>
 
-                  <style>{`
-                    .projects-grid > *:hover .hover-overlay {
-                      opacity: 1 !important;
-                    }
-                    .projects-grid > *:hover .view-details-btn {
-                      opacity: 1 !important;
-                    }
-                    .projects-grid > *:hover > div:first-child > div:nth-child(1) {
-                      transform: scale(1.1);
-                    }
-                  `}</style>
-                </motion.div>
-              );
-            })}
+                {/* Content Section */}
+                <div style={{ padding: isMobile ? '16px' : '20px' }}>
+                  <div style={{ 
+                    display: 'flex', 
+                    alignItems: 'center', 
+                    gap: '8px', 
+                    fontSize: isMobile ? '12px' : '13px',
+                    color: colors.mediumGray,
+                    marginBottom: '8px',
+                  }}>
+                    <MapPin size={isMobile ? 12 : 14} style={{ color: colors.chiliRed }} />
+                    <span>{project.location}</span>
+                  </div>
+                  
+                  <h3 style={{ 
+                    fontSize: isMobile ? '1.125rem' : '1.25rem',
+                    fontWeight: '800', 
+                    color: colors.darkGray, 
+                    marginBottom: '8px',
+                    lineHeight: '1.2',
+                  }}>
+                    {project.title}
+                  </h3>
+                  
+                  <p style={{ 
+                    color: colors.mediumGray, 
+                    lineHeight: '1.5',
+                    fontSize: isMobile ? '13px' : '14px',
+                  }}>
+                    {project.description}
+                  </p>
+                </div>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
@@ -683,7 +511,18 @@ const Projects = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            style={modalOverlayStyle}
+            style={{
+              position: 'fixed',
+              inset: 0,
+              background: 'rgba(0, 0, 0, 0.8)',
+              backdropFilter: 'blur(8px)',
+              zIndex: 1000,
+              display: 'flex',
+              alignItems: isMobile ? 'flex-start' : 'center',
+              justifyContent: 'center',
+              padding: isMobile ? '0' : '20px',
+              overflowY: 'auto',
+            }}
             onClick={() => setSelectedProject(null)}
           >
             <motion.div
@@ -691,7 +530,15 @@ const Projects = () => {
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
               transition={{ type: 'spring', damping: 25 }}
-              style={modalContentStyle}
+              style={{
+                background: colors.white,
+                borderRadius: isMobile ? '0' : '24px',
+                maxWidth: '1200px',
+                width: '100%',
+                maxHeight: isMobile ? '100vh' : '90vh',
+                overflowY: 'auto',
+                position: 'relative',
+              }}
               onClick={(e) => e.stopPropagation()}
             >
               {/* Close Button */}
@@ -699,11 +546,11 @@ const Projects = () => {
                 onClick={() => setSelectedProject(null)}
                 style={{
                   position: 'sticky',
-                  top: '20px',
+                  top: isMobile ? '12px' : '20px',
                   left: '100%',
-                  transform: 'translateX(-40px)',
-                  width: '48px',
-                  height: '48px',
+                  transform: isMobile ? 'translateX(-28px)' : 'translateX(-40px)',
+                  width: isMobile ? '40px' : '48px',
+                  height: isMobile ? '40px' : '48px',
                   borderRadius: '50%',
                   background: colors.white,
                   border: 'none',
@@ -713,36 +560,30 @@ const Projects = () => {
                   justifyContent: 'center',
                   boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)',
                   zIndex: 10,
-                  transition: 'all 0.3s ease',
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.background = colors.chiliRed;
-                  e.currentTarget.querySelector('svg').style.color = colors.white;
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.background = colors.white;
-                  e.currentTarget.querySelector('svg').style.color = colors.darkGray;
                 }}
               >
-                <X size={24} style={{ color: colors.darkGray, transition: 'color 0.3s ease' }} />
+                <X size={isMobile ? 20 : 24} style={{ color: colors.darkGray }} />
               </button>
 
               {/* Before/After Slider */}
               <div 
-                className="before-after-container"
                 style={{
                   position: 'relative',
-                  height: '500px',
+                  height: isMobile ? '300px' : '500px',
                   overflow: 'hidden',
-                  cursor: 'ew-resize',
+                  cursor: isMobile ? 'grab' : 'ew-resize',
                   userSelect: 'none',
+                  touchAction: 'none',
                 }}
                 onMouseMove={handleMouseMove}
-                onMouseDown={() => setIsDragging(true)}
+                onMouseDown={() => !isMobile && setIsDragging(true)}
                 onMouseUp={() => setIsDragging(false)}
                 onMouseLeave={() => setIsDragging(false)}
+                onTouchStart={handleTouchStart}
+                onTouchMove={handleTouchMove}
+                onTouchEnd={handleTouchEnd}
               >
-                {/* After Image (Full) */}
+                {/* After Image */}
                 <div style={{
                   position: 'absolute',
                   inset: 0,
@@ -751,7 +592,7 @@ const Projects = () => {
                   backgroundPosition: 'center',
                 }}></div>
 
-                {/* Before Image (Clipped) */}
+                {/* Before Image */}
                 <div style={{
                   position: 'absolute',
                   inset: 0,
@@ -759,7 +600,6 @@ const Projects = () => {
                   backgroundSize: 'cover',
                   backgroundPosition: 'center',
                   clipPath: `inset(0 ${100 - curtainPosition}% 0 0)`,
-                  transition: isDragging ? 'none' : 'clip-path 0.1s ease',
                 }}></div>
 
                 {/* Slider Line */}
@@ -772,107 +612,140 @@ const Projects = () => {
                   background: colors.white,
                   boxShadow: '0 0 20px rgba(0, 0, 0, 0.5)',
                   transform: 'translateX(-50%)',
-                  transition: isDragging ? 'none' : 'left 0.1s ease',
                 }}>
-                  {/* Slider Handle */}
                   <div style={{
                     position: 'absolute',
                     top: '50%',
                     left: '50%',
                     transform: 'translate(-50%, -50%)',
-                    width: '48px',
-                    height: '48px',
+                    width: isMobile ? '40px' : '48px',
+                    height: isMobile ? '40px' : '48px',
                     borderRadius: '50%',
                     background: colors.white,
                     boxShadow: '0 4px 12px rgba(0, 0, 0, 0.3)',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    gap: '4px',
+                    gap: '2px',
                   }}>
-                    <ChevronLeft size={20} style={{ color: colors.chiliRed }} />
-                    <ChevronRight size={20} style={{ color: colors.chiliRed }} />
+                    <ChevronLeft size={isMobile ? 16 : 20} style={{ color: colors.chiliRed }} />
+                    <ChevronRight size={isMobile ? 16 : 20} style={{ color: colors.chiliRed }} />
                   </div>
                 </div>
 
                 {/* Labels */}
                 <div style={{
                   position: 'absolute',
-                  top: '20px',
-                  left: '20px',
-                  padding: '8px 16px',
+                  top: isMobile ? '12px' : '20px',
+                  left: isMobile ? '12px' : '20px',
+                  padding: isMobile ? '6px 12px' : '8px 16px',
                   background: 'rgba(0, 0, 0, 0.7)',
                   backdropFilter: 'blur(10px)',
                   borderRadius: '8px',
                   color: colors.white,
                   fontWeight: '700',
-                  fontSize: '14px',
+                  fontSize: isMobile ? '12px' : '14px',
                 }}>
                   BEFORE
                 </div>
                 <div style={{
                   position: 'absolute',
-                  top: '20px',
-                  right: '20px',
-                  padding: '8px 16px',
+                  top: isMobile ? '12px' : '20px',
+                  right: isMobile ? '12px' : '20px',
+                  padding: isMobile ? '6px 12px' : '8px 16px',
                   background: 'rgba(227, 24, 13, 0.9)',
                   backdropFilter: 'blur(10px)',
                   borderRadius: '8px',
                   color: colors.white,
                   fontWeight: '700',
-                  fontSize: '14px',
+                  fontSize: isMobile ? '12px' : '14px',
                 }}>
                   AFTER
                 </div>
               </div>
 
               {/* Project Details */}
-              <div style={{ padding: '40px' }}>
+              <div style={{ padding: isMobile ? '24px 16px' : '40px' }}>
                 {/* Header */}
-                <div style={{ marginBottom: '32px' }}>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '16px' }}>
+                <div style={{ marginBottom: isMobile ? '24px' : '32px' }}>
+                  <div style={{ 
+                    display: 'flex', 
+                    alignItems: 'flex-start',
+                    gap: '12px', 
+                    marginBottom: '16px',
+                    flexWrap: isMobile ? 'wrap' : 'nowrap',
+                  }}>
                     <div style={{
-                      width: '56px',
-                      height: '56px',
+                      width: isMobile ? '48px' : '56px',
+                      height: isMobile ? '48px' : '56px',
                       borderRadius: '12px',
                       background: `linear-gradient(135deg, ${colors.chiliRed}, ${colors.amber})`,
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
+                      flexShrink: 0,
                     }}>
-                      <selectedProject.icon size={28} style={{ color: colors.white }} />
+                      <selectedProject.icon size={isMobile ? 24 : 28} style={{ color: colors.white }} />
                     </div>
-                    <div style={{ flex: 1 }}>
-                      <h2 style={{ fontSize: '2rem', fontWeight: '800', color: colors.darkGray, marginBottom: '4px' }}>
+                    <div style={{ flex: 1, minWidth: 0 }}>
+                      <h2 style={{ 
+                        fontSize: isMobile ? '1.5rem' : '2rem',
+                        fontWeight: '800', 
+                        color: colors.darkGray, 
+                        marginBottom: '4px',
+                        wordBreak: 'break-word',
+                      }}>
                         {selectedProject.title}
                       </h2>
-                      <div style={{ display: 'flex', alignItems: 'center', gap: '12px', color: colors.mediumGray }}>
+                      <div style={{ 
+                        display: 'flex', 
+                        alignItems: 'center', 
+                        gap: isMobile ? '8px' : '12px',
+                        color: colors.mediumGray,
+                        fontSize: isMobile ? '13px' : '14px',
+                        flexWrap: 'wrap',
+                      }}>
                         <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
-                          <MapPin size={16} />
+                          <MapPin size={14} />
                           <span>{selectedProject.location}</span>
                         </div>
                         <span>•</span>
                         <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
-                          <Calendar size={16} />
+                          <Calendar size={14} />
                           <span>{selectedProject.date}</span>
                         </div>
                       </div>
                     </div>
 
-                    {/* Action Buttons */}
-                    <div style={{ display: 'flex', gap: '12px' }}>
+                    {/* Action Buttons - Full width on mobile */}
+                    <div style={{ 
+                      display: 'flex', 
+                      gap: '8px',
+                      width: isMobile ? '100%' : 'auto',
+                      marginTop: isMobile ? '12px' : '0',
+                    }}>
                       {/* Share Button */}
-                      <div style={{ position: 'relative' }}>
+                      <div style={{ position: 'relative', flex: isMobile ? 1 : 'initial' }}>
                         <button
                           onClick={() => setShowShareMenu(!showShareMenu)}
                           style={{
-                            ...ctaButtonStyle,
+                            display: 'inline-flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            gap: '8px',
+                            padding: isMobile ? '10px 16px' : '12px 20px',
                             background: colors.lightGray,
-                            padding: '12px 20px',
+                            color: colors.darkGray,
+                            borderRadius: '8px',
+                            fontWeight: '600',
+                            border: 'none',
+                            cursor: 'pointer',
+                            fontSize: isMobile ? '13px' : '14px',
+                            width: isMobile ? '100%' : 'auto',
                           }}
                         >
-                          <Share2 size={18} />
-                          <span>Share</span>
+                          <Share2 size={16} />
+                          {!isMobile && <span>Share</span>}
                         </button>
 
                         {/* Share Menu */}
@@ -889,7 +762,7 @@ const Projects = () => {
                               borderRadius: '12px',
                               boxShadow: '0 8px 32px rgba(0, 0, 0, 0.15)',
                               padding: '8px',
-                              minWidth: '200px',
+                              minWidth: isMobile ? '180px' : '200px',
                               zIndex: 100,
                             }}
                           >
@@ -907,24 +780,17 @@ const Projects = () => {
                                   alignItems: 'center',
                                   gap: '12px',
                                   width: '100%',
-                                  padding: '12px',
+                                  padding: isMobile ? '10px' : '12px',
                                   background: 'transparent',
                                   border: 'none',
                                   borderRadius: '8px',
                                   cursor: 'pointer',
-                                  transition: 'background 0.2s ease',
-                                  fontSize: '14px',
+                                  fontSize: isMobile ? '13px' : '14px',
                                   fontWeight: '600',
                                   color: colors.darkGray,
                                 }}
-                                onMouseEnter={(e) => {
-                                  e.currentTarget.style.background = colors.lightGray;
-                                }}
-                                onMouseLeave={(e) => {
-                                  e.currentTarget.style.background = 'transparent';
-                                }}
                               >
-                                <item.icon size={18} style={{ color: item.color }} />
+                                <item.icon size={16} style={{ color: item.color }} />
                                 <span>{item.label}</span>
                               </button>
                             ))}
@@ -936,14 +802,23 @@ const Projects = () => {
                       <button
                         onClick={() => handleDownloadBrochure(selectedProject)}
                         style={{
-                          ...ctaButtonStyle,
+                          display: 'inline-flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                          gap: '8px',
+                          padding: isMobile ? '10px 16px' : '12px 20px',
                           background: `linear-gradient(135deg, ${colors.chiliRed}, ${colors.scarlet})`,
                           color: colors.white,
-                          padding: '12px 20px',
+                          borderRadius: '8px',
+                          fontWeight: '600',
+                          border: 'none',
+                          cursor: 'pointer',
+                          fontSize: isMobile ? '13px' : '14px',
+                          flex: isMobile ? 1 : 'initial',
                         }}
                       >
-                        <Download size={18} />
-                        <span>Download Brochure</span>
+                        <Download size={16} />
+                        {!isMobile && <span>Brochure</span>}
                       </button>
                     </div>
                   </div>
@@ -952,17 +827,17 @@ const Projects = () => {
                 {/* Stats Grid */}
                 <div style={{
                   display: 'grid',
-                  gridTemplateColumns: 'repeat(auto-fit, minmax(150px, 1fr))',
-                  gap: '20px',
-                  marginBottom: '32px',
-                  padding: '24px',
+                  gridTemplateColumns: isMobile ? 'repeat(2, 1fr)' : 'repeat(auto-fit, minmax(150px, 1fr))',
+                  gap: isMobile ? '12px' : '20px',
+                  marginBottom: isMobile ? '24px' : '32px',
+                  padding: isMobile ? '16px' : '24px',
                   background: colors.lightGray,
                   borderRadius: '16px',
                 }}>
                   {Object.entries(selectedProject.stats).map(([key, value]) => (
                     <div key={key} style={{ textAlign: 'center' }}>
                       <p style={{ 
-                        fontSize: '12px', 
+                        fontSize: isMobile ? '10px' : '12px',
                         color: colors.mediumGray, 
                         marginBottom: '4px',
                         textTransform: 'uppercase',
@@ -972,7 +847,7 @@ const Projects = () => {
                         {key}
                       </p>
                       <p style={{ 
-                        fontSize: '20px', 
+                        fontSize: isMobile ? '16px' : '20px',
                         fontWeight: '800', 
                         color: colors.darkGray,
                       }}>
@@ -983,9 +858,9 @@ const Projects = () => {
                 </div>
 
                 {/* Description */}
-                <div style={{ marginBottom: '32px' }}>
+                <div style={{ marginBottom: isMobile ? '24px' : '32px' }}>
                   <h3 style={{ 
-                    fontSize: '1.25rem', 
+                    fontSize: isMobile ? '1.125rem' : '1.25rem',
                     fontWeight: '700', 
                     color: colors.darkGray, 
                     marginBottom: '12px',
@@ -995,16 +870,16 @@ const Projects = () => {
                   <p style={{ 
                     color: colors.mediumGray, 
                     lineHeight: '1.8',
-                    fontSize: '15px',
+                    fontSize: isMobile ? '14px' : '15px',
                   }}>
                     {selectedProject.fullDescription}
                   </p>
                 </div>
 
                 {/* Features */}
-                <div style={{ marginBottom: '32px' }}>
+                <div style={{ marginBottom: isMobile ? '24px' : '32px' }}>
                   <h3 style={{ 
-                    fontSize: '1.25rem', 
+                    fontSize: isMobile ? '1.125rem' : '1.25rem',
                     fontWeight: '700', 
                     color: colors.darkGray, 
                     marginBottom: '16px',
@@ -1013,7 +888,7 @@ const Projects = () => {
                   </h3>
                   <div style={{
                     display: 'grid',
-                    gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
+                    gridTemplateColumns: isMobile ? '1fr' : 'repeat(auto-fit, minmax(250px, 1fr))',
                     gap: '12px',
                   }}>
                     {selectedProject.features.map((feature, idx) => (
@@ -1023,11 +898,10 @@ const Projects = () => {
                           display: 'flex',
                           alignItems: 'center',
                           gap: '12px',
-                          padding: '12px 16px',
+                          padding: isMobile ? '10px 14px' : '12px 16px',
                           background: colors.white,
                           border: `2px solid ${colors.lightGray}`,
                           borderRadius: '10px',
-                          transition: 'all 0.3s ease',
                         }}
                       >
                         <div style={{
@@ -1040,7 +914,7 @@ const Projects = () => {
                         <span style={{ 
                           color: colors.darkGray, 
                           fontWeight: '600',
-                          fontSize: '14px',
+                          fontSize: isMobile ? '13px' : '14px',
                         }}>
                           {feature}
                         </span>
@@ -1051,9 +925,9 @@ const Projects = () => {
 
                 {/* Gallery */}
                 {selectedProject.gallery && selectedProject.gallery.length > 0 && (
-                  <div>
+                  <div style={{ marginBottom: isMobile ? '24px' : '32px' }}>
                     <h3 style={{ 
-                      fontSize: '1.25rem', 
+                      fontSize: isMobile ? '1.125rem' : '1.25rem',
                       fontWeight: '700', 
                       color: colors.darkGray, 
                       marginBottom: '16px',
@@ -1062,7 +936,7 @@ const Projects = () => {
                     </h3>
                     <div style={{
                       display: 'grid',
-                      gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
+                      gridTemplateColumns: isMobile ? '1fr' : 'repeat(auto-fit, minmax(200px, 1fr))',
                       gap: '16px',
                     }}>
                       {selectedProject.gallery.map((image, idx) => (
@@ -1070,18 +944,11 @@ const Projects = () => {
                           key={idx}
                           style={{
                             position: 'relative',
-                            height: '200px',
+                            height: isMobile ? '180px' : '200px',
                             borderRadius: '12px',
                             overflow: 'hidden',
                             cursor: 'pointer',
                             boxShadow: '0 4px 12px rgba(0, 0, 0, 0.1)',
-                            transition: 'transform 0.3s ease',
-                          }}
-                          onMouseEnter={(e) => {
-                            e.currentTarget.style.transform = 'scale(1.05)';
-                          }}
-                          onMouseLeave={(e) => {
-                            e.currentTarget.style.transform = 'scale(1)';
                           }}
                         >
                           <div style={{
@@ -1099,34 +966,44 @@ const Projects = () => {
 
                 {/* CTA */}
                 <div style={{
-                  marginTop: '40px',
-                  padding: '32px',
+                  padding: isMobile ? '24px 16px' : '32px',
                   background: `linear-gradient(135deg, ${colors.chiliRed}15, ${colors.amber}15)`,
                   borderRadius: '16px',
                   textAlign: 'center',
                 }}>
                   <h3 style={{ 
-                    fontSize: '1.5rem', 
+                    fontSize: isMobile ? '1.25rem' : '1.5rem',
                     fontWeight: '700', 
                     color: colors.darkGray, 
                     marginBottom: '12px',
                   }}>
                     Interested in a Similar Project?
                   </h3>
-                  <p style={{ color: colors.mediumGray, marginBottom: '24px' }}>
+                  <p style={{ 
+                    color: colors.mediumGray, 
+                    marginBottom: '24px',
+                    fontSize: isMobile ? '14px' : '15px',
+                  }}>
                     Let's discuss how we can bring your vision to life
                   </p>
-                  <Link 
-                    to="/contact"
+                  <button
                     style={{
-                      ...ctaButtonStyle,
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      gap: '8px',
+                      padding: isMobile ? '12px 24px' : '14px 32px',
                       background: `linear-gradient(135deg, ${colors.chiliRed}, ${colors.scarlet})`,
                       color: colors.white,
+                      borderRadius: '8px',
+                      fontWeight: '600',
+                      border: 'none',
+                      cursor: 'pointer',
+                      fontSize: isMobile ? '14px' : '15px',
                     }}
                   >
                     <span>Contact Us</span>
                     <ArrowRight size={18} />
-                  </Link>
+                  </button>
                 </div>
               </div>
             </motion.div>
@@ -1135,7 +1012,11 @@ const Projects = () => {
       </AnimatePresence>
 
       {/* CTA Section */}
-      <section style={ctaSectionStyle}>
+      <section style={{
+        padding: isMobile ? '60px 16px' : '80px 20px',
+        background: `linear-gradient(135deg, ${colors.chiliRed} 0%, ${colors.safetyOrange} 50%, ${colors.amber} 100%)`,
+        position: 'relative',
+      }}>
         <div style={{
           position: 'absolute',
           inset: 0,
@@ -1143,7 +1024,12 @@ const Projects = () => {
           backgroundImage: `radial-gradient(circle at 20% 50%, ${colors.white} 0%, transparent 50%), radial-gradient(circle at 80% 80%, ${colors.white} 0%, transparent 50%)`,
         }}></div>
 
-        <div style={{ ...containerStyle, position: 'relative', zIndex: 10 }}>
+        <div style={{ 
+          maxWidth: '1280px', 
+          margin: '0 auto',
+          position: 'relative', 
+          zIndex: 10,
+        }}>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -1156,36 +1042,40 @@ const Projects = () => {
             }}
           >
             <h2 style={{ 
-              fontSize: 'clamp(2rem, 5vw, 3rem)', 
+              fontSize: isMobile ? '1.75rem' : 'clamp(2rem, 5vw, 3rem)',
               fontWeight: '800',
-              marginBottom: '24px',
+              marginBottom: isMobile ? '16px' : '24px',
+              lineHeight: '1.2',
             }}>
               Ready to Start Your Project?
             </h2>
             <p style={{ 
-              fontSize: 'clamp(1rem, 2vw, 1.25rem)', 
-              marginBottom: '32px',
+              fontSize: isMobile ? '1rem' : 'clamp(1rem, 2vw, 1.25rem)',
+              marginBottom: isMobile ? '24px' : '32px',
               opacity: 0.95,
             }}>
               Let's create something amazing together
             </p>
-            <Link 
-              to="/contact" 
-              style={ctaButtonStyle}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.transform = 'translateY(-2px)';
-                e.currentTarget.style.boxShadow = '0 6px 30px rgba(0, 0, 0, 0.3)';
-                e.currentTarget.style.background = colors.lightGray;
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.transform = 'translateY(0)';
-                e.currentTarget.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.2)';
-                e.currentTarget.style.background = colors.white;
+            <button
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '8px',
+                padding: isMobile ? '12px 28px' : '14px 32px',
+                background: colors.white,
+                color: colors.darkGray,
+                borderRadius: '8px',
+                fontWeight: '600',
+                textDecoration: 'none',
+                boxShadow: '0 4px 20px rgba(0, 0, 0, 0.2)',
+                border: 'none',
+                cursor: 'pointer',
+                fontSize: isMobile ? '14px' : '15px',
               }}
             >
               <span>Start Your Project</span>
-              <ArrowRight size={20} />
-            </Link>
+              <ArrowRight size={18} />
+            </button>
           </motion.div>
         </div>
       </section>
