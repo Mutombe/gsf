@@ -18,29 +18,6 @@ const Products = () => {
   const [quantity, setQuantity] = useState(1);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
-  // Color palette
-  const colors = {
-    chiliRed: '#E3180D',
-    scarlet: '#FF2A00',
-    flame: '#D92603',
-    bloodOrange: '#B50001',
-    persimmon: '#E45B11',
-    safetyOrange: '#FA7301',
-    tangerine: '#FF7805',
-    darkOrange: '#E35906',
-    brightOrange: '#F99E09',
-    amber: '#F3B900',
-    mustardYellow: '#FFC60A',
-    mustard: '#FCD92A',
-    mustardLight: '#FFDC5E',
-    sunset: '#F2CC88',
-    peach: '#FBCB98',
-    darkGray: '#2D2D2D',
-    mediumGray: '#666666',
-    lightGray: '#F5F5F5',
-    white: '#FFFFFF',
-  };
-
   const categories = [
     { id: 'all', name: 'All Products', icon: Layers },
     { id: 'shelving', name: t('products.categories.shelving'), icon: Package },
@@ -380,6 +357,14 @@ const Products = () => {
     setSelectedSize(product.variants[0].sizes[0]);
     setCurrentImageIndex(0);
     setQuantity(1);
+    // Prevent body scroll when modal is open
+    document.body.style.overflow = 'hidden';
+  };
+
+  // Handle modal close
+  const handleModalClose = () => {
+    setSelectedProduct(null);
+    document.body.style.overflow = 'auto';
   };
 
   // Handle WhatsApp inquiry
@@ -441,169 +426,54 @@ const Products = () => {
     );
   };
 
-  // Styles
-  const heroSectionStyle = {
-    position: 'relative',
-    padding: '120px 20px',
-    minHeight: '70vh',
-    display: 'flex',
-    alignItems: 'center',
-    color: colors.white,
-    overflow: 'hidden',
-  };
-
-  const heroTitleStyle = {
-    fontSize: 'clamp(2.5rem, 8vw, 5rem)',
-    fontWeight: '800',
-    lineHeight: '1.1',
-    marginBottom: '24px',
-  };
-
-  const heroSubtitleStyle = {
-    fontSize: 'clamp(1.25rem, 3vw, 1.75rem)',
-    color: 'rgba(255, 255, 255, 0.95)',
-    lineHeight: '1.6',
-  };
-
-  const filterSectionStyle = {
-    padding: '32px 20px',
-    background: colors.white,
-    boxShadow: '0 2px 8px rgba(0, 0, 0, 0.1)',
-    position: 'sticky',
-    top: '72px',
-    zIndex: 30,
-  };
-
-  const categoryButtonStyle = (isActive) => ({
-    display: 'flex',
-    alignItems: 'center',
-    gap: '8px',
-    padding: '12px 24px',
-    borderRadius: '8px',
-    fontWeight: '600',
-    border: 'none',
-    cursor: 'pointer',
-    transition: 'all 0.3s ease',
-    background: isActive 
-      ? `linear-gradient(90deg, ${colors.chiliRed}, ${colors.scarlet})`
-      : colors.lightGray,
-    color: isActive ? colors.white : colors.darkGray,
-    boxShadow: isActive ? `0 4px 15px ${colors.chiliRed}40` : 'none',
-    transform: isActive ? 'scale(1.05)' : 'scale(1)',
-  });
-
-  const sectionStyle = {
-    padding: '80px 20px',
-    background: colors.lightGray,
-  };
-
-  const containerStyle = {
-    maxWidth: '1280px',
-    margin: '0 auto',
-  };
-
-  const modalOverlayStyle = {
-    position: 'fixed',
-    inset: 0,
-    background: 'rgba(0, 0, 0, 0.8)',
-    backdropFilter: 'blur(8px)',
-    zIndex: 1000,
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    padding: '20px',
-    overflowY: 'auto',
-  };
-
-  const modalContentStyle = {
-    background: colors.white,
-    borderRadius: '24px',
-    maxWidth: '1200px',
-    width: '100%',
-    maxHeight: '90vh',
-    overflowY: 'auto',
-    position: 'relative',
-  };
-
-  const ctaSectionStyle = {
-    padding: '80px 20px',
-    background: `linear-gradient(135deg, ${colors.chiliRed} 0%, ${colors.safetyOrange} 50%, ${colors.amber} 100%)`,
-    position: 'relative',
-  };
-
-  const ctaButtonStyle = {
-    display: 'inline-flex',
-    alignItems: 'center',
-    gap: '8px',
-    padding: '14px 32px',
-    background: colors.white,
-    color: colors.darkGray,
-    borderRadius: '8px',
-    fontWeight: '600',
-    textDecoration: 'none',
-    boxShadow: '0 4px 20px rgba(0, 0, 0, 0.2)',
-    transition: 'all 0.3s ease',
-    border: 'none',
-    cursor: 'pointer',
-  };
-
   return (
-    <div style={{ overflow: 'hidden' }}>
+    <div className="overflow-hidden">
       {/* Hero Section with Blended Background */}
-      <section style={heroSectionStyle}>
+      <section className="relative min-h-[70vh] flex items-center text-white overflow-hidden px-5 py-20 md:py-32">
         {/* Background Image */}
-        <div style={{
-          position: 'absolute',
-          inset: 0,
-          backgroundImage: 'url("/33.jpg")',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-        }}></div>
+        <div 
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: 'url("/33.jpg")' }}
+        ></div>
 
         {/* Gradient Overlay */}
-        <div style={{
-          position: 'absolute',
-          inset: 0,
-          background: `linear-gradient(135deg, ${colors.chiliRed}ee 0%, ${colors.darkOrange}dd 50%, ${colors.amber}ee 100%)`,
-          mixBlendMode: 'multiply',
-        }}></div>
+        <div 
+          className="absolute inset-0 mix-blend-multiply"
+          style={{
+            background: 'linear-gradient(135deg, #E3180Dee 0%, #E35906dd 50%, #F3B900ee 100%)'
+          }}
+        ></div>
 
         {/* Dark Overlay */}
-        <div style={{
-          position: 'absolute',
-          inset: 0,
-          background: 'rgba(0, 0, 0, 0.3)',
-        }}></div>
+        <div className="absolute inset-0 bg-black/30"></div>
 
-        <div style={{ ...containerStyle, position: 'relative', zIndex: 10 }}>
+        <div className="container mx-auto max-w-7xl relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            style={{ textAlign: 'center', maxWidth: '896px', margin: '0 auto' }}
+            className="text-center max-w-4xl mx-auto"
           >
             <motion.div
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{ delay: 0.2, duration: 0.6 }}
+              className="inline-block px-5 py-2 mb-6 rounded-full border border-white/30"
               style={{
-                display: 'inline-block',
-                padding: '8px 20px',
                 background: 'rgba(255, 255, 255, 0.2)',
                 backdropFilter: 'blur(10px)',
-                borderRadius: '50px',
-                marginBottom: '24px',
-                border: '1px solid rgba(255, 255, 255, 0.3)',
               }}
             >
-              <span style={{ fontSize: '14px', fontWeight: '600', letterSpacing: '1px' }}>
+              <span className="text-xs md:text-sm font-semibold tracking-wider">
                 PREMIUM SHOPFITTING PRODUCTS
               </span>
             </motion.div>
-            <h1 style={heroTitleStyle}>
+            
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold leading-tight mb-6">
               {t('products.title')}
             </h1>
-            <p style={heroSubtitleStyle}>
+            
+            <p className="text-lg sm:text-xl md:text-2xl text-white/95 leading-relaxed">
               {t('products.subtitle')}
             </p>
           </motion.div>
@@ -611,244 +481,121 @@ const Products = () => {
       </section>
 
       {/* Category Filter */}
-      <section style={filterSectionStyle}>
-        <div style={containerStyle}>
-          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '12px', justifyContent: 'center' }}>
-            {categories.map((category) => (
-              <button
-                key={category.id}
-                onClick={() => setActiveCategory(category.id)}
-                style={categoryButtonStyle(activeCategory === category.id)}
-                onMouseEnter={(e) => {
-                  if (activeCategory !== category.id) {
-                    e.currentTarget.style.background = '#E5E7EB';
-                  }
-                }}
-                onMouseLeave={(e) => {
-                  if (activeCategory !== category.id) {
-                    e.currentTarget.style.background = colors.lightGray;
-                  }
-                }}
-              >
-                <category.icon size={18} />
-                <span>{category.name}</span>
-              </button>
-            ))}
+      <section className="bg-white shadow-md sticky top-[72px] z-30 py-8 px-5">
+        <div className="container mx-auto max-w-7xl">
+          <div className="flex flex-wrap gap-3 justify-center">
+            {categories.map((category) => {
+              const Icon = category.icon;
+              const isActive = activeCategory === category.id;
+              
+              return (
+                <button
+                  key={category.id}
+                  onClick={() => setActiveCategory(category.id)}
+                  className={`
+                    flex items-center gap-2 px-4 sm:px-6 py-3 rounded-lg font-semibold
+                    transition-all duration-300 transform
+                    ${isActive 
+                      ? 'bg-gradient-to-r from-[#E3180D] to-[#FF2A00] text-white shadow-lg scale-105' 
+                      : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                    }
+                  `}
+                >
+                  <Icon size={18} />
+                  <span className="text-sm sm:text-base">{category.name}</span>
+                </button>
+              );
+            })}
           </div>
         </div>
       </section>
 
       {/* Products Grid */}
-      <section style={sectionStyle}>
-        <div style={containerStyle}>
-          <div 
-            className="products-grid"
-            style={{ 
-              display: 'grid',
-              gap: '32px',
-            }}
-          >
-            <style>{`
-              .products-grid {
-                grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-              }
+      <section className="bg-gray-50 py-12 md:py-20 px-5">
+        <div className="container mx-auto max-w-7xl">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+            {filteredProducts.map((product, index) => {
+              const Icon = product.icon;
+              
+              return (
+                <motion.div
+                  key={product.id}
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0.1, duration: 0.6 }}
+                  whileHover={{ y: -10, scale: 1.02 }}
+                  onClick={() => handleProductClick(product)}
+                  className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 cursor-pointer group"
+                >
+                  {/* Product Image */}
+                  <div className="relative h-64 md:h-72 bg-gradient-to-br from-gray-100 to-gray-200 overflow-hidden">
+                    <div 
+                      className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
+                      style={{ backgroundImage: `url(${product.images[0]})` }}
+                    ></div>
 
-              @media (max-width: 768px) {
-                .products-grid {
-                  grid-template-columns: 1fr !important;
-                }
-              }
-
-              @media (min-width: 769px) and (max-width: 1024px) {
-                .products-grid {
-                  grid-template-columns: repeat(2, 1fr) !important;
-                }
-              }
-            `}</style>
-
-            {filteredProducts.map((product, index) => (
-              <motion.div
-                key={product.id}
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1, duration: 0.6 }}
-                whileHover={{ y: -10, scale: 1.02 }}
-                onClick={() => handleProductClick(product)}
-                style={{
-                  background: colors.white,
-                  borderRadius: '20px',
-                  overflow: 'hidden',
-                  boxShadow: '0 4px 20px rgba(0, 0, 0, 0.08)',
-                  transition: 'all 0.3s ease',
-                  cursor: 'pointer',
-                  position: 'relative',
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.boxShadow = `0 20px 60px ${colors.chiliRed}30`;
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.08)';
-                }}
-              >
-                {/* Product Image */}
-                <div style={{ 
-                  position: 'relative', 
-                  height: '280px', 
-                  background: `linear-gradient(135deg, ${colors.lightGray} 0%, #E5E7EB 100%)`,
-                  overflow: 'hidden',
-                }}>
-                  <div style={{
-                    position: 'absolute',
-                    inset: 0,
-                    backgroundImage: `url(${product.images[0]})`,
-                    backgroundSize: 'cover',
-                    backgroundPosition: 'center',
-                    transition: 'transform 0.6s ease',
-                  }}></div>
-
-                  {/* Rating Badge */}
-                  <div style={{
-                    position: 'absolute',
-                    top: '16px',
-                    left: '16px',
-                    padding: '6px 12px',
-                    background: 'rgba(255, 255, 255, 0.95)',
-                    backdropFilter: 'blur(10px)',
-                    borderRadius: '20px',
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: '4px',
-                    fontSize: '13px',
-                    fontWeight: '700',
-                  }}>
-                    <Star size={14} style={{ color: colors.amber, fill: colors.amber }} />
-                    <span>{product.rating}</span>
-                    <span style={{ color: colors.mediumGray }}>({product.reviews})</span>
-                  </div>
-
-                  {/* Price Badge */}
-                  <div style={{
-                    position: 'absolute',
-                    top: '16px',
-                    right: '16px',
-                    padding: '8px 16px',
-                    background: `linear-gradient(135deg, ${colors.chiliRed}, ${colors.scarlet})`,
-                    backdropFilter: 'blur(10px)',
-                    borderRadius: '20px',
-                    color: colors.white,
-                    fontSize: '16px',
-                    fontWeight: '800',
-                  }}>
-                    ${product.price}
-                  </div>
-
-                  {/* Hover Overlay */}
-                  <div style={{ 
-                    position: 'absolute', 
-                    inset: 0, 
-                    background: `linear-gradient(to top, ${colors.darkGray}dd 0%, transparent 80%)`,
-                    opacity: 0,
-                    transition: 'opacity 0.3s ease',
-                    display: 'flex',
-                    alignItems: 'flex-end',
-                    padding: '20px',
-                  }} className="hover-overlay">
-                    <div style={{
-                      color: colors.white,
-                      fontSize: '14px',
-                      fontWeight: '700',
-                      display: 'flex',
-                      alignItems: 'center',
-                      gap: '8px',
-                    }}>
-                      <Info size={16} />
-                      <span>Click to view details</span>
+                    {/* Rating Badge */}
+                    <div className="absolute top-4 left-4 px-3 py-1.5 bg-white/95 backdrop-blur-md rounded-full flex items-center gap-1 text-xs md:text-sm font-bold">
+                      <Star size={14} className="text-[#F3B900] fill-[#F3B900]" />
+                      <span>{product.rating}</span>
+                      <span className="text-gray-500">({product.reviews})</span>
                     </div>
-                  </div>
-                </div>
 
-                {/* Product Info */}
-                <div style={{ padding: '24px' }}>
-                  <h3 style={{ 
-                    fontSize: '1.25rem', 
-                    fontWeight: '800', 
-                    color: colors.darkGray, 
-                    marginBottom: '8px',
-                    lineHeight: '1.3',
-                  }}>
-                    {product.name}
-                  </h3>
-                  
-                  <p style={{ 
-                    color: colors.mediumGray, 
-                    marginBottom: '16px', 
-                    lineHeight: '1.6',
-                    fontSize: '14px',
-                    display: '-webkit-box',
-                    WebkitLineClamp: 2,
-                    WebkitBoxOrient: 'vertical',
-                    overflow: 'hidden',
-                  }}>
-                    {product.description}
-                  </p>
+                    {/* Price Badge */}
+                    <div className="absolute top-4 right-4 px-4 py-2 bg-gradient-to-r from-[#E3180D] to-[#FF2A00] backdrop-blur-md rounded-full text-white text-sm md:text-base font-extrabold">
+                      ${product.price}
+                    </div>
 
-                  {/* Quick Features */}
-                  <div style={{
-                    display: 'flex',
-                    flexWrap: 'wrap',
-                    gap: '8px',
-                    marginBottom: '16px',
-                  }}>
-                    {product.features.slice(0, 3).map((feature, idx) => (
-                      <div
-                        key={idx}
-                        style={{
-                          padding: '4px 12px',
-                          background: colors.lightGray,
-                          borderRadius: '12px',
-                          fontSize: '12px',
-                          color: colors.mediumGray,
-                          fontWeight: '600',
-                        }}
-                      >
-                        {feature}
+                    {/* Hover Overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-gray-900/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-5">
+                      <div className="text-white text-sm font-bold flex items-center gap-2">
+                        <Info size={16} />
+                        <span>Click to view details</span>
                       </div>
-                    ))}
-                  </div>
-
-                  {/* Variants Indicator */}
-                  <div style={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: '12px',
-                    paddingTop: '16px',
-                    borderTop: `1px solid ${colors.lightGray}`,
-                  }}>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
-                      <Palette size={14} style={{ color: colors.chiliRed }} />
-                      <span style={{ fontSize: '12px', color: colors.mediumGray }}>
-                        {product.variants.reduce((acc, v) => acc + v.colors.length, 0)} colors
-                      </span>
-                    </div>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
-                      <Ruler size={14} style={{ color: colors.chiliRed }} />
-                      <span style={{ fontSize: '12px', color: colors.mediumGray }}>
-                        {product.variants.reduce((acc, v) => acc + v.sizes.length, 0)} sizes
-                      </span>
                     </div>
                   </div>
-                </div>
 
-                <style>{`
-                  .products-grid > *:hover .hover-overlay {
-                    opacity: 1 !important;
-                  }
-                  .products-grid > *:hover > div:first-child > div:nth-child(1) {
-                    transform: scale(1.1);
-                  }
-                `}</style>
-              </motion.div>
-            ))}
+                  {/* Product Info */}
+                  <div className="p-5 md:p-6">
+                    <h3 className="text-lg md:text-xl font-extrabold text-gray-800 mb-2 leading-tight">
+                      {product.name}
+                    </h3>
+                    
+                    <p className="text-gray-600 mb-4 text-sm line-clamp-2 leading-relaxed">
+                      {product.description}
+                    </p>
+
+                    {/* Quick Features */}
+                    <div className="flex flex-wrap gap-2 mb-4">
+                      {product.features.slice(0, 3).map((feature, idx) => (
+                        <div
+                          key={idx}
+                          className="px-3 py-1 bg-gray-100 rounded-xl text-xs text-gray-600 font-semibold"
+                        >
+                          {feature}
+                        </div>
+                      ))}
+                    </div>
+
+                    {/* Variants Indicator */}
+                    <div className="flex items-center gap-3 pt-4 border-t border-gray-100">
+                      <div className="flex items-center gap-1">
+                        <Palette size={14} className="text-[#E3180D]" />
+                        <span className="text-xs text-gray-500">
+                          {product.variants.reduce((acc, v) => acc + v.colors.length, 0)} colors
+                        </span>
+                      </div>
+                      <div className="flex items-center gap-1">
+                        <Ruler size={14} className="text-[#E3180D]" />
+                        <span className="text-xs text-gray-500">
+                          {product.variants.reduce((acc, v) => acc + v.sizes.length, 0)} sizes
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </motion.div>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -860,201 +607,104 @@ const Products = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            style={modalOverlayStyle}
-            onClick={() => setSelectedProduct(null)}
+            className="fixed inset-0 bg-black/80 backdrop-blur-sm z-80 flex items-start md:items-center justify-center p-4 md:p-5 overflow-y-auto "
+            onClick={handleModalClose}
           >
             <motion.div
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
               transition={{ type: 'spring', damping: 25 }}
-              style={modalContentStyle}
+              className="bg-white rounded-2xl md:rounded-3xl w-full max-w-6xl my-8 md:my-0 overflow-hidden relative "
               onClick={(e) => e.stopPropagation()}
             >
               {/* Close Button */}
               <button
-                onClick={() => setSelectedProduct(null)}
-                style={{
-                  position: 'sticky',
-                  top: '20px',
-                  left: '100%',
-                  transform: 'translateX(-40px)',
-                  width: '48px',
-                  height: '48px',
-                  borderRadius: '50%',
-                  background: colors.white,
-                  border: 'none',
-                  cursor: 'pointer',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)',
-                  zIndex: 10,
-                  transition: 'all 0.3s ease',
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.background = colors.chiliRed;
-                  e.currentTarget.querySelector('svg').style.color = colors.white;
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.background = colors.white;
-                  e.currentTarget.querySelector('svg').style.color = colors.darkGray;
-                }}
+                onClick={handleModalClose}
+                className="sticky top-4 left-full -translate-x-12 md:-translate-x-16 w-12 h-12 rounded-full bg-white hover:bg-[#E3180D] border-none cursor-pointer flex items-center justify-center shadow-xl z-10 transition-all duration-300 group"
               >
-                <X size={24} style={{ color: colors.darkGray, transition: 'color 0.3s ease' }} />
+                <X size={24} className="text-gray-800 group-hover:text-white transition-colors" />
               </button>
 
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 0 }}>
+              <div className="grid grid-cols-1 lg:grid-cols-2">
                 {/* Left Side - Images */}
-                <div style={{ 
-                  background: colors.lightGray,
-                  padding: '40px',
-                  position: 'relative',
-                }}>
+                <div className="bg-gray-50 p-6 md:p-10 order-2 lg:order-1">
                   {/* Main Image */}
-                  <div style={{
-                    position: 'relative',
-                    height: '500px',
-                    borderRadius: '16px',
-                    overflow: 'hidden',
-                    marginBottom: '20px',
-                    background: colors.white,
-                  }}>
-                    <div style={{
-                      position: 'absolute',
-                      inset: 0,
-                      backgroundImage: `url(${selectedProduct.images[currentImageIndex]})`,
-                      backgroundSize: 'cover',
-                      backgroundPosition: 'center',
-                    }}></div>
+                  <div className="relative h-64 md:h-96 lg:h-[500px] rounded-2xl overflow-hidden mb-5 bg-white">
+                    <div 
+                      className="absolute inset-0 bg-cover bg-center"
+                      style={{ backgroundImage: `url(${selectedProduct.images[currentImageIndex]})` }}
+                    ></div>
 
                     {/* Image Navigation */}
                     {selectedProduct.images.length > 1 && (
                       <>
                         <button
                           onClick={prevImage}
-                          style={{
-                            position: 'absolute',
-                            left: '16px',
-                            top: '50%',
-                            transform: 'translateY(-50%)',
-                            width: '40px',
-                            height: '40px',
-                            borderRadius: '50%',
-                            background: 'rgba(255, 255, 255, 0.9)',
-                            border: 'none',
-                            cursor: 'pointer',
-                            display: 'flex',
-                            alignItems: 'center',
-                            justifyContent: 'center',
-                            boxShadow: '0 2px 8px rgba(0, 0, 0, 0.15)',
-                          }}
+                          className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/90 hover:bg-white border-none cursor-pointer flex items-center justify-center shadow-lg transition-all"
                         >
-                          <ChevronLeft size={20} style={{ color: colors.darkGray }} />
+                          <ChevronLeft size={20} className="text-gray-800" />
                         </button>
                         <button
                           onClick={nextImage}
-                          style={{
-                            position: 'absolute',
-                            right: '16px',
-                            top: '50%',
-                            transform: 'translateY(-50%)',
-                            width: '40px',
-                            height: '40px',
-                            borderRadius: '50%',
-                            background: 'rgba(255, 255, 255, 0.9)',
-                            border: 'none',
-                            cursor: 'pointer',
-                            display: 'flex',
-                            alignItems: 'center',
-                            justifyContent: 'center',
-                            boxShadow: '0 2px 8px rgba(0, 0, 0, 0.15)',
-                          }}
+                          className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/90 hover:bg-white border-none cursor-pointer flex items-center justify-center shadow-lg transition-all"
                         >
-                          <ChevronRight size={20} style={{ color: colors.darkGray }} />
+                          <ChevronRight size={20} className="text-gray-800" />
                         </button>
                       </>
                     )}
                   </div>
 
                   {/* Thumbnail Images */}
-                  <div style={{ display: 'flex', gap: '12px', justifyContent: 'center' }}>
+                  <div className="flex gap-3 justify-center overflow-x-auto pb-2">
                     {selectedProduct.images.map((img, idx) => (
                       <div
                         key={idx}
                         onClick={() => setCurrentImageIndex(idx)}
-                        style={{
-                          width: '80px',
-                          height: '80px',
-                          borderRadius: '8px',
-                          overflow: 'hidden',
-                          cursor: 'pointer',
-                          border: currentImageIndex === idx 
-                            ? `3px solid ${colors.chiliRed}` 
-                            : `3px solid transparent`,
-                          transition: 'all 0.3s ease',
-                          backgroundImage: `url(${img})`,
-                          backgroundSize: 'cover',
-                          backgroundPosition: 'center',
-                        }}
+                        className={`
+                          min-w-[60px] w-16 md:min-w-[80px] md:w-20 h-16 md:h-20 rounded-lg overflow-hidden cursor-pointer
+                          transition-all duration-300 bg-cover bg-center
+                          ${currentImageIndex === idx 
+                            ? 'border-4 border-[#E3180D] scale-105' 
+                            : 'border-4 border-transparent hover:border-gray-300'
+                          }
+                        `}
+                        style={{ backgroundImage: `url(${img})` }}
                       ></div>
                     ))}
                   </div>
                 </div>
 
                 {/* Right Side - Details */}
-                <div style={{ 
-                  padding: '40px',
-                  overflowY: 'auto',
-                  maxHeight: '80vh',
-                }}>
+                <div className="p-6 md:p-10 overflow-y-auto max-h-[70vh] lg:max-h-[80vh] order-1 lg:order-2">
                   {/* Product Header */}
-                  <div style={{ marginBottom: '24px' }}>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '12px' }}>
-                      <Star size={18} style={{ color: colors.amber, fill: colors.amber }} />
-                      <span style={{ fontSize: '16px', fontWeight: '700' }}>{selectedProduct.rating}</span>
-                      <span style={{ color: colors.mediumGray }}>({selectedProduct.reviews} reviews)</span>
+                  <div className="mb-6">
+                    <div className="flex items-center gap-2 mb-3">
+                      <Star size={18} className="text-[#F3B900] fill-[#F3B900]" />
+                      <span className="text-base font-bold">{selectedProduct.rating}</span>
+                      <span className="text-gray-500">({selectedProduct.reviews} reviews)</span>
                     </div>
                     
-                    <h2 style={{ 
-                      fontSize: '2rem', 
-                      fontWeight: '800', 
-                      color: colors.darkGray, 
-                      marginBottom: '12px',
-                    }}>
+                    <h2 className="text-2xl md:text-3xl lg:text-4xl font-extrabold text-gray-800 mb-3">
                       {selectedProduct.name}
                     </h2>
                     
-                    <p style={{ 
-                      color: colors.mediumGray, 
-                      lineHeight: '1.8',
-                      marginBottom: '24px',
-                    }}>
+                    <p className="text-gray-600 leading-relaxed mb-6 text-sm md:text-base">
                       {selectedProduct.fullDescription}
                     </p>
 
                     {/* Price */}
-                    <div style={{ 
-                      fontSize: '2.5rem', 
-                      fontWeight: '800', 
-                      color: colors.chiliRed,
-                      marginBottom: '24px',
-                    }}>
+                    <div className="text-3xl md:text-4xl font-extrabold text-[#E3180D] mb-6">
                       ${selectedVariant?.price || selectedProduct.price}
                     </div>
                   </div>
 
                   {/* Variant Selection */}
-                  <div style={{ marginBottom: '24px' }}>
-                    <h3 style={{ 
-                      fontSize: '1rem', 
-                      fontWeight: '700', 
-                      color: colors.darkGray, 
-                      marginBottom: '12px',
-                    }}>
+                  <div className="mb-6">
+                    <h3 className="text-base md:text-lg font-bold text-gray-800 mb-3">
                       Select Variant
                     </h3>
-                    <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
+                    <div className="flex gap-3 flex-wrap">
                       {selectedProduct.variants.map((variant) => (
                         <button
                           key={variant.id}
@@ -1063,22 +713,13 @@ const Products = () => {
                             setSelectedColor(variant.colors[0]);
                             setSelectedSize(variant.sizes[0]);
                           }}
-                          style={{
-                            padding: '12px 20px',
-                            borderRadius: '8px',
-                            border: selectedVariant?.id === variant.id
-                              ? `2px solid ${colors.chiliRed}`
-                              : `2px solid ${colors.lightGray}`,
-                            background: selectedVariant?.id === variant.id
-                              ? `${colors.chiliRed}10`
-                              : colors.white,
-                            cursor: 'pointer',
-                            fontWeight: '600',
-                            color: selectedVariant?.id === variant.id
-                              ? colors.chiliRed
-                              : colors.darkGray,
-                            transition: 'all 0.3s ease',
-                          }}
+                          className={`
+                            px-4 md:px-5 py-2.5 md:py-3 rounded-lg font-semibold transition-all text-sm md:text-base
+                            ${selectedVariant?.id === variant.id
+                              ? 'border-2 border-[#E3180D] bg-red-50 text-[#E3180D]'
+                              : 'border-2 border-gray-200 bg-white text-gray-800 hover:border-gray-300'
+                            }
+                          `}
                         >
                           {variant.name} - ${variant.price}
                         </button>
@@ -1088,44 +729,31 @@ const Products = () => {
 
                   {/* Color Selection */}
                   {selectedVariant && (
-                    <div style={{ marginBottom: '24px' }}>
-                      <h3 style={{ 
-                        fontSize: '1rem', 
-                        fontWeight: '700', 
-                        color: colors.darkGray, 
-                        marginBottom: '12px',
-                      }}>
+                    <div className="mb-6">
+                      <h3 className="text-base md:text-lg font-bold text-gray-800 mb-3">
                         Color: {selectedColor?.name}
                       </h3>
-                      <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
+                      <div className="flex gap-3 flex-wrap">
                         {selectedVariant.colors.map((color) => (
                           <button
                             key={color.name}
                             onClick={() => setSelectedColor(color)}
                             disabled={!color.available}
-                            style={{
-                              width: '48px',
-                              height: '48px',
-                              borderRadius: '8px',
-                              background: color.hex,
-                              border: selectedColor?.name === color.name
-                                ? `3px solid ${colors.chiliRed}`
-                                : `3px solid ${colors.lightGray}`,
-                              cursor: color.available ? 'pointer' : 'not-allowed',
-                              opacity: color.available ? 1 : 0.4,
-                              transition: 'all 0.3s ease',
-                              position: 'relative',
-                              display: 'flex',
-                              alignItems: 'center',
-                              justifyContent: 'center',
-                            }}
+                            className={`
+                              w-12 h-12 rounded-lg transition-all flex items-center justify-center
+                              ${selectedColor?.name === color.name
+                                ? 'border-4 border-[#E3180D] scale-110'
+                                : 'border-4 border-gray-200 hover:border-gray-300'
+                              }
+                              ${!color.available && 'opacity-40 cursor-not-allowed'}
+                            `}
+                            style={{ background: color.hex }}
                           >
                             {selectedColor?.name === color.name && (
-                              <Check size={20} style={{ 
-                                color: color.hex === '#FFFFFF' || color.hex === '#F0F8FF' 
-                                  ? colors.darkGray 
-                                  : colors.white 
-                              }} />
+                              <Check 
+                                size={20} 
+                                className={color.hex === '#FFFFFF' || color.hex === '#F0F8FF' ? 'text-gray-800' : 'text-white'}
+                              />
                             )}
                           </button>
                         ))}
@@ -1135,54 +763,35 @@ const Products = () => {
 
                   {/* Size Selection */}
                   {selectedVariant && (
-                    <div style={{ marginBottom: '24px' }}>
-                      <h3 style={{ 
-                        fontSize: '1rem', 
-                        fontWeight: '700', 
-                        color: colors.darkGray, 
-                        marginBottom: '12px',
-                      }}>
+                    <div className="mb-6">
+                      <h3 className="text-base md:text-lg font-bold text-gray-800 mb-3">
                         Size: {selectedSize?.name}
                       </h3>
-                      <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                      <div className="flex flex-col gap-2">
                         {selectedVariant.sizes.map((size) => (
                           <button
                             key={size.name}
                             onClick={() => setSelectedSize(size)}
                             disabled={!size.available}
-                            style={{
-                              padding: '12px 16px',
-                              borderRadius: '8px',
-                              border: selectedSize?.name === size.name
-                                ? `2px solid ${colors.chiliRed}`
-                                : `2px solid ${colors.lightGray}`,
-                              background: selectedSize?.name === size.name
-                                ? `${colors.chiliRed}10`
-                                : colors.white,
-                              cursor: size.available ? 'pointer' : 'not-allowed',
-                              opacity: size.available ? 1 : 0.4,
-                              textAlign: 'left',
-                              transition: 'all 0.3s ease',
-                              display: 'flex',
-                              justifyContent: 'space-between',
-                              alignItems: 'center',
-                            }}
+                            className={`
+                              p-3 md:p-4 rounded-lg text-left transition-all flex justify-between items-center
+                              ${selectedSize?.name === size.name
+                                ? 'border-2 border-[#E3180D] bg-red-50'
+                                : 'border-2 border-gray-200 bg-white hover:border-gray-300'
+                              }
+                              ${!size.available && 'opacity-40 cursor-not-allowed'}
+                            `}
                           >
                             <div>
-                              <div style={{ 
-                                fontWeight: '700', 
-                                color: selectedSize?.name === size.name
-                                  ? colors.chiliRed
-                                  : colors.darkGray,
-                              }}>
+                              <div className={`font-bold text-sm md:text-base ${selectedSize?.name === size.name ? 'text-[#E3180D]' : 'text-gray-800'}`}>
                                 {size.name}
                               </div>
-                              <div style={{ fontSize: '12px', color: colors.mediumGray }}>
+                              <div className="text-xs md:text-sm text-gray-500">
                                 {size.dimensions}
                               </div>
                             </div>
                             {selectedSize?.name === size.name && (
-                              <Check size={20} style={{ color: colors.chiliRed }} />
+                              <Check size={20} className="text-[#E3180D]" />
                             )}
                           </button>
                         ))}
@@ -1191,55 +800,23 @@ const Products = () => {
                   )}
 
                   {/* Quantity Selection */}
-                  <div style={{ marginBottom: '32px' }}>
-                    <h3 style={{ 
-                      fontSize: '1rem', 
-                      fontWeight: '700', 
-                      color: colors.darkGray, 
-                      marginBottom: '12px',
-                    }}>
+                  <div className="mb-8">
+                    <h3 className="text-base md:text-lg font-bold text-gray-800 mb-3">
                       Quantity
                     </h3>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+                    <div className="flex items-center gap-4">
                       <button
                         onClick={() => setQuantity(Math.max(1, quantity - 1))}
-                        style={{
-                          width: '40px',
-                          height: '40px',
-                          borderRadius: '8px',
-                          border: `2px solid ${colors.lightGray}`,
-                          background: colors.white,
-                          cursor: 'pointer',
-                          display: 'flex',
-                          alignItems: 'center',
-                          justifyContent: 'center',
-                          transition: 'all 0.3s ease',
-                        }}
+                        className="w-10 h-10 rounded-lg border-2 border-gray-200 bg-white hover:bg-gray-50 flex items-center justify-center transition-all"
                       >
                         <Minus size={18} />
                       </button>
-                      <div style={{ 
-                        fontSize: '1.5rem', 
-                        fontWeight: '700',
-                        minWidth: '60px',
-                        textAlign: 'center',
-                      }}>
+                      <div className="text-2xl font-bold min-w-[60px] text-center">
                         {quantity}
                       </div>
                       <button
                         onClick={() => setQuantity(quantity + 1)}
-                        style={{
-                          width: '40px',
-                          height: '40px',
-                          borderRadius: '8px',
-                          border: `2px solid ${colors.lightGray}`,
-                          background: colors.white,
-                          cursor: 'pointer',
-                          display: 'flex',
-                          alignItems: 'center',
-                          justifyContent: 'center',
-                          transition: 'all 0.3s ease',
-                        }}
+                        className="w-10 h-10 rounded-lg border-2 border-gray-200 bg-white hover:bg-gray-50 flex items-center justify-center transition-all"
                       >
                         <Plus size={18} />
                       </button>
@@ -1247,44 +824,27 @@ const Products = () => {
                   </div>
 
                   {/* Total Price */}
-                  <div style={{ 
-                    padding: '20px',
-                    background: colors.lightGray,
-                    borderRadius: '12px',
-                    marginBottom: '24px',
-                  }}>
-                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                      <span style={{ fontSize: '1rem', fontWeight: '600', color: colors.mediumGray }}>
+                  <div className="p-4 md:p-5 bg-gray-50 rounded-xl mb-6">
+                    <div className="flex justify-between items-center">
+                      <span className="text-sm md:text-base font-semibold text-gray-600">
                         Total Price
                       </span>
-                      <span style={{ fontSize: '2rem', fontWeight: '800', color: colors.chiliRed }}>
+                      <span className="text-2xl md:text-3xl font-extrabold text-[#E3180D]">
                         ${(selectedVariant?.price || selectedProduct.price) * quantity}
                       </span>
                     </div>
                   </div>
 
                   {/* Inquiry Methods */}
-                  <div style={{ marginBottom: '32px' }}>
-                    <h3 style={{ 
-                      fontSize: '1.125rem', 
-                      fontWeight: '700', 
-                      color: colors.darkGray, 
-                      marginBottom: '16px',
-                      textAlign: 'center',
-                    }}>
+                  <div className="mb-8">
+                    <h3 className="text-base md:text-lg font-bold text-gray-800 mb-4 text-center">
                       Choose Your Inquiry Method
                     </h3>
-                    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px' }}>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                       {/* WhatsApp Button */}
                       <button
                         onClick={handleWhatsAppInquiry}
-                        style={{
-                          ...ctaButtonStyle,
-                          background: '#25D366',
-                          color: colors.white,
-                          justifyContent: 'center',
-                          padding: '16px 24px',
-                        }}
+                        className="flex items-center justify-center gap-2 px-6 py-4 bg-[#25D366] hover:bg-[#20BD5A] text-white rounded-lg font-semibold transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1"
                       >
                         <MessageCircle size={20} />
                         <span>WhatsApp</span>
@@ -1293,13 +853,7 @@ const Products = () => {
                       {/* Email Button */}
                       <button
                         onClick={handleEmailInquiry}
-                        style={{
-                          ...ctaButtonStyle,
-                          background: `linear-gradient(135deg, ${colors.chiliRed}, ${colors.scarlet})`,
-                          color: colors.white,
-                          justifyContent: 'center',
-                          padding: '16px 24px',
-                        }}
+                        className="flex items-center justify-center gap-2 px-6 py-4 bg-gradient-to-r from-[#E3180D] to-[#FF2A00] hover:from-[#FF2A00] hover:to-[#E3180D] text-white rounded-lg font-semibold transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1"
                       >
                         <Mail size={20} />
                         <span>Email</span>
@@ -1308,40 +862,20 @@ const Products = () => {
                   </div>
 
                   {/* Specifications */}
-                  <div style={{ marginBottom: '24px' }}>
-                    <h3 style={{ 
-                      fontSize: '1.125rem', 
-                      fontWeight: '700', 
-                      color: colors.darkGray, 
-                      marginBottom: '16px',
-                    }}>
+                  <div className="mb-6">
+                    <h3 className="text-base md:text-lg font-bold text-gray-800 mb-4">
                       Specifications
                     </h3>
-                    <div style={{ 
-                      background: colors.lightGray,
-                      borderRadius: '12px',
-                      overflow: 'hidden',
-                    }}>
+                    <div className="bg-gray-50 rounded-xl overflow-hidden">
                       {Object.entries(selectedProduct.specifications).map(([key, value], idx) => (
                         <div
                           key={key}
-                          style={{
-                            display: 'flex',
-                            justifyContent: 'space-between',
-                            padding: '16px 20px',
-                            borderBottom: idx < Object.entries(selectedProduct.specifications).length - 1
-                              ? `1px solid ${colors.white}`
-                              : 'none',
-                          }}
+                          className={`flex flex-col sm:flex-row sm:justify-between p-4 ${idx < Object.entries(selectedProduct.specifications).length - 1 ? 'border-b border-white' : ''}`}
                         >
-                          <span style={{ 
-                            fontWeight: '600', 
-                            color: colors.mediumGray,
-                            textTransform: 'capitalize',
-                          }}>
+                          <span className="font-semibold text-gray-600 capitalize text-sm md:text-base mb-1 sm:mb-0">
                             {key.replace(/([A-Z])/g, ' $1').trim()}
                           </span>
-                          <span style={{ fontWeight: '700', color: colors.darkGray }}>
+                          <span className="font-bold text-gray-800 text-sm md:text-base">
                             {value}
                           </span>
                         </div>
@@ -1351,30 +885,17 @@ const Products = () => {
 
                   {/* Features */}
                   <div>
-                    <h3 style={{ 
-                      fontSize: '1.125rem', 
-                      fontWeight: '700', 
-                      color: colors.darkGray, 
-                      marginBottom: '16px',
-                    }}>
+                    <h3 className="text-base md:text-lg font-bold text-gray-800 mb-4">
                       Key Features
                     </h3>
-                    <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
+                    <ul className="space-y-3">
                       {selectedProduct.features.map((feature, idx) => (
                         <li 
                           key={idx} 
-                          style={{ 
-                            display: 'flex', 
-                            alignItems: 'flex-start', 
-                            gap: '12px',
-                            marginBottom: '12px',
-                            padding: '12px',
-                            background: colors.lightGray,
-                            borderRadius: '8px',
-                          }}
+                          className="flex items-start gap-3 p-3 bg-gray-50 rounded-lg"
                         >
-                          <Check size={20} style={{ color: colors.chiliRed, marginTop: '2px', flexShrink: 0 }} />
-                          <span style={{ color: colors.darkGray, fontWeight: '600' }}>{feature}</span>
+                          <Check size={20} className="text-[#E3180D] mt-0.5 flex-shrink-0" />
+                          <span className="text-gray-800 font-semibold text-sm md:text-base">{feature}</span>
                         </li>
                       ))}
                     </ul>
@@ -1387,53 +908,30 @@ const Products = () => {
       </AnimatePresence>
 
       {/* CTA Section */}
-      <section style={ctaSectionStyle}>
-        <div style={{
-          position: 'absolute',
-          inset: 0,
-          opacity: 0.1,
-          backgroundImage: `radial-gradient(circle at 20% 50%, ${colors.white} 0%, transparent 50%), radial-gradient(circle at 80% 80%, ${colors.white} 0%, transparent 50%)`,
-        }}></div>
+      <section className="relative py-16 md:py-20 px-5 bg-gradient-to-br from-[#E3180D] via-[#FA7301] to-[#F3B900] text-white">
+        <div 
+          className="absolute inset-0 opacity-10"
+          style={{
+            backgroundImage: 'radial-gradient(circle at 20% 50%, white 0%, transparent 50%), radial-gradient(circle at 80% 80%, white 0%, transparent 50%)'
+          }}
+        ></div>
 
-        <div style={{ ...containerStyle, position: 'relative', zIndex: 10 }}>
+        <div className="container mx-auto max-w-4xl relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            style={{ 
-              textAlign: 'center', 
-              color: colors.white,
-              maxWidth: '768px',
-              margin: '0 auto',
-            }}
+            className="text-center"
           >
-            <h2 style={{ 
-              fontSize: 'clamp(2rem, 5vw, 3rem)', 
-              fontWeight: '800',
-              marginBottom: '24px',
-            }}>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold mb-6">
               Need Custom Products?
             </h2>
-            <p style={{ 
-              fontSize: 'clamp(1rem, 2vw, 1.25rem)', 
-              marginBottom: '32px',
-              opacity: 0.95,
-            }}>
+            <p className="text-base md:text-lg lg:text-xl mb-8 opacity-95">
               We can design and manufacture products tailored to your exact requirements
             </p>
             <Link 
               to="/contact" 
-              style={ctaButtonStyle}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.transform = 'translateY(-2px)';
-                e.currentTarget.style.boxShadow = '0 6px 30px rgba(0, 0, 0, 0.3)';
-                e.currentTarget.style.background = colors.lightGray;
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.transform = 'translateY(0)';
-                e.currentTarget.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.2)';
-                e.currentTarget.style.background = colors.white;
-              }}
+              className="inline-flex items-center gap-2 px-6 md:px-8 py-3 md:py-4 bg-white text-gray-800 rounded-lg font-semibold shadow-xl hover:shadow-2xl hover:bg-gray-50 transition-all transform hover:-translate-y-1"
             >
               <span>Get Custom Quote</span>
               <ArrowRight size={20} />

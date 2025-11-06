@@ -10,18 +10,40 @@ import {
   MapPin,
   Globe,
   Search,
+  Home,
+  Info,
+  Briefcase,
+  Package,
+  FolderKanban,
+  Image,
+  MessageSquare,
+  HelpCircle,
+  PhoneCall,
+  ChevronRight,
+  Boxes,
+  Wrench,
+  Newspaper,
 } from "lucide-react";
 import { useLanguage } from "./lunguageContext";
 import SearchModal from "./search";
 import { GiWorld } from "react-icons/gi";
 import { CgMenuRight } from "react-icons/cg";
-
+import { HiOutlineBuildingOffice2 } from "react-icons/hi2";
+import { GrServices } from "react-icons/gr";
+import { LiaProjectDiagramSolid } from "react-icons/lia";
+import { GoPeople } from "react-icons/go";
+import { LiaHomeSolid } from "react-icons/lia";
+import { PiPersonLight } from "react-icons/pi";
+import { PiSmileyWinkThin } from "react-icons/pi";
+import { PiSmiley } from "react-icons/pi";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [showLangMenu, setShowLangMenu] = useState(false);
   const [showSearch, setShowSearch] = useState(false);
+  const [openDropdown, setOpenDropdown] = useState(null);
+  const [openMobileDropdown, setOpenMobileDropdown] = useState(null);
   const { language, changeLanguage, t } = useLanguage();
   const location = useLocation();
 
@@ -37,6 +59,8 @@ const Navbar = () => {
   useEffect(() => {
     setIsOpen(false);
     setShowLangMenu(false);
+    setOpenDropdown(null);
+    setOpenMobileDropdown(null);
   }, [location]);
 
   // Lock body scroll when mobile menu is open
@@ -57,16 +81,54 @@ const Navbar = () => {
     { code: "es", name: "Español", flag: "🇪🇸" },
   ];
 
+  // Navigation structure with icons and dropdowns
   const navLinks = [
-    { path: "/", label: t("nav.home") },
-    { path: "/about", label: t("nav.about") },
-    { path: "/services", label: t("nav.services") },
-    { path: "/products", label: t("nav.products") },
-    { path: "/projects", label: t("nav.projects") },
-    { path: "/gallery", label: t("nav.gallery") },
-    { path: "/testimonials", label: t("nav.testimonials") },
-    { path: "/faq", label: t("nav.faq") },
-    { path: "/contact", label: t("nav.contact") },
+    {
+      path: "/",
+      label: t("nav.home"),
+      icon: LiaHomeSolid,
+      type: "link",
+    },
+        {
+      label: "Our Company",
+      icon: HiOutlineBuildingOffice2,
+      type: "dropdown",
+      items: [
+        { path: "/about", label: t("nav.about"), icon: Info },
+        { path: "/contact", label: t("nav.contact"), icon: PhoneCall },
+      ],
+    },
+    {
+      label: "What We Offer",
+      icon: GrServices,
+      type: "dropdown",
+      items: [
+        { path: "/services", label: t("nav.services"), icon: Wrench },
+        { path: "/products", label: t("nav.products"), icon: Boxes },
+      ],
+    },
+    {
+      path: "/projects",
+      label: t("nav.projects"),
+      icon: LiaProjectDiagramSolid,
+      type: "link",
+    },
+    {
+      path: "/testimonials",
+      label: t("nav.testimonials"),
+      icon: PiSmiley,
+      type: "link",
+    },
+    {
+      label: "Resources",
+      icon: Package,
+      type: "dropdown",
+      items: [
+        { path: "/gallery", label: t("nav.gallery"), icon: Image },
+        { path: "/faq", label: t("nav.faq"), icon: HelpCircle },
+        { path: "/news", label: "News", icon: Newspaper },
+      ],
+    },
   ];
 
   // Color palette from images
@@ -92,7 +154,7 @@ const Navbar = () => {
   const navbarStyle = {
     position: "sticky",
     top: 0,
-    zIndex: 60, // FIXED: Increased from 40 to 60 to stay above floating buttons
+    zIndex: 60,
     background: colors.white,
     transition: "all 0.3s ease",
     boxShadow: isScrolled
@@ -109,12 +171,10 @@ const Navbar = () => {
   };
 
   const activeLinkStyle = {
-    background: `linear-gradient(135deg, ${colors.chiliRed}, ${colors.scarlet})`,
-    color: colors.white,
+    color: colors.chiliRed,
     padding: "10px 16px",
     borderRadius: "8px",
     fontWeight: "600",
-    boxShadow: `0 2px 10px rgba(227, 24, 13, 0.3)`,
     transition: "all 0.3s ease",
   };
 
@@ -155,6 +215,14 @@ const Navbar = () => {
     cursor: "pointer",
     transition: "all 0.3s ease",
     color: colors.darkGray,
+  };
+
+  const isPathActive = (path) => {
+    return location.pathname === path;
+  };
+
+  const isDropdownActive = (items) => {
+    return items.some((item) => location.pathname === item.path);
   };
 
   return (
@@ -264,33 +332,129 @@ const Navbar = () => {
             </Link>
 
             {/* Desktop Navigation */}
-            <div style={{ gap: "4px" }} className="hidden lg:flex">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.path}
-                  to={link.path}
-                  style={
-                    location.pathname === link.path
-                      ? activeLinkStyle
-                      : inactiveLinkStyle
-                  }
-                  onMouseEnter={(e) => {
-                    if (location.pathname !== link.path) {
-                      e.currentTarget.style.color = hoverLinkStyle.color;
-                      e.currentTarget.style.background =
-                        hoverLinkStyle.background;
-                    }
-                  }}
-                  onMouseLeave={(e) => {
-                    if (location.pathname !== link.path) {
-                      e.currentTarget.style.color = inactiveLinkStyle.color;
-                      e.currentTarget.style.background = "transparent";
-                    }
-                  }}
-                >
-                  {link.label}
-                </Link>
-              ))}
+            <div className="hidden lg:flex items-center gap-1">
+              {navLinks.map((link, index) => {
+                if (link.type === "link") {
+                  const IconComponent = link.icon;
+                  const isActive = isPathActive(link.path);
+                  return (
+                    <Link
+                      key={link.path}
+                      to={link.path}
+                      className="flex items-center gap-2 px-4 py-2.5 rounded-lg font-medium transition-all"
+                      style={isActive ? activeLinkStyle : inactiveLinkStyle}
+                      onMouseEnter={(e) => {
+                        if (!isActive) {
+                          e.currentTarget.style.color = hoverLinkStyle.color;
+                          e.currentTarget.style.background =
+                            hoverLinkStyle.background;
+                        }
+                      }}
+                      onMouseLeave={(e) => {
+                        if (!isActive) {
+                          e.currentTarget.style.color = inactiveLinkStyle.color;
+                          e.currentTarget.style.background = "transparent";
+                        }
+                      }}
+                    >
+                      <IconComponent size={18} />
+                      <span>{link.label}</span>
+                    </Link>
+                  );
+                } else if (link.type === "dropdown") {
+                  const IconComponent = link.icon;
+                  const isActive = isDropdownActive(link.items);
+                  return (
+                    <div
+                      key={index}
+                      className="relative"
+                      onMouseEnter={() => setOpenDropdown(index)}
+                      onMouseLeave={() => setOpenDropdown(null)}
+                    >
+                      <button
+                        className="flex items-center gap-2 px-4 py-2.5 rounded-lg font-medium transition-all"
+                        style={isActive ? activeLinkStyle : inactiveLinkStyle}
+                        onMouseEnter={(e) => {
+                          if (!isActive) {
+                            e.currentTarget.style.color = hoverLinkStyle.color;
+                            e.currentTarget.style.background =
+                              hoverLinkStyle.background;
+                          }
+                        }}
+                        onMouseLeave={(e) => {
+                          if (!isActive) {
+                            e.currentTarget.style.color =
+                              inactiveLinkStyle.color;
+                            e.currentTarget.style.background = "transparent";
+                          }
+                        }}
+                      >
+                        <IconComponent size={18} />
+                        <span>{link.label}</span>
+                        <ChevronDown
+                          size={16}
+                          className="transition-transform"
+                          style={{
+                            transform:
+                              openDropdown === index
+                                ? "rotate(180deg)"
+                                : "rotate(0deg)",
+                          }}
+                        />
+                      </button>
+
+                      <AnimatePresence>
+                        {openDropdown === index && (
+                          <motion.div
+                            initial={{ opacity: 0, y: -10 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            exit={{ opacity: 0, y: -10 }}
+                            transition={{ duration: 0.2 }}
+                            className="absolute left-0 mt-2 w-56 bg-white rounded-lg shadow-xl border border-gray-200 overflow-hidden z-50"
+                          >
+                            {link.items.map((item) => {
+                              const ItemIcon = item.icon;
+                              const isItemActive = isPathActive(item.path);
+                              return (
+                                <Link
+                                  key={item.path}
+                                  to={item.path}
+                                  className="flex items-center gap-3 px-4 py-3 transition-all"
+                                  style={{
+                                    color: isItemActive
+                                      ? colors.chiliRed
+                                      : colors.darkGray,
+                                    fontWeight: isItemActive ? "600" : "500",
+                                    background: isItemActive
+                                      ? "linear-gradient(135deg, rgba(227, 24, 13, 0.1), rgba(255, 42, 0, 0.1))"
+                                      : "transparent",
+                                  }}
+                                  onMouseEnter={(e) => {
+                                    if (!isItemActive) {
+                                      e.currentTarget.style.background =
+                                        "rgba(227, 24, 13, 0.05)";
+                                    }
+                                  }}
+                                  onMouseLeave={(e) => {
+                                    if (!isItemActive) {
+                                      e.currentTarget.style.background =
+                                        "transparent";
+                                    }
+                                  }}
+                                >
+                                  <ItemIcon size={18} />
+                                  <span>{item.label}</span>
+                                </Link>
+                              );
+                            })}
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    </div>
+                  );
+                }
+                return null;
+              })}
             </div>
 
             {/* Search, Language Switcher & Mobile Menu Button */}
@@ -468,7 +632,7 @@ const Navbar = () => {
             initial={{ opacity: 0, x: "100%" }}
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: "100%" }}
-            transition={{ type: "tween", duration: 0.3 }}
+            transition={{ type: "tween", duration: 0.15 }}
             className="lg:hidden fixed inset-0 z-[100] overflow-y-auto"
           >
             {/* Background Image with Overlay */}
@@ -516,50 +680,151 @@ const Navbar = () => {
 
               {/* Navigation Links */}
               <div className="flex-1 flex flex-col justify-center px-8 py-12 space-y-2">
-                {navLinks.map((link, index) => (
-                  <motion.div
-                    key={link.path}
-                    initial={{ opacity: 0, x: 20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: index * 0.1 }}
-                  >
-                    <Link
-                      to={link.path}
-                      onClick={() => setIsOpen(false)}
-                      className="block px-6 py-4 rounded-lg text-lg font-semibold transition-all"
-                      style={{
-                        ...(location.pathname === link.path
-                          ? {
-                              background: colors.white,
-                              color: colors.chiliRed,
-                              boxShadow: "0 4px 15px rgba(0, 0, 0, 0.2)",
+                {navLinks.map((link, index) => {
+                  if (link.type === "link") {
+                    const IconComponent = link.icon;
+                    const isActive = isPathActive(link.path);
+                    return (
+                      <motion.div
+                        key={link.path}
+                        initial={{ opacity: 0, x: 20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: index * 0.05 }}
+                      >
+                        <Link
+                          to={link.path}
+                          onClick={() => setIsOpen(false)}
+                          className="flex items-center justify-between px-6 py-4 rounded-lg text-lg font-semibold transition-all"
+                          style={{
+                            color: isActive ? colors.chiliRed : colors.white,
+                            background: isActive
+                              ? colors.white
+                              : "transparent",
+                          }}
+                          onMouseEnter={(e) => {
+                            if (!isActive) {
+                              e.currentTarget.style.background =
+                                "rgba(255, 255, 255, 0.1)";
                             }
-                          : {
-                              color: colors.white,
-                            }),
-                      }}
-                      onMouseEnter={(e) => {
-                        if (location.pathname !== link.path) {
-                          e.currentTarget.style.background =
-                            "rgba(255, 255, 255, 0.1)";
-                        }
-                      }}
-                      onMouseLeave={(e) => {
-                        if (location.pathname !== link.path) {
-                          e.currentTarget.style.background = "transparent";
-                        }
-                      }}
-                    >
-                      {link.label}
-                    </Link>
-                  </motion.div>
-                ))}
+                          }}
+                          onMouseLeave={(e) => {
+                            if (!isActive) {
+                              e.currentTarget.style.background = "transparent";
+                            }
+                          }}
+                        >
+                          <div className="flex items-center gap-3">
+                            <IconComponent size={22} />
+                            <span>{link.label}</span>
+                          </div>
+                          <ChevronRight size={20} />
+                        </Link>
+                      </motion.div>
+                    );
+                  } else if (link.type === "dropdown") {
+                    const IconComponent = link.icon;
+                    const isDropdownOpen = openMobileDropdown === index;
+                    const isActive = isDropdownActive(link.items);
+
+                    return (
+                      <motion.div
+                        key={index}
+                        initial={{ opacity: 0, x: 20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: index * 0.05 }}
+                      >
+                        {/* Dropdown Trigger */}
+                        <button
+                          onClick={() =>
+                            setOpenMobileDropdown(
+                              isDropdownOpen ? null : index
+                            )
+                          }
+                          className="w-full flex items-center justify-between px-6 py-4 rounded-lg text-lg font-semibold transition-all"
+                          style={{
+                            color: isActive ? colors.chiliRed : colors.white,
+                            background: isActive
+                              ? colors.white
+                              : "rgba(255, 255, 255, 0.1)",
+                          }}
+                        >
+                          <div className="flex items-center gap-3">
+                            <IconComponent size={22} />
+                            <span>{link.label}</span>
+                          </div>
+                          <ChevronDown
+                            size={20}
+                            className="transition-transform"
+                            style={{
+                              transform: isDropdownOpen
+                                ? "rotate(180deg)"
+                                : "rotate(0deg)",
+                            }}
+                          />
+                        </button>
+
+                        {/* Dropdown Items */}
+                        <AnimatePresence>
+                          {isDropdownOpen && (
+                            <motion.div
+                              initial={{ opacity: 0, height: 0 }}
+                              animate={{ opacity: 1, height: "auto" }}
+                              exit={{ opacity: 0, height: 0 }}
+                              transition={{ duration: 0.2 }}
+                              className="mt-1 ml-6 space-y-1"
+                            >
+                              {link.items.map((item) => {
+                                const ItemIcon = item.icon;
+                                const isItemActive = isPathActive(item.path);
+                                return (
+                                  <Link
+                                    key={item.path}
+                                    to={item.path}
+                                    onClick={() => setIsOpen(false)}
+                                    className="flex items-center justify-between px-6 py-3 rounded-lg text-base font-medium transition-all"
+                                    style={{
+                                      color: isItemActive
+                                        ? colors.chiliRed
+                                        : colors.white,
+                                      background: isItemActive
+                                        ? colors.white
+                                        : "transparent",
+                                    }}
+                                    onMouseEnter={(e) => {
+                                      if (!isItemActive) {
+                                        e.currentTarget.style.background =
+                                          "rgba(255, 255, 255, 0.1)";
+                                      }
+                                    }}
+                                    onMouseLeave={(e) => {
+                                      if (!isItemActive) {
+                                        e.currentTarget.style.background =
+                                          "transparent";
+                                      }
+                                    }}
+                                  >
+                                    <div className="flex items-center gap-3">
+                                      <ItemIcon size={18} />
+                                      <span>{item.label}</span>
+                                    </div>
+                                    <ChevronRight size={18} />
+                                  </Link>
+                                );
+                              })}
+                            </motion.div>
+                          )}
+                        </AnimatePresence>
+                      </motion.div>
+                    );
+                  }
+                  return null;
+                })}
 
                 {/* Contact Info & Language Switcher */}
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.9 }}
+                  transition={{ delay: 0.5 }}
                   className="pt-8 space-y-4"
                 >
                   {/* Language Switcher in Mobile Menu */}
