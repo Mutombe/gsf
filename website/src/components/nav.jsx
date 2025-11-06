@@ -126,7 +126,7 @@ const Navbar = () => {
       items: [
         { path: "/gallery", label: t("nav.gallery"), icon: Image },
         { path: "/faq", label: t("nav.faq"), icon: HelpCircle },
-        { path: "/news", label: "News", icon: Newspaper },
+        { path: "/resources", label: "Resources", icon: Newspaper },
       ],
     },
   ];

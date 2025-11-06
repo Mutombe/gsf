@@ -25,6 +25,7 @@ import Testimonials from "./components/review";
 import FAQ from "./components/faqs";
 import Contact from "./components/contact";
 import NotFound from "./components/notfound";
+import Resources from "./components/resources";
 
 const BackToTop = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -165,6 +166,7 @@ function App() {
               <Route path="/testimonials" element={<Testimonials />} />
               <Route path="/faq" element={<FAQ />} />
               <Route path="/contact" element={<Contact />} />
+              <Route path="/resources" element={<Resources />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </main>
