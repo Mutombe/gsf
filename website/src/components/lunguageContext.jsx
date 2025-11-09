@@ -86,29 +86,37 @@ export const translations = {
     services: {
       title: 'Our Services',
       subtitle: 'Comprehensive shopfitting solutions for every retail need',
-      retail: {
-        title: 'Retail Shopfitting',
-        desc: 'Complete store design and fitout services including shelving, displays, counters, and custom fixtures.',
+      consulting: {
+        title: 'Consulting',
+        desc: 'Expert consultation services to understand your needs, assess feasibility, and plan your perfect retail space.',
       },
-      custom: {
-        title: 'Custom Fixtures',
-        desc: 'Bespoke furniture and fixtures designed and manufactured to your exact specifications.',
+      engineering: {
+        title: 'Engineering',
+        desc: 'Technical engineering solutions ensuring structural integrity, safety compliance, and optimal functionality.',
       },
-      refrigeration: {
-        title: 'Refrigeration Solutions',
-        desc: 'Commercial refrigeration units, cold rooms, and display chillers for food retail.',
+      design: {
+        title: 'Design',
+        desc: 'Creative and functional design services bringing your vision to life with 3D visualization and detailed planning.',
       },
-      signage: {
-        title: 'Signage & Branding',
-        desc: 'Eye-catching signage solutions that enhance your brand visibility and store presence.',
+      testing: {
+        title: 'Testing',
+        desc: 'Rigorous quality control and testing procedures to ensure all materials and installations meet the highest standards.',
       },
-      consultation: {
-        title: 'Design Consultation',
-        desc: 'Expert advice on space planning, layout optimization, and retail design strategy.',
+      production: {
+        title: 'Production',
+        desc: 'In-house manufacturing with precision craftsmanship, quality materials, and efficient production workflows.',
       },
-      maintenance: {
-        title: 'Maintenance & Support',
-        desc: 'Ongoing maintenance services to keep your store fixtures in perfect condition.',
+      afterService: {
+        title: 'After Service Support',
+        desc: 'Comprehensive post-installation support including warranty coverage, maintenance, and 24/7 customer assistance.',
+      },
+      projectManagement: {
+        title: 'Project Management',
+        desc: 'End-to-end project coordination ensuring timely delivery, budget control, and quality assurance.',
+      },
+      installation: {
+        title: 'Installation & Maintenance',
+        desc: 'Professional installation services with certified teams and ongoing maintenance programs.',
       },
     },
     // Products Page
@@ -243,29 +251,37 @@ export const translations = {
     services: {
       title: 'Izinsizakalo Zethu',
       subtitle: 'Izixazululo ezipheleleyo zokwakha izitolo ngayo yonke imfuneko yokuthengisa',
-      retail: {
-        title: 'Ukwakha Izitolo',
-        desc: 'Izinsizakalo ezipheleleyo zokuklama nokwakha izitolo kuhlanganise amashaliphi, iziboniso, amakhawunda, lezinto ezenzelwe wena.',
+      consulting: {
+        title: 'Ukweluleka',
+        desc: 'Izinsizakalo zokweluleka ezinobuchwepheshe zokuqonda izidingo zakho, ukuhlola ukuthi kungenzeka yini, nokucwaninga indawo yakho yokuthengisa epheleleyo.',
       },
-      custom: {
-        title: 'Impahla Ekhethekileyo',
-        desc: 'Ifenisha lezinto ezakhelwe wena ngqo ngokwezifiso zakho eziqondileyo.',
+      engineering: {
+        title: 'Ubunjiniyela',
+        desc: 'Izixazululo zobunjiniyela zobuchwepheshe eziqinisekisa ukuqina kwesakhiwo, ukuthobela ukuphepha, lokusebenza okuhle kakhulu.',
       },
-      refrigeration: {
-        title: 'Izixazululo Zokubandisa',
-        desc: 'Amayunithi okubandisa webhizinisi, amagumbi abandayo, leziboniso zokubandisa zokuthengisa ukudla.',
+      design: {
+        title: 'Ukuklama',
+        desc: 'Izinsizakalo zokuklama eziqhambekayo nezisebenzayo eziletha umbono wakho empilweni ngokubonisa kwe-3D nokucwaninga okuningiliziweyo.',
       },
-      signage: {
-        title: 'Izibonakaliso Lokuklanyelwa',
-        desc: 'Izixazululo zezibonakaliso ezinomtsalane ezenza ukuthi ibizo lakho libonakale futhi isitolo sakho sibonakale.',
+      testing: {
+        title: 'Ukuhlola',
+        desc: 'Izinqubo zokuhlola lokulawula ikhwalithi eziqinileyo ukuqinisekisa ukuthi zonke izinto ezisebenziswayo nokufakwa kuhlangabezana namazinga aphakeme kakhulu.',
       },
-      consultation: {
-        title: 'Ukwelulekwa Ngoklama',
-        desc: 'Iseluleko sochwepheshe mayelana nokucwaninga iindawo, ukwenza indawo isebenze kahle, lesu lokuklanyelwa kokuthengisa.',
+      production: {
+        title: 'Ukukhiqiza',
+        desc: 'Ukwenziwa kwangaphakathi ngobuchwepheshe obuqondileyo, izinto zekhwalithi, lemisebenzi yokukhiqiza esebenza kahle.',
       },
-      maintenance: {
-        title: 'Ukunakekelwa Lokusekelwa',
-        desc: 'Izinsizakalo zokuqhubekisela phambili zokulondoloza impahla yesitolo sakho isesimweni esihle.',
+      afterService: {
+        title: 'Ukusekelwa Ngemuva Kwensizakalo',
+        desc: 'Ukusekelwa okupheleleyo ngemuva kokufakwa okuhlanganisa ukumbozwa ngesivikelo, ukunakekelwa, losizo lwamakhasimende ngezikhathi zonke.',
+      },
+      projectManagement: {
+        title: 'Ukuphathwa Kwephrojekthi',
+        desc: 'Ukuxhumanisa kwephrojekthi okupheleleyo kuqinisekisa ukuthi iyanikelwa ngesikhathi, ukulawulwa kwesabelomali, lokuqinisekisa ikhwalithi.',
+      },
+      installation: {
+        title: 'Ukufaka Lokunakekela',
+        desc: 'Izinsizakalo zokufaka ezinobuchwepheshe ngamaqembu anesitifiketi lezinhlelo zokunakekelwa eziqhubekayo.',
       },
     },
     // Products Page (Ndebele)
@@ -400,29 +416,37 @@ export const translations = {
     services: {
       title: 'Nuestros Servicios',
       subtitle: 'Soluciones integrales de equipamiento para cada necesidad minorista',
-      retail: {
-        title: 'Equipamiento Minorista',
-        desc: 'Servicios completos de diseño y equipamiento de tiendas incluyendo estanterías, exhibidores, mostradores y accesorios personalizados.',
+      consulting: {
+        title: 'Consultoría',
+        desc: 'Servicios de consultoría experta para comprender sus necesidades, evaluar la viabilidad y planificar su espacio minorista perfecto.',
       },
-      custom: {
-        title: 'Mobiliario Personalizado',
-        desc: 'Muebles y accesorios a medida diseñados y fabricados según sus especificaciones exactas.',
+      engineering: {
+        title: 'Ingeniería',
+        desc: 'Soluciones de ingeniería técnica que garantizan la integridad estructural, el cumplimiento de seguridad y la funcionalidad óptima.',
       },
-      refrigeration: {
-        title: 'Soluciones de Refrigeración',
-        desc: 'Unidades de refrigeración comercial, cuartos fríos y exhibidores refrigerados para venta de alimentos.',
+      design: {
+        title: 'Diseño',
+        desc: 'Servicios de diseño creativos y funcionales que dan vida a su visión con visualización 3D y planificación detallada.',
       },
-      signage: {
-        title: 'Señalización y Marca',
-        desc: 'Soluciones de señalización llamativas que mejoran la visibilidad de su marca y la presencia de su tienda.',
+      testing: {
+        title: 'Pruebas',
+        desc: 'Rigurosos procedimientos de control de calidad y pruebas para garantizar que todos los materiales e instalaciones cumplan con los más altos estándares.',
       },
-      consultation: {
-        title: 'Consultoría de Diseño',
-        desc: 'Asesoramiento experto en planificación espacial, optimización de diseño y estrategia de diseño minorista.',
+      production: {
+        title: 'Producción',
+        desc: 'Fabricación interna con artesanía de precisión, materiales de calidad y flujos de trabajo de producción eficientes.',
       },
-      maintenance: {
-        title: 'Mantenimiento y Soporte',
-        desc: 'Servicios de mantenimiento continuo para mantener el mobiliario de su tienda en perfectas condiciones.',
+      afterService: {
+        title: 'Soporte Post-Venta',
+        desc: 'Soporte integral posterior a la instalación que incluye cobertura de garantía, mantenimiento y asistencia al cliente 24/7.',
+      },
+      projectManagement: {
+        title: 'Gestión de Proyectos',
+        desc: 'Coordinación de proyectos de extremo a extremo que garantiza entrega oportuna, control presupuestario y garantía de calidad.',
+      },
+      installation: {
+        title: 'Instalación y Mantenimiento',
+        desc: 'Servicios de instalación profesional con equipos certificados y programas de mantenimiento continuo.',
       },
     },
     // Products Page (Spanish)

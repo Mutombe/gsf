@@ -18,6 +18,14 @@ import {
   Shield,
   Zap,
   Heart,
+  MessageCircle,
+  Lightbulb,
+  Cpu,
+  FlaskConical,
+  Factory,
+  HeadphonesIcon,
+  FolderKanban,
+  Settings,
 } from "lucide-react";
 import { useLanguage } from "./lunguageContext";
 import { IoLogoWhatsapp } from "react-icons/io";
@@ -117,36 +125,60 @@ const Home = () => {
 
   const services = [
     {
-      icon: Store,
-      title: "Retail Shopfitting",
-      description:
-        "Complete store design and fitout services including shelving, displays, and custom fixtures.",
+      icon: MessageCircle,
+      title: t('services.consulting.title'),
+      description: t('services.consulting.desc'),
       colorFrom: colors.chiliRed,
       colorTo: colors.brightOrange,
     },
     {
-      icon: Wrench,
-      title: "Custom Fixtures",
-      description:
-        "Bespoke furniture and fixtures designed and manufactured to your exact specifications.",
-      colorFrom: colors.brightOrange,
-      colorTo: colors.amber,
-    },
-    {
-      icon: Snowflake,
-      title: "Refrigeration Solutions",
-      description:
-        "Commercial refrigeration units, cold rooms, and display chillers for food retail.",
+      icon: Cpu,
+      title: t('services.engineering.title'),
+      description: t('services.engineering.desc'),
       colorFrom: colors.scarlet,
       colorTo: colors.persimmon,
     },
     {
-      icon: PenTool,
-      title: "Signage & Branding",
-      description:
-        "Eye-catching signage solutions that enhance your brand visibility and store presence.",
+      icon: Lightbulb,
+      title: t('services.design.title'),
+      description: t('services.design.desc'),
+      colorFrom: colors.brightOrange,
+      colorTo: colors.amber,
+    },
+    {
+      icon: FlaskConical,
+      title: t('services.testing.title'),
+      description: t('services.testing.desc'),
+      colorFrom: colors.flame,
+      colorTo: colors.safetyOrange,
+    },
+    {
+      icon: Factory,
+      title: t('services.production.title'),
+      description: t('services.production.desc'),
       colorFrom: colors.darkOrange,
-      colorTo: colors.chiliRed,
+      colorTo: colors.mustardYellow,
+    },
+    {
+      icon: HeadphonesIcon,
+      title: t('services.afterService.title'),
+      description: t('services.afterService.desc'),
+      colorFrom: colors.persimmon,
+      colorTo: colors.tangerine,
+    },
+    {
+      icon: FolderKanban,
+      title: t('services.projectManagement.title'),
+      description: t('services.projectManagement.desc'),
+      colorFrom: colors.safetyOrange,
+      colorTo: colors.amber,
+    },
+    {
+      icon: Settings,
+      title: t('services.installation.title'),
+      description: t('services.installation.desc'),
+      colorFrom: colors.chiliRed,
+      colorTo: colors.darkOrange,
     },
   ];
 
@@ -465,7 +497,7 @@ const Home = () => {
                 <img
                   src={img}
                   alt="Shopfitting project"
-                  loading="lazy"
+                    loading="eager"
                   decoding="async"
                   className="w-full h-full object-cover opacity-70"
                 />
@@ -475,9 +507,10 @@ const Home = () => {
 
           {/* Overlays for text readability */}
           <div
-            className="absolute inset-0 opacity-50 z-10"
+            className="absolute inset-0 opacity-20 z-10"
             style={{
               background: `linear-gradient(135deg, ${colors.chiliRed}E0 0%, ${colors.scarlet}D0 50%, ${colors.darkOrange}E0 50%)`,
+              
             }}
           />
 
@@ -498,7 +531,7 @@ const Home = () => {
             ...containerStyle,
             position: "relative",
             zIndex: 40,
-            padding: "80px 20px",
+            padding: "10px 20px 80px",
             textAlign: "center",
           }}
         >
@@ -530,8 +563,75 @@ const Home = () => {
                     fontWeight: "600",
                   }}
                 >
-                  Zimbabwe's Premier Shopfitting Company
+                  For a perfect fit.
                 </span>
+              </div>
+
+                            {/* CIFZ Membership Badge */}
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  gap: "12px",
+                  background: "rgba(255, 255, 255, 0.15)",
+                  backdropFilter: "blur(10px)",
+                  padding: "12px 20px",
+                  borderRadius: "4px",
+                  border: "1px solid rgba(255, 255, 255, 0.25)",
+                  maxWidth: "fit-content",
+                  margin: "0 auto",
+                }}
+              >
+                <div
+                  style={{
+                    width: "40px",
+                    height: "40px",
+                    borderRadius: "4px",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    padding: "4px",
+                  }}
+                >
+                  <img
+                    src="/cifz.png"
+                    alt="CIFZ Logo"
+                    loading="eager"
+                    decoding="async"
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      objectFit: "contain",
+                    }}
+                    onError={(e) => {
+                      // Fallback if logo doesn't load
+                      e.target.style.display = "none";
+                      e.target.parentElement.innerHTML = '<div style="color: #E3180D; font-weight: 800; font-size: 14px;">CIFZ</div>';
+                    }}
+                  />
+                </div>
+                <div style={{ textAlign: "left" }}>
+                  <div
+                    style={{
+                      color: colors.white,
+                      fontWeight: "700",
+                      fontSize: "0.875rem",
+                      lineHeight: "1.2",
+                    }}
+                  >
+                    Proud Member
+                  </div>
+                  <div
+                    style={{
+                      color: "rgba(255, 255, 255, 0.85)",
+                      fontSize: "0.75rem",
+                      lineHeight: "1.2",
+                    }}
+                  >
+                    Construction Industry Federation of Zimbabwe
+                  </div>
+                </div>
               </div>
             </motion.div>
 
@@ -564,7 +664,7 @@ const Home = () => {
               </span>
             </motion.h1>
 
-            <motion.p
+            {/* Subtitle <motion.p
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5, duration: 0.8 }}
@@ -579,7 +679,7 @@ const Home = () => {
               }}
             >
               {t("home.hero.subtitle")}
-            </motion.p>
+            </motion.p>*/}
 
             <motion.div
               initial={{ opacity: 0, y: 50 }}

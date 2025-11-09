@@ -23,6 +23,7 @@ import {
   Boxes,
   Wrench,
   Newspaper,
+  Clock,
 } from "lucide-react";
 import { useLanguage } from "./lunguageContext";
 import SearchModal from "./search";
@@ -36,6 +37,7 @@ import { LiaHomeSolid } from "react-icons/lia";
 import { PiPersonLight } from "react-icons/pi";
 import { PiSmileyWinkThin } from "react-icons/pi";
 import { PiSmiley } from "react-icons/pi";
+import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn, FaWhatsapp } from "react-icons/fa";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -81,6 +83,15 @@ const Navbar = () => {
     { code: "es", name: "Español", flag: "🇪🇸" },
   ];
 
+  // Social media links
+  const socialLinks = [
+    { icon: FaFacebookF, url: "https://facebook.com/globalshopfitters", label: "Facebook" },
+    { icon: FaTwitter, url: "https://twitter.com/globalshopfitters", label: "Twitter" },
+    { icon: FaInstagram, url: "https://instagram.com/globalshopfitters", label: "Instagram" },
+    { icon: FaLinkedinIn, url: "https://linkedin.com/company/globalshopfitters", label: "LinkedIn" },
+    { icon: FaWhatsapp, url: "https://wa.me/263123456789", label: "WhatsApp" },
+  ];
+
   // Navigation structure with icons and dropdowns
   const navLinks = [
     {
@@ -89,7 +100,7 @@ const Navbar = () => {
       icon: LiaHomeSolid,
       type: "link",
     },
-        {
+    {
       label: "Our Company",
       icon: HiOutlineBuildingOffice2,
       type: "dropdown",
@@ -230,18 +241,13 @@ const Navbar = () => {
       {/* Search Modal */}
       <SearchModal isOpen={showSearch} onClose={() => setShowSearch(false)} />
 
-      {/* Top Bar */}
-      <div style={topBarStyle} className="hidden lg:block">
+      {/* Top Bar - Now visible on all devices */}
+      <div style={topBarStyle}>
         <div
           style={{ maxWidth: "1280px", margin: "0 auto", padding: "0 1rem" }}
         >
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "space-between",
-              alignItems: "center",
-            }}
-          >
+          {/* Desktop Top Bar */}
+          <div className="hidden lg:flex justify-between items-center">
             <div style={{ display: "flex", alignItems: "center", gap: "24px" }}>
               <a
                 href="mailto:info@globalshopfitters.co.zw"
@@ -283,10 +289,115 @@ const Navbar = () => {
                 <Phone size={14} />
                 <span>+263 123 456 789</span>
               </a>
+              <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+                <Clock size={14} />
+                <span>Mon - Fri: 8:00 AM - 5:00 PM</span>
+              </div>
             </div>
-            <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-              <MapPin size={14} />
-              <span>Harare, Zimbabwe</span>
+            <div style={{ display: "flex", alignItems: "center", gap: "16px" }}>
+              <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+                <MapPin size={14} />
+                <span>Harare, Zimbabwe</span>
+              </div>
+              <div
+                style={{
+                  width: "1px",
+                  height: "16px",
+                  background: "rgba(255, 255, 255, 0.3)",
+                }}
+              />
+              <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+                {socialLinks.map((social) => {
+                  const SocialIcon = social.icon;
+                  return (
+                    <a
+                      key={social.label}
+                      href={social.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={social.label}
+                      style={{
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        width: "28px",
+                        height: "28px",
+                        borderRadius: "50%",
+                        background: "rgba(255, 255, 255, 0.1)",
+                        color: colors.white,
+                        transition: "all 0.3s ease",
+                        textDecoration: "none",
+                      }}
+                      onMouseEnter={(e) => {
+                        e.currentTarget.style.background = colors.chiliRed;
+                        e.currentTarget.style.transform = "translateY(-2px)";
+                      }}
+                      onMouseLeave={(e) => {
+                        e.currentTarget.style.background = "rgba(255, 255, 255, 0.1)";
+                        e.currentTarget.style.transform = "translateY(0)";
+                      }}
+                    >
+                      <SocialIcon size={12} />
+                    </a>
+                  );
+                })}
+              </div>
+            </div>
+          </div>
+
+          {/* Mobile Top Bar */}
+          <div className="lg:hidden">
+            <div className="flex flex-col gap-2 py-1">
+              {/* First Row: Contact Info */}
+              <div className="flex items-center justify-between text-xs">
+                <a
+                  href="tel:+263123456789"
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "6px",
+                    color: colors.white,
+                    textDecoration: "none",
+                  }}
+                >
+                  <Phone size={12} />
+                  <span>+263 123 456 789</span>
+                </a>
+                <div style={{ display: "flex", alignItems: "center", gap: "6px" }}>
+                  <Clock size={12} />
+                  <span>Mon-Fri: 8AM-5PM</span>
+                </div>
+              </div>
+              
+              {/* Second Row: Social Media */}
+              <div className="flex items-center justify-center gap-3 pt-1 border-t border-white/20">
+                {socialLinks.map((social) => {
+                  const SocialIcon = social.icon;
+                  return (
+                    <a
+                      key={social.label}
+                      href={social.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={social.label}
+                      style={{
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        width: "32px",
+                        height: "32px",
+                        borderRadius: "50%",
+                        background: "rgba(255, 255, 255, 0.1)",
+                        color: colors.white,
+                        transition: "all 0.3s ease",
+                        textDecoration: "none",
+                      }}
+                    >
+                      <SocialIcon size={14} />
+                    </a>
+                  );
+                })}
+              </div>
             </div>
           </div>
         </div>
@@ -326,7 +437,7 @@ const Navbar = () => {
                 <img
                   src="/gsf.png"
                   alt="Global Shopfitters Logo"
-                  className="w-26 h-16"
+                  className="w-30 h-18"
                 />
               </div>
             </Link>

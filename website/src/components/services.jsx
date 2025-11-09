@@ -2,8 +2,9 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { 
-  Store, Wrench, Snowflake, PenTool, MessageCircle, 
-  Hammer, ArrowRight, CheckCircle2, Clock, Award, Shield
+  MessageCircle, Cpu, Lightbulb, FlaskConical, Factory, 
+  HeadphonesIcon, FolderKanban, Settings, Wrench, PenTool,
+  ArrowRight, CheckCircle2, Clock, Award, Shield
 } from 'lucide-react';
 import { useLanguage } from './lunguageContext';
 
@@ -35,100 +36,132 @@ const Services = () => {
 
   const services = [
     {
-      icon: Store,
-      title: t('services.retail.title'),
-      description: t('services.retail.desc'),
+      icon: MessageCircle,
+      title: t('services.consulting.title'),
+      description: t('services.consulting.desc'),
       features: [
-        'Complete store design and planning',
-        'Custom shelving and display units',
-        'Checkout counters and cash wraps',
-        'Wall panels and fixtures',
-        'Lighting integration',
-        'Space optimization'
+        'Expert needs assessment and analysis',
+        'Strategic planning and budgeting',
+        'Site evaluation and feasibility studies',
+        'Regulatory compliance consultation',
+        'Value engineering recommendations',
+        'Technical advisory services'
       ],
       colorFrom: colors.chiliRed,
       colorTo: colors.brightOrange,
-      size: 'large', // Featured card
-    },
-    {
-      icon: Wrench,
-      title: t('services.custom.title'),
-      description: t('services.custom.desc'),
-      features: [
-        'Bespoke furniture design',
-        'Custom display cabinets',
-        'Specialized storage solutions',
-        'Made-to-measure fixtures',
-        'Premium materials',
-        'Precision craftsmanship'
-      ],
-      colorFrom: colors.brightOrange,
-      colorTo: colors.amber,
-      size: 'medium',
-    },
-    {
-      icon: Snowflake,
-      title: t('services.refrigeration.title'),
-      description: t('services.refrigeration.desc'),
-      features: [
-        'Commercial refrigeration units',
-        'Walk-in cold rooms',
-        'Display chillers',
-        'Freezer installations',
-        'Maintenance services',
-        'Energy-efficient solutions'
-      ],
-      colorFrom: colors.scarlet,
-      colorTo: colors.darkOrange,
-      size: 'medium',
-    },
-    {
-      icon: PenTool,
-      title: t('services.signage.title'),
-      description: t('services.signage.desc'),
-      features: [
-        'Internal and external signage',
-        'LED illuminated signs',
-        'Brand identity displays',
-        'Wayfinding systems',
-        'Window graphics',
-        'Digital signage solutions'
-      ],
-      colorFrom: colors.darkOrange,
-      colorTo: colors.chiliRed,
       size: 'large',
     },
     {
-      icon: MessageCircle,
-      title: t('services.consultation.title'),
-      description: t('services.consultation.desc'),
+      icon: Cpu,
+      title: t('services.engineering.title'),
+      description: t('services.engineering.desc'),
       features: [
-        'Space planning and layout',
-        'Retail strategy consultation',
-        '3D visualization',
-        'Budget planning',
-        'Material selection',
-        'Project management'
+        'Structural engineering solutions',
+        'MEP (Mechanical, Electrical, Plumbing) design',
+        'Load calculations and specifications',
+        'Systems integration planning',
+        'Performance optimization',
+        'Technical documentation'
+      ],
+      colorFrom: colors.scarlet,
+      colorTo: colors.persimmon,
+      size: 'medium',
+    },
+    {
+      icon: Lightbulb,
+      title: t('services.design.title'),
+      description: t('services.design.desc'),
+      features: [
+        'Space planning and layout design',
+        '3D modeling and visualization',
+        'Custom fixture and furniture design',
+        'Brand-aligned aesthetic development',
+        'Material and finish selection',
+        'Detailed technical drawings'
+      ],
+      colorFrom: colors.brightOrange,
+      colorTo: colors.amber,
+      size: 'large',
+    },
+    {
+      icon: FlaskConical,
+      title: t('services.testing.title'),
+      description: t('services.testing.desc'),
+      features: [
+        'Quality control inspections',
+        'Material testing and verification',
+        'Load and stress testing',
+        'Compliance and safety testing',
+        'Performance validation',
+        'Pre-installation testing protocols'
       ],
       colorFrom: colors.flame,
       colorTo: colors.safetyOrange,
       size: 'small',
     },
     {
-      icon: Hammer,
-      title: t('services.maintenance.title'),
-      description: t('services.maintenance.desc'),
+      icon: Factory,
+      title: t('services.production.title'),
+      description: t('services.production.desc'),
       features: [
-        'Regular maintenance checks',
-        'Repair services',
-        'Fixture refurbishment',
-        'Emergency support',
-        'Warranty coverage',
-        'Long-term contracts'
+        'In-house manufacturing capabilities',
+        'Custom fabrication services',
+        'Quality materials and finishes',
+        'Precision craftsmanship',
+        'Efficient production workflows',
+        'Timely delivery schedules'
+      ],
+      colorFrom: colors.darkOrange,
+      colorTo: colors.mustardYellow,
+      size: 'medium',
+    },
+    {
+      icon: HeadphonesIcon,
+      title: t('services.afterService.title'),
+      description: t('services.afterService.desc'),
+      features: [
+        '24/7 customer support hotline',
+        'Warranty coverage and claims',
+        'Emergency repair services',
+        'Scheduled maintenance programs',
+        'Parts replacement and supply',
+        'Technical troubleshooting assistance'
+      ],
+      colorFrom: colors.persimmon,
+      colorTo: colors.tangerine,
+      size: 'small',
+    },
+    {
+      icon: FolderKanban,
+      title: t('services.projectManagement.title'),
+      description: t('services.projectManagement.desc'),
+      features: [
+        'End-to-end project coordination',
+        'Timeline and milestone tracking',
+        'Budget management and control',
+        'Risk assessment and mitigation',
+        'Stakeholder communication',
+        'Quality assurance oversight'
       ],
       colorFrom: colors.safetyOrange,
       colorTo: colors.amber,
-      size: 'small',
+      size: 'medium',
+    },
+    {
+      icon: Settings,
+      title: t('services.installation.title'),
+      description: t('services.installation.desc'),
+      features: [
+        'Professional on-site installation',
+        'Certified installation teams',
+        'Minimal business disruption',
+        'Post-installation cleanup',
+        'System testing and commissioning',
+        'Ongoing maintenance contracts'
+      ],
+      colorFrom: colors.chiliRed,
+      colorTo: colors.darkOrange,
+      size: 'large',
     },
   ];
 
@@ -147,9 +180,9 @@ const Services = () => {
     },
     {
       step: '03',
-      title: 'Manufacturing',
-      description: 'We craft your fixtures with precision and quality materials',
-      icon: Hammer,
+      title: 'Production',
+      description: 'We manufacture your fixtures with precision and quality materials',
+      icon: Factory,
     },
     {
       step: '04',
@@ -312,7 +345,7 @@ const Services = () => {
               }}
             >
               <span style={{ fontSize: '14px', fontWeight: '600', letterSpacing: '1px' }}>
-                PREMIUM SHOPFITTING SERVICES
+                COMPREHENSIVE SHOPFITTING SOLUTIONS
               </span>
             </motion.div>
             <h1 style={heroTitleStyle}>
@@ -336,7 +369,7 @@ const Services = () => {
           >
             <h2 style={sectionTitleStyle}>Our Services</h2>
             <p style={sectionSubtitleStyle}>
-              Comprehensive solutions tailored to your needs
+              Complete end-to-end solutions for your project
             </p>
           </motion.div>
 
