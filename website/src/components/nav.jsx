@@ -437,7 +437,7 @@ const Navbar = () => {
                 <img
                   src="/gsf.png"
                   alt="Global Shopfitters Logo"
-                  className="w-30 h-18"
+                  className="w-30 h-12"
                 />
               </div>
             </Link>
