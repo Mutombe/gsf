@@ -47,7 +47,7 @@ const SearchModal = ({ isOpen, onClose }) => {
     {
       title: 'Products',
       path: '/products',
-      description: 'Quality shopfitting products and retail fixtures',
+      description: 'Quality shopfitting products and fixtures',
       keywords: ['products', 'fixtures', 'equipment', 'retail', 'shop'],
       category: 'Page'
     },

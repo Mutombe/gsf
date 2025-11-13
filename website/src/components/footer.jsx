@@ -44,12 +44,14 @@ const Footer = () => {
   ];
 
   const services = [
-    'Retail Shopfitting',
-    'Custom Fixtures',
-    'Refrigeration Solutions',
-    'Signage & Branding',
-    'Design Consultation',
-    'Maintenance & Support',
+    t("services.consulting.title"),
+    t("services.engineering.title"),
+    t("services.design.title"),
+    t("services.testing.title"),
+    t("services.production.title"),
+    t("services.afterService.title"),
+    t("services.projectManagement.title"),
+    t("services.installation.title"),
   ];
 
   const socialLinks = [
@@ -172,7 +174,7 @@ const Footer = () => {
           >
             <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
               <div style={logoGradientStyle}>
-                <span style={{ color: colors.white, fontWeight: 'bold', fontSize: '1.25rem' }}>GS</span>
+                <span style={{ color: colors.white, fontWeight: 'bold', fontSize: '1.25rem' }}>GSZ</span>
               </div>
               <div style={{ display: 'flex', flexDirection: 'column' }}>
                 <span style={{ 

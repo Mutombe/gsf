@@ -34,7 +34,6 @@ import { FaJenkins } from "react-icons/fa";
 import { RxTimer } from "react-icons/rx";
 import { TiArrowRepeatOutline } from "react-icons/ti";
 
-
 // Counter component for count-up effect
 const AnimatedCounter = ({ value, duration = 2 }) => {
   const ref = useRef(null);
@@ -109,7 +108,7 @@ const Home = () => {
     },
     {
       icon: RxTimer,
-      value: "15+",
+      value: "25+",
       label: t("home.stats.experience"),
       colorFrom: colors.brightOrange,
       colorTo: colors.amber,
@@ -126,57 +125,57 @@ const Home = () => {
   const services = [
     {
       icon: MessageCircle,
-      title: t('services.consulting.title'),
-      description: t('services.consulting.desc'),
+      title: t("services.consulting.title"),
+      description: t("services.consulting.desc"),
       colorFrom: colors.chiliRed,
       colorTo: colors.brightOrange,
     },
     {
       icon: Cpu,
-      title: t('services.engineering.title'),
-      description: t('services.engineering.desc'),
+      title: t("services.engineering.title"),
+      description: t("services.engineering.desc"),
       colorFrom: colors.scarlet,
       colorTo: colors.persimmon,
     },
     {
       icon: Lightbulb,
-      title: t('services.design.title'),
-      description: t('services.design.desc'),
+      title: t("services.design.title"),
+      description: t("services.design.desc"),
       colorFrom: colors.brightOrange,
       colorTo: colors.amber,
     },
     {
       icon: FlaskConical,
-      title: t('services.testing.title'),
-      description: t('services.testing.desc'),
+      title: t("services.testing.title"),
+      description: t("services.testing.desc"),
       colorFrom: colors.flame,
       colorTo: colors.safetyOrange,
     },
     {
       icon: Factory,
-      title: t('services.production.title'),
-      description: t('services.production.desc'),
+      title: t("services.production.title"),
+      description: t("services.production.desc"),
       colorFrom: colors.darkOrange,
       colorTo: colors.mustardYellow,
     },
     {
       icon: HeadphonesIcon,
-      title: t('services.afterService.title'),
-      description: t('services.afterService.desc'),
+      title: t("services.afterService.title"),
+      description: t("services.afterService.desc"),
       colorFrom: colors.persimmon,
       colorTo: colors.tangerine,
     },
     {
       icon: FolderKanban,
-      title: t('services.projectManagement.title'),
-      description: t('services.projectManagement.desc'),
+      title: t("services.projectManagement.title"),
+      description: t("services.projectManagement.desc"),
       colorFrom: colors.safetyOrange,
       colorTo: colors.amber,
     },
     {
       icon: Settings,
-      title: t('services.installation.title'),
-      description: t('services.installation.desc'),
+      title: t("services.installation.title"),
+      description: t("services.installation.desc"),
       colorFrom: colors.chiliRed,
       colorTo: colors.darkOrange,
     },
@@ -348,7 +347,7 @@ const Home = () => {
 
   return (
     <div style={{ overflow: "hidden" }}>
-{/* Hero Section */}
+      {/* Hero Section */}
       <section style={heroSectionStyle}>
         {/* Image Mosaic Background */}
         <div className="absolute inset-0 overflow-hidden">
@@ -497,7 +496,7 @@ const Home = () => {
                 <img
                   src={img}
                   alt="Shopfitting project"
-                    loading="eager"
+                  loading="eager"
                   decoding="async"
                   className="w-full h-full object-cover opacity-70"
                 />
@@ -510,7 +509,6 @@ const Home = () => {
             className="absolute inset-0 opacity-20 z-10"
             style={{
               background: `linear-gradient(135deg, ${colors.chiliRed}E0 0%, ${colors.scarlet}D0 50%, ${colors.darkOrange}E0 50%)`,
-              
             }}
           />
 
@@ -547,27 +545,8 @@ const Home = () => {
               transition={{ duration: 0.8 }}
               style={{ marginBottom: "32px" }}
             >
-              <div
-                style={{
-                  display: "inline-block",
-                  background: "rgba(255, 255, 255, 0.2)",
-                  backdropFilter: "blur(10px)",
-                  padding: "8px 24px",
-                  borderRadius: "4px",
-                  marginBottom: "24px",
-                }}
-              >
-                <span
-                  style={{
-                    color: colors.white,
-                    fontWeight: "600",
-                  }}
-                >
-                  For a perfect fit.
-                </span>
-              </div>
 
-                            {/* CIFZ Membership Badge */}
+              {/* CIFZ Membership Badge */}
               <div
                 style={{
                   display: "flex",
@@ -607,7 +586,8 @@ const Home = () => {
                     onError={(e) => {
                       // Fallback if logo doesn't load
                       e.target.style.display = "none";
-                      e.target.parentElement.innerHTML = '<div style="color: #E3180D; font-weight: 800; font-size: 14px;">CIFZ</div>';
+                      e.target.parentElement.innerHTML =
+                        '<div style="color: #E3180D; font-weight: 800; font-size: 14px;">CIFZ</div>';
                     }}
                   />
                 </div>
@@ -648,10 +628,10 @@ const Home = () => {
                 textShadow: "0 2px 20px rgba(0, 0, 0, 0.3)",
               }}
             >
-              {t("home.hero.title")}
+              {t("home.hero.title")}{" "}
               <span
                 style={{
-                  display: "block",
+                  display: "",
                   marginTop: "12px",
                   background: `linear-gradient(90deg, ${colors.mustardLight} 0%, ${colors.amber} 50%, ${colors.brightOrange} 100%)`,
                   WebkitBackgroundClip: "text",
@@ -664,7 +644,7 @@ const Home = () => {
               </span>
             </motion.h1>
 
-            {/* Subtitle <motion.p
+            <motion.p
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5, duration: 0.8 }}
@@ -678,8 +658,8 @@ const Home = () => {
                 textShadow: "0 1px 10px rgba(0, 0, 0, 0.2)",
               }}
             >
-              {t("home.hero.subtitle")}
-            </motion.p>*/}
+              {t("home.hero.subtitle")}{" "}
+            </motion.p>
 
             <motion.div
               initial={{ opacity: 0, y: 50 }}

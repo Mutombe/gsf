@@ -317,13 +317,6 @@ const Projects = () => {
                 border: '1px solid rgba(255, 255, 255, 0.3)',
               }}
             >
-              <span style={{ 
-                fontSize: isMobile ? '12px' : '14px', 
-                fontWeight: '600', 
-                letterSpacing: '1px',
-              }}>
-                OUR PORTFOLIO
-              </span>
             </motion.div>
             <h1 style={{
               fontSize: isMobile ? '2.5rem' : 'clamp(2.5rem, 8vw, 5rem)',

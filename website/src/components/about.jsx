@@ -74,7 +74,7 @@ const About = () => {
 
   const timeline = [
     {
-      year: "2008",
+      year: "2000",
       event: "Company Founded",
       description: "Global Shopfitters established in Harare",
       icon: Award,
@@ -112,7 +112,7 @@ const About = () => {
     {
       year: "2024",
       event: "Regional Leader",
-      description: "Became Zimbabwe's premier shopfitting company",
+      description: "Became Zimbabwe's premium shopfitting company",
       icon: TrendingUp,
       image:
         "https://images.unsplash.com/photo-1560179707-f14e90ef3623?auto=format&fit=crop&q=80",
@@ -124,7 +124,7 @@ const About = () => {
     {
       name: "Leadership Team",
       role: "Experienced Professionals",
-      count: "15+",
+      count: "25+",
     },
     { name: "Craftsmen", role: "Skilled Artisans", count: "50+" },
     { name: "Designers", role: "Creative Minds", count: "20+" },
@@ -248,7 +248,7 @@ const About = () => {
                   backgroundClip: "text",
                 }}
               >
-                Established 2008 • Zimbabwe's Trusted Partner
+                Established 2000 • Zimbabwe's Trusted Partner
               </span>
             </motion.div>
 
@@ -365,12 +365,12 @@ const About = () => {
                 <p>
                   Since our establishment, we have been committed to delivering
                   excellence in every project. Our team of skilled craftsmen and
-                  designers work tirelessly to create retail spaces that not
+                  designers work tirelessly to create  commercial and residential spaces. spaces that not
                   only look impressive but also function efficiently to drive
                   business success.
                 </p>
                 <p>
-                  From small boutique stores to large commercial retail spaces,
+                  From small boutique stores to large commercial spaces,
                   we have successfully completed hundreds of projects across
                   Zimbabwe, earning us a reputation for reliability, quality,
                   and innovation.
@@ -393,7 +393,7 @@ const About = () => {
                 {[
                   { number: "500+", label: "Projects Completed" },
                   { number: "100+", label: "Happy Clients" },
-                  { number: "15+", label: "Years Experience" },
+                  { number: "25+", label: "Years Experience" },
                 ].map((stat, index) => (
                   <div key={index} style={{ textAlign: "center" }}>
                     <div
@@ -521,7 +521,7 @@ const About = () => {
                       textShadow: "0 4px 20px rgba(0, 0, 0, 0.3)",
                     }}
                   >
-                    15+ Years
+                    25+ Years
                   </h3>
                   <p
                     style={{

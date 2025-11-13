@@ -330,24 +330,6 @@ const Services = () => {
             transition={{ duration: 0.8 }}
             style={{ textAlign: 'center', maxWidth: '896px', margin: '0 auto' }}
           >
-            <motion.div
-              initial={{ scale: 0.9, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              transition={{ delay: 0.2, duration: 0.6 }}
-              style={{
-                display: 'inline-block',
-                padding: '8px 20px',
-                background: 'rgba(255, 255, 255, 0.2)',
-                backdropFilter: 'blur(10px)',
-                borderRadius: '50px',
-                marginBottom: '24px',
-                border: '1px solid rgba(255, 255, 255, 0.3)',
-              }}
-            >
-              <span style={{ fontSize: '14px', fontWeight: '600', letterSpacing: '1px' }}>
-                COMPREHENSIVE SHOPFITTING SOLUTIONS
-              </span>
-            </motion.div>
             <h1 style={heroTitleStyle}>
               {t('services.title')}
             </h1>

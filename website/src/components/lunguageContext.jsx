@@ -28,9 +28,9 @@ export const translations = {
     // Home Page
     home: {
       hero: {
-        title: 'Transforming Spaces with',
-        titleHighlight: 'Premium Shopfitting Solutions',
-        subtitle: 'Creating exceptional retail environments that enhance customer experience and drive business growth across Zimbabwe and beyond.',
+        title: 'For a',
+        titleHighlight: 'Perfect Fit',
+        subtitle: 'Transforming Spaces with Premium Shopfitting Solutions',
         cta1: 'Explore Our Services',
         cta2: 'View Projects',
       },
@@ -57,14 +57,14 @@ export const translations = {
     // About Page
     about: {
       title: 'About Global Shopfitters',
-      subtitle: 'Your Trusted Partner in Retail Excellence',
+      subtitle: 'Your Trusted Partner in Shopfitting Excellence',
       story: {
         title: 'Our Story',
-        text: 'Global Shopfitters, trading as Mukuvisi Manufacturing (Private) Limited, is Zimbabwe\'s premier shopfitting company. We specialize in creating innovative retail spaces that combine functionality with aesthetic appeal.',
+        text: 'Global Shopfitters, trading as Mukuvisi Manufacturing (Private) Limited, is Zimbabwe\'s premium shopfitting company. We specialize in creating innovative spaces that combine functionality with aesthetic appeal.',
       },
       mission: {
         title: 'Our Mission',
-        text: 'To deliver world-class shopfitting solutions that exceed client expectations and transform retail spaces into profitable business environments.',
+        text: 'To deliver world-class shopfitting solutions that exceed client expectations and transform commercial and residential spaces into profitable business environments.',
       },
       vision: {
         title: 'Our Vision',
@@ -85,10 +85,10 @@ export const translations = {
     // Services Page
     services: {
       title: 'Our Services',
-      subtitle: 'Comprehensive shopfitting solutions for every retail need',
+      subtitle: 'Comprehensive Solutions for everyday needs',
       consulting: {
         title: 'Consulting',
-        desc: 'Expert consultation services to understand your needs, assess feasibility, and plan your perfect retail space.',
+        desc: 'Expert consultation services to understand your needs, assess feasibility, and plan your perfect space.',
       },
       engineering: {
         title: 'Engineering',
@@ -122,7 +122,7 @@ export const translations = {
     // Products Page
     products: {
       title: 'Our Products',
-      subtitle: 'Quality shopfitting products for modern retail spaces',
+      subtitle: 'Quality shopfitting products for modern spaces',
       categories: {
         shelving: 'Shelving Systems',
         displays: 'Display Units',
@@ -157,7 +157,7 @@ export const translations = {
     // Footer
     footer: {
       about: 'About Us',
-      aboutText: 'Global Shopfitters is Zimbabwe\'s premier shopfitting company, delivering excellence in retail space transformation.',
+      aboutText: 'Global Shopfitters is Zimbabwe\'s premium shopfitting company, delivering excellence in space transformation.',
       quickLinks: 'Quick Links',
       services: 'Services',
       followUs: 'Follow Us',

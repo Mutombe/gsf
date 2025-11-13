@@ -47,14 +47,14 @@ const FAQ = () => {
     {
       category: 'services',
       question: 'What services does Global Shopfitters provide?',
-      answer: 'We provide comprehensive shopfitting solutions including retail store design, custom fixtures, shelving systems, refrigeration solutions, signage and branding, design consultation, and ongoing maintenance services. Our team handles everything from initial concept to final installation.',
+      answer: 'We provide comprehensive shopfitting solutions including commercial and residential design, custom fixtures, shelving systems, refrigeration solutions, signage and branding, design consultation, and ongoing maintenance services. Our team handles everything from initial concept to final installation.',
       popular: true,
       icon: Package,
     },
     {
       category: 'process',
       question: 'How long does a typical project take?',
-      answer: 'Project timelines vary depending on scope and complexity. A small retail space might take 2-4 weeks, while larger commercial projects can take 2-3 months. We provide detailed timelines during the consultation phase and keep you updated throughout the process.',
+      answer: 'Project timelines vary depending on scope and complexity. A small space might take 2-4 weeks, while larger commercial projects can take 2-3 months. We provide detailed timelines during the consultation phase and keep you updated throughout the process.',
       popular: true,
       icon: Clock,
     },
@@ -68,7 +68,7 @@ const FAQ = () => {
     {
       category: 'services',
       question: 'What is your service area?',
-      answer: 'We primarily serve Zimbabwe with our headquarters in Harare. We have successfully completed projects across the country including Harare, Bulawayo, Mutare, Gweru, and other major cities. Contact us to discuss projects in other locations.',
+      answer: 'We primarily serve Zimbabwe with our headquarters in Harare. We have successfully completed projects across the country including Harare, Bulawayo, Mutare, Gweru, Marondera and other major cities. Contact us to discuss projects in other locations.',
       popular: false,
       icon: MapPin,
     },
