@@ -51,8 +51,197 @@ const Products = () => {
     { id: "display-shelving", name: "Display & Shelving", icon: Grid },
   ];
 
-  const products = [
-    // COUNTERS & WORKSTATIONS
+const products = [
+    // Access Mantraps (id: 13)
+    {
+      id: 13,
+      name: "Access Mantraps",
+      category: "windows-doors",
+      description: "Security mantrap entrance systems",
+      fullDescription:
+        "High-security mantrap systems providing controlled access with interlocking doors. Features include access control integration, emergency release, and various glass and panel options. Essential for banks, data centers, and secure facilities.",
+      features: [
+        "Interlocking control",
+        "Access control ready",
+        "Emergency release",
+        "Bulletproof options",
+        "Surveillance integration",
+      ],
+      icon: ShoppingCart,
+      price: 8500,
+      rating: 4.8,
+      reviews: 34,
+      images: [
+        "https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=800",
+        "https://images.unsplash.com/photo-1554224311-beee4ade4689?w=800",
+        "https://images.unsplash.com/photo-1541746972996-4e0b0f43e02a?w=800",
+      ],
+      variants: [
+        {
+          id: "v1",
+          name: "Standard Mantrap",
+          price: 8500,
+          colors: [
+            { name: "Black", hex: "#000000", available: true },
+            { name: "Silver", hex: "#C0C0C0", available: true },
+          ],
+          sizes: [
+            {
+              name: "Compact",
+              dimensions: "1.5m x 1.5m x 2.4m",
+              available: true,
+            },
+            {
+              name: "Standard",
+              dimensions: "2.0m x 2.0m x 2.4m",
+              available: true,
+            },
+          ],
+        },
+        {
+          id: "v2",
+          name: "Bulletproof Mantrap",
+          price: 12500,
+          colors: [{ name: "Black", hex: "#000000", available: true }],
+          sizes: [
+            {
+              name: "Standard",
+              dimensions: "2.0m x 2.0m x 2.4m",
+              available: true,
+            },
+          ],
+        },
+      ],
+      specifications: {
+        material: "Steel frame with glass/panel inserts",
+        accessControl: "Card reader compatible",
+        safetyRating: "EN 1627-1630",
+        warranty: "3 years",
+      },
+    },
+    
+    // Aluminum Shopfronts (id: 8)
+    {
+      id: 8,
+      name: "Aluminum Shopfronts",
+      category: "windows-doors",
+      description: "Modern aluminum storefront systems",
+      fullDescription:
+        "Contemporary aluminum shopfront systems combining security with style. Features powder-coated frames, large glass panels, and integrated door systems. Perfect for retail stores, showrooms, and commercial premises.",
+      features: [
+        "Powder coated finish",
+        "Large glass areas",
+        "Integrated doors",
+        "Weather resistant",
+        "Low maintainance",
+      ],
+      icon: Building2,
+      price: 650,
+      rating: 4.9,
+      reviews: 143,
+      images: [
+        "https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?w=800",
+        "https://images.unsplash.com/photo-1519567241046-7f570eee3ce6?w=800",
+        "https://images.unsplash.com/photo-1555636222-cae831e670b3?w=800",
+      ],
+      variants: [
+        {
+          id: "v1",
+          name: "Standard Shopfront",
+          price: 650,
+          colors: [
+            { name: "Black", hex: "#000000", available: true },
+            { name: "Silver", hex: "#C0C0C0", available: true },
+            { name: "Bronze", hex: "#CD7F32", available: true },
+          ],
+          sizes: [
+            { name: "Single Door", dimensions: "Per sqm", available: true },
+            { name: "Double Door", dimensions: "Per sqm", available: true },
+          ],
+        },
+        {
+          id: "v2",
+          name: "Premium Shopfront",
+          price: 850,
+          colors: [
+            { name: "Black", hex: "#000000", available: true },
+            { name: "Custom RAL Color", hex: "#404040", available: true },
+          ],
+          sizes: [
+            { name: "Custom Design", dimensions: "Per sqm", available: true },
+          ],
+        },
+      ],
+      specifications: {
+        material: "Aluminum with powder coating",
+        glassType: "10mm toughened glass",
+        windLoad: "Up to 2.4 kPa",
+        warranty: "10 years",
+      },
+    },
+    
+    // Aluminum Windows (id: 11)
+    {
+      id: 11,
+      name: "Aluminum Windows",
+      category: "windows-doors",
+      description: "Versatile aluminum window systems",
+      fullDescription:
+        "High-quality aluminum windows available in various styles including sliding, casement, and awning. Features powder-coated frames, double glazing, and excellent weather performance. Suitable for all building types.",
+      features: [
+        "Various opening styles",
+        "Double glazing",
+        "Powder coated",
+        "Durable hardware",
+        "Energy efficient",
+      ],
+      icon: Square,
+      price: 420,
+      rating: 4.7,
+      reviews: 267,
+      images: [
+        "https://images.unsplash.com/photo-1545259742-12f9d9caa3d6?w=800",
+        "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800",
+        "https://images.unsplash.com/photo-1600566752355-35792bedcfea?w=800",
+      ],
+      variants: [
+        {
+          id: "v1",
+          name: "Sliding Window",
+          price: 420,
+          colors: [
+            { name: "White", hex: "#FFFFFF", available: true },
+            { name: "Black", hex: "#000000", available: true },
+            { name: "Silver", hex: "#C0C0C0", available: true },
+          ],
+          sizes: [
+            { name: "Small", dimensions: "1.2m x 1.2m", available: true },
+            { name: "Medium", dimensions: "1.5m x 1.5m", available: true },
+          ],
+        },
+        {
+          id: "v2",
+          name: "Casement Window",
+          price: 480,
+          colors: [
+            { name: "White", hex: "#FFFFFF", available: true },
+            { name: "Black", hex: "#000000", available: true },
+          ],
+          sizes: [
+            { name: "Small", dimensions: "1.0m x 1.2m", available: true },
+            { name: "Medium", dimensions: "1.2m x 1.5m", available: true },
+          ],
+        },
+      ],
+      specifications: {
+        material: "Aluminum with thermal break",
+        glassType: "6mm + 12mm air + 6mm",
+        uValue: "2.0 W/m²K",
+        warranty: "10 years",
+      },
+    },
+    
+    // Bank Teller Counters (id: 1)
     {
       id: 1,
       name: "Bank Teller Counters",
@@ -133,83 +322,63 @@ const Products = () => {
         warranty: "5 years",
       },
     },
+    
+    // Curtain Walling (id: 15)
     {
-      id: 2,
-      name: "Office Work Stations",
-      category: "counters-workstations",
-      description: "Modern modular office workstations",
+      id: 15,
+      name: "Curtain Walling",
+      category: "glass-glazing",
+      description: "Full height glazed façade systems",
       fullDescription:
-        "Contemporary office workstations designed for productivity and collaboration. Features include adjustable height options, integrated power outlets, cable management, privacy screens, and ergonomic design. Perfect for open-plan offices.",
+        "Premium curtain wall systems creating stunning full-height glazed facades. Features high-performance glass, thermal efficiency, and various aesthetic finishes. Perfect for modern office buildings and commercial developments.",
       features: [
-        "Modular configuration",
-        "Cable management",
-        "Power outlets integrated",
-        "Privacy screens",
-        "Ergonomic design",
+        "Full height glazing",
+        "Thermal performance",
+        "Various grid patterns",
+        "Weather sealed",
+        "Energy efficient",
       ],
-      icon: Building2,
-      price: 950,
-      rating: 4.7,
-      reviews: 203,
+      icon: Sparkles,
+      price: 850,
+      rating: 4.9,
+      reviews: 76,
       images: [
-        "https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=800",
-        "https://images.unsplash.com/photo-1497366216548-37526070297c?w=800",
-        "https://images.unsplash.com/photo-1497215728101-856f4ea42174?w=800",
+        "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800",
+        "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800",
+        "https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=800",
       ],
       variants: [
         {
           id: "v1",
-          name: "Single Desk",
-          price: 950,
+          name: "Stick System",
+          price: 850,
           colors: [
-            { name: "White", hex: "#FFFFFF", available: true },
-            { name: "Grey", hex: "#808080", available: true },
-            { name: "Oak", hex: "#C19A6B", available: true },
+            { name: "Silver", hex: "#C0C0C0", available: true },
+            { name: "Black", hex: "#000000", available: true },
+            { name: "Bronze", hex: "#CD7F32", available: true },
           ],
-          sizes: [
-            {
-              name: "Compact",
-              dimensions: "120cm x 60cm x 75cm",
-              available: true,
-            },
-            {
-              name: "Standard",
-              dimensions: "160cm x 80cm x 75cm",
-              available: true,
-            },
-          ],
+          sizes: [{ name: "Standard", dimensions: "Per sqm", available: true }],
         },
         {
           id: "v2",
-          name: "Cluster Workstation",
-          price: 3400,
+          name: "Unitized System",
+          price: 1200,
           colors: [
-            { name: "White", hex: "#FFFFFF", available: true },
-            { name: "Grey", hex: "#808080", available: true },
+            { name: "Silver", hex: "#C0C0C0", available: true },
+            { name: "Black", hex: "#000000", available: true },
           ],
-          sizes: [
-            {
-              name: "4-Person Cluster",
-              dimensions: "280cm x 280cm x 75cm",
-              available: true,
-            },
-            {
-              name: "6-Person Cluster",
-              dimensions: "320cm x 320cm x 75cm",
-              available: true,
-            },
-          ],
+          sizes: [{ name: "Standard", dimensions: "Per sqm", available: true }],
         },
       ],
       specifications: {
-        material: "Laminated particle board with steel frame",
-        weight: "45kg per unit",
-        powerOutlets: "2 x USB, 2 x AC outlets",
-        warranty: "3 years",
+        material: "Aluminum with thermal break",
+        glassType: "Double or triple glazed",
+        uValue: "1.2 - 1.8 W/m²K",
+        warranty: "10 years",
       },
     },
-
-    // PARTITIONS & WALLS
+    
+    // Demountable Partitions (id: 3)
     {
       id: 3,
       name: "Demountable Partitions",
@@ -285,6 +454,8 @@ const Products = () => {
         warranty: "5 years",
       },
     },
+    
+    // Dry Wall Partitions (id: 4)
     {
       id: 4,
       name: "Dry Wall Partitions",
@@ -353,66 +524,69 @@ const Products = () => {
         warranty: "2 years",
       },
     },
+    
+    // Entrance Canopies (id: 14)
     {
-      id: 5,
-      name: "Wall Paneling",
-      category: "partitions-walls",
-      description: "Decorative wall paneling systems",
+      id: 14,
+      name: "Entrance Canopies",
+      category: "windows-doors",
+      description: "Architectural entrance canopy systems",
       fullDescription:
-        "Premium decorative wall paneling adding elegance and character to any space. Available in various materials including wood veneer, fabric, leather, and acoustic panels. Perfect for boardrooms, reception areas, and executive offices.",
+        "Modern entrance canopies providing weather protection and architectural elegance. Available in glass, polycarbonate, and metal designs with various support systems. Creates an impressive entrance for commercial buildings.",
       features: [
-        "Premium finishes",
-        "Acoustic options",
-        "Easy maintainance",
+        "Weather protection",
         "Various materials",
         "Custom designs",
+        "Integrated lighting",
+        "Low maintainance",
       ],
-      icon: Layers,
-      price: 320,
-      rating: 4.9,
-      reviews: 94,
+      icon: Building2,
+      price: 3500,
+      rating: 4.7,
+      reviews: 56,
       images: [
-        "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=800",
-        "https://images.unsplash.com/photo-1618221739511-f78d1fa5eaae?w=800",
-        "https://images.unsplash.com/photo-1615875605825-5e4e6e4e3446?w=800",
+        "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800",
+        "https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=800",
+        "https://images.unsplash.com/photo-1497366216548-37526070297c?w=800",
       ],
       variants: [
         {
           id: "v1",
-          name: "Wood Veneer",
-          price: 320,
+          name: "Glass Canopy",
+          price: 3500,
           colors: [
-            { name: "Oak", hex: "#C19A6B", available: true },
-            { name: "Walnut", hex: "#5C4033", available: true },
-            { name: "Maple", hex: "#F5DEB3", available: true },
+            { name: "Clear Glass", hex: "#F0F8FF", available: true },
+            { name: "Tinted Glass", hex: "#708090", available: true },
           ],
           sizes: [
-            { name: "Standard Panel", dimensions: "Per sqm", available: true },
+            { name: "Small", dimensions: "2m x 1.5m", available: true },
+            { name: "Medium", dimensions: "3m x 2m", available: true },
+            { name: "Large", dimensions: "4m x 2.5m", available: true },
           ],
         },
         {
           id: "v2",
-          name: "Acoustic Fabric",
-          price: 280,
+          name: "Metal Canopy",
+          price: 2800,
           colors: [
-            { name: "Grey", hex: "#808080", available: true },
-            { name: "Navy", hex: "#000080", available: true },
-            { name: "Beige", hex: "#F5F5DC", available: true },
+            { name: "Black", hex: "#000000", available: true },
+            { name: "Silver", hex: "#C0C0C0", available: true },
           ],
           sizes: [
-            { name: "Standard Panel", dimensions: "Per sqm", available: true },
+            { name: "Small", dimensions: "2m x 1.5m", available: true },
+            { name: "Medium", dimensions: "3m x 2m", available: true },
           ],
         },
       ],
       specifications: {
-        material: "Various (wood, fabric, acoustic)",
-        thickness: "15mm - 50mm",
-        installation: "Adhesive or clip system",
-        warranty: "3 years",
+        material: "Laminated glass or powder coated metal",
+        structure: "Stainless steel supports",
+        windLoad: "Up to 3.0 kPa",
+        warranty: "5 years",
       },
     },
-
-    // CEILINGS
+    
+    // Feature Ceilings (id: 6)
     {
       id: 6,
       name: "Feature Ceilings",
@@ -467,194 +641,123 @@ const Products = () => {
         warranty: "3 years",
       },
     },
+    
+    // Flash Glazing (id: 16)
     {
-      id: 7,
-      name: "Suspended Ceilings",
-      category: "ceilings",
-      description: "Grid-based suspended ceiling systems",
+      id: 16,
+      name: "Flash Glazing",
+      category: "glass-glazing",
+      description: "Minimal frame structural glazing",
       fullDescription:
-        "Professional suspended ceiling systems providing easy access to services above. Features include acoustic tiles, various grid finishes, and easy maintainance. Ideal for offices,residential spaces, and commercial buildings.",
+        "Contemporary structural glazing systems with minimal visible framing, creating a seamless glass appearance. Features silicone bonding, high-performance glass, and excellent weather resistance. Ideal for modern architecture.",
       features: [
-        "Easy access to services",
-        "Acoustic properties",
-        "Various tile options",
-        "Quick installation",
-        "Conceals wiring & ducts",
+        "Minimal frames",
+        "Silicone bonded",
+        "Clean aesthetics",
+        "Structural glazing",
+        "Weather sealed",
       ],
-      icon: Grid,
-      price: 85,
-      rating: 4.7,
-      reviews: 234,
+      icon: Maximize2,
+      price: 920,
+      rating: 4.8,
+      reviews: 64,
       images: [
-        "https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=800",
-        "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800",
-        "https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=800",
+        "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800",
+        "https://images.unsplash.com/photo-1600566752355-35792bedcfea?w=800",
+        "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800",
       ],
       variants: [
         {
           id: "v1",
-          name: "Standard Grid",
-          price: 85,
+          name: "Structural Glazing",
+          price: 920,
           colors: [
-            { name: "White", hex: "#FFFFFF", available: true },
-            { name: "Black", hex: "#000000", available: true },
+            { name: "Clear Glass", hex: "#F0F8FF", available: true },
+            { name: "Low-E Glass", hex: "#E8F4F8", available: true },
           ],
-          sizes: [
-            { name: "600x600mm tiles", dimensions: "Per sqm", available: true },
-            {
-              name: "1200x600mm tiles",
-              dimensions: "Per sqm",
-              available: true,
-            },
-          ],
+          sizes: [{ name: "Standard", dimensions: "Per sqm", available: true }],
         },
         {
           id: "v2",
-          name: "Acoustic Grid",
-          price: 120,
-          colors: [{ name: "White", hex: "#FFFFFF", available: true }],
-          sizes: [
-            { name: "600x600mm tiles", dimensions: "Per sqm", available: true },
-          ],
+          name: "Point Fixed Glazing",
+          price: 1100,
+          colors: [{ name: "Clear Glass", hex: "#F0F8FF", available: true }],
+          sizes: [{ name: "Standard", dimensions: "Per sqm", available: true }],
         },
       ],
       specifications: {
-        material: "Metal grid with mineral fiber tiles",
-        thickness: "15mm - 20mm",
-        soundAbsorption: "Up to 0.9 NRC",
-        warranty: "5 years",
-      },
-    },
-
-    // WINDOWS & DOORS
-    {
-      id: 8,
-      name: "Aluminum Shopfronts",
-      category: "windows-doors",
-      description: "Modern aluminum storefront systems",
-      fullDescription:
-        "Contemporary aluminum shopfront systems combining security with style. Features powder-coated frames, large glass panels, and integrated door systems. Perfect for retail stores, showrooms, and commercial premises.",
-      features: [
-        "Powder coated finish",
-        "Large glass areas",
-        "Integrated doors",
-        "Weather resistant",
-        "Low maintainance",
-      ],
-      icon: Building2,
-      price: 650,
-      rating: 4.9,
-      reviews: 143,
-      images: [
-        "https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?w=800",
-        "https://images.unsplash.com/photo-1519567241046-7f570eee3ce6?w=800",
-        "https://images.unsplash.com/photo-1555636222-cae831e670b3?w=800",
-      ],
-      variants: [
-        {
-          id: "v1",
-          name: "Standard Shopfront",
-          price: 650,
-          colors: [
-            { name: "Black", hex: "#000000", available: true },
-            { name: "Silver", hex: "#C0C0C0", available: true },
-            { name: "Bronze", hex: "#CD7F32", available: true },
-          ],
-          sizes: [
-            { name: "Single Door", dimensions: "Per sqm", available: true },
-            { name: "Double Door", dimensions: "Per sqm", available: true },
-          ],
-        },
-        {
-          id: "v2",
-          name: "Premium Shopfront",
-          price: 850,
-          colors: [
-            { name: "Black", hex: "#000000", available: true },
-            { name: "Custom RAL Color", hex: "#404040", available: true },
-          ],
-          sizes: [
-            { name: "Custom Design", dimensions: "Per sqm", available: true },
-          ],
-        },
-      ],
-      specifications: {
-        material: "Aluminum with powder coating",
-        glassType: "10mm toughened glass",
-        windLoad: "Up to 2.4 kPa",
+        material: "12mm toughened or laminated glass",
+        fixing: "Silicone bonded or point fixed",
+        windLoad: "Up to 3.5 kPa",
         warranty: "10 years",
       },
     },
+    
+    // Frameless Glass Doors (id: 12)
     {
-      id: 9,
-      name: "Sliding Folding Doors",
+      id: 12,
+      name: "Frameless Glass Doors",
       category: "windows-doors",
-      description: "Space-saving bi-fold door systems",
+      description: "Minimalist frameless glass door systems",
       fullDescription:
-        "Premium sliding folding door systems that maximize space and provide seamless indoor-outdoor flow. Features smooth operation, weather sealing, and various configurations. Perfect for patios, terraces, and room dividers.",
+        "Stunning frameless glass doors creating a seamless, modern aesthetic. Features 12mm toughened glass, minimal hardware, and smooth operation. Perfect for offices, showrooms, and upscale retail environments.",
       features: [
-        "Space saving",
-        "Smooth operation",
-        "Weather sealed",
-        "Various panel configurations",
-        "Heavy duty hardware",
+        "Minimalist design",
+        "12mm toughened glass",
+        "Soft close mechanism",
+        "Various hardware finishes",
+        "Safety certified",
       ],
-      icon: DoorOpen,
-      price: 1850,
-      rating: 4.8,
-      reviews: 98,
+      icon: Sparkles,
+      price: 1250,
+      rating: 4.9,
+      reviews: 87,
       images: [
-        "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800",
         "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800",
         "https://images.unsplash.com/photo-1600566752355-35792bedcfea?w=800",
+        "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800",
       ],
       variants: [
         {
           id: "v1",
-          name: "2-Panel System",
-          price: 1850,
+          name: "Single Door",
+          price: 1250,
           colors: [
-            { name: "White", hex: "#FFFFFF", available: true },
-            { name: "Grey", hex: "#808080", available: true },
-            { name: "Black", hex: "#000000", available: true },
+            { name: "Clear Glass", hex: "#F0F8FF", available: true },
+            { name: "Frosted Glass", hex: "#E0E0E0", available: true },
           ],
           sizes: [
-            {
-              name: "Standard",
-              dimensions: "2.4m wide x 2.1m high",
-              available: true,
-            },
+            { name: "Standard", dimensions: "900mm x 2100mm", available: true },
+            { name: "Wide", dimensions: "1200mm x 2100mm", available: true },
           ],
         },
         {
           id: "v2",
-          name: "4-Panel System",
-          price: 3200,
+          name: "Double Door",
+          price: 2200,
           colors: [
-            { name: "White", hex: "#FFFFFF", available: true },
-            { name: "Black", hex: "#000000", available: true },
+            { name: "Clear Glass", hex: "#F0F8FF", available: true },
+            { name: "Frosted Glass", hex: "#E0E0E0", available: true },
           ],
           sizes: [
             {
               name: "Standard",
-              dimensions: "4.8m wide x 2.1m high",
+              dimensions: "1800mm x 2100mm",
               available: true,
             },
-            {
-              name: "Large",
-              dimensions: "4.8m wide x 2.4m high",
-              available: true,
-            },
+            { name: "Wide", dimensions: "2400mm x 2100mm", available: true },
           ],
         },
       ],
       specifications: {
-        material: "Aluminum with double glazing",
-        glassType: "6mm + 12mm air gap + 6mm",
-        hardware: "Stainless steel rollers",
+        material: "12mm toughened glass",
+        hardware: "Stainless steel or brass",
+        closeType: "Soft close hydraulic",
         warranty: "5 years",
       },
     },
+    
+    // Galaxy Patio Doors (id: 10)
     {
       id: 10,
       name: "Galaxy Patio Doors",
@@ -729,412 +832,135 @@ const Products = () => {
         warranty: "10 years",
       },
     },
+    
+    // Gondola Shelves (id: 21)
     {
-      id: 11,
-      name: "Aluminum Windows",
-      category: "windows-doors",
-      description: "Versatile aluminum window systems",
+      id: 21,
+      name: "Gondola Shelves",
+      category: "display-shelving",
+      description: "Versatile double-sided retail shelving",
       fullDescription:
-        "High-quality aluminum windows available in various styles including sliding, casement, and awning. Features powder-coated frames, double glazing, and excellent weather performance. Suitable for all building types.",
+        "Professional gondola shelving systems perfect for creating retail aisles. Features adjustable shelves, end cap capability, and various height options. Durable construction with easy assembly and reconfiguration.",
       features: [
-        "Various opening styles",
-        "Double glazing",
-        "Powder coated",
-        "Durable hardware",
-        "Energy efficient",
+        "Double-sided display",
+        "Adjustable shelves",
+        "End cap compatible",
+        "Various heights",
+        "Easy assembly",
       ],
-      icon: Square,
-      price: 420,
+      icon: Package,
+      price: 650,
       rating: 4.7,
-      reviews: 267,
+      reviews: 189,
       images: [
-        "https://images.unsplash.com/photo-1545259742-12f9d9caa3d6?w=800",
-        "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800",
-        "https://images.unsplash.com/photo-1600566752355-35792bedcfea?w=800",
+        "https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?w=800",
+        "https://images.unsplash.com/photo-1555529669-e69e7aa0ba9a?w=800",
+        "https://images.unsplash.com/photo-1595428774223-ef52624120d2?w=800",
       ],
       variants: [
         {
           id: "v1",
-          name: "Sliding Window",
-          price: 420,
+          name: "Standard Gondola",
+          price: 650,
           colors: [
             { name: "White", hex: "#FFFFFF", available: true },
-            { name: "Black", hex: "#000000", available: true },
-            { name: "Silver", hex: "#C0C0C0", available: true },
-          ],
-          sizes: [
-            { name: "Small", dimensions: "1.2m x 1.2m", available: true },
-            { name: "Medium", dimensions: "1.5m x 1.5m", available: true },
-          ],
-        },
-        {
-          id: "v2",
-          name: "Casement Window",
-          price: 480,
-          colors: [
-            { name: "White", hex: "#FFFFFF", available: true },
+            { name: "Grey", hex: "#808080", available: true },
             { name: "Black", hex: "#000000", available: true },
           ],
           sizes: [
-            { name: "Small", dimensions: "1.0m x 1.2m", available: true },
-            { name: "Medium", dimensions: "1.2m x 1.5m", available: true },
-          ],
-        },
-      ],
-      specifications: {
-        material: "Aluminum with thermal break",
-        glassType: "6mm + 12mm air + 6mm",
-        uValue: "2.0 W/m²K",
-        warranty: "10 years",
-      },
-    },
-    {
-      id: 12,
-      name: "Frameless Glass Doors",
-      category: "windows-doors",
-      description: "Minimalist frameless glass door systems",
-      fullDescription:
-        "Stunning frameless glass doors creating a seamless, modern aesthetic. Features 12mm toughened glass, minimal hardware, and smooth operation. Perfect for offices, showrooms, and upscale retail environments.",
-      features: [
-        "Minimalist design",
-        "12mm toughened glass",
-        "Soft close mechanism",
-        "Various hardware finishes",
-        "Safety certified",
-      ],
-      icon: Sparkles,
-      price: 1250,
-      rating: 4.9,
-      reviews: 87,
-      images: [
-        "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800",
-        "https://images.unsplash.com/photo-1600566752355-35792bedcfea?w=800",
-        "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800",
-      ],
-      variants: [
-        {
-          id: "v1",
-          name: "Single Door",
-          price: 1250,
-          colors: [
-            { name: "Clear Glass", hex: "#F0F8FF", available: true },
-            { name: "Frosted Glass", hex: "#E0E0E0", available: true },
-          ],
-          sizes: [
-            { name: "Standard", dimensions: "900mm x 2100mm", available: true },
-            { name: "Wide", dimensions: "1200mm x 2100mm", available: true },
-          ],
-        },
-        {
-          id: "v2",
-          name: "Double Door",
-          price: 2200,
-          colors: [
-            { name: "Clear Glass", hex: "#F0F8FF", available: true },
-            { name: "Frosted Glass", hex: "#E0E0E0", available: true },
-          ],
-          sizes: [
+            { name: "Low", dimensions: "1.2m x 0.9m x 1.4m", available: true },
             {
               name: "Standard",
-              dimensions: "1800mm x 2100mm",
+              dimensions: "1.2m x 0.9m x 1.8m",
               available: true,
             },
-            { name: "Wide", dimensions: "2400mm x 2100mm", available: true },
-          ],
-        },
-      ],
-      specifications: {
-        material: "12mm toughened glass",
-        hardware: "Stainless steel or brass",
-        closeType: "Soft close hydraulic",
-        warranty: "5 years",
-      },
-    },
-    {
-      id: 13,
-      name: "Access Mantraps",
-      category: "windows-doors",
-      description: "Security mantrap entrance systems",
-      fullDescription:
-        "High-security mantrap systems providing controlled access with interlocking doors. Features include access control integration, emergency release, and various glass and panel options. Essential for banks, data centers, and secure facilities.",
-      features: [
-        "Interlocking control",
-        "Access control ready",
-        "Emergency release",
-        "Bulletproof options",
-        "Surveillance integration",
-      ],
-      icon: ShoppingCart,
-      price: 8500,
-      rating: 4.8,
-      reviews: 34,
-      images: [
-        "https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=800",
-        "https://images.unsplash.com/photo-1554224311-beee4ade4689?w=800",
-        "https://images.unsplash.com/photo-1541746972996-4e0b0f43e02a?w=800",
-      ],
-      variants: [
-        {
-          id: "v1",
-          name: "Standard Mantrap",
-          price: 8500,
-          colors: [
-            { name: "Black", hex: "#000000", available: true },
-            { name: "Silver", hex: "#C0C0C0", available: true },
-          ],
-          sizes: [
-            {
-              name: "Compact",
-              dimensions: "1.5m x 1.5m x 2.4m",
-              available: true,
-            },
-            {
-              name: "Standard",
-              dimensions: "2.0m x 2.0m x 2.4m",
-              available: true,
-            },
+            { name: "Tall", dimensions: "1.2m x 0.9m x 2.2m", available: true },
           ],
         },
         {
           id: "v2",
-          name: "Bulletproof Mantrap",
-          price: 12500,
-          colors: [{ name: "Black", hex: "#000000", available: true }],
-          sizes: [
-            {
-              name: "Standard",
-              dimensions: "2.0m x 2.0m x 2.4m",
-              available: true,
-            },
-          ],
-        },
-      ],
-      specifications: {
-        material: "Steel frame with glass/panel inserts",
-        accessControl: "Card reader compatible",
-        safetyRating: "EN 1627-1630",
-        warranty: "3 years",
-      },
-    },
-    {
-      id: 14,
-      name: "Entrance Canopies",
-      category: "windows-doors",
-      description: "Architectural entrance canopy systems",
-      fullDescription:
-        "Modern entrance canopies providing weather protection and architectural elegance. Available in glass, polycarbonate, and metal designs with various support systems. Creates an impressive entrance for commercial buildings.",
-      features: [
-        "Weather protection",
-        "Various materials",
-        "Custom designs",
-        "Integrated lighting",
-        "Low maintainance",
-      ],
-      icon: Building2,
-      price: 3500,
-      rating: 4.7,
-      reviews: 56,
-      images: [
-        "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800",
-        "https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=800",
-        "https://images.unsplash.com/photo-1497366216548-37526070297c?w=800",
-      ],
-      variants: [
-        {
-          id: "v1",
-          name: "Glass Canopy",
-          price: 3500,
-          colors: [
-            { name: "Clear Glass", hex: "#F0F8FF", available: true },
-            { name: "Tinted Glass", hex: "#708090", available: true },
-          ],
-          sizes: [
-            { name: "Small", dimensions: "2m x 1.5m", available: true },
-            { name: "Medium", dimensions: "3m x 2m", available: true },
-            { name: "Large", dimensions: "4m x 2.5m", available: true },
-          ],
-        },
-        {
-          id: "v2",
-          name: "Metal Canopy",
-          price: 2800,
-          colors: [
-            { name: "Black", hex: "#000000", available: true },
-            { name: "Silver", hex: "#C0C0C0", available: true },
-          ],
-          sizes: [
-            { name: "Small", dimensions: "2m x 1.5m", available: true },
-            { name: "Medium", dimensions: "3m x 2m", available: true },
-          ],
-        },
-      ],
-      specifications: {
-        material: "Laminated glass or powder coated metal",
-        structure: "Stainless steel supports",
-        windLoad: "Up to 3.0 kPa",
-        warranty: "5 years",
-      },
-    },
-
-    // GLASS & GLAZING
-    {
-      id: 15,
-      name: "Curtain Walling",
-      category: "glass-glazing",
-      description: "Full height glazed façade systems",
-      fullDescription:
-        "Premium curtain wall systems creating stunning full-height glazed facades. Features high-performance glass, thermal efficiency, and various aesthetic finishes. Perfect for modern office buildings and commercial developments.",
-      features: [
-        "Full height glazing",
-        "Thermal performance",
-        "Various grid patterns",
-        "Weather sealed",
-        "Energy efficient",
-      ],
-      icon: Sparkles,
-      price: 850,
-      rating: 4.9,
-      reviews: 76,
-      images: [
-        "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800",
-        "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800",
-        "https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=800",
-      ],
-      variants: [
-        {
-          id: "v1",
-          name: "Stick System",
+          name: "Heavy Duty Gondola",
           price: 850,
           colors: [
-            { name: "Silver", hex: "#C0C0C0", available: true },
-            { name: "Black", hex: "#000000", available: true },
-            { name: "Bronze", hex: "#CD7F32", available: true },
+            { name: "Grey", hex: "#808080", available: true },
+            { name: "Charcoal", hex: "#36454F", available: true },
           ],
-          sizes: [{ name: "Standard", dimensions: "Per sqm", available: true }],
-        },
-        {
-          id: "v2",
-          name: "Unitized System",
-          price: 1200,
-          colors: [
-            { name: "Silver", hex: "#C0C0C0", available: true },
-            { name: "Black", hex: "#000000", available: true },
+          sizes: [
+            {
+              name: "Standard",
+              dimensions: "1.2m x 0.9m x 1.8m",
+              available: true,
+            },
+            { name: "Tall", dimensions: "1.2m x 0.9m x 2.2m", available: true },
           ],
-          sizes: [{ name: "Standard", dimensions: "Per sqm", available: true }],
         },
       ],
       specifications: {
-        material: "Aluminum with thermal break",
-        glassType: "Double or triple glazed",
-        uValue: "1.2 - 1.8 W/m²K",
-        warranty: "10 years",
+        material: "Steel with powder coating",
+        shelfLoad: "80kg per shelf",
+        shelves: "4-6 adjustable shelves",
+        warranty: "5 years",
       },
     },
+    
+    // Interior Modelling (id: 20)
     {
-      id: 16,
-      name: "Flash Glazing",
-      category: "glass-glazing",
-      description: "Minimal frame structural glazing",
+      id: 20,
+      name: "Interior Modelling",
+      category: "display-shelving",
+      description: "Custom interior design and modeling",
       fullDescription:
-        "Contemporary structural glazing systems with minimal visible framing, creating a seamless glass appearance. Features silicone bonding, high-performance glass, and excellent weather resistance. Ideal for modern architecture.",
+        "Comprehensive interior modeling services creating bespoke retail and commercial spaces. Includes custom joinery, display fixtures, reception desks, and branded elements. Full design-to-installation service.",
       features: [
-        "Minimal frames",
-        "Silicone bonded",
-        "Clean aesthetics",
-        "Structural glazing",
-        "Weather sealed",
+        "Custom design",
+        "CAD modeling",
+        "Branded elements",
+        "Full installation",
+        "Project management",
       ],
-      icon: Maximize2,
-      price: 920,
-      rating: 4.8,
-      reviews: 64,
+      icon: Building2,
+      price: 5500,
+      rating: 4.9,
+      reviews: 43,
       images: [
-        "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800",
-        "https://images.unsplash.com/photo-1600566752355-35792bedcfea?w=800",
-        "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800",
+        "https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=800",
+        "https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=800",
+        "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800",
       ],
       variants: [
         {
           id: "v1",
-          name: "Structural Glazing",
-          price: 920,
-          colors: [
-            { name: "Clear Glass", hex: "#F0F8FF", available: true },
-            { name: "Low-E Glass", hex: "#E8F4F8", available: true },
-          ],
-          sizes: [{ name: "Standard", dimensions: "Per sqm", available: true }],
-        },
-        {
-          id: "v2",
-          name: "Point Fixed Glazing",
-          price: 1100,
-          colors: [{ name: "Clear Glass", hex: "#F0F8FF", available: true }],
-          sizes: [{ name: "Standard", dimensions: "Per sqm", available: true }],
-        },
-      ],
-      specifications: {
-        material: "12mm toughened or laminated glass",
-        fixing: "Silicone bonded or point fixed",
-        windLoad: "Up to 3.5 kPa",
-        warranty: "10 years",
-      },
-    },
-    {
-      id: 17,
-      name: "Skylights",
-      category: "glass-glazing",
-      description: "Natural lighting roof systems",
-      fullDescription:
-        "Premium skylight systems bringing natural light into interior spaces. Features include thermal control glass, rain sensors, motorized opening options, and various sizes. Perfect for atriums, offices, and residential applications.",
-      features: [
-        "Natural lighting",
-        "Thermal control glass",
-        "Motorized options",
-        "Rain sensors",
-        "Self-cleaning glass available",
-      ],
-      icon: Sparkles,
-      price: 1850,
-      rating: 4.8,
-      reviews: 92,
-      images: [
-        "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=800",
-        "https://images.unsplash.com/photo-1600607687644-c7171b42498f?w=800",
-        "https://images.unsplash.com/photo-1600566752355-35792bedcfea?w=800",
-      ],
-      variants: [
-        {
-          id: "v1",
-          name: "Fixed Skylight",
-          price: 1850,
-          colors: [
-            { name: "Clear Glass", hex: "#F0F8FF", available: true },
-            { name: "Solar Control", hex: "#B0C4DE", available: true },
-          ],
+          name: "Basic Package",
+          price: 5500,
+          colors: [{ name: "Custom", hex: "#FFFFFF", available: true }],
           sizes: [
-            { name: "Small", dimensions: "1.0m x 1.0m", available: true },
-            { name: "Medium", dimensions: "1.5m x 1.5m", available: true },
-            { name: "Large", dimensions: "2.0m x 2.0m", available: true },
+            {
+              name: "Small Space",
+              dimensions: "Up to 50 sqm",
+              available: true,
+            },
           ],
         },
         {
           id: "v2",
-          name: "Opening Skylight",
-          price: 2650,
-          colors: [{ name: "Clear Glass", hex: "#F0F8FF", available: true }],
+          name: "Premium Package",
+          price: 12000,
+          colors: [{ name: "Custom", hex: "#FFFFFF", available: true }],
           sizes: [
-            { name: "Small", dimensions: "1.0m x 1.0m", available: true },
-            { name: "Medium", dimensions: "1.5m x 1.5m", available: true },
+            { name: "Medium Space", dimensions: "50-150 sqm", available: true },
+            { name: "Large Space", dimensions: "150+ sqm", available: true },
           ],
         },
       ],
       specifications: {
-        material: "Aluminum frame with double glazing",
-        glassType: "Low-E with solar control",
-        uValue: "1.4 W/m²K",
-        warranty: "10 years",
+        service: "Design, manufacture, and installation",
+        timeline: "4-12 weeks depending on size",
+        includes: "3D renders, material samples, project management",
+        warranty: "2 years",
       },
     },
+    
+    // Louvres (id: 18)
     {
       id: 18,
       name: "Louvres",
@@ -1188,8 +1014,85 @@ const Products = () => {
         warranty: "5 years",
       },
     },
-
-    // DISPLAY & SHELVING
+    
+    // Office Work Stations (id: 2)
+    {
+      id: 2,
+      name: "Office Work Stations",
+      category: "counters-workstations",
+      description: "Modern modular office workstations",
+      fullDescription:
+        "Contemporary office workstations designed for productivity and collaboration. Features include adjustable height options, integrated power outlets, cable management, privacy screens, and ergonomic design. Perfect for open-plan offices.",
+      features: [
+        "Modular configuration",
+        "Cable management",
+        "Power outlets integrated",
+        "Privacy screens",
+        "Ergonomic design",
+      ],
+      icon: Building2,
+      price: 950,
+      rating: 4.7,
+      reviews: 203,
+      images: [
+        "https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=800",
+        "https://images.unsplash.com/photo-1497366216548-37526070297c?w=800",
+        "https://images.unsplash.com/photo-1497215728101-856f4ea42174?w=800",
+      ],
+      variants: [
+        {
+          id: "v1",
+          name: "Single Desk",
+          price: 950,
+          colors: [
+            { name: "White", hex: "#FFFFFF", available: true },
+            { name: "Grey", hex: "#808080", available: true },
+            { name: "Oak", hex: "#C19A6B", available: true },
+          ],
+          sizes: [
+            {
+              name: "Compact",
+              dimensions: "120cm x 60cm x 75cm",
+              available: true,
+            },
+            {
+              name: "Standard",
+              dimensions: "160cm x 80cm x 75cm",
+              available: true,
+            },
+          ],
+        },
+        {
+          id: "v2",
+          name: "Cluster Workstation",
+          price: 3400,
+          colors: [
+            { name: "White", hex: "#FFFFFF", available: true },
+            { name: "Grey", hex: "#808080", available: true },
+          ],
+          sizes: [
+            {
+              name: "4-Person Cluster",
+              dimensions: "280cm x 280cm x 75cm",
+              available: true,
+            },
+            {
+              name: "6-Person Cluster",
+              dimensions: "320cm x 320cm x 75cm",
+              available: true,
+            },
+          ],
+        },
+      ],
+      specifications: {
+        material: "Laminated particle board with steel frame",
+        weight: "45kg per unit",
+        powerOutlets: "2 x USB, 2 x AC outlets",
+        warranty: "3 years",
+      },
+    },
+    
+    // Shop Product Display (id: 19)
     {
       id: 19,
       name: "Shop Product Display",
@@ -1260,127 +1163,254 @@ const Products = () => {
         warranty: "3 years",
       },
     },
+    
+    // Skylights (id: 17)
     {
-      id: 20,
-      name: "Interior Modelling",
-      category: "display-shelving",
-      description: "Custom interior design and modeling",
+      id: 17,
+      name: "Skylights",
+      category: "glass-glazing",
+      description: "Natural lighting roof systems",
       fullDescription:
-        "Comprehensive interior modeling services creating bespoke retail and commercial spaces. Includes custom joinery, display fixtures, reception desks, and branded elements. Full design-to-installation service.",
+        "Premium skylight systems bringing natural light into interior spaces. Features include thermal control glass, rain sensors, motorized opening options, and various sizes. Perfect for atriums, offices, and residential applications.",
       features: [
-        "Custom design",
-        "CAD modeling",
-        "Branded elements",
-        "Full installation",
-        "Project management",
+        "Natural lighting",
+        "Thermal control glass",
+        "Motorized options",
+        "Rain sensors",
+        "Self-cleaning glass available",
       ],
-      icon: Building2,
-      price: 5500,
-      rating: 4.9,
-      reviews: 43,
+      icon: Sparkles,
+      price: 1850,
+      rating: 4.8,
+      reviews: 92,
       images: [
-        "https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=800",
-        "https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=800",
-        "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800",
+        "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=800",
+        "https://images.unsplash.com/photo-1600607687644-c7171b42498f?w=800",
+        "https://images.unsplash.com/photo-1600566752355-35792bedcfea?w=800",
       ],
       variants: [
         {
           id: "v1",
-          name: "Basic Package",
-          price: 5500,
-          colors: [{ name: "Custom", hex: "#FFFFFF", available: true }],
+          name: "Fixed Skylight",
+          price: 1850,
+          colors: [
+            { name: "Clear Glass", hex: "#F0F8FF", available: true },
+            { name: "Solar Control", hex: "#B0C4DE", available: true },
+          ],
           sizes: [
-            {
-              name: "Small Space",
-              dimensions: "Up to 50 sqm",
-              available: true,
-            },
+            { name: "Small", dimensions: "1.0m x 1.0m", available: true },
+            { name: "Medium", dimensions: "1.5m x 1.5m", available: true },
+            { name: "Large", dimensions: "2.0m x 2.0m", available: true },
           ],
         },
         {
           id: "v2",
-          name: "Premium Package",
-          price: 12000,
-          colors: [{ name: "Custom", hex: "#FFFFFF", available: true }],
+          name: "Opening Skylight",
+          price: 2650,
+          colors: [{ name: "Clear Glass", hex: "#F0F8FF", available: true }],
           sizes: [
-            { name: "Medium Space", dimensions: "50-150 sqm", available: true },
-            { name: "Large Space", dimensions: "150+ sqm", available: true },
+            { name: "Small", dimensions: "1.0m x 1.0m", available: true },
+            { name: "Medium", dimensions: "1.5m x 1.5m", available: true },
           ],
         },
       ],
       specifications: {
-        service: "Design, manufacture, and installation",
-        timeline: "4-12 weeks depending on size",
-        includes: "3D renders, material samples, project management",
-        warranty: "2 years",
+        material: "Aluminum frame with double glazing",
+        glassType: "Low-E with solar control",
+        uValue: "1.4 W/m²K",
+        warranty: "10 years",
       },
     },
+    
+    // Sliding Folding Doors (id: 9)
     {
-      id: 21,
-      name: "Gondola Shelves",
-      category: "display-shelving",
-      description: "Versatile double-sided retail shelving",
+      id: 9,
+      name: "Sliding Folding Doors",
+      category: "windows-doors",
+      description: "Space-saving bi-fold door systems",
       fullDescription:
-        "Professional gondola shelving systems perfect for creating retail aisles. Features adjustable shelves, end cap capability, and various height options. Durable construction with easy assembly and reconfiguration.",
+        "Premium sliding folding door systems that maximize space and provide seamless indoor-outdoor flow. Features smooth operation, weather sealing, and various configurations. Perfect for patios, terraces, and room dividers.",
       features: [
-        "Double-sided display",
-        "Adjustable shelves",
-        "End cap compatible",
-        "Various heights",
-        "Easy assembly",
+        "Space saving",
+        "Smooth operation",
+        "Weather sealed",
+        "Various panel configurations",
+        "Heavy duty hardware",
       ],
-      icon: Package,
-      price: 650,
-      rating: 4.7,
-      reviews: 189,
+      icon: DoorOpen,
+      price: 1850,
+      rating: 4.8,
+      reviews: 98,
       images: [
-        "https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?w=800",
-        "https://images.unsplash.com/photo-1555529669-e69e7aa0ba9a?w=800",
-        "https://images.unsplash.com/photo-1595428774223-ef52624120d2?w=800",
+        "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800",
+        "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800",
+        "https://images.unsplash.com/photo-1600566752355-35792bedcfea?w=800",
       ],
       variants: [
         {
           id: "v1",
-          name: "Standard Gondola",
-          price: 650,
+          name: "2-Panel System",
+          price: 1850,
           colors: [
             { name: "White", hex: "#FFFFFF", available: true },
             { name: "Grey", hex: "#808080", available: true },
             { name: "Black", hex: "#000000", available: true },
           ],
           sizes: [
-            { name: "Low", dimensions: "1.2m x 0.9m x 1.4m", available: true },
             {
               name: "Standard",
-              dimensions: "1.2m x 0.9m x 1.8m",
+              dimensions: "2.4m wide x 2.1m high",
               available: true,
             },
-            { name: "Tall", dimensions: "1.2m x 0.9m x 2.2m", available: true },
           ],
         },
         {
           id: "v2",
-          name: "Heavy Duty Gondola",
-          price: 850,
+          name: "4-Panel System",
+          price: 3200,
           colors: [
-            { name: "Grey", hex: "#808080", available: true },
-            { name: "Charcoal", hex: "#36454F", available: true },
+            { name: "White", hex: "#FFFFFF", available: true },
+            { name: "Black", hex: "#000000", available: true },
           ],
           sizes: [
             {
               name: "Standard",
-              dimensions: "1.2m x 0.9m x 1.8m",
+              dimensions: "4.8m wide x 2.1m high",
               available: true,
             },
-            { name: "Tall", dimensions: "1.2m x 0.9m x 2.2m", available: true },
+            {
+              name: "Large",
+              dimensions: "4.8m wide x 2.4m high",
+              available: true,
+            },
           ],
         },
       ],
       specifications: {
-        material: "Steel with powder coating",
-        shelfLoad: "80kg per shelf",
-        shelves: "4-6 adjustable shelves",
+        material: "Aluminum with double glazing",
+        glassType: "6mm + 12mm air gap + 6mm",
+        hardware: "Stainless steel rollers",
         warranty: "5 years",
+      },
+    },
+    
+    // Suspended Ceilings (id: 7)
+    {
+      id: 7,
+      name: "Suspended Ceilings",
+      category: "ceilings",
+      description: "Grid-based suspended ceiling systems",
+      fullDescription:
+        "Professional suspended ceiling systems providing easy access to services above. Features include acoustic tiles, various grid finishes, and easy maintainance. Ideal for offices,residential spaces, and commercial buildings.",
+      features: [
+        "Easy access to services",
+        "Acoustic properties",
+        "Various tile options",
+        "Quick installation",
+        "Conceals wiring & ducts",
+      ],
+      icon: Grid,
+      price: 85,
+      rating: 4.7,
+      reviews: 234,
+      images: [
+        "https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=800",
+        "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800",
+        "https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=800",
+      ],
+      variants: [
+        {
+          id: "v1",
+          name: "Standard Grid",
+          price: 85,
+          colors: [
+            { name: "White", hex: "#FFFFFF", available: true },
+            { name: "Black", hex: "#000000", available: true },
+          ],
+          sizes: [
+            { name: "600x600mm tiles", dimensions: "Per sqm", available: true },
+            {
+              name: "1200x600mm tiles",
+              dimensions: "Per sqm",
+              available: true,
+            },
+          ],
+        },
+        {
+          id: "v2",
+          name: "Acoustic Grid",
+          price: 120,
+          colors: [{ name: "White", hex: "#FFFFFF", available: true }],
+          sizes: [
+            { name: "600x600mm tiles", dimensions: "Per sqm", available: true },
+          ],
+        },
+      ],
+      specifications: {
+        material: "Metal grid with mineral fiber tiles",
+        thickness: "15mm - 20mm",
+        soundAbsorption: "Up to 0.9 NRC",
+        warranty: "5 years",
+      },
+    },
+    
+    // Wall Paneling (id: 5)
+    {
+      id: 5,
+      name: "Wall Paneling",
+      category: "partitions-walls",
+      description: "Decorative wall paneling systems",
+      fullDescription:
+        "Premium decorative wall paneling adding elegance and character to any space. Available in various materials including wood veneer, fabric, leather, and acoustic panels. Perfect for boardrooms, reception areas, and executive offices.",
+      features: [
+        "Premium finishes",
+        "Acoustic options",
+        "Easy maintainance",
+        "Various materials",
+        "Custom designs",
+      ],
+      icon: Layers,
+      price: 320,
+      rating: 4.9,
+      reviews: 94,
+      images: [
+        "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=800",
+        "https://images.unsplash.com/photo-1618221739511-f78d1fa5eaae?w=800",
+        "https://images.unsplash.com/photo-1615875605825-5e4e6e4e3446?w=800",
+      ],
+      variants: [
+        {
+          id: "v1",
+          name: "Wood Veneer",
+          price: 320,
+          colors: [
+            { name: "Oak", hex: "#C19A6B", available: true },
+            { name: "Walnut", hex: "#5C4033", available: true },
+            { name: "Maple", hex: "#F5DEB3", available: true },
+          ],
+          sizes: [
+            { name: "Standard Panel", dimensions: "Per sqm", available: true },
+          ],
+        },
+        {
+          id: "v2",
+          name: "Acoustic Fabric",
+          price: 280,
+          colors: [
+            { name: "Grey", hex: "#808080", available: true },
+            { name: "Navy", hex: "#000080", available: true },
+            { name: "Beige", hex: "#F5F5DC", available: true },
+          ],
+          sizes: [
+            { name: "Standard Panel", dimensions: "Per sqm", available: true },
+          ],
+        },
+      ],
+      specifications: {
+        material: "Various (wood, fabric, acoustic)",
+        thickness: "15mm - 50mm",
+        installation: "Adhesive or clip system",
+        warranty: "3 years",
       },
     },
   ];

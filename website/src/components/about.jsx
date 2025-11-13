@@ -253,7 +253,7 @@ const About = () => {
             </motion.div>
 
             <h1 style={heroTitleStyle}>{t("about.title")}</h1>
-            <p style={heroSubtitleStyle}>{t("about.subtitle")}</p>
+           {/* <p style={heroSubtitleStyle}>{t("about.subtitle")}</p>  <p style={heroSubtitleStyle}>{t("about.subtitle")}</p>*/}
           </motion.div>
         </div>
       </section>

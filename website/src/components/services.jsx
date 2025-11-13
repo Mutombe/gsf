@@ -34,7 +34,23 @@ const Services = () => {
     white: '#FFFFFF',
   };
 
-  const services = [
+const services = [
+    {
+      icon: HeadphonesIcon,
+      title: t('services.afterService.title'),
+      description: t('services.afterService.desc'),
+      features: [
+        '24/7 customer support hotline',
+        'Warranty coverage and claims',
+        'Emergency repair services',
+        'Scheduled maintainance programs',
+        'Parts replacement and supply',
+        'Technical troubleshooting assistance'
+      ],
+      colorFrom: colors.persimmon,
+      colorTo: colors.tangerine,
+      size: 'small',
+    },
     {
       icon: MessageCircle,
       title: t('services.consulting.title'),
@@ -49,6 +65,22 @@ const Services = () => {
       ],
       colorFrom: colors.chiliRed,
       colorTo: colors.brightOrange,
+      size: 'large',
+    },
+    {
+      icon: Lightbulb,
+      title: t('services.design.title'),
+      description: t('services.design.desc'),
+      features: [
+        'Space planning and layout design',
+        '3D modeling and visualization',
+        'Custom fixture and furniture design',
+        'Brand-aligned aesthetic development',
+        'Material and finish selection',
+        'Detailed technical drawings'
+      ],
+      colorFrom: colors.brightOrange,
+      colorTo: colors.amber,
       size: 'large',
     },
     {
@@ -68,36 +100,20 @@ const Services = () => {
       size: 'medium',
     },
     {
-      icon: Lightbulb,
-      title: t('services.design.title'),
-      description: t('services.design.desc'),
+      icon: Settings,
+      title: t('services.installation.title'),
+      description: t('services.installation.desc'),
       features: [
-        'Space planning and layout design',
-        '3D modeling and visualization',
-        'Custom fixture and furniture design',
-        'Brand-aligned aesthetic development',
-        'Material and finish selection',
-        'Detailed technical drawings'
+        'Professional on-site installation',
+        'Certified installation teams',
+        'Minimal business disruption',
+        'Post-installation cleanup',
+        'System testing and commissioning',
+        'Ongoing maintainance contracts'
       ],
-      colorFrom: colors.brightOrange,
-      colorTo: colors.amber,
+      colorFrom: colors.chiliRed,
+      colorTo: colors.darkOrange,
       size: 'large',
-    },
-    {
-      icon: FlaskConical,
-      title: t('services.testing.title'),
-      description: t('services.testing.desc'),
-      features: [
-        'Quality control inspections',
-        'Material testing and verification',
-        'Load and stress testing',
-        'Compliance and safety testing',
-        'Performance validation',
-        'Pre-installation testing protocols'
-      ],
-      colorFrom: colors.flame,
-      colorTo: colors.safetyOrange,
-      size: 'small',
     },
     {
       icon: Factory,
@@ -116,22 +132,6 @@ const Services = () => {
       size: 'medium',
     },
     {
-      icon: HeadphonesIcon,
-      title: t('services.afterService.title'),
-      description: t('services.afterService.desc'),
-      features: [
-        '24/7 customer support hotline',
-        'Warranty coverage and claims',
-        'Emergency repair services',
-        'Scheduled maintainance programs',
-        'Parts replacement and supply',
-        'Technical troubleshooting assistance'
-      ],
-      colorFrom: colors.persimmon,
-      colorTo: colors.tangerine,
-      size: 'small',
-    },
-    {
       icon: FolderKanban,
       title: t('services.projectManagement.title'),
       description: t('services.projectManagement.desc'),
@@ -148,23 +148,22 @@ const Services = () => {
       size: 'medium',
     },
     {
-      icon: Settings,
-      title: t('services.installation.title'),
-      description: t('services.installation.desc'),
+      icon: FlaskConical,
+      title: t('services.testing.title'),
+      description: t('services.testing.desc'),
       features: [
-        'Professional on-site installation',
-        'Certified installation teams',
-        'Minimal business disruption',
-        'Post-installation cleanup',
-        'System testing and commissioning',
-        'Ongoing maintainance contracts'
+        'Quality control inspections',
+        'Material testing and verification',
+        'Load and stress testing',
+        'Compliance and safety testing',
+        'Performance validation',
+        'Pre-installation testing protocols'
       ],
-      colorFrom: colors.chiliRed,
-      colorTo: colors.darkOrange,
-      size: 'large',
+      colorFrom: colors.flame,
+      colorTo: colors.safetyOrange,
+      size: 'small',
     },
   ];
-
   const process = [
     {
       step: '01',
