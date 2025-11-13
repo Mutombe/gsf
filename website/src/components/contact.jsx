@@ -15,6 +15,8 @@ import {
   MessageSquare,
   MessageCircle,
 } from "lucide-react";
+import { FaXTwitter } from "react-icons/fa6";
+
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import L from "leaflet";
@@ -221,7 +223,7 @@ ${formData.message}
       color: "#E4405F",
     },
     {
-      icon: Twitter,
+      icon: FaXTwitter,
       href: "https://twitter.com/globalshopfit",
       label: "Twitter",
       color: "#1DA1F2",

@@ -5,6 +5,7 @@ import {
   Phone, Mail, MapPin, Facebook, Instagram, Twitter, 
   Linkedin, Youtube, Clock, ArrowRight 
 } from 'lucide-react';
+import { FaXTwitter } from "react-icons/fa6";
 import { useLanguage } from './lunguageContext';
 
 const Footer = () => {
@@ -57,7 +58,7 @@ const Footer = () => {
   const socialLinks = [
     { icon: Facebook, href: 'https://facebook.com/globalshopfitters', label: 'Facebook' },
     { icon: Instagram, href: 'https://instagram.com/globalshopfitters', label: 'Instagram' },
-    { icon: Twitter, href: 'https://twitter.com/globalshopfit', label: 'Twitter' },
+    { icon: FaXTwitter, href: 'https://twitter.com/globalshopfit', label: 'Twitter' },
     { icon: Linkedin, href: 'https://linkedin.com/company/global-shopfitters', label: 'LinkedIn' },
     { icon: Youtube, href: 'https://youtube.com/@globalshopfitters', label: 'YouTube' },
   ];

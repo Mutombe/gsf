@@ -17,6 +17,7 @@ import {
   Link as LinkIcon,
   Check
 } from 'lucide-react';
+import { FaXTwitter } from "react-icons/fa6";
 
 const Gallery = () => {
   const [selectedImage, setSelectedImage] = useState(null);
@@ -914,7 +915,7 @@ const Gallery = () => {
                             e.currentTarget.style.background = 'transparent';
                           }}
                         >
-                          <Twitter size={18} style={{ color: '#1DA1F2' }} />
+                          <FaXTwitter size={18} style={{ color: '#1DA1F2' }} />
                           Twitter
                         </button>
                         <button

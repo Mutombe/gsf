@@ -5,6 +5,7 @@ import {
   X, Download, Share2, Facebook, Twitter, Linkedin, Mail, ExternalLink,
   ChevronLeft, ChevronRight, ZoomIn, Image as ImageIcon, Menu
 } from 'lucide-react';
+import { FaXTwitter } from "react-icons/fa6";
 
 const Projects = () => {
   const [activeFilter, setActiveFilter] = useState('all');
@@ -761,7 +762,7 @@ const Projects = () => {
                           >
                             {[
                               { icon: Facebook, label: 'Facebook', platform: 'facebook', color: '#1877F2' },
-                              { icon: Twitter, label: 'Twitter', platform: 'twitter', color: '#1DA1F2' },
+                              { icon: FaXTwitter, label: 'Twitter', platform: 'twitter', color: '#1DA1F2' },
                               { icon: Linkedin, label: 'LinkedIn', platform: 'linkedin', color: '#0A66C2' },
                               { icon: Mail, label: 'Email', platform: 'email', color: colors.mediumGray },
                             ].map((item) => (

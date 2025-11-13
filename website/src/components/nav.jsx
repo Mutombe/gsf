@@ -37,8 +37,8 @@ import { LiaHomeSolid } from "react-icons/lia";
 import { PiPersonLight } from "react-icons/pi";
 import { PiSmileyWinkThin } from "react-icons/pi";
 import { PiSmiley } from "react-icons/pi";
-import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn, FaWhatsapp } from "react-icons/fa";
-
+import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn, FaWhatsapp, } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
@@ -86,7 +86,7 @@ const Navbar = () => {
   // Social media links
   const socialLinks = [
     { icon: FaFacebookF, url: "https://facebook.com/globalshopfitters", label: "Facebook" },
-    { icon: FaTwitter, url: "https://twitter.com/globalshopfitters", label: "Twitter" },
+    { icon: FaXTwitter, url: "https://twitter.com/globalshopfitters", label: "Twitter" },
     { icon: FaInstagram, url: "https://instagram.com/globalshopfitters", label: "Instagram" },
     { icon: FaLinkedinIn, url: "https://linkedin.com/company/globalshopfitters", label: "LinkedIn" },
     { icon: FaWhatsapp, url: "https://wa.me/263123456789", label: "WhatsApp" },
