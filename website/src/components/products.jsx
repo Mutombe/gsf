@@ -363,7 +363,7 @@ const Products = () => {
       features: [
         "Premium finishes",
         "Acoustic options",
-        "Easy maintenance",
+        "Easy maintainance",
         "Various materials",
         "Custom designs",
       ],
@@ -473,7 +473,7 @@ const Products = () => {
       category: "ceilings",
       description: "Grid-based suspended ceiling systems",
       fullDescription:
-        "Professional suspended ceiling systems providing easy access to services above. Features include acoustic tiles, various grid finishes, and easy maintenance. Ideal for offices,residential spaces, and commercial buildings.",
+        "Professional suspended ceiling systems providing easy access to services above. Features include acoustic tiles, various grid finishes, and easy maintainance. Ideal for offices,residential spaces, and commercial buildings.",
       features: [
         "Easy access to services",
         "Acoustic properties",
@@ -539,7 +539,7 @@ const Products = () => {
         "Large glass areas",
         "Integrated doors",
         "Weather resistant",
-        "Low maintenance",
+        "Low maintainance",
       ],
       icon: Building2,
       price: 650,
@@ -928,7 +928,7 @@ const Products = () => {
         "Various materials",
         "Custom designs",
         "Integrated lighting",
-        "Low maintenance",
+        "Low maintainance",
       ],
       icon: Building2,
       price: 3500,

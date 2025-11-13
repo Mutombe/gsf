@@ -108,15 +108,15 @@ export const translations = {
       },
       afterService: {
         title: 'After Service Support',
-        desc: 'Comprehensive post-installation support including warranty coverage, maintenance, and 24/7 customer assistance.',
+        desc: 'Comprehensive post-installation support including warranty coverage, maintainance, and 24/7 customer assistance.',
       },
       projectManagement: {
         title: 'Project Management',
         desc: 'End-to-end project coordination ensuring timely delivery, budget control, and quality assurance.',
       },
       installation: {
-        title: 'Installation & Maintenance',
-        desc: 'Professional installation services with certified teams and ongoing maintenance programs.',
+        title: 'Installation & Maintainance',
+        desc: 'Professional installation services with certified teams and ongoing maintainance programs.',
       },
     },
     // Products Page

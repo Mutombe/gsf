@@ -123,7 +123,7 @@ const Services = () => {
         '24/7 customer support hotline',
         'Warranty coverage and claims',
         'Emergency repair services',
-        'Scheduled maintenance programs',
+        'Scheduled maintainance programs',
         'Parts replacement and supply',
         'Technical troubleshooting assistance'
       ],
@@ -157,7 +157,7 @@ const Services = () => {
         'Minimal business disruption',
         'Post-installation cleanup',
         'System testing and commissioning',
-        'Ongoing maintenance contracts'
+        'Ongoing maintainance contracts'
       ],
       colorFrom: colors.chiliRed,
       colorTo: colors.darkOrange,
@@ -196,7 +196,7 @@ const Services = () => {
     { icon: Clock, title: 'Fast Turnaround', description: 'Projects completed on time, every time' },
     { icon: Award, title: 'Premium Quality', description: 'High-quality materials and craftsmanship' },
     { icon: Shield, title: 'Warranty Included', description: 'Comprehensive warranty on all work' },
-    { icon: CheckCircle2, title: 'Full Support', description: 'Ongoing support and maintenance' },
+    { icon: CheckCircle2, title: 'Full Support', description: 'Ongoing support and maintainance' },
   ];
 
   // Styles

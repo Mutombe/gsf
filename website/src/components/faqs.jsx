@@ -47,7 +47,7 @@ const FAQ = () => {
     {
       category: 'services',
       question: 'What services does Global Shopfitters provide?',
-      answer: 'We provide comprehensive shopfitting solutions including commercial and residential design, custom fixtures, shelving systems, refrigeration solutions, signage and branding, design consultation, and ongoing maintenance services. Our team handles everything from initial concept to final installation.',
+      answer: 'We provide comprehensive shopfitting solutions including commercial and residential design, custom fixtures, shelving systems, refrigeration solutions, signage and branding, design consultation, and ongoing maintainance services. Our team handles everything from initial concept to final installation.',
       popular: true,
       icon: Package,
     },
@@ -82,7 +82,7 @@ const FAQ = () => {
     {
       category: 'warranty',
       question: 'What kind of warranty do you offer?',
-      answer: 'We provide comprehensive warranties on all our work. Specific warranty terms vary by product and service, but typically range from 1-5 years. Warranty details are clearly outlined in project agreements and cover materials, workmanship, and structural integrity.',
+      answer: 'We provide comprehensive warranties on all our work. Specific warranty terms vary by product and service, but typically range from 6months onwards. Warranty details are clearly cover materials, workmanship, and structural integrity.',
       popular: true,
       icon: Shield,
     },
@@ -95,8 +95,8 @@ const FAQ = () => {
     },
     {
       category: 'warranty',
-      question: 'Do you offer maintenance services?',
-      answer: 'Yes, we provide ongoing maintenance and support services to keep your fixtures in excellent condition. We offer both scheduled maintenance contracts and on-demand repair services. Our maintenance team is available for emergency repairs.',
+      question: 'Do you offer maintainance services?',
+      answer: 'Yes, we provide ongoing maintainance and support services to keep your fixtures in excellent condition. We offer both scheduled maintainance contracts and on-demand repair services. Our maintainance team is available for emergency repairs.',
       popular: false,
       icon: Wrench,
     },
@@ -110,7 +110,7 @@ const FAQ = () => {
     {
       category: 'services',
       question: 'What materials do you use?',
-      answer: 'We use high-quality, durable materials including commercial-grade steel, solid wood, tempered glass, and premium laminates. Material selection depends on your specific requirements, budget, and intended use. We source materials from trusted suppliers.',
+      answer: 'We use high-quality, durable materials including commercial grade steel, aluminium, solid wood, soft woods, wide range of glass types, different laminate and tile finishes, to mention a few. Material selection depends on your specific requirements, budget, and intended use. We source materials from trusted suppliers.',
       popular: false,
       icon: Package,
     },
@@ -124,7 +124,7 @@ const FAQ = () => {
     {
       category: 'process',
       question: 'What is the consultation process?',
-      answer: 'Our consultation process starts with an initial meeting to understand your needs and vision. We then conduct a site survey, develop design concepts, provide 3D visualizations, and prepare a detailed proposal. The entire consultation is free with no obligation.',
+      answer: 'Our consultation process starts with an initial meeting to understand your needs and vision. We then conduct a site survey, develop design concepts, provide 3D and 2D visualizations, and prepare a detailed proposal. The entire consultation is free with no obligation.',
       popular: false,
       icon: Users,
     },
@@ -145,7 +145,7 @@ const FAQ = () => {
     {
       category: 'warranty',
       question: 'What if something breaks after installation?',
-      answer: 'All our work is covered by warranty. If something breaks or malfunctions within the warranty period due to manufacturing defects or faulty installation, we\'ll repair or replace it at no cost. Contact our support team and we\'ll respond within 24 hours.',
+      answer: 'All our work is covered by warranty. If something breaks or malfunctions within the warranty period due to manufacturing defects or faulty installation, we\'ll repair or replace it at no cost. Contact our support team and we\'ll respond within 24 hours. However certain material or defects After Installation is complete do not carry a warranty, for example, breaking of glass or client or natural harzads altering initial status/look of finished product.',
       popular: false,
       icon: Shield,
     },

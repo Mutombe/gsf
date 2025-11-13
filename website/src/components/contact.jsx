@@ -865,7 +865,7 @@ ${formData.message}
                       <option value="After Service">
                         After service support
                       </option>
-                      <option value="Maintenance">Project management</option>
+                      <option value="Maintainance">Project management</option>
                       <option value="Other">Other</option>
                     </select>
                   </div>
