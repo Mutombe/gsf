@@ -249,7 +249,7 @@ const FAQ = () => {
     padding: '18px 24px 18px 56px',
     fontSize: '16px',
     border: `2px solid ${colors.lightGray}`,
-    borderRadius: '12px',
+    borderRadius: '5px',
     outline: 'none',
     transition: 'all 0.3s ease',
     background: colors.white,
@@ -261,7 +261,7 @@ const FAQ = () => {
     alignItems: 'center',
     gap: '8px',
     padding: '12px 24px',
-    borderRadius: '12px',
+    borderRadius: '5px',
     border: 'none',
     cursor: 'pointer',
     fontWeight: '600',
@@ -277,7 +277,7 @@ const FAQ = () => {
 
   const faqItemStyle = {
     border: `2px solid ${colors.lightGray}`,
-    borderRadius: '16px',
+    borderRadius: '5px',
     overflow: 'hidden',
     background: colors.white,
     boxShadow: '0 2px 12px rgba(0, 0, 0, 0.05)',
@@ -338,7 +338,7 @@ const FAQ = () => {
                 height: '96px',
                 background: 'rgba(255, 255, 255, 0.15)',
                 backdropFilter: 'blur(10px)',
-                borderRadius: '50%',
+                borderRadius: '5%',
                 marginBottom: '32px',
                 border: '2px solid rgba(255, 255, 255, 0.3)',
               }}
@@ -385,7 +385,7 @@ const FAQ = () => {
                   padding: '20px 24px 20px 56px',
                   fontSize: '16px',
                   border: 'none',
-                  borderRadius: '16px',
+                  borderRadius: '5px',
                   outline: 'none',
                   background: 'rgba(255, 255, 255, 0.95)',
                   backdropFilter: 'blur(10px)',
@@ -444,7 +444,7 @@ const FAQ = () => {
                   whileHover={{ y: -8 }}
                   style={{
                     background: colors.white,
-                    borderRadius: '16px',
+                    borderRadius: '5px',
                     padding: '24px',
                     boxShadow: '0 4px 12px rgba(0, 0, 0, 0.08)',
                     transition: 'all 0.3s ease',
@@ -472,7 +472,7 @@ const FAQ = () => {
                   <div style={{
                     width: '48px',
                     height: '48px',
-                    borderRadius: '12px',
+                    borderRadius: '5px',
                     background: `linear-gradient(135deg, ${colors.chiliRed}15, ${colors.amber}15)`,
                     display: 'flex',
                     alignItems: 'center',
@@ -613,7 +613,7 @@ const FAQ = () => {
                         <div style={{
                           width: '40px',
                           height: '40px',
-                          borderRadius: '10px',
+                          borderRadius: '5px',
                           background: `linear-gradient(135deg, ${colors.chiliRed}15, ${colors.amber}15)`,
                           display: 'flex',
                           alignItems: 'center',
@@ -641,7 +641,7 @@ const FAQ = () => {
                               padding: '4px 12px',
                               background: `${colors.amber}20`,
                               color: colors.darkOrange,
-                              borderRadius: '12px',
+                              borderRadius: '5px',
                               fontSize: '12px',
                               fontWeight: '600',
                             }}>
@@ -694,7 +694,7 @@ const FAQ = () => {
                   textAlign: 'center',
                   padding: '64px 20px',
                   background: colors.lightGray,
-                  borderRadius: '16px',
+                  borderRadius: '5px',
                 }}
               >
                 <HelpCircle size={64} style={{ color: colors.mediumGray, marginBottom: '16px' }} />
@@ -719,7 +719,7 @@ const FAQ = () => {
                     background: colors.chiliRed,
                     color: colors.white,
                     border: 'none',
-                    borderRadius: '8px',
+                    borderRadius: '5px',
                     fontWeight: '600',
                     cursor: 'pointer',
                   }}
@@ -773,7 +773,7 @@ const FAQ = () => {
                 whileHover={{ y: -8, scale: 1.02 }}
                 style={{
                   background: colors.white,
-                  borderRadius: '16px',
+                  borderRadius: '5px',
                   padding: '32px',
                   textAlign: 'center',
                   textDecoration: 'none',
@@ -794,7 +794,7 @@ const FAQ = () => {
                 <div style={{
                   width: '64px',
                   height: '64px',
-                  borderRadius: '50%',
+                  borderRadius: '5%',
                   background: `${method.color}15`,
                   display: 'flex',
                   alignItems: 'center',
@@ -840,7 +840,7 @@ const FAQ = () => {
             viewport={{ once: true }}
             style={{
               background: `linear-gradient(135deg, ${colors.chiliRed}, ${colors.safetyOrange})`,
-              borderRadius: '20px',
+              borderRadius: '5px',
               padding: '48px 32px',
               textAlign: 'center',
               color: colors.white,
@@ -869,7 +869,7 @@ const FAQ = () => {
                 padding: '16px 32px',
                 background: colors.white,
                 color: colors.chiliRed,
-                borderRadius: '12px',
+                borderRadius: '5px',
                 fontWeight: '700',
                 textDecoration: 'none',
                 boxShadow: '0 4px 20px rgba(0, 0, 0, 0.2)',

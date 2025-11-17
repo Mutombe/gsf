@@ -274,7 +274,7 @@ ${formData.message}
             width: "300px",
             height: "300px",
             background: `radial-gradient(circle, ${colors.chiliRed}30, transparent)`,
-            borderRadius: "50%",
+            borderRadius: "5%",
             filter: "blur(60px)",
           }}
         ></div>
@@ -286,7 +286,7 @@ ${formData.message}
             width: "400px",
             height: "400px",
             background: `radial-gradient(circle, ${colors.amber}25, transparent)`,
-            borderRadius: "50%",
+            borderRadius: "5%",
             filter: "blur(80px)",
           }}
         ></div>
@@ -341,7 +341,7 @@ ${formData.message}
                 padding: "12px 24px",
                 background: "rgba(255, 255, 255, 0.1)",
                 backdropFilter: "blur(10px)",
-                borderRadius: "50px",
+                borderRadius: "5px",
                 border: "1px solid rgba(255, 255, 255, 0.2)",
                 marginBottom: "24px",
               }}
@@ -423,7 +423,7 @@ ${formData.message}
                 whileHover={{ y: -5 }}
                 style={{
                   background: colors.white,
-                  borderRadius: "16px",
+                  borderRadius: "5px",
                   padding: "32px",
                   display: "flex",
                   alignItems: "flex-start",
@@ -445,7 +445,7 @@ ${formData.message}
                     width: "48px",
                     height: "48px",
                     background: `linear-gradient(135deg, ${colors.chiliRed}, ${colors.brightOrange})`,
-                    borderRadius: "12px",
+                    borderRadius: "5px",
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
@@ -537,7 +537,7 @@ ${formData.message}
                 whileHover={{ y: -8 }}
                 style={{
                   background: colors.white,
-                  borderRadius: "20px",
+                  borderRadius: "5px",
                   padding: "32px 24px",
                   boxShadow: "0 4px 20px rgba(0, 0, 0, 0.08)",
                   textAlign: "center",
@@ -562,7 +562,7 @@ ${formData.message}
                     width: "72px",
                     height: "72px",
                     background: `linear-gradient(135deg, ${info.colorFrom}, ${info.colorTo})`,
-                    borderRadius: "16px",
+                    borderRadius: "5px",
                     display: "inline-flex",
                     alignItems: "center",
                     justifyContent: "center",
@@ -616,7 +616,7 @@ ${formData.message}
               transition={{ duration: 0.8 }}
               style={{
                 background: colors.white,
-                borderRadius: "24px",
+                borderRadius: "5px",
                 padding: "40px",
                 boxShadow: "0 8px 32px rgba(0, 0, 0, 0.1)",
               }}
@@ -671,7 +671,7 @@ ${formData.message}
                       width: "100%",
                       padding: "14px 16px",
                       border: `2px solid ${colors.lightGray}`,
-                      borderRadius: "12px",
+                      borderRadius: "5px",
                       fontSize: "1rem",
                       color: colors.darkGray,
                       transition: "all 0.3s ease",
@@ -718,7 +718,7 @@ ${formData.message}
                         width: "100%",
                         padding: "14px 16px",
                         border: `2px solid ${colors.lightGray}`,
-                        borderRadius: "12px",
+                        borderRadius: "5px",
                         fontSize: "1rem",
                         color: colors.darkGray,
                         transition: "all 0.3s ease",
@@ -756,7 +756,7 @@ ${formData.message}
                         width: "100%",
                         padding: "14px 16px",
                         border: `2px solid ${colors.lightGray}`,
-                        borderRadius: "12px",
+                        borderRadius: "5px",
                         fontSize: "1rem",
                         color: colors.darkGray,
                         transition: "all 0.3s ease",
@@ -803,7 +803,7 @@ ${formData.message}
                         width: "100%",
                         padding: "14px 16px",
                         border: `2px solid ${colors.lightGray}`,
-                        borderRadius: "12px",
+                        borderRadius: "5px",
                         fontSize: "1rem",
                         color: colors.darkGray,
                         transition: "all 0.3s ease",
@@ -839,7 +839,7 @@ ${formData.message}
                         width: "100%",
                         padding: "14px 16px",
                         border: `2px solid ${colors.lightGray}`,
-                        borderRadius: "12px",
+                        borderRadius: "5px",
                         fontSize: "1rem",
                         color: colors.darkGray,
                         transition: "all 0.3s ease",
@@ -896,7 +896,7 @@ ${formData.message}
                       width: "100%",
                       padding: "14px 16px",
                       border: `2px solid ${colors.lightGray}`,
-                      borderRadius: "12px",
+                      borderRadius: "5px",
                       fontSize: "1rem",
                       color: colors.darkGray,
                       transition: "all 0.3s ease",
@@ -955,7 +955,7 @@ ${formData.message}
                         padding: "14px 20px",
                         background: "linear-gradient(135deg, #25D366, #128C7E)",
                         color: colors.white,
-                        borderRadius: "12px",
+                        borderRadius: "5px",
                         fontWeight: "700",
                         fontSize: "0.95rem",
                         border: "none",
@@ -982,7 +982,7 @@ ${formData.message}
                         padding: "14px 20px",
                         background: `linear-gradient(135deg, ${colors.chiliRed}, ${colors.scarlet})`,
                         color: colors.white,
-                        borderRadius: "12px",
+                        borderRadius: "5px",
                         fontWeight: "700",
                         fontSize: "0.95rem",
                         border: "none",
@@ -1036,7 +1036,7 @@ ${formData.message}
                         width: "48px",
                         height: "48px",
                         background: `${social.color}15`,
-                        borderRadius: "12px",
+                        borderRadius: "5px",
                         display: "flex",
                         alignItems: "center",
                         justifyContent: "center",
@@ -1073,7 +1073,7 @@ ${formData.message}
             >
               <div
                 style={{
-                  borderRadius: "24px",
+                  borderRadius: "5px",
                   overflow: "hidden",
                   boxShadow: "0 8px 32px rgba(0, 0, 0, 0.15)",
                   height: "600px",
@@ -1125,7 +1125,7 @@ ${formData.message}
                 style={{
                   marginTop: "20px",
                   background: colors.white,
-                  borderRadius: "16px",
+                  borderRadius: "5px",
                   padding: "24px",
                   boxShadow: "0 4px 20px rgba(0, 0, 0, 0.08)",
                 }}
@@ -1163,7 +1163,7 @@ ${formData.message}
                     padding: "12px 20px",
                     background: `linear-gradient(135deg, ${colors.chiliRed}, ${colors.brightOrange})`,
                     color: colors.white,
-                    borderRadius: "8px",
+                    borderRadius: "5px",
                     fontWeight: "600",
                     fontSize: "0.875rem",
                     textDecoration: "none",
@@ -1203,7 +1203,7 @@ ${formData.message}
               exit={{ scale: 0.8, opacity: 0 }}
               style={{
                 background: colors.white,
-                borderRadius: "24px",
+                borderRadius: "5px",
                 padding: "48px",
                 textAlign: "center",
                 maxWidth: "400px",
@@ -1217,7 +1217,7 @@ ${formData.message}
                   width: "80px",
                   height: "80px",
                   background: `linear-gradient(135deg, ${colors.chiliRed}, ${colors.brightOrange})`,
-                  borderRadius: "50%",
+                  borderRadius: "5%",
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",

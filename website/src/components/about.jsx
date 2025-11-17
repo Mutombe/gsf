@@ -99,7 +99,7 @@ const About = () => {
       description: "Partnered with leading banks and retail chains",
       icon: Users,
       image:
-        "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80",
+        "/h.jpg",
       color: "#6B7280",
     },
     {
@@ -148,7 +148,7 @@ const About = () => {
     padding: "12px 24px",
     background: "rgba(227, 24, 13, 0.08)",
     backdropFilter: "blur(10px)",
-    borderRadius: "50px",
+    borderRadius: "5px",
     border: "1px solid rgba(227, 24, 13, 0.2)",
     fontSize: "14px",
     fontWeight: "500",
@@ -194,7 +194,7 @@ const About = () => {
 
   const cardStyle = {
     background: colors.white,
-    borderRadius: "16px",
+    borderRadius: "5px",
     boxShadow: "0 4px 20px rgba(0, 0, 0, 0.08)",
     transition: "all 0.3s ease",
   };
@@ -262,7 +262,7 @@ const About = () => {
             width: "200px",
             height: "200px",
             background: `radial-gradient(circle, ${colors.mustardLight}20, transparent)`,
-            borderRadius: "50%",
+            borderRadius: "5%",
             filter: "blur(60px)",
           }}
         ></div>
@@ -274,7 +274,7 @@ const About = () => {
             width: "300px",
             height: "300px",
             background: `radial-gradient(circle, ${colors.scarlet}15, transparent)`,
-            borderRadius: "50%",
+            borderRadius: "5%",
             filter: "blur(80px)",
           }}
         ></div>
@@ -306,7 +306,7 @@ const About = () => {
                   padding: "8px 20px",
                   background: `linear-gradient(90deg, ${colors.chiliRed}, ${colors.brightOrange})`,
                   color: colors.white,
-                  borderRadius: "50px",
+                  borderRadius: "5px",
                   fontSize: "14px",
                   fontWeight: "600",
                   marginBottom: "24px",
@@ -426,7 +426,7 @@ const About = () => {
                   position: "relative",
                   width: "100%",
                   height: "600px",
-                  borderRadius: "24px",
+                  borderRadius: "5px",
                   overflow: "hidden",
                   boxShadow: "0 30px 80px rgba(0, 0, 0, 0.2)",
                 }}
@@ -451,7 +451,7 @@ const About = () => {
                     width: "150px",
                     height: "150px",
                     background: "rgba(255, 255, 255, 0.1)",
-                    borderRadius: "50%",
+                    borderRadius: "5%",
                     backdropFilter: "blur(10px)",
                   }}
                 ></div>
@@ -463,7 +463,7 @@ const About = () => {
                     width: "200px",
                     height: "200px",
                     background: "rgba(255, 255, 255, 0.08)",
-                    borderRadius: "50%",
+                    borderRadius: "5%",
                     backdropFilter: "blur(10px)",
                   }}
                 ></div>
@@ -537,7 +537,7 @@ const About = () => {
                   left: "-30px",
                   background: colors.white,
                   padding: "24px",
-                  borderRadius: "16px",
+                  borderRadius: "5px",
                   boxShadow: "0 20px 60px rgba(0, 0, 0, 0.25)",
                   maxWidth: "240px",
                   border: `2px solid ${colors.lightGray}`,
@@ -557,7 +557,7 @@ const About = () => {
                       width: "56px",
                       height: "56px",
                       background: colors.lightGray,
-                      borderRadius: "12px",
+                      borderRadius: "5px",
                       display: "flex",
                       alignItems: "center",
                       justifyContent: "center",
@@ -679,7 +679,7 @@ const About = () => {
                   width: "150px",
                   height: "150px",
                   background: `linear-gradient(135deg, ${colors.chiliRed}15, ${colors.brightOrange}15)`,
-                  borderRadius: "50%",
+                  borderRadius: "5%",
                   filter: "blur(40px)",
                 }}
               ></div>
@@ -689,7 +689,7 @@ const About = () => {
                   width: "72px",
                   height: "72px",
                   background: `linear-gradient(135deg, ${colors.chiliRed}, ${colors.brightOrange})`,
-                  borderRadius: "16px",
+                  borderRadius: "5px",
                   display: "inline-flex",
                   alignItems: "center",
                   justifyContent: "center",
@@ -773,7 +773,7 @@ const About = () => {
                   width: "150px",
                   height: "150px",
                   background: `linear-gradient(135deg, ${colors.scarlet}15, ${colors.darkOrange}15)`,
-                  borderRadius: "50%",
+                  borderRadius: "5%",
                   filter: "blur(40px)",
                 }}
               ></div>
@@ -783,7 +783,7 @@ const About = () => {
                   width: "72px",
                   height: "72px",
                   background: `linear-gradient(135deg, ${colors.scarlet}, ${colors.darkOrange})`,
-                  borderRadius: "16px",
+                  borderRadius: "5px",
                   display: "inline-flex",
                   alignItems: "center",
                   justifyContent: "center",
@@ -899,7 +899,7 @@ const About = () => {
                       width: "clamp(120px, 30vw, 200px)",
                       height: "clamp(120px, 30vw, 200px)",
                       background: `radial-gradient(circle, ${value.colorFrom}20, transparent)`,
-                      borderRadius: "50%",
+                      borderRadius: "5%",
                       filter: "blur(40px)",
                     }}
                   ></div>
@@ -910,7 +910,7 @@ const About = () => {
                         width: "clamp(56px, 10vw, 64px)",
                         height: "clamp(56px, 10vw, 64px)",
                         background: `linear-gradient(135deg, ${value.colorFrom}, ${value.colorTo})`,
-                        borderRadius: "14px",
+                        borderRadius: "5px",
                         display: "inline-flex",
                         alignItems: "center",
                         justifyContent: "center",
@@ -977,7 +977,7 @@ const About = () => {
             style={{
               background: colors.white,
               padding: "clamp(40px, 6vw, 60px)",
-              borderRadius: "24px",
+              borderRadius: "5px",
               boxShadow: "0 10px 40px rgba(0, 0, 0, 0.08)",
             }}
           >
@@ -1068,7 +1068,7 @@ const About = () => {
                     textAlign: "center",
                     padding: "24px",
                     background: colors.lightGray,
-                    borderRadius: "12px",
+                    borderRadius: "5px",
                     transition: "all 0.3s ease",
                     cursor: "pointer",
                     display: "flex",
@@ -1221,7 +1221,7 @@ const About = () => {
                     <motion.div
                       style={{
                         background: colors.white,
-                        borderRadius: "12px",
+                        borderRadius: "5px",
                         position: "relative",
                         overflow: "hidden",
                         minHeight: window.innerWidth < 768 ? "auto" : "120px",
@@ -1249,10 +1249,10 @@ const About = () => {
                           height: window.innerWidth < 768 ? "120px" : "auto",
                           borderRadius:
                             window.innerWidth < 768
-                              ? "12px 12px 0 0"
+                              ? "5px 5px 0 0"
                               : isEven
-                              ? "12px 0 0 12px"
-                              : "0 12px 12px 0",
+                              ? "5px 0 0 5px"
+                              : "0 5px 5px 0",
                           overflow: "hidden",
                         }}
                       >
@@ -1373,7 +1373,7 @@ const About = () => {
               style={{
                 width: "8px",
                 height: "8px",
-                borderRadius: "50%",
+                borderRadius: "5%",
                 background: colors.mustardYellow,
               }}
             ></div>
@@ -1419,7 +1419,7 @@ const About = () => {
                   textAlign: "center",
                   padding: "24px",
                   background: colors.white,
-                  borderRadius: "16px",
+                  borderRadius: "5px",
                   boxShadow: "0 4px 20px rgba(0, 0, 0, 0.06)",
                   transition: "all 0.3s ease",
                   cursor: "pointer",
@@ -1446,7 +1446,7 @@ const About = () => {
                       position: "absolute",
                       inset: 0,
                       background: `linear-gradient(135deg, ${colors.chiliRed}, ${colors.amber})`,
-                      borderRadius: "50%",
+                      borderRadius: "5%",
                     }}
                   ></div>
                   <div
@@ -1454,7 +1454,7 @@ const About = () => {
                       position: "absolute",
                       inset: "6px",
                       background: colors.white,
-                      borderRadius: "50%",
+                      borderRadius: "5%",
                       display: "flex",
                       alignItems: "center",
                       justifyContent: "center",

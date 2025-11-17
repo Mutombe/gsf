@@ -265,7 +265,7 @@ const SearchModal = ({ isOpen, onClose }) => {
             className="fixed top-20 left-1/2 -translate-x-1/2 w-full max-w-2xl z-50 px-4 pt-20"
           >
             <div 
-              className="bg-white rounded-lg shadow-2xl overflow-hidden"
+              className="bg-white rounded-sm shadow-2xl overflow-hidden"
               style={{ border: `2px solid ${colors.chiliRed}` }}
             >
               {/* Search Input */}
@@ -288,14 +288,14 @@ const SearchModal = ({ isOpen, onClose }) => {
                 {searchQuery && (
                   <button
                     onClick={() => setSearchQuery('')}
-                    className="p-1 hover:bg-red-100 rounded-full transition-colors"
+                    className="p-1 hover:bg-red-100 rounded-sm transition-colors"
                   >
                     <X className="w-4 h-4 text-gray-500" />
                   </button>
                 )}
                 <button
                   onClick={handleClose}
-                  className="p-2 hover:bg-red-100 rounded-lg transition-colors"
+                  className="p-2 hover:bg-red-100 rounded-sm transition-colors"
                 >
                   <X className="w-5 h-5" style={{ color: colors.chiliRed }} />
                 </button>
@@ -306,7 +306,7 @@ const SearchModal = ({ isOpen, onClose }) => {
                 {searchQuery.trim() === '' ? (
                   <div className="p-8 text-center">
                     <div 
-                      className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4"
+                      className="w-16 h-16 rounded-sm flex items-center justify-center mx-auto mb-4"
                       style={{
                         background: `linear-gradient(135deg, ${colors.chiliRed}20, ${colors.amber}20)`,
                       }}
@@ -336,7 +336,7 @@ const SearchModal = ({ isOpen, onClose }) => {
                             delay: delay,
                             ease: "easeInOut",
                           }}
-                          className="w-2 h-2 rounded-full"
+                          className="w-2 h-2 rounded-sm"
                           style={{
                             background: `linear-gradient(to right, ${colors.chiliRed}, ${colors.amber})`,
                           }}
@@ -364,7 +364,7 @@ const SearchModal = ({ isOpen, onClose }) => {
                             e.currentTarget.style.background = 'white';
                           }}
                         >
-                          <div className={`p-2.5 rounded-lg transition-colors ${getCategoryColor(result.category)}`}>
+                          <div className={`p-2.5 rounded-sm transition-colors ${getCategoryColor(result.category)}`}>
                             {getCategoryIcon(result.category)}
                           </div>
                           <div className="flex-1 min-w-0">
@@ -376,7 +376,7 @@ const SearchModal = ({ isOpen, onClose }) => {
                                 {result.title}
                               </h3>
                               <span 
-                                className="px-2 py-0.5 text-xs font-semibold rounded-full flex-shrink-0"
+                                className="px-2 py-0.5 text-xs font-semibold rounded-sm flex-shrink-0"
                                 style={{
                                   background: colors.amber + '30',
                                   color: colors.darkGray,
@@ -407,7 +407,7 @@ const SearchModal = ({ isOpen, onClose }) => {
                             e.currentTarget.style.background = 'white';
                           }}
                         >
-                          <div className={`p-2.5 rounded-lg transition-colors ${getCategoryColor(result.category)}`}>
+                          <div className={`p-2.5 rounded-sm transition-colors ${getCategoryColor(result.category)}`}>
                             {getCategoryIcon(result.category)}
                           </div>
                           <div className="flex-1 min-w-0">
@@ -419,7 +419,7 @@ const SearchModal = ({ isOpen, onClose }) => {
                                 {result.title}
                               </h3>
                               <span 
-                                className="px-2 py-0.5 text-xs font-semibold rounded-full flex-shrink-0"
+                                className="px-2 py-0.5 text-xs font-semibold rounded-sm flex-shrink-0"
                                 style={{
                                   background: colors.amber + '30',
                                   color: colors.darkGray,
@@ -439,7 +439,7 @@ const SearchModal = ({ isOpen, onClose }) => {
                   </div>
                 ) : (
                   <div className="p-8 text-center">
-                    <div className="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                    <div className="w-16 h-16 bg-gray-100 rounded-sm flex items-center justify-center mx-auto mb-3">
                       <Search className="w-8 h-8 text-gray-400" />
                     </div>
                     <p className="text-gray-700 font-semibold mb-1">No results found</p>

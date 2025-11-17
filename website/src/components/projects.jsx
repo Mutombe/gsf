@@ -339,7 +339,7 @@ const Projects = () => {
                 padding: isMobile ? '6px 16px' : '8px 20px',
                 background: 'rgba(255, 255, 255, 0.2)',
                 backdropFilter: 'blur(10px)',
-                borderRadius: '50px',
+                borderRadius: '5px',
                 marginBottom: isMobile ? '16px' : '24px',
                 border: '1px solid rgba(255, 255, 255, 0.3)',
               }}
@@ -387,7 +387,7 @@ const Projects = () => {
                 onClick={() => setActiveFilter(filter)}
                 style={{
                   padding: isMobile ? '10px 18px' : '12px 24px',
-                  borderRadius: '8px',
+                  borderRadius: '5px',
                   fontWeight: '600',
                   textTransform: 'capitalize',
                   border: 'none',
@@ -428,7 +428,7 @@ const Projects = () => {
                 transition={{ delay: index * 0.1, duration: 0.6 }}
                 style={{
                   background: colors.white,
-                  borderRadius: '20px',
+                  borderRadius: '5px',
                   overflow: 'hidden',
                   boxShadow: '0 4px 20px rgba(0, 0, 0, 0.08)',
                   cursor: 'pointer',
@@ -459,7 +459,7 @@ const Projects = () => {
                     padding: isMobile ? '4px 12px' : '6px 14px',
                     background: 'rgba(255, 255, 255, 0.95)',
                     backdropFilter: 'blur(10px)',
-                    borderRadius: '50px',
+                    borderRadius: '5px',
                     fontSize: isMobile ? '11px' : '12px',
                     fontWeight: '700',
                     color: colors.darkGray,
@@ -475,7 +475,7 @@ const Projects = () => {
                     left: '12px',
                     padding: isMobile ? '4px 12px' : '6px 14px',
                     background: `linear-gradient(135deg, ${colors.chiliRed}, ${colors.scarlet})`,
-                    borderRadius: '50px',
+                    borderRadius: '5px',
                     fontSize: isMobile ? '10px' : '11px',
                     fontWeight: '700',
                     color: colors.white,
@@ -552,7 +552,7 @@ const Projects = () => {
               transition={{ type: 'spring', damping: 25 }}
               style={{
                 background: colors.white,
-                borderRadius: isMobile ? '0' : '24px',
+                borderRadius: isMobile ? '0' : '5px',
                 maxWidth: '1200px',
                 width: '100%',
                 maxHeight: isMobile ? '100vh' : '90vh',
@@ -571,7 +571,7 @@ const Projects = () => {
                   transform: isMobile ? 'translateX(-28px)' : 'translateX(-40px)',
                   width: isMobile ? '40px' : '48px',
                   height: isMobile ? '40px' : '48px',
-                  borderRadius: '50%',
+                  borderRadius: '5px',
                   background: colors.white,
                   border: 'none',
                   cursor: 'pointer',
@@ -640,7 +640,7 @@ const Projects = () => {
                     transform: 'translate(-50%, -50%)',
                     width: isMobile ? '40px' : '48px',
                     height: isMobile ? '40px' : '48px',
-                    borderRadius: '50%',
+                    borderRadius: '5px',
                     background: colors.white,
                     boxShadow: '0 4px 12px rgba(0, 0, 0, 0.3)',
                     display: 'flex',
@@ -661,7 +661,7 @@ const Projects = () => {
                   padding: isMobile ? '6px 12px' : '8px 16px',
                   background: 'rgba(0, 0, 0, 0.7)',
                   backdropFilter: 'blur(10px)',
-                  borderRadius: '8px',
+                  borderRadius: '5px',
                   color: colors.white,
                   fontWeight: '700',
                   fontSize: isMobile ? '12px' : '14px',
@@ -675,7 +675,7 @@ const Projects = () => {
                   padding: isMobile ? '6px 12px' : '8px 16px',
                   background: 'rgba(227, 24, 13, 0.9)',
                   backdropFilter: 'blur(10px)',
-                  borderRadius: '8px',
+                  borderRadius: '5px',
                   color: colors.white,
                   fontWeight: '700',
                   fontSize: isMobile ? '12px' : '14px',
@@ -698,7 +698,7 @@ const Projects = () => {
                     <div style={{
                       width: isMobile ? '48px' : '56px',
                       height: isMobile ? '48px' : '56px',
-                      borderRadius: '12px',
+                      borderRadius: '5px',
                       background: `linear-gradient(135deg, ${colors.chiliRed}, ${colors.amber})`,
                       display: 'flex',
                       alignItems: 'center',
@@ -756,7 +756,7 @@ const Projects = () => {
                             padding: isMobile ? '10px 16px' : '12px 20px',
                             background: colors.lightGray,
                             color: colors.darkGray,
-                            borderRadius: '8px',
+                            borderRadius: '5px',
                             fontWeight: '600',
                             border: 'none',
                             cursor: 'pointer',
@@ -779,7 +779,7 @@ const Projects = () => {
                               right: 0,
                               marginTop: '8px',
                               background: colors.white,
-                              borderRadius: '12px',
+                              borderRadius: '5px',
                               boxShadow: '0 8px 32px rgba(0, 0, 0, 0.15)',
                               padding: '8px',
                               minWidth: isMobile ? '180px' : '200px',
@@ -803,7 +803,7 @@ const Projects = () => {
                                   padding: isMobile ? '10px' : '12px',
                                   background: 'transparent',
                                   border: 'none',
-                                  borderRadius: '8px',
+                                  borderRadius: '5px',
                                   cursor: 'pointer',
                                   fontSize: isMobile ? '13px' : '14px',
                                   fontWeight: '600',
@@ -829,7 +829,7 @@ const Projects = () => {
                           padding: isMobile ? '10px 16px' : '12px 20px',
                           background: `linear-gradient(135deg, ${colors.chiliRed}, ${colors.scarlet})`,
                           color: colors.white,
-                          borderRadius: '8px',
+                          borderRadius: '5px',
                           fontWeight: '600',
                           border: 'none',
                           cursor: 'pointer',
@@ -852,7 +852,7 @@ const Projects = () => {
                   marginBottom: isMobile ? '24px' : '32px',
                   padding: isMobile ? '16px' : '24px',
                   background: colors.lightGray,
-                  borderRadius: '16px',
+                  borderRadius: '5px',
                 }}>
                   {Object.entries(selectedProject.stats).map(([key, value]) => (
                     <div key={key} style={{ textAlign: 'center' }}>
@@ -921,13 +921,13 @@ const Projects = () => {
                           padding: isMobile ? '10px 14px' : '12px 16px',
                           background: colors.white,
                           border: `2px solid ${colors.lightGray}`,
-                          borderRadius: '10px',
+                          borderRadius: '5px',
                         }}
                       >
                         <div style={{
                           width: '8px',
                           height: '8px',
-                          borderRadius: '50%',
+                          borderRadius: '5px',
                           background: `linear-gradient(135deg, ${colors.chiliRed}, ${colors.amber})`,
                           flexShrink: 0,
                         }}></div>
@@ -965,7 +965,7 @@ const Projects = () => {
                           style={{
                             position: 'relative',
                             height: isMobile ? '180px' : '200px',
-                            borderRadius: '12px',
+                            borderRadius: '5px',
                             overflow: 'hidden',
                             cursor: 'pointer',
                             boxShadow: '0 4px 12px rgba(0, 0, 0, 0.1)',
@@ -988,7 +988,7 @@ const Projects = () => {
                 <div style={{
                   padding: isMobile ? '24px 16px' : '32px',
                   background: `linear-gradient(135deg, ${colors.chiliRed}15, ${colors.amber}15)`,
-                  borderRadius: '16px',
+                  borderRadius: '5px',
                   textAlign: 'center',
                 }}>
                   <h3 style={{ 
@@ -1014,7 +1014,7 @@ const Projects = () => {
                       padding: isMobile ? '12px 24px' : '14px 32px',
                       background: `linear-gradient(135deg, ${colors.chiliRed}, ${colors.scarlet})`,
                       color: colors.white,
-                      borderRadius: '8px',
+                      borderRadius: '5px',
                       fontWeight: '600',
                       border: 'none',
                       cursor: 'pointer',
@@ -1084,7 +1084,7 @@ const Projects = () => {
                 padding: isMobile ? '12px 28px' : '14px 32px',
                 background: colors.white,
                 color: colors.darkGray,
-                borderRadius: '8px',
+                borderRadius: '5px',
                 fontWeight: '600',
                 textDecoration: 'none',
                 boxShadow: '0 4px 20px rgba(0, 0, 0, 0.2)',

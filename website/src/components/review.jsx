@@ -195,7 +195,7 @@ const Testimonials = () => {
           width: '300px',
           height: '300px',
           background: `radial-gradient(circle, ${colors.chiliRed}20, transparent)`,
-          borderRadius: '50%',
+          borderRadius: '5px',
           filter: 'blur(60px)',
         }}></div>
         <div style={{
@@ -205,7 +205,7 @@ const Testimonials = () => {
           width: '400px',
           height: '400px',
           background: `radial-gradient(circle, ${colors.amber}20, transparent)`,
-          borderRadius: '50%',
+          borderRadius: '5px',
           filter: 'blur(80px)',
         }}></div>
 
@@ -254,7 +254,7 @@ const Testimonials = () => {
                 padding: '12px 24px',
                 background: 'rgba(255, 255, 255, 0.1)',
                 backdropFilter: 'blur(10px)',
-                borderRadius: '50px',
+                borderRadius: '5px',
                 border: '1px solid rgba(255, 255, 255, 0.2)',
                 marginBottom: '24px',
               }}
@@ -370,7 +370,7 @@ const Testimonials = () => {
                 onClick={() => setActiveFilter(filter.id)}
                 style={{
                   padding: '12px 24px',
-                  borderRadius: '50px',
+                  borderRadius: '5px',
                   border: activeFilter === filter.id 
                     ? `2px solid ${filter.color || colors.chiliRed}` 
                     : '2px solid transparent',
@@ -432,7 +432,7 @@ const Testimonials = () => {
                   style={{
                     gridColumn: testimonial.size === 'large' && window.innerWidth > 768 ? 'span 2' : 'span 1',
                     background: colors.white,
-                    borderRadius: '20px',
+                    borderRadius: '5px',
                     padding: '32px',
                     boxShadow: '0 4px 20px rgba(0, 0, 0, 0.06)',
                     position: 'relative',
@@ -479,7 +479,7 @@ const Testimonials = () => {
                       <div style={{
                         width: '64px',
                         height: '64px',
-                        borderRadius: '50%',
+                        borderRadius: '5px',
                         overflow: 'hidden',
                         border: `3px solid ${getSourceBadgeColor(testimonial.source)}`,
                         boxShadow: `0 4px 12px ${getSourceBadgeColor(testimonial.source)}30`,
@@ -503,7 +503,7 @@ const Testimonials = () => {
                           width: '24px',
                           height: '24px',
                           background: getSourceBadgeColor(testimonial.source),
-                          borderRadius: '50%',
+                          borderRadius: '5px',
                           display: 'flex',
                           alignItems: 'center',
                           justifyContent: 'center',
@@ -545,7 +545,7 @@ const Testimonials = () => {
                     <div style={{
                       padding: '8px 12px',
                       background: `${getSourceBadgeColor(testimonial.source)}10`,
-                      borderRadius: '8px',
+                      borderRadius: '5px',
                       display: 'flex',
                       alignItems: 'center',
                       gap: '6px',
@@ -608,7 +608,7 @@ const Testimonials = () => {
                       gap: '6px',
                       padding: '6px 12px',
                       background: `${getSourceBadgeColor(testimonial.source)}08`,
-                      borderRadius: '6px',
+                      borderRadius: '5px',
                       fontSize: '0.75rem',
                       fontWeight: '600',
                       color: getSourceBadgeColor(testimonial.source),
@@ -677,7 +677,7 @@ const Testimonials = () => {
                 color: colors.chiliRed,
                 background: colors.white,
                 border: 'none',
-                borderRadius: '50px',
+                borderRadius: '5px',
                 cursor: 'pointer',
                 boxShadow: '0 8px 24px rgba(0, 0, 0, 0.2)',
                 transition: 'all 0.3s ease',

@@ -325,7 +325,7 @@ const Resources = () => {
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{ delay: 0.2, duration: 0.6 }}
-              className="inline-flex items-center gap-2 px-4 py-2 mb-6 rounded-full border border-white/30 bg-white/20 backdrop-blur-md"
+              className="inline-flex items-center gap-2 px-4 py-2 mb-6 rounded-sm border border-white/30 bg-white/20 backdrop-blur-md"
             >
               <Lightbulb size={18} />
               <span className="text-sm font-semibold tracking-wider">KNOWLEDGE HUB</span>
@@ -347,7 +347,7 @@ const Resources = () => {
                 placeholder="Search by topic, author, or keyword..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full pl-12 pr-4 py-4 rounded-xl bg-white text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-4 focus:ring-white/30 shadow-2xl"
+                className="w-full pl-12 pr-4 py-4 rounded-sm bg-white text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-4 focus:ring-white/30 shadow-2xl"
               />
             </div>
           </motion.div>
@@ -368,7 +368,7 @@ const Resources = () => {
                   key={category.id}
                   onClick={() => setActiveCategory(category.id)}
                   className={`
-                    flex items-center gap-2 px-5 py-2.5 rounded-full font-semibold whitespace-nowrap
+                    flex items-center gap-2 px-5 py-2.5 rounded-sm font-semibold whitespace-nowrap
                     transition-all duration-300 transform
                     ${isActive 
                       ? 'bg-gray-900 text-white shadow-lg scale-105' 
@@ -378,7 +378,7 @@ const Resources = () => {
                 >
                   <Icon size={16} />
                   <span className="text-sm">{category.name}</span>
-                  <span className={`px-2 py-0.5 rounded-full text-xs font-bold ${isActive ? 'bg-white/20' : 'bg-gray-200'}`}>
+                  <span className={`px-2 py-0.5 rounded-sm text-xs font-bold ${isActive ? 'bg-white/20' : 'bg-gray-200'}`}>
                     {count}
                   </span>
                 </button>
@@ -403,7 +403,7 @@ const Resources = () => {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: index * 0.1, duration: 0.6 }}
                     className={`
-                      bg-white rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl 
+                      bg-white rounded-sm overflow-hidden shadow-xl hover:shadow-2xl 
                       transition-all duration-300 group cursor-pointer
                       ${index === 0 && heroResources.length === 1 ? 'lg:col-span-2' : ''}
                     `}
@@ -420,18 +420,18 @@ const Resources = () => {
 
                       {/* Badges */}
                       <div className="absolute top-6 left-6 flex flex-wrap gap-2">
-                        <div className="px-4 py-2 bg-white/95 backdrop-blur-md rounded-full flex items-center gap-2">
+                        <div className="px-4 py-2 bg-white/95 backdrop-blur-md rounded-sm flex items-center gap-2">
                           <CategoryIcon size={16} className="text-[#E3180D]" />
                           <span className="text-sm font-bold text-gray-800">{resource.type}</span>
                         </div>
                         
-                        <div className="px-4 py-2 bg-[#F3B900] rounded-full flex items-center gap-1">
+                        <div className="px-4 py-2 bg-[#F3B900] rounded-sm flex items-center gap-1">
                           <Award size={16} className="text-white" />
                           <span className="text-sm font-bold text-white">Featured</span>
                         </div>
 
                         {resource.trending && (
-                          <div className="px-4 py-2 bg-[#E3180D] rounded-full flex items-center gap-1">
+                          <div className="px-4 py-2 bg-[#E3180D] rounded-sm flex items-center gap-1">
                             <TrendingUp size={16} className="text-white" />
                             <span className="text-sm font-bold text-white">Trending</span>
                           </div>
@@ -481,7 +481,7 @@ const Resources = () => {
                         {resource.tags.map((tag, idx) => (
                           <span
                             key={idx}
-                            className="px-3 py-1 bg-gray-100 rounded-full text-xs font-semibold text-gray-700"
+                            className="px-3 py-1 bg-gray-100 rounded-sm text-xs font-semibold text-gray-700"
                           >
                             #{tag}
                           </span>
@@ -516,7 +516,7 @@ const Resources = () => {
                           )}
                         </div>
 
-                        <button className="flex items-center gap-2 px-6 py-3 bg-gray-900 text-white rounded-lg font-semibold hover:bg-gray-800 transition-all group/btn">
+                        <button className="flex items-center gap-2 px-6 py-3 bg-gray-900 text-white rounded-sm font-semibold hover:bg-gray-800 transition-all group/btn">
                           <span>View</span>
                           <ArrowRight size={16} className="group-hover/btn:translate-x-1 transition-transform" />
                         </button>
@@ -563,7 +563,7 @@ const Resources = () => {
                     viewport={{ once: true }}
                     transition={{ delay: (index % 6) * 0.05, duration: 0.6 }}
                     className={`
-                      bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl 
+                      bg-white rounded-sm overflow-hidden shadow-lg hover:shadow-2xl 
                       transition-all duration-300 group cursor-pointer
                       ${isLarge ? 'md:col-span-2 lg:col-span-2 lg:row-span-2' : ''}
                       ${isMedium ? 'md:row-span-2' : ''}
@@ -581,13 +581,13 @@ const Resources = () => {
 
                       {/* Top Badges */}
                       <div className="absolute top-4 left-4 right-4 flex justify-between items-start">
-                        <div className="px-3 py-1.5 bg-white/95 backdrop-blur-md rounded-full flex items-center gap-2">
+                        <div className="px-3 py-1.5 bg-white/95 backdrop-blur-md rounded-sm flex items-center gap-2">
                           <CategoryIcon size={14} className="text-[#E3180D]" />
                           <span className="text-xs font-bold text-gray-800">{resource.type}</span>
                         </div>
 
                         {resource.trending && (
-                          <div className="px-3 py-1.5 bg-[#E3180D] rounded-full">
+                          <div className="px-3 py-1.5 bg-[#E3180D] rounded-sm">
                             <TrendingUp size={14} className="text-white" />
                           </div>
                         )}
@@ -597,25 +597,25 @@ const Resources = () => {
                       <div className="absolute bottom-4 left-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                         <div className="flex items-center gap-3 text-white text-sm">
                           {resource.duration && (
-                            <div className="flex items-center gap-1.5 px-3 py-1.5 bg-black/50 backdrop-blur-md rounded-lg">
+                            <div className="flex items-center gap-1.5 px-3 py-1.5 bg-black/50 backdrop-blur-md rounded-sm">
                               <Play size={14} />
                               <span className="font-semibold">{resource.duration}</span>
                             </div>
                           )}
                           {resource.views && (
-                            <div className="flex items-center gap-1.5 px-3 py-1.5 bg-black/50 backdrop-blur-md rounded-lg">
+                            <div className="flex items-center gap-1.5 px-3 py-1.5 bg-black/50 backdrop-blur-md rounded-sm">
                               <Eye size={14} />
                               <span className="font-semibold">{resource.views}</span>
                             </div>
                           )}
                           {resource.pages && (
-                            <div className="flex items-center gap-1.5 px-3 py-1.5 bg-black/50 backdrop-blur-md rounded-lg">
+                            <div className="flex items-center gap-1.5 px-3 py-1.5 bg-black/50 backdrop-blur-md rounded-sm">
                               <FileText size={14} />
                               <span className="font-semibold">{resource.pages} pages</span>
                             </div>
                           )}
                           {resource.readTime && (
-                            <div className="flex items-center gap-1.5 px-3 py-1.5 bg-black/50 backdrop-blur-md rounded-lg">
+                            <div className="flex items-center gap-1.5 px-3 py-1.5 bg-black/50 backdrop-blur-md rounded-sm">
                               <Clock size={14} />
                               <span className="font-semibold">{resource.readTime}</span>
                             </div>
@@ -647,7 +647,7 @@ const Resources = () => {
                         {resource.tags.slice(0, isLarge ? 4 : 3).map((tag, idx) => (
                           <span
                             key={idx}
-                            className="px-2 py-1 bg-gray-100 rounded-lg text-xs font-semibold text-gray-700 flex items-center gap-1"
+                            className="px-2 py-1 bg-gray-100 rounded-sm text-xs font-semibold text-gray-700 flex items-center gap-1"
                           >
                             <Tag size={10} />
                             {tag}
@@ -679,13 +679,13 @@ const Resources = () => {
                         </div>
 
                         <div className="flex items-center gap-2">
-                          <button className="p-2 hover:bg-gray-100 rounded-lg transition-colors">
+                          <button className="p-2 hover:bg-gray-100 rounded-sm transition-colors">
                             <Bookmark size={16} className="text-gray-600" />
                           </button>
-                          <button className="p-2 hover:bg-gray-100 rounded-lg transition-colors">
+                          <button className="p-2 hover:bg-gray-100 rounded-sm transition-colors">
                             <Share2 size={16} className="text-gray-600" />
                           </button>
-                          <button className="px-4 py-2 bg-gray-900 hover:bg-gray-800 text-white rounded-lg text-sm font-semibold transition-all flex items-center gap-1">
+                          <button className="px-4 py-2 bg-gray-900 hover:bg-gray-800 text-white rounded-sm text-sm font-semibold transition-all flex items-center gap-1">
                             <span>View</span>
                             <ChevronRight size={14} />
                           </button>
@@ -700,7 +700,7 @@ const Resources = () => {
             {/* No Results */}
             {regularResources.length === 0 && heroResources.length === 0 && (
               <div className="text-center py-20">
-                <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-gray-200 mb-6">
+                <div className="inline-flex items-center justify-center w-20 h-20 rounded-sm bg-gray-200 mb-6">
                   <Search size={40} className="text-gray-400" />
                 </div>
                 <h3 className="text-2xl font-bold text-gray-800 mb-3">No Resources Found</h3>
@@ -710,7 +710,7 @@ const Resources = () => {
                     setSearchQuery('');
                     setActiveCategory('all');
                   }}
-                  className="px-6 py-3 bg-gray-900 text-white rounded-lg font-semibold hover:bg-gray-800 transition-all"
+                  className="px-6 py-3 bg-gray-900 text-white rounded-sm font-semibold hover:bg-gray-800 transition-all"
                 >
                   Clear Filters
                 </button>
@@ -738,7 +738,7 @@ const Resources = () => {
                 "Great design is not just what looks good. It's what works well, serves its purpose, and creates memorable experiences."
               </p>
               <div className="flex items-center justify-center gap-4">
-                <div className="w-16 h-16 rounded-full bg-gradient-to-br from-[#E3180D] to-[#F3B900]"></div>
+                <div className="w-16 h-16 rounded-sm bg-gradient-to-br from-[#E3180D] to-[#F3B900]"></div>
                 <div className="text-left">
                   <div className="font-bold text-gray-800">Martin M. Pegler</div>
                   <div className="text-sm text-gray-600">Retail Design Expert</div>
@@ -762,7 +762,7 @@ const Resources = () => {
             viewport={{ once: true }}
             className="text-center"
           >
-            <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-white/10 backdrop-blur-md mb-6">
+            <div className="inline-flex items-center justify-center w-20 h-20 rounded-sm bg-white/10 backdrop-blur-md mb-6">
               <BookMarked size={40} />
             </div>
 
@@ -780,11 +780,11 @@ const Resources = () => {
                   type="email"
                   placeholder="Your email address"
                   required
-                  className="flex-1 px-6 py-4 rounded-xl text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-4 focus:ring-white/30"
+                  className="flex-1 px-6 py-4 rounded-sm text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-4 focus:ring-white/30"
                 />
                 <button
                   type="submit"
-                  className="px-8 py-4 bg-gradient-to-r from-[#E3180D] to-[#FF2A00] rounded-xl font-bold hover:shadow-xl transition-all transform hover:-translate-y-1 whitespace-nowrap"
+                  className="px-8 py-4 bg-gradient-to-r from-[#E3180D] to-[#FF2A00] rounded-sm font-bold hover:shadow-xl transition-all transform hover:-translate-y-1 whitespace-nowrap"
                 >
                   Subscribe Free
                 </button>
@@ -806,9 +806,9 @@ const Resources = () => {
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="relative bg-gradient-to-br from-[#E3180D] to-[#FA7301] rounded-3xl p-8 md:p-10 text-white overflow-hidden group cursor-pointer"
+              className="relative bg-gradient-to-br from-[#E3180D] to-[#FA7301] rounded-sm p-8 md:p-10 text-white overflow-hidden group cursor-pointer"
             >
-              <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full -translate-y-32 translate-x-32 group-hover:scale-150 transition-transform duration-700"></div>
+              <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-sm -translate-y-32 translate-x-32 group-hover:scale-150 transition-transform duration-700"></div>
               
               <div className="relative z-10">
                 <Lightbulb size={48} className="mb-6" />
@@ -818,7 +818,7 @@ const Resources = () => {
                 <p className="text-white/90 mb-6 leading-relaxed">
                   Apply what you've learned. Let our experts bring your vision to life.
                 </p>
-                <button className="inline-flex items-center gap-2 px-6 py-3 bg-white text-[#E3180D] rounded-xl font-bold hover:bg-gray-100 transition-all">
+                <button className="inline-flex items-center gap-2 px-6 py-3 bg-white text-[#E3180D] rounded-sm font-bold hover:bg-gray-100 transition-all">
                   <span>Start Your Project</span>
                   <ArrowRight size={20} />
                 </button>
@@ -830,9 +830,9 @@ const Resources = () => {
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="relative bg-gradient-to-br from-gray-900 to-gray-800 rounded-3xl p-8 md:p-10 text-white overflow-hidden group cursor-pointer"
+              className="relative bg-gradient-to-br from-gray-900 to-gray-800 rounded-sm p-8 md:p-10 text-white overflow-hidden group cursor-pointer"
             >
-              <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full -translate-y-32 translate-x-32 group-hover:scale-150 transition-transform duration-700"></div>
+              <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-sm -translate-y-32 translate-x-32 group-hover:scale-150 transition-transform duration-700"></div>
               
               <div className="relative z-10">
                 <BookOpen size={48} className="mb-6" />
@@ -842,7 +842,7 @@ const Resources = () => {
                 <p className="text-white/90 mb-6 leading-relaxed">
                   Share your expertise with our community. Submit your research or article.
                 </p>
-                <button className="inline-flex items-center gap-2 px-6 py-3 bg-white/10 backdrop-blur-md border-2 border-white/30 rounded-xl font-bold hover:bg-white/20 transition-all">
+                <button className="inline-flex items-center gap-2 px-6 py-3 bg-white/10 backdrop-blur-md border-2 border-white/30 rounded-sm font-bold hover:bg-white/20 transition-all">
                   <span>Submit Resource</span>
                   <ArrowRight size={20} />
                 </button>

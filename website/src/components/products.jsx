@@ -51,7 +51,7 @@ const Products = () => {
     { id: "display-shelving", name: "Display & Shelving", icon: Grid },
   ];
 
-const products = [
+  const products = [
     // Access Mantraps (id: 13)
     {
       id: 13,
@@ -68,19 +68,13 @@ const products = [
         "Surveillance integration",
       ],
       icon: ShoppingCart,
-      price: 8500,
       rating: 4.8,
       reviews: 34,
-      images: [
-        "/placeh.png",
-        "/placeh.png",
-        "/placeh.png",
-      ],
+      images: ["/placeh.png", "/placeh.png", "/placeh.png"],
       variants: [
         {
           id: "v1",
           name: "Standard Mantrap",
-          price: 8500,
           colors: [
             { name: "Black", hex: "#000000", available: true },
             { name: "Silver", hex: "#C0C0C0", available: true },
@@ -101,7 +95,6 @@ const products = [
         {
           id: "v2",
           name: "Bulletproof Mantrap",
-          price: 12500,
           colors: [{ name: "Black", hex: "#000000", available: true }],
           sizes: [
             {
@@ -119,7 +112,7 @@ const products = [
         warranty: "3 years",
       },
     },
-    
+
     // Aluminum Shopfronts (id: 8)
     {
       id: 8,
@@ -136,19 +129,13 @@ const products = [
         "Low maintainance",
       ],
       icon: Building2,
-      price: 650,
       rating: 4.9,
       reviews: 143,
-      images: [
-        "/placeh.png",
-        "/placeh.png",
-        "/placeh.png",
-      ],
+      images: ["/placeh.png", "/placeh.png", "/placeh.png"],
       variants: [
         {
           id: "v1",
           name: "Standard Shopfront",
-          price: 650,
           colors: [
             { name: "Black", hex: "#000000", available: true },
             { name: "Silver", hex: "#C0C0C0", available: true },
@@ -162,7 +149,6 @@ const products = [
         {
           id: "v2",
           name: "Premium Shopfront",
-          price: 850,
           colors: [
             { name: "Black", hex: "#000000", available: true },
             { name: "Custom RAL Color", hex: "#404040", available: true },
@@ -179,7 +165,7 @@ const products = [
         warranty: "10 years",
       },
     },
-    
+
     // Aluminum Windows (id: 11)
     {
       id: 11,
@@ -196,19 +182,13 @@ const products = [
         "Energy efficient",
       ],
       icon: Square,
-      price: 420,
       rating: 4.7,
       reviews: 267,
-      images: [
-        "/placeh.png",
-        "/placeh.png",
-        "/placeh.png",
-      ],
+      images: ["/placeh.png", "/placeh.png", "/placeh.png"],
       variants: [
         {
           id: "v1",
           name: "Sliding Window",
-          price: 420,
           colors: [
             { name: "White", hex: "#FFFFFF", available: true },
             { name: "Black", hex: "#000000", available: true },
@@ -222,7 +202,6 @@ const products = [
         {
           id: "v2",
           name: "Casement Window",
-          price: 480,
           colors: [
             { name: "White", hex: "#FFFFFF", available: true },
             { name: "Black", hex: "#000000", available: true },
@@ -240,7 +219,7 @@ const products = [
         warranty: "10 years",
       },
     },
-    
+
     // Bank Teller Counters (id: 1)
     {
       id: 1,
@@ -257,19 +236,13 @@ const products = [
         "Custom branding available",
       ],
       icon: ShoppingCart,
-      price: 2850,
       rating: 4.9,
       reviews: 78,
-      images: [
-        "/placeh.png",
-        "/placeh.png",
-        "/placeh.png",
-      ],
+      images: ["/placeh.png", "/placeh.png", "/placeh.png"],
       variants: [
         {
           id: "v1",
           name: "Standard Counter",
-          price: 2850,
           colors: [
             { name: "Oak", hex: "#C19A6B", available: true },
             { name: "Walnut", hex: "#5C4033", available: true },
@@ -291,7 +264,6 @@ const products = [
         {
           id: "v2",
           name: "Premium Security Counter",
-          price: 3850,
           colors: [
             { name: "Oak", hex: "#C19A6B", available: true },
             { name: "Mahogany", hex: "#C04000", available: true },
@@ -322,7 +294,7 @@ const products = [
         warranty: "5 years",
       },
     },
-    
+
     // Curtain Walling (id: 15)
     {
       id: 15,
@@ -339,19 +311,13 @@ const products = [
         "Energy efficient",
       ],
       icon: Sparkles,
-      price: 850,
       rating: 4.9,
       reviews: 76,
-      images: [
-        "/placeh.png",
-        "/placeh.png",
-        "/placeh.png",
-      ],
+      images: ["/placeh.png", "/placeh.png", "/placeh.png"],
       variants: [
         {
           id: "v1",
           name: "Stick System",
-          price: 850,
           colors: [
             { name: "Silver", hex: "#C0C0C0", available: true },
             { name: "Black", hex: "#000000", available: true },
@@ -362,7 +328,6 @@ const products = [
         {
           id: "v2",
           name: "Unitized System",
-          price: 1200,
           colors: [
             { name: "Silver", hex: "#C0C0C0", available: true },
             { name: "Black", hex: "#000000", available: true },
@@ -377,7 +342,7 @@ const products = [
         warranty: "10 years",
       },
     },
-    
+
     // Demountable Partitions (id: 3)
     {
       id: 3,
@@ -394,19 +359,13 @@ const products = [
         "Quick installation",
       ],
       icon: Package,
-      price: 280,
       rating: 4.8,
       reviews: 156,
-      images: [
-        "/placeh.png",
-        "/placeh.png",
-        "/placeh.png",
-      ],
+      images: ["/placeh.png", "/placeh.png", "/placeh.png"],
       variants: [
         {
           id: "v1",
           name: "Solid Panel",
-          price: 280,
           colors: [
             { name: "White", hex: "#FFFFFF", available: true },
             { name: "Grey", hex: "#808080", available: true },
@@ -428,7 +387,6 @@ const products = [
         {
           id: "v2",
           name: "Glass Panel",
-          price: 420,
           colors: [
             { name: "Clear Glass", hex: "#F0F8FF", available: true },
             { name: "Frosted Glass", hex: "#E0E0E0", available: true },
@@ -454,7 +412,7 @@ const products = [
         warranty: "5 years",
       },
     },
-    
+
     // Dry Wall Partitions (id: 4)
     {
       id: 4,
@@ -471,19 +429,13 @@ const products = [
         "Various thickness options",
       ],
       icon: Square,
-      price: 180,
       rating: 4.6,
       reviews: 189,
-      images: [
-        "/placeh.png",
-        "/placeh.png",
-        "/placeh.png",
-      ],
+      images: ["/placeh.png", "/placeh.png", "/placeh.png"],
       variants: [
         {
           id: "v1",
           name: "Standard Wall",
-          price: 180,
           colors: [{ name: "Unpainted", hex: "#F5F5F5", available: true }],
           sizes: [
             {
@@ -501,7 +453,6 @@ const products = [
         {
           id: "v2",
           name: "Acoustic Wall",
-          price: 250,
           colors: [{ name: "Unpainted", hex: "#F5F5F5", available: true }],
           sizes: [
             {
@@ -524,7 +475,7 @@ const products = [
         warranty: "2 years",
       },
     },
-    
+
     // Entrance Canopies (id: 14)
     {
       id: 14,
@@ -541,19 +492,13 @@ const products = [
         "Low maintainance",
       ],
       icon: Building2,
-      price: 3500,
       rating: 4.7,
       reviews: 56,
-      images: [
-        "/placeh.png",
-        "/placeh.png",
-        "/placeh.png",
-      ],
+      images: ["/placeh.png", "/placeh.png", "/placeh.png"],
       variants: [
         {
           id: "v1",
           name: "Glass Canopy",
-          price: 3500,
           colors: [
             { name: "Clear Glass", hex: "#F0F8FF", available: true },
             { name: "Tinted Glass", hex: "#708090", available: true },
@@ -567,7 +512,6 @@ const products = [
         {
           id: "v2",
           name: "Metal Canopy",
-          price: 2800,
           colors: [
             { name: "Black", hex: "#000000", available: true },
             { name: "Silver", hex: "#C0C0C0", available: true },
@@ -585,7 +529,7 @@ const products = [
         warranty: "5 years",
       },
     },
-    
+
     // Feature Ceilings (id: 6)
     {
       id: 6,
@@ -602,19 +546,13 @@ const products = [
         "Sound absorption",
       ],
       icon: Layers,
-      price: 450,
       rating: 4.8,
       reviews: 67,
-      images: [
-        "/placeh.png",
-        "/placeh.png",
-        "/placeh.png",
-      ],
+      images: ["/placeh.png", "/placeh.png", "/placeh.png"],
       variants: [
         {
           id: "v1",
           name: "Coffered Design",
-          price: 450,
           colors: [
             { name: "White", hex: "#FFFFFF", available: true },
             { name: "Natural Wood", hex: "#C19A6B", available: true },
@@ -626,7 +564,6 @@ const products = [
         {
           id: "v2",
           name: "Curved Design",
-          price: 650,
           colors: [
             { name: "White", hex: "#FFFFFF", available: true },
             { name: "Custom Color", hex: "#F0F0F0", available: true },
@@ -641,7 +578,7 @@ const products = [
         warranty: "3 years",
       },
     },
-    
+
     // Flash Glazing (id: 16)
     {
       id: 16,
@@ -658,19 +595,13 @@ const products = [
         "Weather sealed",
       ],
       icon: Maximize2,
-      price: 920,
       rating: 4.8,
       reviews: 64,
-      images: [
-        "/placeh.png",
-        "/placeh.png",
-        "/placeh.png",
-      ],
+      images: ["/placeh.png", "/placeh.png", "/placeh.png"],
       variants: [
         {
           id: "v1",
           name: "Structural Glazing",
-          price: 920,
           colors: [
             { name: "Clear Glass", hex: "#F0F8FF", available: true },
             { name: "Low-E Glass", hex: "#E8F4F8", available: true },
@@ -680,7 +611,6 @@ const products = [
         {
           id: "v2",
           name: "Point Fixed Glazing",
-          price: 1100,
           colors: [{ name: "Clear Glass", hex: "#F0F8FF", available: true }],
           sizes: [{ name: "Standard", dimensions: "Per sqm", available: true }],
         },
@@ -692,7 +622,7 @@ const products = [
         warranty: "10 years",
       },
     },
-    
+
     // Frameless Glass Doors (id: 12)
     {
       id: 12,
@@ -709,19 +639,13 @@ const products = [
         "Safety certified",
       ],
       icon: Sparkles,
-      price: 1250,
       rating: 4.9,
       reviews: 87,
-      images: [
-        "/placeh.png",
-        "/placeh.png",
-        "/placeh.png",
-      ],
+      images: ["/placeh.png", "/placeh.png", "/placeh.png"],
       variants: [
         {
           id: "v1",
           name: "Single Door",
-          price: 1250,
           colors: [
             { name: "Clear Glass", hex: "#F0F8FF", available: true },
             { name: "Frosted Glass", hex: "#E0E0E0", available: true },
@@ -734,7 +658,6 @@ const products = [
         {
           id: "v2",
           name: "Double Door",
-          price: 2200,
           colors: [
             { name: "Clear Glass", hex: "#F0F8FF", available: true },
             { name: "Frosted Glass", hex: "#E0E0E0", available: true },
@@ -756,7 +679,7 @@ const products = [
         warranty: "5 years",
       },
     },
-    
+
     // Galaxy Patio Doors (id: 10)
     {
       id: 10,
@@ -773,19 +696,13 @@ const products = [
         "Various sizes",
       ],
       icon: Maximize2,
-      price: 1650,
       rating: 4.9,
       reviews: 112,
-      images: [
-        "/placeh.png",
-        "/placeh.png",
-        "/placeh.png",
-      ],
+      images: ["/placeh.png", "/placeh.png", "/placeh.png"],
       variants: [
         {
           id: "v1",
           name: "Standard Patio Door",
-          price: 1650,
           colors: [
             { name: "White", hex: "#FFFFFF", available: true },
             { name: "Grey", hex: "#808080", available: true },
@@ -806,7 +723,6 @@ const products = [
         {
           id: "v2",
           name: "Lift & Slide System",
-          price: 2850,
           colors: [
             { name: "Black", hex: "#000000", available: true },
             { name: "Bronze", hex: "#CD7F32", available: true },
@@ -832,7 +748,7 @@ const products = [
         warranty: "10 years",
       },
     },
-    
+
     // Gondola Shelves (id: 21)
     {
       id: 21,
@@ -849,19 +765,13 @@ const products = [
         "Easy assembly",
       ],
       icon: Package,
-      price: 650,
       rating: 4.7,
       reviews: 189,
-      images: [
-        "/placeh.png",
-        "/placeh.png",
-        "/placeh.png",
-      ],
+      images: ["/placeh.png", "/placeh.png", "/placeh.png"],
       variants: [
         {
           id: "v1",
           name: "Standard Gondola",
-          price: 650,
           colors: [
             { name: "White", hex: "#FFFFFF", available: true },
             { name: "Grey", hex: "#808080", available: true },
@@ -880,7 +790,6 @@ const products = [
         {
           id: "v2",
           name: "Heavy Duty Gondola",
-          price: 850,
           colors: [
             { name: "Grey", hex: "#808080", available: true },
             { name: "Charcoal", hex: "#36454F", available: true },
@@ -902,7 +811,7 @@ const products = [
         warranty: "5 years",
       },
     },
-    
+
     // Interior Modelling (id: 20)
     {
       id: 20,
@@ -919,19 +828,13 @@ const products = [
         "Project management",
       ],
       icon: Building2,
-      price: 5500,
       rating: 4.9,
       reviews: 43,
-      images: [
-        "/placeh.png",
-        "/placeh.png",
-        "/placeh.png",
-      ],
+      images: ["/placeh.png", "/placeh.png", "/placeh.png"],
       variants: [
         {
           id: "v1",
           name: "Basic Package",
-          price: 5500,
           colors: [{ name: "Custom", hex: "#FFFFFF", available: true }],
           sizes: [
             {
@@ -944,7 +847,6 @@ const products = [
         {
           id: "v2",
           name: "Premium Package",
-          price: 12000,
           colors: [{ name: "Custom", hex: "#FFFFFF", available: true }],
           sizes: [
             { name: "Medium Space", dimensions: "50-150 sqm", available: true },
@@ -959,7 +861,7 @@ const products = [
         warranty: "2 years",
       },
     },
-    
+
     // Louvres (id: 18)
     {
       id: 18,
@@ -976,19 +878,13 @@ const products = [
         "Powder coated finish",
       ],
       icon: Grid,
-      price: 380,
       rating: 4.7,
       reviews: 118,
-      images: [
-        "/placeh.png",
-        "/placeh.png",
-        "/placeh.png",
-      ],
+      images: ["/placeh.png", "/placeh.png", "/placeh.png"],
       variants: [
         {
           id: "v1",
           name: "Fixed Louvre",
-          price: 380,
           colors: [
             { name: "Silver", hex: "#C0C0C0", available: true },
             { name: "Black", hex: "#000000", available: true },
@@ -999,7 +895,6 @@ const products = [
         {
           id: "v2",
           name: "Operable Louvre",
-          price: 650,
           colors: [
             { name: "Silver", hex: "#C0C0C0", available: true },
             { name: "Black", hex: "#000000", available: true },
@@ -1014,7 +909,7 @@ const products = [
         warranty: "5 years",
       },
     },
-    
+
     // Office Work Stations (id: 2)
     {
       id: 2,
@@ -1031,19 +926,13 @@ const products = [
         "Ergonomic design",
       ],
       icon: Building2,
-      price: 950,
       rating: 4.7,
       reviews: 203,
-      images: [
-        "/placeh.png",
-        "/placeh.png",
-        "/placeh.png",
-      ],
+      images: ["/placeh.png", "/placeh.png", "/placeh.png"],
       variants: [
         {
           id: "v1",
           name: "Single Desk",
-          price: 950,
           colors: [
             { name: "White", hex: "#FFFFFF", available: true },
             { name: "Grey", hex: "#808080", available: true },
@@ -1065,7 +954,6 @@ const products = [
         {
           id: "v2",
           name: "Cluster Workstation",
-          price: 3400,
           colors: [
             { name: "White", hex: "#FFFFFF", available: true },
             { name: "Grey", hex: "#808080", available: true },
@@ -1091,7 +979,7 @@ const products = [
         warranty: "3 years",
       },
     },
-    
+
     // Shop Product Display (id: 19)
     {
       id: 19,
@@ -1108,19 +996,13 @@ const products = [
         "Easy reconfiguration",
       ],
       icon: Grid,
-      price: 580,
       rating: 4.8,
       reviews: 156,
-      images: [
-        "/placeh.png",
-        "/placeh.png",
-        "/placeh.png",
-      ],
+      images: ["/placeh.png", "/placeh.png", "/placeh.png"],
       variants: [
         {
           id: "v1",
           name: "Wall Display",
-          price: 580,
           colors: [
             { name: "White", hex: "#FFFFFF", available: true },
             { name: "Black", hex: "#000000", available: true },
@@ -1142,7 +1024,6 @@ const products = [
         {
           id: "v2",
           name: "Freestanding Display",
-          price: 750,
           colors: [
             { name: "White", hex: "#FFFFFF", available: true },
             { name: "Black", hex: "#000000", available: true },
@@ -1163,7 +1044,7 @@ const products = [
         warranty: "3 years",
       },
     },
-    
+
     // Skylights (id: 17)
     {
       id: 17,
@@ -1180,19 +1061,13 @@ const products = [
         "Self-cleaning glass available",
       ],
       icon: Sparkles,
-      price: 1850,
       rating: 4.8,
       reviews: 92,
-      images: [
-        "/placeh.png",
-        "/placeh.png",
-        "/placeh.png",
-      ],
+      images: ["/placeh.png", "/placeh.png", "/placeh.png"],
       variants: [
         {
           id: "v1",
           name: "Fixed Skylight",
-          price: 1850,
           colors: [
             { name: "Clear Glass", hex: "#F0F8FF", available: true },
             { name: "Solar Control", hex: "#B0C4DE", available: true },
@@ -1206,7 +1081,6 @@ const products = [
         {
           id: "v2",
           name: "Opening Skylight",
-          price: 2650,
           colors: [{ name: "Clear Glass", hex: "#F0F8FF", available: true }],
           sizes: [
             { name: "Small", dimensions: "1.0m x 1.0m", available: true },
@@ -1221,7 +1095,7 @@ const products = [
         warranty: "10 years",
       },
     },
-    
+
     // Sliding Folding Doors (id: 9)
     {
       id: 9,
@@ -1238,19 +1112,13 @@ const products = [
         "Heavy duty hardware",
       ],
       icon: DoorOpen,
-      price: 1850,
       rating: 4.8,
       reviews: 98,
-      images: [
-        "/placeh.png",
-        "/placeh.png",
-        "/placeh.png",
-      ],
+      images: ["/placeh.png", "/placeh.png", "/placeh.png"],
       variants: [
         {
           id: "v1",
           name: "2-Panel System",
-          price: 1850,
           colors: [
             { name: "White", hex: "#FFFFFF", available: true },
             { name: "Grey", hex: "#808080", available: true },
@@ -1267,7 +1135,6 @@ const products = [
         {
           id: "v2",
           name: "4-Panel System",
-          price: 3200,
           colors: [
             { name: "White", hex: "#FFFFFF", available: true },
             { name: "Black", hex: "#000000", available: true },
@@ -1293,7 +1160,7 @@ const products = [
         warranty: "5 years",
       },
     },
-    
+
     // Suspended Ceilings (id: 7)
     {
       id: 7,
@@ -1310,19 +1177,13 @@ const products = [
         "Conceals wiring & ducts",
       ],
       icon: Grid,
-      price: 85,
       rating: 4.7,
       reviews: 234,
-      images: [
-        "/placeh.png",
-        "/placeh.png",
-        "/placeh.png",
-      ],
+      images: ["/placeh.png", "/placeh.png", "/placeh.png"],
       variants: [
         {
           id: "v1",
           name: "Standard Grid",
-          price: 85,
           colors: [
             { name: "White", hex: "#FFFFFF", available: true },
             { name: "Black", hex: "#000000", available: true },
@@ -1339,7 +1200,6 @@ const products = [
         {
           id: "v2",
           name: "Acoustic Grid",
-          price: 120,
           colors: [{ name: "White", hex: "#FFFFFF", available: true }],
           sizes: [
             { name: "600x600mm tiles", dimensions: "Per sqm", available: true },
@@ -1353,7 +1213,7 @@ const products = [
         warranty: "5 years",
       },
     },
-    
+
     // Wall Paneling (id: 5)
     {
       id: 5,
@@ -1370,19 +1230,13 @@ const products = [
         "Custom designs",
       ],
       icon: Layers,
-      price: 320,
       rating: 4.9,
       reviews: 94,
-      images: [
-        "/placeh.png",
-        "/placeh.png",
-        "/placeh.png",
-      ],
+      images: ["/placeh.png", "/placeh.png", "/placeh.png"],
       variants: [
         {
           id: "v1",
           name: "Wood Veneer",
-          price: 320,
           colors: [
             { name: "Oak", hex: "#C19A6B", available: true },
             { name: "Walnut", hex: "#5C4033", available: true },
@@ -1395,7 +1249,6 @@ const products = [
         {
           id: "v2",
           name: "Acoustic Fabric",
-          price: 280,
           colors: [
             { name: "Grey", hex: "#808080", available: true },
             { name: "Navy", hex: "#000080", available: true },
@@ -1451,9 +1304,8 @@ const products = [
       `Variant: ${variant.name}\n` +
       `Color: ${color.name}\n` +
       `Size: ${size.name} (${size.dimensions})\n` +
-      `Quantity: ${quantity}\n` +
-      `Price: $${variant.price * quantity}\n\n` +
-      `Could you please provide more information?`;
+      `Quantity: ${quantity}\n\n` +
+      `Could you please provide more information and pricing?`;
 
     const whatsappUrl = `https://wa.me/263781934986?text=${encodeURIComponent(
       message
@@ -1475,9 +1327,9 @@ const products = [
       `Variant: ${variant.name}\n` +
       `Color: ${color.name}\n` +
       `Size: ${size.name} (${size.dimensions})\n` +
-      `Quantity: ${quantity}\n` +
-      `Estimated Price: $${variant.price * quantity}\n\n` +
+      `Quantity: ${quantity}\n\n` +
       `Please provide more information about:\n` +
+      `- Pricing and quotation\n` +
       `- Availability\n` +
       `- Delivery timeline\n` +
       `- Installation services\n` +
@@ -1557,7 +1409,7 @@ const products = [
                   key={category.id}
                   onClick={() => setActiveCategory(category.id)}
                   className={`
-                    flex items-center gap-2 px-4 sm:px-6 py-3 rounded-lg font-semibold
+                    flex items-center gap-2 px-4 sm:px-6 py-3 rounded-sm font-semibold
                     transition-all duration-300 transform
                     ${
                       isActive
@@ -1590,7 +1442,7 @@ const products = [
                   transition={{ delay: index * 0.1, duration: 0.6 }}
                   whileHover={{ y: -10, scale: 1.02 }}
                   onClick={() => handleProductClick(product)}
-                  className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 cursor-pointer group"
+                  className="bg-white rounded-sm overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 cursor-pointer group"
                 >
                   {/* Product Image */}
                   <div className="relative h-64 md:h-72 bg-gradient-to-br from-gray-100 to-gray-200 overflow-hidden">
@@ -1607,11 +1459,6 @@ const products = [
                       />
                       <span>{product.rating}</span>
                       <span className="text-gray-500">({product.reviews})</span>
-                    </div>
-
-                    {/* Price Badge */}
-                    <div className="absolute top-4 right-4 px-4 py-2 bg-gradient-to-r from-[#E3180D] to-[#FF2A00] backdrop-blur-md rounded-full text-white text-sm md:text-base font-extrabold">
-                      ${product.price}
                     </div>
 
                     {/* Hover Overlay */}
@@ -1638,7 +1485,7 @@ const products = [
                       {product.features.slice(0, 3).map((feature, idx) => (
                         <div
                           key={idx}
-                          className="px-3 py-1 bg-gray-100 rounded-xl text-xs text-gray-600 font-semibold"
+                          className="px-3 py-1 bg-gray-100 rounded-sm text-xs text-gray-600 font-semibold"
                         >
                           {feature}
                         </div>
@@ -1691,13 +1538,13 @@ const products = [
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
               transition={{ type: "spring", damping: 25 }}
-              className="bg-white rounded-2xl md:rounded-3xl w-full max-w-6xl my-8 md:my-0 overflow-hidden relative "
+              className="bg-white rounded-sm md:rounded-sm w-full max-w-6xl my-8 md:my-0 overflow-hidden relative "
               onClick={(e) => e.stopPropagation()}
             >
               {/* Close Button */}
               <button
                 onClick={handleModalClose}
-                className="sticky top-4 left-full -translate-x-12 md:-translate-x-16 w-12 h-12 rounded-full bg-white hover:bg-[#E3180D] border-none cursor-pointer flex items-center justify-center shadow-xl z-10 transition-all duration-300 group"
+                className="sticky top-4 left-full -translate-x-12 md:-translate-x-16 w-12 h-12 rounded-sm bg-white hover:bg-[#E3180D] border-none cursor-pointer flex items-center justify-center shadow-xl z-10 transition-all duration-300 group"
               >
                 <X
                   size={24}
@@ -1709,7 +1556,7 @@ const products = [
                 {/* Left Side - Images */}
                 <div className="bg-gray-50 p-6 md:p-10 order-2 lg:order-1">
                   {/* Main Image */}
-                  <div className="relative h-64 md:h-96 lg:h-[500px] rounded-2xl overflow-hidden mb-5 bg-white">
+                  <div className="relative h-64 md:h-96 lg:h-[500px] rounded-sm overflow-hidden mb-5 bg-white">
                     <div
                       className="absolute inset-0 bg-cover bg-center"
                       style={{
@@ -1722,13 +1569,13 @@ const products = [
                       <>
                         <button
                           onClick={prevImage}
-                          className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/90 hover:bg-white border-none cursor-pointer flex items-center justify-center shadow-lg transition-all"
+                          className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-sm bg-white/90 hover:bg-white border-none cursor-pointer flex items-center justify-center shadow-lg transition-all"
                         >
                           <ChevronLeft size={20} className="text-gray-800" />
                         </button>
                         <button
                           onClick={nextImage}
-                          className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/90 hover:bg-white border-none cursor-pointer flex items-center justify-center shadow-lg transition-all"
+                          className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-sm bg-white/90 hover:bg-white border-none cursor-pointer flex items-center justify-center shadow-lg transition-all"
                         >
                           <ChevronRight size={20} className="text-gray-800" />
                         </button>
@@ -1743,7 +1590,7 @@ const products = [
                         key={idx}
                         onClick={() => setCurrentImageIndex(idx)}
                         className={`
-                          min-w-[60px] w-16 md:min-w-[80px] md:w-20 h-16 md:h-20 rounded-lg overflow-hidden cursor-pointer
+                          min-w-[60px] w-16 md:min-w-[80px] md:w-20 h-16 md:h-20 rounded-sm overflow-hidden cursor-pointer
                           transition-all duration-300 bg-cover bg-center
                           ${
                             currentImageIndex === idx
@@ -1781,11 +1628,6 @@ const products = [
                     <p className="text-gray-600 leading-relaxed mb-6 text-sm md:text-base">
                       {selectedProduct.fullDescription}
                     </p>
-
-                    {/* Price */}
-                    <div className="text-3xl md:text-4xl font-extrabold text-[#E3180D] mb-6">
-                      ${selectedVariant?.price || selectedProduct.price}
-                    </div>
                   </div>
 
                   {/* Variant Selection */}
@@ -1803,7 +1645,7 @@ const products = [
                             setSelectedSize(variant.sizes[0]);
                           }}
                           className={`
-                            px-4 md:px-5 py-2.5 md:py-3 rounded-lg font-semibold transition-all text-sm md:text-base
+                            px-4 md:px-5 py-2.5 md:py-3 rounded-sm font-semibold transition-all text-sm md:text-base
                             ${
                               selectedVariant?.id === variant.id
                                 ? "border-2 border-[#E3180D] bg-red-50 text-[#E3180D]"
@@ -1811,7 +1653,7 @@ const products = [
                             }
                           `}
                         >
-                          {variant.name} - ${variant.price}
+                          {variant.name}
                         </button>
                       ))}
                     </div>
@@ -1830,7 +1672,7 @@ const products = [
                             onClick={() => setSelectedColor(color)}
                             disabled={!color.available}
                             className={`
-                              w-12 h-12 rounded-lg transition-all flex items-center justify-center
+                              w-12 h-12 rounded-sm transition-all flex items-center justify-center
                               ${
                                 selectedColor?.name === color.name
                                   ? "border-4 border-[#E3180D] scale-110"
@@ -1873,7 +1715,7 @@ const products = [
                             onClick={() => setSelectedSize(size)}
                             disabled={!size.available}
                             className={`
-                              p-3 md:p-4 rounded-lg text-left transition-all flex justify-between items-center
+                              p-3 md:p-4 rounded-sm text-left transition-all flex justify-between items-center
                               ${
                                 selectedSize?.name === size.name
                                   ? "border-2 border-[#E3180D] bg-red-50"
@@ -1916,7 +1758,7 @@ const products = [
                     <div className="flex items-center gap-4">
                       <button
                         onClick={() => setQuantity(Math.max(1, quantity - 1))}
-                        className="w-10 h-10 rounded-lg border-2 border-gray-200 bg-white hover:bg-gray-50 flex items-center justify-center transition-all"
+                        className="w-10 h-10 rounded-sm border-2 border-gray-200 bg-white hover:bg-gray-50 flex items-center justify-center transition-all"
                       >
                         <Minus size={18} />
                       </button>
@@ -1925,37 +1767,23 @@ const products = [
                       </div>
                       <button
                         onClick={() => setQuantity(quantity + 1)}
-                        className="w-10 h-10 rounded-lg border-2 border-gray-200 bg-white hover:bg-gray-50 flex items-center justify-center transition-all"
+                        className="w-10 h-10 rounded-sm border-2 border-gray-200 bg-white hover:bg-gray-50 flex items-center justify-center transition-all"
                       >
                         <Plus size={18} />
                       </button>
                     </div>
                   </div>
 
-                  {/* Total Price */}
-                  <div className="p-4 md:p-5 bg-gray-50 rounded-xl mb-6">
-                    <div className="flex justify-between items-center">
-                      <span className="text-sm md:text-base font-semibold text-gray-600">
-                        Total Price
-                      </span>
-                      <span className="text-2xl md:text-3xl font-extrabold text-[#E3180D]">
-                        $
-                        {(selectedVariant?.price || selectedProduct.price) *
-                          quantity}
-                      </span>
-                    </div>
-                  </div>
-
                   {/* Inquiry Methods */}
                   <div className="mb-8">
                     <h3 className="text-base md:text-lg font-bold text-gray-800 mb-4 text-center">
-                      Choose Your Inquiry Method
+                      Get a Quote
                     </h3>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                       {/* WhatsApp Button */}
                       <button
                         onClick={handleWhatsAppInquiry}
-                        className="flex items-center justify-center gap-2 px-6 py-4 bg-[#25D366] hover:bg-[#20BD5A] text-white rounded-lg font-semibold transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+                        className="flex items-center justify-center gap-2 px-6 py-4 bg-[#25D366] hover:bg-[#20BD5A] text-white rounded-sm font-semibold transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1"
                       >
                         <MessageCircle size={20} />
                         <span>WhatsApp</span>
@@ -1964,7 +1792,7 @@ const products = [
                       {/* Email Button */}
                       <button
                         onClick={handleEmailInquiry}
-                        className="flex items-center justify-center gap-2 px-6 py-4 bg-gradient-to-r from-[#E3180D] to-[#FF2A00] hover:from-[#FF2A00] hover:to-[#E3180D] text-white rounded-lg font-semibold transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+                        className="flex items-center justify-center gap-2 px-6 py-4 bg-gradient-to-r from-[#E3180D] to-[#FF2A00] hover:from-[#FF2A00] hover:to-[#E3180D] text-white rounded-sm font-semibold transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1"
                       >
                         <Mail size={20} />
                         <span>Email</span>
@@ -1977,7 +1805,7 @@ const products = [
                     <h3 className="text-base md:text-lg font-bold text-gray-800 mb-4">
                       Specifications
                     </h3>
-                    <div className="bg-gray-50 rounded-xl overflow-hidden">
+                    <div className="bg-gray-50 rounded-sm overflow-hidden">
                       {Object.entries(selectedProduct.specifications).map(
                         ([key, value], idx) => (
                           <div
@@ -2012,7 +1840,7 @@ const products = [
                       {selectedProduct.features.map((feature, idx) => (
                         <li
                           key={idx}
-                          className="flex items-start gap-3 p-3 bg-gray-50 rounded-lg"
+                          className="flex items-start gap-3 p-3 bg-gray-50 rounded-sm"
                         >
                           <Check
                             size={20}
@@ -2058,7 +1886,7 @@ const products = [
             </p>
             <Link
               to="/contact"
-              className="inline-flex items-center gap-2 px-6 md:px-8 py-3 md:py-4 bg-white text-gray-800 rounded-lg font-semibold shadow-xl hover:shadow-2xl hover:bg-gray-50 transition-all transform hover:-translate-y-1"
+              className="inline-flex items-center gap-2 px-6 md:px-8 py-3 md:py-4 bg-white text-gray-800 rounded-sm font-semibold shadow-xl hover:shadow-2xl hover:bg-gray-50 transition-all transform hover:-translate-y-1"
             >
               <span>Get Custom Quote</span>
               <ArrowRight size={20} />

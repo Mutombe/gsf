@@ -236,7 +236,7 @@ const Navbar = () => {
   const activeLinkStyle = {
     color: colors.chiliRed,
     padding: "10px 16px",
-    borderRadius: "8px",
+    borderRadius: "5px",
     fontWeight: "600",
     transition: "all 0.3s ease",
   };
@@ -244,7 +244,7 @@ const Navbar = () => {
   const inactiveLinkStyle = {
     color: colors.darkGray,
     padding: "10px 16px",
-    borderRadius: "8px",
+    borderRadius: "5px",
     fontWeight: "500",
     transition: "all 0.3s ease",
   };
@@ -260,7 +260,7 @@ const Navbar = () => {
     alignItems: "center",
     gap: "8px",
     padding: "8px 12px",
-    borderRadius: "8px",
+    borderRadius: "5px",
     border: `1px solid ${colors.mediumGray}`,
     background: colors.white,
     transition: "all 0.3s ease",
@@ -272,7 +272,7 @@ const Navbar = () => {
     alignItems: "center",
     justifyContent: "center",
     padding: "8px",
-    borderRadius: "8px",
+    borderRadius: "5px",
     border: "none",
     background: "transparent",
     cursor: "pointer",
@@ -374,7 +374,7 @@ const Navbar = () => {
                         justifyContent: "center",
                         width: "28px",
                         height: "28px",
-                        borderRadius: "50%",
+                        borderRadius: "3px",
                         background: "rgba(255, 255, 255, 0.1)",
                         color: colors.white,
                         transition: "all 0.3s ease",
@@ -438,7 +438,7 @@ const Navbar = () => {
                         justifyContent: "center",
                         width: "32px",
                         height: "32px",
-                        borderRadius: "50%",
+                        borderRadius: "3px",
                         background: "rgba(255, 255, 255, 0.1)",
                         color: colors.white,
                         transition: "all 0.3s ease",
@@ -508,7 +508,7 @@ const Navbar = () => {
                     <Link
                       key={link.path}
                       to={link.path}
-                      className="flex items-center gap-2 px-4 py-2.5 rounded-lg font-medium transition-all"
+                      className="flex items-center gap-2 px-4 py-2.5 rounded-sm font-medium transition-all"
                       style={isActive ? activeLinkStyle : inactiveLinkStyle}
                       onMouseEnter={(e) => {
                         if (!isActive) {
@@ -539,7 +539,7 @@ const Navbar = () => {
                       onMouseLeave={() => setOpenDropdown(null)}
                     >
                       <button
-                        className="flex items-center gap-2 px-4 py-2.5 rounded-lg font-medium transition-all"
+                        className="flex items-center gap-2 px-4 py-2.5 rounded-sm font-medium transition-all"
                         style={isActive ? activeLinkStyle : inactiveLinkStyle}
                         onMouseEnter={(e) => {
                           if (!isActive) {
@@ -577,7 +577,7 @@ const Navbar = () => {
                             animate={{ opacity: 1, y: 0 }}
                             exit={{ opacity: 0, y: -10 }}
                             transition={{ duration: 0.2 }}
-                            className="absolute left-0 mt-2 w-56 bg-white rounded-lg shadow-xl border border-gray-200 overflow-hidden z-50"
+                            className="absolute left-0 mt-2 w-56 bg-white rounded-sm shadow-xl border border-gray-200 overflow-hidden z-50"
                           >
                             {link.items.map((item) => {
                               const ItemIcon = item.icon;
@@ -687,7 +687,7 @@ const Navbar = () => {
                         marginTop: "8px",
                         width: "192px",
                         background: colors.white,
-                        borderRadius: "8px",
+                        borderRadius: "5px",
                         boxShadow: "0 8px 30px rgba(0, 0, 0, 0.15)",
                         border: `1px solid #E5E7EB`,
                         overflow: "hidden",
@@ -767,7 +767,7 @@ const Navbar = () => {
                   style={{
                     display: "flex",
                     padding: "8px",
-                    borderRadius: "8px",
+                    borderRadius: "5px",
                     border: "none",
                     background: "transparent",
                     color: colors.darkGray,
@@ -838,7 +838,7 @@ const Navbar = () => {
                 </Link>
                 <button
                   onClick={() => setIsOpen(false)}
-                  className="p-2 hover:bg-white/10 rounded-lg transition-colors"
+                  className="p-2 hover:bg-white/10 rounded-sm transition-colors"
                   style={{ color: colors.white }}
                 >
                   <X className="w-7 h-7" />
@@ -861,7 +861,7 @@ const Navbar = () => {
                         <Link
                           to={link.path}
                           onClick={() => setIsOpen(false)}
-                          className="flex items-center justify-between px-6 py-4 rounded-lg text-lg font-semibold transition-all"
+                          className="flex items-center justify-between px-6 py-4 rounded-sm text-lg font-semibold transition-all"
                           style={{
                             color: isActive ? colors.chiliRed : colors.white,
                             background: isActive
@@ -907,7 +907,7 @@ const Navbar = () => {
                               isDropdownOpen ? null : index
                             )
                           }
-                          className="w-full flex items-center justify-between px-6 py-4 rounded-lg text-lg font-semibold transition-all"
+                          className="w-full flex items-center justify-between px-6 py-4 rounded-sm text-lg font-semibold transition-all"
                           style={{
                             color: isActive ? colors.chiliRed : colors.white,
                             background: isActive
@@ -948,7 +948,7 @@ const Navbar = () => {
                                     key={item.path}
                                     to={item.path}
                                     onClick={() => setIsOpen(false)}
-                                    className="flex items-center justify-between px-6 py-3 rounded-lg text-base font-medium transition-all"
+                                    className="flex items-center justify-between px-6 py-3 rounded-sm text-base font-medium transition-all"
                                     style={{
                                       color: isItemActive
                                         ? colors.chiliRed
@@ -1009,7 +1009,7 @@ const Navbar = () => {
                           onClick={() => {
                             changeLanguage(lang.code);
                           }}
-                          className="px-4 py-2 rounded-lg font-medium transition-all"
+                          className="px-4 py-2 rounded-sm font-medium transition-all"
                           style={{
                             background:
                               language === lang.code

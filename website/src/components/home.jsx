@@ -151,7 +151,7 @@ const Home = () => {
   const stats = [
     {
       icon: GrProjects,
-      value: "500+",
+      value: "1000+",
       label: t("home.stats.projects"),
       colorFrom: colors.chiliRed,
       colorTo: colors.brightOrange,
@@ -364,7 +364,7 @@ const Home = () => {
 
   const cardStyle = {
     background: colors.white,
-    borderRadius: "16px",
+    borderRadius: "5px",
     boxShadow: "0 4px 20px rgba(0, 0, 0, 0.08)",
     transition: "all 0.3s ease",
     height: "100%",
@@ -429,7 +429,7 @@ const Home = () => {
                   delay: (index % 5) * 0.1,
                   duration: 0.5,
                 }}
-                className="relative aspect-square rounded-lg overflow-hidden"
+                className="relative aspect-square rounded-sm overflow-hidden"
                 style={{
                   willChange: 'auto',
                 }}
@@ -496,7 +496,7 @@ const Home = () => {
                   background: "rgba(255, 255, 255, 0.15)",
                   backdropFilter: "blur(10px)",
                   padding: "12px 20px",
-                  borderRadius: "4px",
+                  borderRadius: "5px",
                   border: "1px solid rgba(255, 255, 255, 0.25)",
                   maxWidth: "fit-content",
                   margin: "0 auto",
@@ -506,7 +506,7 @@ const Home = () => {
                   style={{
                     width: "40px",
                     height: "40px",
-                    borderRadius: "4px",
+                    borderRadius: "5px",
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
@@ -666,7 +666,7 @@ const Home = () => {
               width: "24px",
               height: "40px",
               border: "2px solid rgba(255, 255, 255, 0.3)",
-              borderRadius: "20px",
+              borderRadius: "5px",
               display: "flex",
               justifyContent: "center",
               paddingTop: "8px",
@@ -677,7 +677,7 @@ const Home = () => {
                 width: "4px",
                 height: "12px",
                 background: "rgba(255, 255, 255, 0.5)",
-                borderRadius: "2px",
+                borderRadius: "5px",
               }}
             ></div>
           </div>
@@ -965,7 +965,7 @@ const Home = () => {
                     width: "80px",
                     height: "80px",
                     background: `linear-gradient(135deg, ${colors.chiliRed}, ${colors.amber})`,
-                    borderRadius: "7%",
+                    borderRadius: "5%",
                     display: "inline-flex",
                     alignItems: "center",
                     justifyContent: "center",

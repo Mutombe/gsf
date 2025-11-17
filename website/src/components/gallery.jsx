@@ -254,7 +254,7 @@ const Gallery = () => {
           width: '300px',
           height: '300px',
           background: `radial-gradient(circle, ${colors.chiliRed}20, transparent)`,
-          borderRadius: '50%',
+          borderRadius: '5%',
           filter: 'blur(60px)',
         }}></div>
 
@@ -273,7 +273,7 @@ const Gallery = () => {
                 padding: '10px 24px',
                 background: 'rgba(255, 255, 255, 0.1)',
                 backdropFilter: 'blur(10px)',
-                borderRadius: '50px',
+                borderRadius: '5px',
                 border: '1px solid rgba(255, 255, 255, 0.2)',
                 marginBottom: '24px',
               }}
@@ -336,7 +336,7 @@ const Gallery = () => {
               onClick={() => setLayoutMode('masonry')}
               style={{
                 padding: '12px 24px',
-                borderRadius: '50px',
+                borderRadius: '5px',
                 border: layoutMode === 'masonry' ? `2px solid ${colors.chiliRed}` : '2px solid transparent',
                 background: layoutMode === 'masonry' ? colors.white : 'rgba(255, 255, 255, 0.1)',
                 color: layoutMode === 'masonry' ? colors.darkGray : colors.white,
@@ -359,7 +359,7 @@ const Gallery = () => {
               onClick={() => setLayoutMode('grid')}
               style={{
                 padding: '12px 24px',
-                borderRadius: '50px',
+                borderRadius: '5px',
                 border: layoutMode === 'grid' ? `2px solid ${colors.chiliRed}` : '2px solid transparent',
                 background: layoutMode === 'grid' ? colors.white : 'rgba(255, 255, 255, 0.1)',
                 color: layoutMode === 'grid' ? colors.darkGray : colors.white,
@@ -411,7 +411,7 @@ const Gallery = () => {
                 style={{
                   gridColumn: getSizeClass(image.size),
                   gridRow: layoutMode === 'masonry' && image.size === 'large' ? 'span 2' : 'span 1',
-                  borderRadius: '16px',
+                  borderRadius: '5px',
                   overflow: 'hidden',
                   cursor: 'pointer',
                   position: 'relative',
@@ -483,7 +483,7 @@ const Gallery = () => {
                       display: 'inline-block',
                       padding: '6px 12px',
                       background: image.color,
-                      borderRadius: '6px',
+                      borderRadius: '5px',
                       fontSize: '0.75rem',
                       fontWeight: '600',
                       color: colors.white,
@@ -512,7 +512,7 @@ const Gallery = () => {
                     width: '64px',
                     height: '64px',
                     background: colors.white,
-                    borderRadius: '50%',
+                    borderRadius: '5%',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
@@ -574,7 +574,7 @@ const Gallery = () => {
                 padding: '20px',
                 background: 'rgba(0, 0, 0, 0.5)',
                 backdropFilter: 'blur(10px)',
-                borderRadius: '12px 12px 0 0',
+                borderRadius: '5px 5px 0 0',
               }}>
                 <div>
                   <h2 style={{
@@ -601,7 +601,7 @@ const Gallery = () => {
                   style={{
                     width: '40px',
                     height: '40px',
-                    borderRadius: '50%',
+                    borderRadius: '5%',
                     border: 'none',
                     background: 'rgba(255, 255, 255, 0.1)',
                     color: colors.white,
@@ -621,7 +621,7 @@ const Gallery = () => {
                 flex: 1,
                 position: 'relative',
                 background: '#000',
-                borderRadius: '0 0 12px 12px',
+                borderRadius: '0 0 5px 5px',
                 overflow: 'hidden',
                 display: 'flex',
                 alignItems: 'center',
@@ -657,7 +657,7 @@ const Gallery = () => {
                     transform: 'translateY(-50%)',
                     width: '48px',
                     height: '48px',
-                    borderRadius: '50%',
+                    borderRadius: '5%',
                     border: 'none',
                     background: 'rgba(255, 255, 255, 0.9)',
                     color: colors.darkGray,
@@ -683,7 +683,7 @@ const Gallery = () => {
                     transform: 'translateY(-50%)',
                     width: '48px',
                     height: '48px',
-                    borderRadius: '50%',
+                    borderRadius: '5%',
                     border: 'none',
                     background: 'rgba(255, 255, 255, 0.9)',
                     color: colors.darkGray,
@@ -708,7 +708,7 @@ const Gallery = () => {
                 padding: '20px',
                 background: 'rgba(0, 0, 0, 0.5)',
                 backdropFilter: 'blur(10px)',
-                borderRadius: '0 0 12px 12px',
+                borderRadius: '0 0 5px 5px',
               }}>
                 {/* Zoom Out */}
                 <motion.button
@@ -719,7 +719,7 @@ const Gallery = () => {
                   style={{
                     width: '44px',
                     height: '44px',
-                    borderRadius: '50%',
+                    borderRadius: '5%',
                     border: 'none',
                     background: zoom <= 0.5 ? 'rgba(255, 255, 255, 0.2)' : 'rgba(255, 255, 255, 0.9)',
                     color: colors.darkGray,
@@ -737,7 +737,7 @@ const Gallery = () => {
                 <div style={{
                   padding: '8px 16px',
                   background: 'rgba(255, 255, 255, 0.1)',
-                  borderRadius: '8px',
+                  borderRadius: '5px',
                   color: colors.white,
                   fontSize: '14px',
                   fontWeight: '600',
@@ -756,7 +756,7 @@ const Gallery = () => {
                   style={{
                     width: '44px',
                     height: '44px',
-                    borderRadius: '50%',
+                    borderRadius: '5%',
                     border: 'none',
                     background: zoom >= 3 ? 'rgba(255, 255, 255, 0.2)' : 'rgba(255, 255, 255, 0.9)',
                     color: colors.darkGray,
@@ -786,7 +786,7 @@ const Gallery = () => {
                   style={{
                     width: '44px',
                     height: '44px',
-                    borderRadius: '50%',
+                    borderRadius: '5%',
                     border: 'none',
                     background: 'rgba(255, 255, 255, 0.9)',
                     color: colors.darkGray,
@@ -808,7 +808,7 @@ const Gallery = () => {
                   style={{
                     width: '44px',
                     height: '44px',
-                    borderRadius: '50%',
+                    borderRadius: '5%',
                     border: 'none',
                     background: 'rgba(255, 255, 255, 0.9)',
                     color: colors.darkGray,
@@ -831,7 +831,7 @@ const Gallery = () => {
                     style={{
                       width: '44px',
                       height: '44px',
-                      borderRadius: '50%',
+                      borderRadius: '5%',
                       border: 'none',
                       background: 'rgba(255, 255, 255, 0.9)',
                       color: colors.darkGray,
@@ -857,7 +857,7 @@ const Gallery = () => {
                           bottom: '60px',
                           right: 0,
                           background: colors.white,
-                          borderRadius: '12px',
+                          borderRadius: '5px',
                           padding: '8px',
                           boxShadow: '0 8px 24px rgba(0, 0, 0, 0.3)',
                           minWidth: '160px',
@@ -878,7 +878,7 @@ const Gallery = () => {
                             gap: '12px',
                             fontSize: '14px',
                             fontWeight: '500',
-                            borderRadius: '8px',
+                            borderRadius: '5px',
                             transition: 'background 0.2s ease',
                           }}
                           onMouseEnter={(e) => {
@@ -905,7 +905,7 @@ const Gallery = () => {
                             gap: '12px',
                             fontSize: '14px',
                             fontWeight: '500',
-                            borderRadius: '8px',
+                            borderRadius: '5px',
                             transition: 'background 0.2s ease',
                           }}
                           onMouseEnter={(e) => {
@@ -932,7 +932,7 @@ const Gallery = () => {
                             gap: '12px',
                             fontSize: '14px',
                             fontWeight: '500',
-                            borderRadius: '8px',
+                            borderRadius: '5px',
                             transition: 'background 0.2s ease',
                           }}
                           onMouseEnter={(e) => {
