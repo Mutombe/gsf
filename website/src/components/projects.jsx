@@ -52,6 +52,32 @@ const Projects = () => {
   const filters = ['all', 'retail', 'hospitality', 'commercial'];
 
   const projects = [
+        {
+      id: 0,
+      title: 'CBZ Learning Center',
+      category: 'commercial',
+      location: 'Harare CBD',
+      date: '2024',
+      description: 'Complete center redesign with modern shelving and learning spaces',
+      fullDescription: 'A comprehensive transformation of a 2000m² commercial space featuring state-of-the-art shelving systems, learning pods, and custom furniture. The project included complete electrical and lighting redesign to create an inviting educational environment. The final result was a vibrant, functional, and visually stunning space that caters to the needs of learners and professionals alike.',
+      icon: ShoppingBag,
+      stats: { area: '2000m²', duration: '3 months', fixtures: '150+', budget: '$250K' },
+      beforeImage: '/placeh.png',
+      afterImage: '/b.png',
+      gallery: [
+        '/c.png',
+        '/d.png',
+        '/e.png',
+      ],
+      features: [
+        'Custom shelving systems',
+        'Modern LED lighting',
+        'Energy-efficient solutions',
+        'Smart shelving units',
+        'Study pods and collaboration areas',
+      ],
+      size: 'large',
+    },
     {
       id: 1,
       title: 'SuperMart Expansion',
@@ -62,12 +88,12 @@ const Projects = () => {
       fullDescription: 'A comprehensive transformation of a 2000m² retail space featuring state-of-the-art shelving systems, commercial refrigeration units, and custom checkout counters. The project included complete electrical and lighting redesign to create an inviting shopping environment.',
       icon: ShoppingBag,
       stats: { area: '2000m²', duration: '3 months', fixtures: '150+', budget: '$250K' },
-      beforeImage: '/api/placeholder/800/600',
-      afterImage: '/api/placeholder/800/600',
+      beforeImage: '/placeh.png',
+      afterImage: '/placeh.png',
       gallery: [
-        '/api/placeholder/400/300',
-        '/api/placeholder/400/300',
-        '/api/placeholder/400/300',
+        '/placeh.png',
+        '/placeh.png',
+        '/placeh.png',
       ],
       features: [
         'Custom refrigeration systems',
@@ -88,11 +114,11 @@ const Projects = () => {
       fullDescription: 'A complete retail fitout project delivering modern shopping experience with custom-built fixtures and contemporary design elements.',
       icon: Store,
       stats: { area: '1500m²', duration: '2 months', fixtures: '120+', budget: '$180K' },
-      beforeImage: '/api/placeholder/800/600',
-      afterImage: '/api/placeholder/800/600',
+      beforeImage: '/placeh.png',
+      afterImage: '/placeh.png',
       gallery: [
-        '/api/placeholder/400/300',
-        '/api/placeholder/400/300',
+        '/placeh.png',
+        '/placeh.png',
       ],
       features: [
         'Custom checkout counters',
@@ -112,11 +138,11 @@ const Projects = () => {
       fullDescription: 'An elegant café transformation featuring bespoke furniture, ambient lighting, and premium finishes to create a sophisticated dining atmosphere.',
       icon: Coffee,
       stats: { area: '300m²', duration: '1 month', fixtures: '50+', budget: '$80K' },
-      beforeImage: '/api/placeholder/800/600',
-      afterImage: '/api/placeholder/800/600',
+      beforeImage: '/placeh.png',
+      afterImage: '/placeh.png',
       gallery: [
-        '/api/placeholder/400/300',
-        '/api/placeholder/400/300',
+        '/placeh.png',
+        '/placeh.png',
       ],
       features: [
         'Custom furniture design',
@@ -136,11 +162,11 @@ const Projects = () => {
       fullDescription: 'Professional office space featuring ergonomic furniture, efficient storage systems, and modern design aesthetic for enhanced productivity.',
       icon: Building2,
       stats: { area: '800m²', duration: '6 weeks', fixtures: '80+', budget: '$120K' },
-      beforeImage: '/api/placeholder/800/600',
-      afterImage: '/api/placeholder/800/600',
+      beforeImage: '/placeh.png',
+      afterImage: '/placeh.png',
       gallery: [
-        '/api/placeholder/400/300',
-        '/api/placeholder/400/300',
+        '/placeh.png',
+        '/placeh.png',
       ],
       features: [
         'Ergonomic workstations',
@@ -160,11 +186,11 @@ const Projects = () => {
       fullDescription: 'Large-scale retail project combining advanced refrigeration systems with modern shelving and attractive display solutions.',
       icon: ShoppingBag,
       stats: { area: '1800m²', duration: '10 weeks', fixtures: '140+', budget: '$220K' },
-      beforeImage: '/api/placeholder/800/600',
-      afterImage: '/api/placeholder/800/600',
+      beforeImage: '/placeh.png',
+      afterImage: '/placeh.png',
       gallery: [
-        '/api/placeholder/400/300',
-        '/api/placeholder/400/300',
+        '/placeh.png',
+        '/placeh.png',
       ],
       features: [
         'Commercial refrigeration',
@@ -184,11 +210,11 @@ const Projects = () => {
       fullDescription: 'Luxury boutique fitout with premium display systems, sophisticated lighting design, and elegant finishes.',
       icon: Store,
       stats: { area: '200m²', duration: '3 weeks', fixtures: '40+', budget: '$60K' },
-      beforeImage: '/api/placeholder/800/600',
-      afterImage: '/api/placeholder/800/600',
+      beforeImage: '/placeh.png',
+      afterImage: '/placeh.png',
       gallery: [
-        '/api/placeholder/400/300',
-        '/api/placeholder/400/300',
+        '/placeh.png',
+        '/placeh.png',
       ],
       features: [
         'Premium display fixtures',

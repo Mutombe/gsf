@@ -41,7 +41,8 @@ const About = () => {
     {
       icon: Shield,
       title: "Integrity & Professionalism",
-      description: "We pride in integrity, professionalism and meeting time targets in all our projects.",
+      description:
+        "We pride in integrity, professionalism and meeting time targets in all our projects.",
       colorFrom: colors.chiliRed,
       colorTo: colors.brightOrange,
       size: "large",
@@ -49,7 +50,8 @@ const About = () => {
     {
       icon: Users,
       title: "Client Care & Quality",
-      description: "We value client care, competitive pricing and uncompromising quality in everything we do.",
+      description:
+        "We value client care, competitive pricing and uncompromising quality in everything we do.",
       colorFrom: colors.brightOrange,
       colorTo: colors.amber,
       size: "medium",
@@ -57,7 +59,8 @@ const About = () => {
     {
       icon: Zap,
       title: "Innovation & Teamwork",
-      description: "We believe in innovation, teamwork and respect as the foundation of our success.",
+      description:
+        "We believe in innovation, teamwork and respect as the foundation of our success.",
       colorFrom: colors.scarlet,
       colorTo: colors.darkOrange,
       size: "medium",
@@ -65,7 +68,8 @@ const About = () => {
     {
       icon: Award,
       title: "Excellence & Commitment",
-      description: "We are committed to delivering excellence and maintaining the highest standards in the industry.",
+      description:
+        "We are committed to delivering excellence and maintaining the highest standards in the industry.",
       colorFrom: colors.darkOrange,
       colorTo: colors.chiliRed,
       size: "large",
@@ -78,8 +82,7 @@ const About = () => {
       event: "Company Founded",
       description: "Global Shopfitters established by ex Fredic Sage team",
       icon: Award,
-      image:
-        "/m.jpg",
+      image: "/m.jpg",
       color: "#FDDB3A",
     },
     {
@@ -87,8 +90,7 @@ const About = () => {
       event: "Industry Recognition",
       description: "Became a Class A member of CIFZ",
       icon: Award,
-      image:
-        "/27.jpg",
+      image: "/27.jpg",
       color: "#10B981",
     },
     {
@@ -105,8 +107,7 @@ const About = () => {
       event: "New Management",
       description: "Acquired by NM Holdings, strengthening capabilities",
       icon: TrendingUp,
-      image:
-        "/k.jpg",
+      image: "/k.jpg",
       color: "#06B6D4",
     },
     {
@@ -114,8 +115,7 @@ const About = () => {
       event: "Industry Leader",
       description: "Zimbabwe's undisputed shopfitting leader",
       icon: Award,
-      image:
-        "/f.jpg",
+      image: "/f.jpg",
       color: "#3B82F6",
     },
   ];
@@ -208,8 +208,7 @@ const About = () => {
           style={{
             position: "absolute",
             inset: 0,
-            backgroundImage:
-              'url("/about.jpg")',
+            backgroundImage: 'url("/about.jpg")',
             backgroundSize: "cover",
             backgroundPosition: "center",
             opacity: 0.38,
@@ -351,13 +350,20 @@ const About = () => {
                   We are the image creators of today!!
                 </p>
                 <p>
-                  We are Global Shopfitters (Proprietary Limited), formerly formed in early 2000 by ex Fredic Sage and now under new management. We are a wholly owned by indigenous Zimbabweans with our major shareholder being NM Holdings.
+                  We are Global Shopfitters (Proprietary Limited), formerly
+                  formed in early 2000 by ex Fredic Sage and now under new
+                  management. We are a wholly owned by indigenous Zimbabweans
+                  with our major shareholder being NM Holdings.
                 </p>
                 <p>
-                  We are an established, comprehensive leading and not just shopfitting services company in the Construction Industry in Zimbabwe. We are a Class A member organisation of CIFZ (Construction Industry Federation of Zimbabwe).
+                  We are an established, comprehensive leading and not just
+                  shopfitting services company in the Construction Industry in
+                  Zimbabwe. We are a Class A member organisation of CIFZ
+                  (Construction Industry Federation of Zimbabwe).
                 </p>
                 <p>
-                  We are registered with ZIMRA, NSSA, NEC and Zimdef, and we practice environmentally compliant manufacturing.
+                  We are registered with ZIMRA, NSSA, NEC and Zimdef, and we
+                  practice environmentally compliant manufacturing.
                 </p>
               </div>
 
@@ -656,8 +662,7 @@ const About = () => {
                 style={{
                   position: "absolute",
                   inset: 0,
-                  backgroundImage:
-                    'url("/r.jpg")',
+                  backgroundImage: 'url("/r.jpg")',
                   backgroundSize: "cover",
                   backgroundPosition: "center",
                   opacity: 0.08,
@@ -718,7 +723,8 @@ const About = () => {
                   zIndex: 1,
                 }}
               >
-                To be the most sought after shopfitter in Zimbabwe, providing top quality and a responsive service.
+                To be the most sought after shopfitter in Zimbabwe, providing
+                top quality and a responsive service.
               </p>
             </motion.div>
 
@@ -750,8 +756,7 @@ const About = () => {
                 style={{
                   position: "absolute",
                   inset: 0,
-                  backgroundImage:
-                    'url("/f.jpg")',
+                  backgroundImage: 'url("/f.jpg")',
                   backgroundSize: "cover",
                   backgroundPosition: "center",
                   opacity: 0.08,
@@ -837,17 +842,13 @@ const About = () => {
           <div
             style={{
               display: "grid",
-              gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 280px), 1fr))",
+              gridTemplateColumns:
+                "repeat(auto-fit, minmax(min(100%, 280px), 1fr))",
               gap: "clamp(16px, 3vw, 24px)",
             }}
           >
             {values.map((value, index) => {
-              const valueImages = [
-                "/g.jpg",
-                "/h.jpg",
-                "/i.jpg",
-                "/j.jpg",
-              ];
+              const valueImages = ["/g.jpg", "/h.jpg", "/i.jpg", "/j.jpg"];
 
               return (
                 <motion.div
@@ -917,9 +918,9 @@ const About = () => {
                         boxShadow: `0 8px 24px ${value.colorFrom}40`,
                       }}
                     >
-                      <value.icon 
-                        size={window.innerWidth < 768 ? 28 : 32} 
-                        style={{ color: colors.white }} 
+                      <value.icon
+                        size={window.innerWidth < 768 ? 28 : 32}
+                        style={{ color: colors.white }}
                       />
                     </div>
 
@@ -958,7 +959,10 @@ const About = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            style={{ textAlign: "center", marginBottom: "clamp(32px, 6vw, 48px)" }}
+            style={{
+              textAlign: "center",
+              marginBottom: "clamp(32px, 6vw, 48px)",
+            }}
           >
             <h2 style={sectionTitleStyle}>Visible Trading History</h2>
             <p style={sectionSubtitleStyle}>
@@ -986,7 +990,9 @@ const About = () => {
                 marginBottom: "40px",
               }}
             >
-              Together we can make it happen!! We have partnered with some of Zimbabwe's most respected brands and organizations, delivering excellence in every project.
+              Together we can make it happen!! We have partnered with some of
+              Zimbabwe's most respected brands and organizations, delivering
+              excellence in every project.
             </p>
 
             <div
@@ -999,18 +1005,57 @@ const About = () => {
               }}
             >
               {[
-                { name: "Edgars", category: "Retail" },
-                { name: "OK Zimbabwe", category: "Supermarkets" },
-                { name: "Pick n Pay", category: "Retail" },
-                { name: "Nedbank", category: "Banking" },
-                { name: "Stanbic Bank", category: "Banking" },
-                { name: "NMB Bank", category: "Banking" },
-                { name: "ZB Bank", category: "Banking" },
-                { name: "CBZ Holdings", category: "Banking" },
-                { name: "Holiday Inn", category: "Hospitality" },
-                { name: "National Bank", category: "Banking" },
-                { name: "Bata", category: "Retail" },
-                { name: "And Many More", category: "Various Industries" },
+                {
+                  name: "Edgars",
+                  category: "Retail",
+                  logo: "/logos/ed.png",
+                },
+                {
+                  name: "OK Zimbabwe",
+                  category: "Supermarkets",
+                  logo: "/logos/ok.png",
+                },
+                {
+                  name: "Pick n Pay",
+                  category: "Retail",
+                  logo: "/logos/pp.png",
+                },
+                {
+                  name: "Nedbank",
+                  category: "Banking",
+                  logo: "/logos/nb.png",
+                },
+                {
+                  name: "Stanbic Bank",
+                  category: "Banking",
+                  logo: "/logos/sb.png",
+                },
+                {
+                  name: "NMB Bank",
+                  category: "Banking",
+                  logo: "/logos/nmb.png",
+                },
+                {
+                  name: "ZB Bank",
+                  category: "Banking",
+                  logo: "/logos/zb-logo.svg",
+                },
+                {
+                  name: "CBZ Holdings",
+                  category: "Banking",
+                  logo: "/logos/cbz1.png",
+                },
+                {
+                  name: "Holiday Inn",
+                  category: "Hospitality",
+                  logo: "/logos/hi.png",
+                },
+                {
+                  name: "National Bank",
+                  category: "Banking",
+                  logo: "/logos/nb.png",
+                },
+                { name: "Bata", category: "Retail", logo: "/logos/bt.png" },
               ].map((client, index) => (
                 <motion.div
                   key={index}
@@ -1026,30 +1071,49 @@ const About = () => {
                     borderRadius: "12px",
                     transition: "all 0.3s ease",
                     cursor: "pointer",
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    minHeight: "140px",
                   }}
                   onMouseEnter={(e) => {
                     e.currentTarget.style.background = colors.white;
-                    e.currentTarget.style.boxShadow = "0 8px 24px rgba(0, 0, 0, 0.1)";
+                    e.currentTarget.style.boxShadow =
+                      "0 8px 24px rgba(0, 0, 0, 0.1)";
                   }}
                   onMouseLeave={(e) => {
                     e.currentTarget.style.background = colors.lightGray;
                     e.currentTarget.style.boxShadow = "none";
                   }}
                 >
-                  <div
+                  <img
+                    src={client.logo}
+                    alt={`${client.name} logo`}
                     style={{
-                      fontSize: "1.125rem",
-                      fontWeight: "700",
-                      color: colors.darkGray,
-                      marginBottom: "8px",
+                      width: "100%",
+                      maxWidth: "120px",
+                      height: "60px",
+                      objectFit: "contain",
+                      marginBottom: "12px",
+                      filter: "grayscale(100%)",
+                      opacity: "0.7",
+                      transition: "all 0.3s ease",
                     }}
-                  >
-                    {client.name}
-                  </div>
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.filter = "grayscale(0%)";
+                      e.currentTarget.style.opacity = "1";
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.filter = "grayscale(100%)";
+                      e.currentTarget.style.opacity = "0.7";
+                    }}
+                  />
                   <div
                     style={{
                       fontSize: "0.875rem",
                       color: colors.mediumGray,
+                      fontWeight: "500",
                     }}
                   >
                     {client.category}
@@ -1060,7 +1124,6 @@ const About = () => {
           </motion.div>
         </div>
       </section>
-
       {/* Timeline Section - MOBILE RESPONSIVE */}
       <section
         style={{
@@ -1075,7 +1138,10 @@ const About = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            style={{ textAlign: "center", marginBottom: "clamp(32px, 6vw, 48px)" }}
+            style={{
+              textAlign: "center",
+              marginBottom: "clamp(32px, 6vw, 48px)",
+            }}
           >
             <h2 style={sectionTitleStyle}>Our Journey Through Time</h2>
             <p style={sectionSubtitleStyle}>
@@ -1160,7 +1226,8 @@ const About = () => {
                         overflow: "hidden",
                         minHeight: window.innerWidth < 768 ? "auto" : "120px",
                         display: "flex",
-                        flexDirection: window.innerWidth < 768 ? "column" : "row",
+                        flexDirection:
+                          window.innerWidth < 768 ? "column" : "row",
                         transition: "all 0.3s ease",
                         cursor: "pointer",
                       }}
@@ -1169,15 +1236,23 @@ const About = () => {
                       {/* Colored Section with Image - Responsive */}
                       <div
                         style={{
-                          position: window.innerWidth < 768 ? "relative" : "absolute",
-                          [window.innerWidth < 768 ? "top" : (isEven ? "left" : "right")]: 0,
+                          position:
+                            window.innerWidth < 768 ? "relative" : "absolute",
+                          [window.innerWidth < 768
+                            ? "top"
+                            : isEven
+                            ? "left"
+                            : "right"]: 0,
                           [window.innerWidth < 768 ? "left" : "top"]: 0,
                           [window.innerWidth < 768 ? "right" : "bottom"]: 0,
                           width: window.innerWidth < 768 ? "100%" : "160px",
                           height: window.innerWidth < 768 ? "120px" : "auto",
-                          borderRadius: window.innerWidth < 768 
-                            ? "12px 12px 0 0"
-                            : (isEven ? "12px 0 0 12px" : "0 12px 12px 0"),
+                          borderRadius:
+                            window.innerWidth < 768
+                              ? "12px 12px 0 0"
+                              : isEven
+                              ? "12px 0 0 12px"
+                              : "0 12px 12px 0",
                           overflow: "hidden",
                         }}
                       >
@@ -1226,15 +1301,22 @@ const About = () => {
                         style={{
                           position: "relative",
                           zIndex: 10,
-                          padding: window.innerWidth < 768 
-                            ? "20px" 
-                            : "clamp(20px, 3vw, 32px)",
-                          paddingLeft: window.innerWidth < 768 
-                            ? "20px" 
-                            : (isEven ? "clamp(170px, 20vw, 180px)" : "clamp(20px, 3vw, 32px)"),
-                          paddingRight: window.innerWidth < 768 
-                            ? "20px" 
-                            : (isEven ? "clamp(20px, 3vw, 32px)" : "clamp(170px, 20vw, 180px)"),
+                          padding:
+                            window.innerWidth < 768
+                              ? "20px"
+                              : "clamp(20px, 3vw, 32px)",
+                          paddingLeft:
+                            window.innerWidth < 768
+                              ? "20px"
+                              : isEven
+                              ? "clamp(170px, 20vw, 180px)"
+                              : "clamp(20px, 3vw, 32px)",
+                          paddingRight:
+                            window.innerWidth < 768
+                              ? "20px"
+                              : isEven
+                              ? "clamp(20px, 3vw, 32px)"
+                              : "clamp(170px, 20vw, 180px)",
                           flex: 1,
                         }}
                       >

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import {
@@ -15,7 +15,7 @@ import {
   Briefcase,
   Package,
   FolderKanban,
-  Image,
+  Image as ImageIcon,
   MessageSquare,
   HelpCircle,
   PhoneCall,
@@ -39,6 +39,58 @@ import { PiSmileyWinkThin } from "react-icons/pi";
 import { PiSmiley } from "react-icons/pi";
 import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn, FaWhatsapp, } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
+import { useInView, useMotionValue, useSpring } from "framer-motion";
+
+const LazyImage = ({ src, alt, className, style, priority = false }) => {
+  const [imageSrc, setImageSrc] = useState(null);
+  const [imageLoaded, setImageLoaded] = useState(false);
+  const imgRef = useRef();
+  const isInView = useInView(imgRef, { once: true, margin: "50px" });
+
+  useEffect(() => {
+    if (priority || isInView) {
+      // Create a small blur placeholder
+      const img = new Image();
+      img.src = src;
+      img.onload = () => {
+        setImageSrc(src);
+        setImageLoaded(true);
+      };
+    }
+  }, [src, isInView, priority]);
+
+  return (
+    <div ref={imgRef} className={className} style={{ ...style, position: 'relative', overflow: 'hidden' }}>
+      {/* Placeholder with blur effect */}
+      <div
+        style={{
+          position: 'absolute',
+          inset: 0,
+          background: 'linear-gradient(135deg, #e3180d20, #ff7805020)',
+          filter: imageLoaded ? 'blur(0px)' : 'blur(10px)',
+          transition: 'filter 0.3s ease',
+        }}
+      />
+      {imageSrc && (
+        <img
+          src={imageSrc}
+          alt={alt}
+          loading={priority ? "eager" : "lazy"}
+          decoding="async"
+          style={{
+            width: '100%',
+            height: '100%',
+            objectFit: 'cover',
+            opacity: imageLoaded ? 1 : 0,
+            transition: 'opacity 0.3s ease',
+          }}
+          onLoad={() => setImageLoaded(true)}
+        />
+      )}
+    </div>
+  );
+};
+
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
@@ -89,7 +141,7 @@ const Navbar = () => {
     { icon: FaXTwitter, url: "https://twitter.com/globalshopfitters", label: "Twitter" },
     { icon: FaInstagram, url: "https://instagram.com/globalshopfitters", label: "Instagram" },
     { icon: FaLinkedinIn, url: "https://linkedin.com/company/globalshopfitters", label: "LinkedIn" },
-    { icon: FaWhatsapp, url: "https://wa.me/263123456789", label: "WhatsApp" },
+    { icon: FaWhatsapp, url: "https://wa.me/263781934986", label: "WhatsApp" },
   ];
 
   // Navigation structure with icons and dropdowns
@@ -135,7 +187,7 @@ const Navbar = () => {
       icon: Package,
       type: "dropdown",
       items: [
-        { path: "/gallery", label: t("nav.gallery"), icon: Image },
+        { path: "/gallery", label: t("nav.gallery"), icon: ImageIcon },
         { path: "/faq", label: t("nav.faq"), icon: HelpCircle },
         { path: "/resources", label: "Resources", icon: Newspaper },
       ],
@@ -434,10 +486,14 @@ const Navbar = () => {
                   (e.currentTarget.style.transform = "scale(1)")
                 }
               >
-                <img
+                <LazyImage
                   src="/gsf.png"
-                  alt="Global Shopfitters Logo"
+                  alt="Logo"
                   className="w-30 h-12"
+                  style={{
+                    
+                  }}
+                  priority={true}
                 />
               </div>
             </Link>

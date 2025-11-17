@@ -1455,7 +1455,7 @@ const products = [
       `Price: $${variant.price * quantity}\n\n` +
       `Could you please provide more information?`;
 
-    const whatsappUrl = `https://wa.me/263XXXXXXXXX?text=${encodeURIComponent(
+    const whatsappUrl = `https://wa.me/263781934986?text=${encodeURIComponent(
       message
     )}`;
     window.open(whatsappUrl, "_blank");

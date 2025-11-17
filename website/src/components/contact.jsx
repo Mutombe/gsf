@@ -68,7 +68,7 @@ const Contact = () => {
   };
 
   // Harare, Zimbabwe coordinates
-  const position = [-17.8252, 31.0335]; // Latitude, Longitude for Harare
+  const position = [-17.8490877, 31.1234503,17]; // Latitude, Longitude for Harare
 
   // WhatsApp number (replace with actual number)
   const whatsappNumber = "263781934986"; // Format: country code + number (no + or spaces)
@@ -1148,7 +1148,7 @@ ${formData.message}
                     marginBottom: "16px",
                   }}
                 >
-                  123 Industrial Road, Harare, Zimbabwe
+                  No. 3, 18 Whitesway, Harare Zimbabwe
                 </p>
                 <motion.a
                   href="https://maps.google.com/?q=Harare,Zimbabwe"

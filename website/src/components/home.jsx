@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState, useMemo } from "react";
 import { Link } from "react-router-dom";
 import { motion, useInView, useMotionValue, useSpring } from "framer-motion";
 import {
@@ -34,6 +34,57 @@ import { FaJenkins } from "react-icons/fa";
 import { RxTimer } from "react-icons/rx";
 import { TiArrowRepeatOutline } from "react-icons/ti";
 
+// Lazy load component for images
+const LazyImage = ({ src, alt, className, style, priority = false }) => {
+  const [imageSrc, setImageSrc] = useState(null);
+  const [imageLoaded, setImageLoaded] = useState(false);
+  const imgRef = useRef();
+  const isInView = useInView(imgRef, { once: true, margin: "50px" });
+
+  useEffect(() => {
+    if (priority || isInView) {
+      // Create a small blur placeholder
+      const img = new Image();
+      img.src = src;
+      img.onload = () => {
+        setImageSrc(src);
+        setImageLoaded(true);
+      };
+    }
+  }, [src, isInView, priority]);
+
+  return (
+    <div ref={imgRef} className={className} style={{ ...style, position: 'relative', overflow: 'hidden' }}>
+      {/* Placeholder with blur effect */}
+      <div
+        style={{
+          position: 'absolute',
+          inset: 0,
+          background: 'linear-gradient(135deg, #e3180d20, #ff7805020)',
+          filter: imageLoaded ? 'blur(0px)' : 'blur(10px)',
+          transition: 'filter 0.3s ease',
+        }}
+      />
+      {imageSrc && (
+        <img
+          src={imageSrc}
+          alt={alt}
+          loading={priority ? "eager" : "lazy"}
+          decoding="async"
+          style={{
+            width: '100%',
+            height: '100%',
+            objectFit: 'cover',
+            opacity: imageLoaded ? 1 : 0,
+            transition: 'opacity 0.3s ease',
+          }}
+          onLoad={() => setImageLoaded(true)}
+        />
+      )}
+    </div>
+  );
+};
+
 // Counter component for count-up effect
 const AnimatedCounter = ({ value, duration = 2 }) => {
   const ref = useRef(null);
@@ -55,7 +106,6 @@ const AnimatedCounter = ({ value, duration = 2 }) => {
     return unsubscribe;
   }, [springValue]);
 
-  // Format the value (handle numbers with + or %)
   const formatValue = (num) => {
     const suffix = value.toString().match(/[+%]/)?.[0] || "";
     const numValue = Math.round(num);
@@ -67,9 +117,10 @@ const AnimatedCounter = ({ value, duration = 2 }) => {
 
 const Home = () => {
   const { t } = useLanguage();
+  const [heroImagesLoaded, setHeroImagesLoaded] = useState(false);
 
-  // Color palette from images
-  const colors = {
+  // Color palette
+  const colors = useMemo(() => ({
     chiliRed: "#E3180D",
     scarlet: "#FF2A00",
     flame: "#D92603",
@@ -89,7 +140,13 @@ const Home = () => {
     mediumGray: "#666666",
     lightGray: "#F5F5F5",
     white: "#FFFFFF",
-  };
+  }), []);
+
+  // Optimized image list - only unique images, no repetition
+  const heroImages = useMemo(() => [
+    "/f.jpg", "/g.jpg", "/h.jpg", "/i.jpg", "/j.jpg",
+    "/k.jpg", "/l.jpg", "/m.jpg", "/q.jpg", "/r.jpg"
+  ], []);
 
   const stats = [
     {
@@ -208,65 +265,45 @@ const Home = () => {
     },
   ];
 
+  const handleAction = (action) => {
+    if (action === "call") {
+      window.location.href = "tel:+263781934986";
+    } else if (action === "email") {
+      window.location.href = "mailto:info@globalshopfitters.co.zw";
+    } else if (action === "whatsapp") {
+      window.location.href =
+        "https://wa.me/263781934986?text=Hello%20Global%20Shopfitters,%20I%20am%20interested%20in%20your%20services.";
+    }
+  };
+
+  // Preload critical images
+  useEffect(() => {
+    const preloadImages = async () => {
+      const imagePromises = heroImages.slice(0, 3).map(src => {
+        return new Promise((resolve) => {
+          const img = new Image();
+          img.src = src;
+          img.onload = resolve;
+          img.onerror = resolve;
+        });
+      });
+      
+      await Promise.all(imagePromises);
+      setHeroImagesLoaded(true);
+    };
+    
+    preloadImages();
+  }, [heroImages]);
+
   // Styles
   const heroSectionStyle = {
     minHeight: "100vh",
-    paddingTop: "-150px",
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
     background: `linear-gradient(135deg, #1a1a1a 0%, ${colors.darkGray} 50%, #2a2a2a 100%)`,
     position: "relative",
     overflow: "hidden",
-  };
-
-  const heroBadgeStyle = {
-    display: "inline-block",
-    padding: "8px 20px",
-    background: "rgba(255, 255, 255, 0.1)",
-    backdropFilter: "blur(10px)",
-    borderRadius: "50px",
-    border: "1px solid rgba(255, 255, 255, 0.2)",
-    fontSize: "14px",
-    fontWeight: "500",
-    color: colors.white,
-    marginBottom: "32px",
-  };
-
-  const heroTitleStyle = {
-    fontSize: "clamp(2.5rem, 8vw, 5rem)",
-    fontWeight: "800",
-    lineHeight: "1.1",
-    color: colors.white,
-    marginBottom: "16px",
-  };
-
-  const handleAction = (action) => {
-    if (action === "call") {
-      window.location.href = "tel:+263785948128";
-    } else if (action === "email") {
-      window.location.href = "mailto:info@globalshopfitters.co.zw";
-    } else if (action === "whatsapp") {
-      window.location.href =
-        "https://wa.me/263785948128?text=Hello%20Global%20Shopfitters,%20I%20am%20interested%20in%20your%20services.";
-    }
-  };
-
-  const heroHighlightStyle = {
-    display: "block",
-    marginTop: "8px",
-    background: `linear-gradient(90deg, ${colors.mustardLight} 0%, ${colors.amber} 50%, ${colors.safetyOrange} 100%)`,
-    WebkitBackgroundClip: "text",
-    WebkitTextFillColor: "transparent",
-    backgroundClip: "text",
-  };
-
-  const heroSubtitleStyle = {
-    fontSize: "clamp(1rem, 3vw, 1.5rem)",
-    color: "rgba(255, 255, 255, 0.85)",
-    lineHeight: "1.6",
-    maxWidth: "600px",
-    marginBottom: "32px",
   };
 
   const buttonPrimaryStyle = {
@@ -333,7 +370,6 @@ const Home = () => {
     height: "100%",
   };
 
-  // Glassmorphism card style
   const glassmorphismCardStyle = {
     background: "rgba(255, 255, 255, 0.15)",
     backdropFilter: "blur(20px)",
@@ -347,11 +383,11 @@ const Home = () => {
 
   return (
     <div style={{ overflow: "hidden" }}>
-      {/* Hero Section */}
+      {/* Hero Section - Optimized */}
       <section style={heroSectionStyle}>
-        {/* Image Mosaic Background */}
+        {/* Optimized Image Mosaic Background */}
         <div className="absolute inset-0 overflow-hidden">
-          {/* Base gradient */}
+          {/* Base gradient - keep this for immediate color */}
           <div
             className="absolute inset-0 bg-gradient-to-br z-0"
             style={{
@@ -359,148 +395,51 @@ const Home = () => {
             }}
           />
 
-          {/* Image Mosaic Grid - Responsive columns: 4 mobile, 6 tablet, 10 desktop */}
-          <div className="absolute inset-0 grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 lg:grid-cols-10 gap-2 p-4 transform -rotate-12 scale-125">
-            {[
-              // Modern architecture & skyscrapers
-              "/f.jpg",
-              "/g.jpg",
-              "/h.jpg",
-              "/i.jpg",
-              "/j.jpg",
-              "/k.jpg",
-              "/l.jpg",
-              "/m.jpg",
-              "/q.jpg",
-              "/r.jpg",
+          {/* Optimized Image Mosaic Grid - Much fewer images with CSS pattern */}
+          <div 
+            className="absolute inset-0 opacity-20"
+            style={{
+              backgroundImage: `
+                repeating-linear-gradient(
+                  45deg,
+                  transparent,
+                  transparent 35px,
+                  rgba(255, 255, 255, 0.05) 35px,
+                  rgba(255, 255, 255, 0.05) 70px
+                ),
+                repeating-linear-gradient(
+                  -45deg,
+                  transparent,
+                  transparent 35px,
+                  rgba(0, 0, 0, 0.03) 35px,
+                  rgba(0, 0, 0, 0.03) 70px
+                )
+              `,
+            }}
+          />
 
-              // Glass buildings & facades
-              "/f.jpg",
-              "/g.jpg",
-              "/h.jpg",
-              "/i.jpg",
-              "/j.jpg",
-              "/k.jpg",
-              "/l.jpg",
-              "/m.jpg",
-              "/q.jpg",
-              "/r.jpg",
-
-              // Industrial & construction
-              "/f.jpg",
-              "/g.jpg",
-              "/h.jpg",
-              "/i.jpg",
-              "/j.jpg",
-              "/k.jpg",
-              "/l.jpg",
-              "/m.jpg",
-              "/q.jpg",
-              "/r.jpg",
-
-              // Doors & entrances
-              "/f.jpg",
-              "/g.jpg",
-              "/h.jpg",
-              "/i.jpg",
-              "/j.jpg",
-              "/k.jpg",
-              "/l.jpg",
-              "/m.jpg",
-              "/q.jpg",
-              "/r.jpg",
-
-              // Windows & window systems
-              "/f.jpg",
-              "/g.jpg",
-              "/h.jpg",
-              "/i.jpg",
-              "/j.jpg",
-              "/k.jpg",
-              "/l.jpg",
-              "/m.jpg",
-              "/q.jpg",
-              "/r.jpg",
-
-              // Commercial buildings & offices
-              "/f.jpg",
-              "/g.jpg",
-              "/h.jpg",
-              "/i.jpg",
-              "/j.jpg",
-              "/k.jpg",
-              "/l.jpg",
-              "/m.jpg",
-              "/q.jpg",
-              "/r.jpg",
-
-              // Roofing & exterior materials
-              "/f.jpg",
-              "/g.jpg",
-              "/h.jpg",
-              "/i.jpg",
-              "/j.jpg",
-              "/k.jpg",
-              "/l.jpg",
-              "/m.jpg",
-              "/q.jpg",
-              "/r.jpg",
-
-              // Metal & aluminum structures
-              "/f.jpg",
-              "/g.jpg",
-              "/h.jpg",
-              "/i.jpg",
-              "/j.jpg",
-              "/k.jpg",
-              "/l.jpg",
-              "/m.jpg",
-              "/q.jpg",
-              "/r.jpg",
-
-              // Retail & shopfitting
-              "/f.jpg",
-              "/g.jpg",
-              "/h.jpg",
-              "/i.jpg",
-              "/j.jpg",
-              "/k.jpg",
-              "/l.jpg",
-              "/m.jpg",
-              "/q.jpg",
-              "/r.jpg",
-
-              // Contemporary architecture
-              "/f.jpg",
-              "/g.jpg",
-              "/h.jpg",
-              "/i.jpg",
-              "/j.jpg",
-              "/k.jpg",
-              "/l.jpg",
-              "/m.jpg",
-              "/q.jpg",
-              "/r.jpg",
-            ].map((img, index) => (
+          {/* Reduced image grid - only 20 images instead of 100 */}
+          <div className="absolute inset-0 grid grid-cols-4 md:grid-cols-5 gap-2 p-4 transform -rotate-12 scale-125">
+            {heroImages.concat(heroImages).map((img, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
+                animate={heroImagesLoaded ? { opacity: 1, scale: 1 } : {}}
                 transition={{
-                  delay: (index % 10) * 0.05,
+                  delay: (index % 5) * 0.1,
                   duration: 0.5,
-                  repeat: Infinity,
-                  repeatType: "reverse",
-                  repeatDelay: Math.random() * 5 + 3,
                 }}
                 className="relative aspect-square rounded-lg overflow-hidden"
+                style={{
+                  willChange: 'auto',
+                }}
               >
-                <img
+                <LazyImage
                   src={img}
-                  alt="Shopfitting project"
-                  loading="eager"
-                  decoding="async"
-                  className="w-full h-full object-cover opacity-70"
+                  alt=""
+                  priority={index < 3}
+                  className="w-full h-full"
+                  style={{ opacity: 0.7 }}
                 />
               </motion.div>
             ))}
@@ -547,7 +486,6 @@ const Home = () => {
               transition={{ duration: 0.8 }}
               style={{ marginBottom: "32px" }}
             >
-
               {/* CIFZ Membership Badge */}
               <div
                 style={{
@@ -575,21 +513,14 @@ const Home = () => {
                     padding: "4px",
                   }}
                 >
-                  <img
+                  <LazyImage
                     src="/cifz.png"
                     alt="CIFZ Logo"
-                    loading="eager"
-                    decoding="async"
+                    priority={true}
                     style={{
                       width: "100%",
                       height: "100%",
                       objectFit: "contain",
-                    }}
-                    onError={(e) => {
-                      // Fallback if logo doesn't load
-                      e.target.style.display = "none";
-                      e.target.parentElement.innerHTML =
-                        '<div style="color: #E3180D; font-weight: 800; font-size: 14px;">CIFZ</div>';
                     }}
                   />
                 </div>
@@ -752,6 +683,7 @@ const Home = () => {
           </div>
         </motion.div>
       </section>
+
       {/* Stats Section with Count-Up Effect */}
       <section style={{ ...sectionStyle, background: colors.white }}>
         <div style={containerStyle}>
@@ -777,6 +709,7 @@ const Home = () => {
                     marginBottom: "16px",
                     boxShadow: `0 4px 20px ${stat.colorFrom}30`,
                     transition: "transform 0.3s ease",
+                    willChange: 'transform',
                   }}
                   onMouseEnter={(e) =>
                     (e.currentTarget.style.transform = "scale(1.1)")
@@ -806,7 +739,7 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Services Section with Blended Image Background and Glassmorphism Cards */}
+      {/* Services Section - Optimized with lazy loading */}
       <section
         style={{
           ...sectionStyle,
@@ -816,7 +749,7 @@ const Home = () => {
           overflow: "hidden",
         }}
       >
-        {/* Blended Background Image */}
+        {/* Optimized Background */}
         <div
           style={{
             position: "absolute",
@@ -824,7 +757,6 @@ const Home = () => {
             zIndex: 0,
           }}
         >
-          {/* Base gradient layer */}
           <div
             style={{
               position: "absolute",
@@ -833,34 +765,17 @@ const Home = () => {
             }}
           />
 
-          {/* Single background image */}
+          {/* Use CSS pattern instead of image for performance */}
           <div
             style={{
               position: "absolute",
               inset: 0,
-              opacity: 0.3,
-            }}
-          >
-            <img
-              src="/t.jpg"
-              alt=""
-              style={{
-                width: "100%",
-                height: "100%",
-                objectFit: "cover",
-              }}
-            />
-          </div>
-
-          {/* Overlay for better text readability */}
-          <div
-            style={{
-              position: "absolute",
-              inset: 0,
-              background: "rgba(255, 255, 255, 0.85)",
-              mixBlendMode: "overlay",
-              opacity: 0.4,
-              backdropFilter: "blur(1px)",
+              opacity: 0.1,
+              backgroundImage: `
+                radial-gradient(circle at 20% 80%, ${colors.chiliRed}40 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, ${colors.amber}40 0%, transparent 50%),
+                radial-gradient(circle at 40% 50%, ${colors.safetyOrange}20 0%, transparent 50%)
+              `,
             }}
           />
         </div>
@@ -894,6 +809,7 @@ const Home = () => {
                   ...glassmorphismCardStyle,
                   padding: "32px",
                   cursor: "pointer",
+                  willChange: 'auto',
                 }}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.background =
@@ -1056,6 +972,7 @@ const Home = () => {
                     marginBottom: "24px",
                     boxShadow: `0 4px 20px ${colors.chiliRed}30`,
                     transition: "all 0.3s ease",
+                    willChange: 'transform',
                   }}
                   onMouseEnter={(e) => {
                     e.currentTarget.style.transform = "scale(1.1) rotate(5deg)";
