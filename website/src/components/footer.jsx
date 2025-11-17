@@ -77,7 +77,7 @@ const Footer = () => {
     left: 0,
     width: '100%',
     height: '100%',
-    backgroundImage: 'url(https://images.unsplash.com/photo-1497366216548-37526070297c?w=1600&q=80)',
+    backgroundImage: 'url(/f.jpg)',
     backgroundSize: 'cover',
     backgroundPosition: 'center',
     opacity: 0.15,
@@ -304,13 +304,13 @@ const Footer = () => {
                 <MapPin size={20} style={{ color: colors.amber, marginTop: '4px', flexShrink: 0 }} />
                 <div>
                   <p style={{ color: 'rgba(255, 255, 255, 0.7)', fontSize: '14px', margin: 0, lineHeight: '1.6' }}>
-                    123 Industrial Road,<br />
-                    Harare, Zimbabwe
+                    No. 3, 18 Whitesway,<br />
+                     Harare Zimbabwe
                   </p>
                 </div>
               </div>
               <a 
-                href="tel:+263123456789" 
+                href="tel:+263781934986" 
                 style={{ 
                   display: 'flex', 
                   alignItems: 'center', 
@@ -332,7 +332,7 @@ const Footer = () => {
                 }}
               >
                 <Phone size={20} style={{ color: colors.amber, transition: 'transform 0.3s ease' }} />
-                <span>+263 123 456 789</span>
+                <span>+263 78 193 4986</span>
               </a>
               <a 
                 href="mailto:info@globalshopfitters.co.zw" 

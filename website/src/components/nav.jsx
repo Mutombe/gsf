@@ -270,7 +270,7 @@ const Navbar = () => {
                 <span>info@globalshopfitters.co.zw</span>
               </a>
               <a
-                href="tel:+263123456789"
+                href="tel:+263781934986"
                 style={{
                   display: "flex",
                   alignItems: "center",
@@ -287,7 +287,7 @@ const Navbar = () => {
                 }
               >
                 <Phone size={14} />
-                <span>+263 123 456 789</span>
+                <span>+263 78 193 4986</span>
               </a>
               <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
                 <Clock size={14} />
@@ -297,7 +297,7 @@ const Navbar = () => {
             <div style={{ display: "flex", alignItems: "center", gap: "16px" }}>
               <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
                 <MapPin size={14} />
-                <span>Harare, Zimbabwe</span>
+                <span>No. 3, 18 Whitesway, Harare</span>
               </div>
               <div
                 style={{
@@ -351,7 +351,7 @@ const Navbar = () => {
               {/* First Row: Contact Info */}
               <div className="flex items-center justify-between text-xs">
                 <a
-                  href="tel:+263123456789"
+                  href="tel:+263781934986"
                   style={{
                     display: "flex",
                     alignItems: "center",
@@ -361,7 +361,7 @@ const Navbar = () => {
                   }}
                 >
                   <Phone size={12} />
-                  <span>+263 123 456 789</span>
+                  <span>+263 78 193 4986</span>
                 </a>
                 <div style={{ display: "flex", alignItems: "center", gap: "6px" }}>
                   <Clock size={12} />

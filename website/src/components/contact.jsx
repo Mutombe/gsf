@@ -71,7 +71,7 @@ const Contact = () => {
   const position = [-17.8252, 31.0335]; // Latitude, Longitude for Harare
 
   // WhatsApp number (replace with actual number)
-  const whatsappNumber = "263785948128"; // Format: country code + number (no + or spaces)
+  const whatsappNumber = "263781934986"; // Format: country code + number (no + or spaces)
 
   const handleChange = (e) => {
     setFormData({
@@ -175,7 +175,7 @@ ${formData.message}
     {
       icon: MapPin,
       title: t("contact.info.address"),
-      content: ["123 Industrial Road", "Harare, Zimbabwe"],
+      content: ["No. 3, 18 Whitesway", "Harare, Zimbabwe"],
       colorFrom: colors.chiliRed,
       colorTo: colors.brightOrange,
       link: "https://maps.google.com/?q=Harare,Zimbabwe",
@@ -183,10 +183,10 @@ ${formData.message}
     {
       icon: Phone,
       title: t("contact.info.phone"),
-      content: ["+263 123 456 789", "+263 987 654 321"],
+      content: ["+263 78 193 4986"],
       colorFrom: colors.brightOrange,
       colorTo: colors.amber,
-      link: "tel:+263123456789",
+      link: "tel:+263781934986",
     },
     {
       icon: Mail,
@@ -1110,7 +1110,7 @@ ${formData.message}
                             margin: 0,
                           }}
                         >
-                          123 Industrial Road
+                          No. 3, 18 Whitesway
                           <br />
                           Harare, Zimbabwe
                         </p>

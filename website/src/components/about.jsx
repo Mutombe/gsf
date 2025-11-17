@@ -39,33 +39,33 @@ const About = () => {
 
   const values = [
     {
-      icon: Award,
-      title: t("about.values.quality"),
-      description: t("about.values.qualityDesc"),
+      icon: Shield,
+      title: "Integrity & Professionalism",
+      description: "We pride in integrity, professionalism and meeting time targets in all our projects.",
       colorFrom: colors.chiliRed,
       colorTo: colors.brightOrange,
-      size: "large", // Bento grid size
+      size: "large",
     },
     {
-      icon: Zap,
-      title: t("about.values.innovation"),
-      description: t("about.values.innovationDesc"),
+      icon: Users,
+      title: "Client Care & Quality",
+      description: "We value client care, competitive pricing and uncompromising quality in everything we do.",
       colorFrom: colors.brightOrange,
       colorTo: colors.amber,
       size: "medium",
     },
     {
-      icon: Shield,
-      title: t("about.values.integrity"),
-      description: t("about.values.integrityDesc"),
+      icon: Zap,
+      title: "Innovation & Teamwork",
+      description: "We believe in innovation, teamwork and respect as the foundation of our success.",
       colorFrom: colors.scarlet,
       colorTo: colors.darkOrange,
       size: "medium",
     },
     {
-      icon: Users,
-      title: t("about.values.customer"),
-      description: t("about.values.customerDesc"),
+      icon: Award,
+      title: "Excellence & Commitment",
+      description: "We are committed to delivering excellence and maintaining the highest standards in the industry.",
       colorFrom: colors.darkOrange,
       colorTo: colors.chiliRed,
       size: "large",
@@ -76,46 +76,46 @@ const About = () => {
     {
       year: "2000",
       event: "Company Founded",
-      description: "Global Shopfitters established in Harare",
+      description: "Global Shopfitters established by ex Fredic Sage team",
       icon: Award,
       image:
-        "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80",
+        "/m.jpg",
       color: "#FDDB3A",
     },
     {
-      year: "2012",
-      event: "Major Expansion",
-      description: "Expanded operations across Zimbabwe",
-      icon: TrendingUp,
+      year: "2005",
+      event: "Industry Recognition",
+      description: "Became a Class A member of CIFZ",
+      icon: Award,
+      image:
+        "/27.jpg",
+      color: "#10B981",
+    },
+    {
+      year: "2010",
+      event: "Major Partnerships",
+      description: "Partnered with leading banks and retail chains",
+      icon: Users,
       image:
         "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80",
       color: "#6B7280",
     },
     {
-      year: "2016",
-      event: "Industry Recognition",
-      description: "Awarded Best Shopfitting Company",
-      icon: Award,
+      year: "2015",
+      event: "New Management",
+      description: "Acquired by NM Holdings, strengthening capabilities",
+      icon: TrendingUp,
       image:
-        "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&q=80",
-      color: "#10B981",
-    },
-    {
-      year: "2020",
-      event: "Technology Integration",
-      description: "Introduced cutting-edge design technology",
-      icon: Zap,
-      image:
-        "https://images.unsplash.com/photo-1518432031352-d6fc5c10da5a?auto=format&fit=crop&q=80",
+        "/k.jpg",
       color: "#06B6D4",
     },
     {
-      year: "2024",
-      event: "Regional Leader",
-      description: "Became Zimbabwe's premium shopfitting company",
-      icon: TrendingUp,
+      year: "2025",
+      event: "Industry Leader",
+      description: "Zimbabwe's undisputed shopfitting leader",
+      icon: Award,
       image:
-        "https://images.unsplash.com/photo-1560179707-f14e90ef3623?auto=format&fit=crop&q=80",
+        "/f.jpg",
       color: "#3B82F6",
     },
   ];
@@ -138,7 +138,7 @@ const About = () => {
     minHeight: "70vh",
     display: "flex",
     alignItems: "center",
-    background: `linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(245, 245, 245, 0.95) 50%, rgba(250, 250, 250, 0.98) 100%)`,
+    background: `linear-gradient(135deg, rgba(60, 60, 60, 0.98) 0%, rgba(255, 35, 35, 0.95) 50%, rgba(0, 0, 0, 0.98) 100%)`,
     color: colors.darkGray,
     overflow: "hidden",
   };
@@ -209,23 +209,12 @@ const About = () => {
             position: "absolute",
             inset: 0,
             backgroundImage:
-              'url("https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80")',
+              'url("/about.jpg")',
             backgroundSize: "cover",
             backgroundPosition: "center",
-            opacity: 0.58,
+            opacity: 0.38,
           }}
         ></div>
-
-        {/* Overlay Pattern
-        <div
-          style={{
-            position: "absolute",
-            inset: 0,
-            opacity: 0.04,
-            backgroundImage:
-              "url(\"data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23E3180D' fill-opacity='1' fill-rule='evenodd'/%3E%3C/svg%3E\")",
-          }}
-        ></div> */}
 
         <div style={{ ...containerStyle, position: "relative", zIndex: 10 }}>
           <motion.div
@@ -252,8 +241,7 @@ const About = () => {
               </span>
             </motion.div>
 
-            <h1 style={heroTitleStyle}>{t("about.title")}</h1>
-           {/* <p style={heroSubtitleStyle}>{t("about.subtitle")}</p>  <p style={heroSubtitleStyle}>{t("about.subtitle")}</p>*/}
+            <h1 style={heroTitleStyle}>About Global Shopfitters</h1>
           </motion.div>
         </div>
       </section>
@@ -326,7 +314,7 @@ const About = () => {
                   letterSpacing: "1px",
                 }}
               >
-                OUR STORY
+                WHO WE ARE
               </motion.div>
 
               <h2
@@ -338,7 +326,7 @@ const About = () => {
                   lineHeight: "1.2",
                 }}
               >
-                {t("about.story.title")}
+                Who Are We?
               </h2>
 
               <div
@@ -355,25 +343,21 @@ const About = () => {
                   style={{
                     paddingLeft: "24px",
                     borderLeft: `4px solid ${colors.chiliRed}`,
-                    fontWeight: "500",
-                    fontSize: "20px",
+                    fontWeight: "600",
+                    fontSize: "22px",
                     color: colors.darkGray,
                   }}
                 >
-                  {t("about.story.text")}
+                  We are the image creators of today!!
                 </p>
                 <p>
-                  Since our establishment, we have been committed to delivering
-                  excellence in every project. Our team of skilled craftsmen and
-                  designers work tirelessly to create  commercial and residential spaces. spaces that not
-                  only look impressive but also function efficiently to drive
-                  business success.
+                  We are Global Shopfitters (Proprietary Limited), formerly formed in early 2000 by ex Fredic Sage and now under new management. We are a wholly owned by indigenous Zimbabweans with our major shareholder being NM Holdings.
                 </p>
                 <p>
-                  From small boutique stores to large commercial spaces,
-                  we have successfully completed hundreds of projects across
-                  Zimbabwe, earning us a reputation for reliability, quality,
-                  and innovation.
+                  We are an established, comprehensive leading and not just shopfitting services company in the Construction Industry in Zimbabwe. We are a Class A member organisation of CIFZ (Construction Industry Federation of Zimbabwe).
+                </p>
+                <p>
+                  We are registered with ZIMRA, NSSA, NEC and Zimdef, and we practice environmentally compliant manufacturing.
                 </p>
               </div>
 
@@ -391,8 +375,8 @@ const About = () => {
                 }}
               >
                 {[
-                  { number: "500+", label: "Projects Completed" },
-                  { number: "100+", label: "Happy Clients" },
+                  { number: "1000+", label: "Projects Completed" },
+                  { number: "200+", label: "Happy Clients" },
                   { number: "25+", label: "Years Experience" },
                 ].map((stat, index) => (
                   <div key={index} style={{ textAlign: "center" }}>
@@ -446,7 +430,7 @@ const About = () => {
                   style={{
                     position: "absolute",
                     inset: 0,
-                    background: `url(/23.jpg)`,
+                    background: `url(/h.jpg)`,
                     backgroundSize: "cover",
                     backgroundPosition: "center",
                   }}
@@ -561,7 +545,7 @@ const About = () => {
                     marginBottom: "12px",
                   }}
                 >
-                  {/* CIFZ Logo - Replace with actual logo path */}
+                  {/* CIFZ Logo */}
                   <div
                     style={{
                       width: "56px",
@@ -584,7 +568,6 @@ const About = () => {
                         padding: "4px",
                       }}
                       onError={(e) => {
-                        // Fallback if logo doesn't exist
                         e.target.style.display = "none";
                         e.target.parentElement.innerHTML =
                           '<span style="font-size: 20px; font-weight: 800; color: ' +
@@ -674,7 +657,7 @@ const About = () => {
                   position: "absolute",
                   inset: 0,
                   backgroundImage:
-                    'url("https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80")',
+                    'url("/r.jpg")',
                   backgroundSize: "cover",
                   backgroundPosition: "center",
                   opacity: 0.08,
@@ -724,7 +707,7 @@ const About = () => {
                   zIndex: 1,
                 }}
               >
-                {t("about.mission.title")}
+                Our Mission
               </h2>
               <p
                 style={{
@@ -735,7 +718,7 @@ const About = () => {
                   zIndex: 1,
                 }}
               >
-                {t("about.mission.text")}
+                To be the most sought after shopfitter in Zimbabwe, providing top quality and a responsive service.
               </p>
             </motion.div>
 
@@ -768,7 +751,7 @@ const About = () => {
                   position: "absolute",
                   inset: 0,
                   backgroundImage:
-                    'url("https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&q=80")',
+                    'url("/f.jpg")',
                   backgroundSize: "cover",
                   backgroundPosition: "center",
                   opacity: 0.08,
@@ -818,7 +801,7 @@ const About = () => {
                   zIndex: 1,
                 }}
               >
-                {t("about.vision.title")}
+                Our Vision
               </h2>
               <p
                 style={{
@@ -829,14 +812,14 @@ const About = () => {
                   zIndex: 1,
                 }}
               >
-                {t("about.vision.text")}
+                To become an undisputed leader in shopfitting in Zimbabwe.
               </p>
             </motion.div>
           </div>
         </div>
       </section>
 
-      {/* Bento Grid Values Section */}
+      {/* Bento Grid Values Section - MOBILE RESPONSIVE */}
       <section style={{ ...sectionStyle, background: colors.white }}>
         <div style={containerStyle}>
           <motion.div
@@ -844,28 +827,26 @@ const About = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 style={sectionTitleStyle}>{t("about.values.title")}</h2>
+            <h2 style={sectionTitleStyle}>Beliefs, Values, Ethics</h2>
             <p style={sectionSubtitleStyle}>
               The principles that guide everything we do
             </p>
           </motion.div>
 
-          {/* Bento Grid Layout */}
+          {/* Responsive Bento Grid Layout */}
           <div
             style={{
               display: "grid",
-              gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
-              gridAutoRows: "240px",
-              gap: "24px",
+              gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 280px), 1fr))",
+              gap: "clamp(16px, 3vw, 24px)",
             }}
           >
             {values.map((value, index) => {
-              // Different images for each value
               const valueImages = [
-                "https://images.unsplash.com/photo-1560179707-f14e90ef3623?auto=format&fit=crop&q=80", // Quality
-                "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80", // Innovation
-                "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&q=80", // Integrity
-                "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80", // Customer
+                "/g.jpg",
+                "/h.jpg",
+                "/i.jpg",
+                "/j.jpg",
               ];
 
               return (
@@ -878,17 +859,14 @@ const About = () => {
                   whileHover={{ y: -8, transition: { duration: 0.2 } }}
                   style={{
                     ...cardStyle,
-                    gridColumn:
-                      value.size === "large" && window.innerWidth > 768
-                        ? "span 2"
-                        : "span 1",
-                    padding: "32px",
+                    padding: "clamp(20px, 4vw, 32px)",
                     display: "flex",
                     flexDirection: "column",
                     justifyContent: "space-between",
                     cursor: "pointer",
                     position: "relative",
                     overflow: "hidden",
+                    minHeight: "200px",
                   }}
                   onMouseEnter={(e) => {
                     e.currentTarget.style.boxShadow = `0 16px 48px ${value.colorFrom}30`;
@@ -917,8 +895,8 @@ const About = () => {
                       position: "absolute",
                       bottom: "-30%",
                       right: "-20%",
-                      width: "200px",
-                      height: "200px",
+                      width: "clamp(120px, 30vw, 200px)",
+                      height: "clamp(120px, 30vw, 200px)",
                       background: `radial-gradient(circle, ${value.colorFrom}20, transparent)`,
                       borderRadius: "50%",
                       filter: "blur(40px)",
@@ -928,26 +906,29 @@ const About = () => {
                   <div style={{ position: "relative", zIndex: 1 }}>
                     <div
                       style={{
-                        width: "64px",
-                        height: "64px",
+                        width: "clamp(56px, 10vw, 64px)",
+                        height: "clamp(56px, 10vw, 64px)",
                         background: `linear-gradient(135deg, ${value.colorFrom}, ${value.colorTo})`,
                         borderRadius: "14px",
                         display: "inline-flex",
                         alignItems: "center",
                         justifyContent: "center",
-                        marginBottom: "20px",
+                        marginBottom: "clamp(16px, 3vw, 20px)",
                         boxShadow: `0 8px 24px ${value.colorFrom}40`,
                       }}
                     >
-                      <value.icon size={32} style={{ color: colors.white }} />
+                      <value.icon 
+                        size={window.innerWidth < 768 ? 28 : 32} 
+                        style={{ color: colors.white }} 
+                      />
                     </div>
 
                     <h3
                       style={{
-                        fontSize: "1.5rem",
+                        fontSize: "clamp(1.25rem, 3vw, 1.5rem)",
                         fontWeight: "700",
                         color: colors.darkGray,
-                        marginBottom: "12px",
+                        marginBottom: "clamp(8px, 2vw, 12px)",
                         lineHeight: "1.3",
                       }}
                     >
@@ -957,7 +938,7 @@ const About = () => {
                       style={{
                         color: colors.mediumGray,
                         lineHeight: "1.7",
-                        fontSize: "0.95rem",
+                        fontSize: "clamp(0.875rem, 2vw, 0.95rem)",
                       }}
                     >
                       {value.description}
@@ -970,7 +951,117 @@ const About = () => {
         </div>
       </section>
 
-      {/* Timeline Section - Horizontal Card Design */}
+      {/* Visible Trading History Section */}
+      <section style={{ ...sectionStyle, background: colors.lightGray }}>
+        <div style={containerStyle}>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            style={{ textAlign: "center", marginBottom: "clamp(32px, 6vw, 48px)" }}
+          >
+            <h2 style={sectionTitleStyle}>Visible Trading History</h2>
+            <p style={sectionSubtitleStyle}>
+              Trusted by Zimbabwe's leading brands and businesses
+            </p>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            style={{
+              background: colors.white,
+              padding: "clamp(40px, 6vw, 60px)",
+              borderRadius: "24px",
+              boxShadow: "0 10px 40px rgba(0, 0, 0, 0.08)",
+            }}
+          >
+            <p
+              style={{
+                fontSize: "clamp(1rem, 2vw, 1.125rem)",
+                color: colors.mediumGray,
+                lineHeight: "1.8",
+                textAlign: "center",
+                marginBottom: "40px",
+              }}
+            >
+              Together we can make it happen!! We have partnered with some of Zimbabwe's most respected brands and organizations, delivering excellence in every project.
+            </p>
+
+            <div
+              style={{
+                display: "grid",
+                gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))",
+                gap: "32px",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              {[
+                { name: "Edgars", category: "Retail" },
+                { name: "OK Zimbabwe", category: "Supermarkets" },
+                { name: "Pick n Pay", category: "Retail" },
+                { name: "Nedbank", category: "Banking" },
+                { name: "Stanbic Bank", category: "Banking" },
+                { name: "NMB Bank", category: "Banking" },
+                { name: "ZB Bank", category: "Banking" },
+                { name: "CBZ Holdings", category: "Banking" },
+                { name: "Holiday Inn", category: "Hospitality" },
+                { name: "National Bank", category: "Banking" },
+                { name: "Bata", category: "Retail" },
+                { name: "And Many More", category: "Various Industries" },
+              ].map((client, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.05, duration: 0.4 }}
+                  whileHover={{ y: -4, transition: { duration: 0.2 } }}
+                  style={{
+                    textAlign: "center",
+                    padding: "24px",
+                    background: colors.lightGray,
+                    borderRadius: "12px",
+                    transition: "all 0.3s ease",
+                    cursor: "pointer",
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.background = colors.white;
+                    e.currentTarget.style.boxShadow = "0 8px 24px rgba(0, 0, 0, 0.1)";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.background = colors.lightGray;
+                    e.currentTarget.style.boxShadow = "none";
+                  }}
+                >
+                  <div
+                    style={{
+                      fontSize: "1.125rem",
+                      fontWeight: "700",
+                      color: colors.darkGray,
+                      marginBottom: "8px",
+                    }}
+                  >
+                    {client.name}
+                  </div>
+                  <div
+                    style={{
+                      fontSize: "0.875rem",
+                      color: colors.mediumGray,
+                    }}
+                  >
+                    {client.category}
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Timeline Section - MOBILE RESPONSIVE */}
       <section
         style={{
           ...sectionStyle,
@@ -984,7 +1075,7 @@ const About = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            style={{ textAlign: "center", marginBottom: "48px" }}
+            style={{ textAlign: "center", marginBottom: "clamp(32px, 6vw, 48px)" }}
           >
             <h2 style={sectionTitleStyle}>Our Journey Through Time</h2>
             <p style={sectionSubtitleStyle}>
@@ -992,12 +1083,12 @@ const About = () => {
             </p>
           </motion.div>
 
-          {/* Horizontal Timeline Cards */}
+          {/* Responsive Timeline Cards */}
           <div
             style={{
               display: "flex",
               flexDirection: "column",
-              gap: "20px",
+              gap: "clamp(16px, 3vw, 20px)",
               maxWidth: "1000px",
               margin: "0 auto",
             }}
@@ -1015,7 +1106,8 @@ const About = () => {
                   style={{
                     position: "relative",
                     display: "flex",
-                    alignItems: "center",
+                    flexDirection: window.innerWidth < 768 ? "column" : "row",
+                    alignItems: window.innerWidth < 768 ? "stretch" : "center",
                     gap: "16px",
                   }}
                 >
@@ -1023,13 +1115,16 @@ const About = () => {
                   <div
                     style={{
                       flexShrink: 0,
-                      width: "80px",
-                      textAlign: "center",
+                      width: window.innerWidth < 768 ? "100%" : "80px",
+                      textAlign: window.innerWidth < 768 ? "left" : "center",
+                      display: "flex",
+                      alignItems: "center",
+                      gap: "12px",
                     }}
                   >
                     <div
                       style={{
-                        fontSize: "2rem",
+                        fontSize: window.innerWidth < 768 ? "1.75rem" : "2rem",
                         fontWeight: "800",
                         color: colors.darkGray,
                         lineHeight: "1",
@@ -1043,14 +1138,14 @@ const About = () => {
                         color: colors.mediumGray,
                         textTransform: "uppercase",
                         letterSpacing: "1px",
-                        marginTop: "4px",
+                        display: window.innerWidth < 768 ? "inline" : "block",
                       }}
                     >
-                      Year
+                      {window.innerWidth < 768 ? "" : "Year"}
                     </div>
                   </div>
 
-                  {/* Content Card */}
+                  {/* Content Card - Mobile Responsive */}
                   <div
                     style={{
                       flex: 1,
@@ -1063,24 +1158,26 @@ const About = () => {
                         borderRadius: "12px",
                         position: "relative",
                         overflow: "hidden",
-                        minHeight: "120px",
+                        minHeight: window.innerWidth < 768 ? "auto" : "120px",
                         display: "flex",
+                        flexDirection: window.innerWidth < 768 ? "column" : "row",
                         transition: "all 0.3s ease",
                         cursor: "pointer",
                       }}
                       whileHover={{ boxShadow: `0 12px 40px ${item.color}30` }}
                     >
-                      {/* Colored End with Blended Image */}
+                      {/* Colored Section with Image - Responsive */}
                       <div
                         style={{
-                          position: isEven ? "absolute" : "absolute",
-                          [isEven ? "left" : "right"]: 0,
-                          top: 0,
-                          bottom: 0,
-                          width: "160px",
-                          borderRadius: isEven
-                            ? "12px 0 0 12px"
-                            : "0 12px 12px 0",
+                          position: window.innerWidth < 768 ? "relative" : "absolute",
+                          [window.innerWidth < 768 ? "top" : (isEven ? "left" : "right")]: 0,
+                          [window.innerWidth < 768 ? "left" : "top"]: 0,
+                          [window.innerWidth < 768 ? "right" : "bottom"]: 0,
+                          width: window.innerWidth < 768 ? "100%" : "160px",
+                          height: window.innerWidth < 768 ? "120px" : "auto",
+                          borderRadius: window.innerWidth < 768 
+                            ? "12px 12px 0 0"
+                            : (isEven ? "12px 0 0 12px" : "0 12px 12px 0"),
                           overflow: "hidden",
                         }}
                       >
@@ -1118,43 +1215,32 @@ const About = () => {
                           }}
                         >
                           <item.icon
-                            size={32}
+                            size={window.innerWidth < 768 ? 28 : 32}
                             style={{ color: colors.white }}
                           />
                         </div>
                       </div>
 
-                      {/* Opposite End - Subtle Gradient */}
-                      <div
-                        style={{
-                          position: "absolute",
-                          [isEven ? "right" : "left"]: 0,
-                          top: 0,
-                          bottom: 0,
-                          width: "80px",
-                          background: isEven
-                            ? `linear-gradient(to right, ${colors.white}, ${colors.lightGray})`
-                            : `linear-gradient(to right, ${colors.lightGray}, ${colors.white})`,
-                          borderRadius: isEven
-                            ? "0 12px 12px 0"
-                            : "12px 0 0 12px",
-                        }}
-                      ></div>
-
-                      {/* Text Content */}
+                      {/* Text Content - Responsive Padding */}
                       <div
                         style={{
                           position: "relative",
                           zIndex: 10,
-                          padding: "32px",
-                          [isEven ? "paddingLeft" : "paddingRight"]: "180px",
-                          [isEven ? "paddingRight" : "paddingLeft"]: "96px",
+                          padding: window.innerWidth < 768 
+                            ? "20px" 
+                            : "clamp(20px, 3vw, 32px)",
+                          paddingLeft: window.innerWidth < 768 
+                            ? "20px" 
+                            : (isEven ? "clamp(170px, 20vw, 180px)" : "clamp(20px, 3vw, 32px)"),
+                          paddingRight: window.innerWidth < 768 
+                            ? "20px" 
+                            : (isEven ? "clamp(20px, 3vw, 32px)" : "clamp(170px, 20vw, 180px)"),
                           flex: 1,
                         }}
                       >
                         <h3
                           style={{
-                            fontSize: "1.5rem",
+                            fontSize: "clamp(1.25rem, 3vw, 1.5rem)",
                             fontWeight: "700",
                             color: colors.darkGray,
                             marginBottom: "8px",
@@ -1165,7 +1251,7 @@ const About = () => {
                         </h3>
                         <p
                           style={{
-                            fontSize: "1rem",
+                            fontSize: "clamp(0.875rem, 2vw, 1rem)",
                             color: colors.mediumGray,
                             lineHeight: "1.6",
                           }}
@@ -1186,7 +1272,7 @@ const About = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             style={{
-              marginTop: "48px",
+              marginTop: "clamp(32px, 6vw, 48px)",
               textAlign: "center",
               display: "flex",
               alignItems: "center",
