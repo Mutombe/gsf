@@ -72,9 +72,9 @@ const products = [
       rating: 4.8,
       reviews: 34,
       images: [
-        "https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=800",
-        "https://images.unsplash.com/photo-1554224311-beee4ade4689?w=800",
-        "https://images.unsplash.com/photo-1541746972996-4e0b0f43e02a?w=800",
+        "/placeh.png",
+        "/placeh.png",
+        "/placeh.png",
       ],
       variants: [
         {
@@ -140,9 +140,9 @@ const products = [
       rating: 4.9,
       reviews: 143,
       images: [
-        "https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?w=800",
-        "https://images.unsplash.com/photo-1519567241046-7f570eee3ce6?w=800",
-        "https://images.unsplash.com/photo-1555636222-cae831e670b3?w=800",
+        "/placeh.png",
+        "/placeh.png",
+        "/placeh.png",
       ],
       variants: [
         {
@@ -200,9 +200,9 @@ const products = [
       rating: 4.7,
       reviews: 267,
       images: [
-        "https://images.unsplash.com/photo-1545259742-12f9d9caa3d6?w=800",
-        "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800",
-        "https://images.unsplash.com/photo-1600566752355-35792bedcfea?w=800",
+        "/placeh.png",
+        "/placeh.png",
+        "/placeh.png",
       ],
       variants: [
         {
@@ -261,9 +261,9 @@ const products = [
       rating: 4.9,
       reviews: 78,
       images: [
-        "https://images.unsplash.com/photo-1554224311-beee4ade4689?w=800",
-        "https://images.unsplash.com/photo-1541746972996-4e0b0f43e02a?w=800",
-        "https://images.unsplash.com/photo-1497366216548-37526070297c?w=800",
+        "/placeh.png",
+        "/placeh.png",
+        "/placeh.png",
       ],
       variants: [
         {
@@ -343,9 +343,9 @@ const products = [
       rating: 4.9,
       reviews: 76,
       images: [
-        "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800",
-        "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800",
-        "https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=800",
+        "/placeh.png",
+        "/placeh.png",
+        "/placeh.png",
       ],
       variants: [
         {
@@ -398,9 +398,9 @@ const products = [
       rating: 4.8,
       reviews: 156,
       images: [
-        "https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=800",
-        "https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=800",
-        "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800",
+        "/placeh.png",
+        "/placeh.png",
+        "/placeh.png",
       ],
       variants: [
         {
@@ -475,9 +475,9 @@ const products = [
       rating: 4.6,
       reviews: 189,
       images: [
-        "https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=800",
-        "https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=800",
-        "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800",
+        "/placeh.png",
+        "/placeh.png",
+        "/placeh.png",
       ],
       variants: [
         {
@@ -545,9 +545,9 @@ const products = [
       rating: 4.7,
       reviews: 56,
       images: [
-        "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800",
-        "https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=800",
-        "https://images.unsplash.com/photo-1497366216548-37526070297c?w=800",
+        "/placeh.png",
+        "/placeh.png",
+        "/placeh.png",
       ],
       variants: [
         {
@@ -606,9 +606,9 @@ const products = [
       rating: 4.8,
       reviews: 67,
       images: [
-        "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=800",
-        "https://images.unsplash.com/photo-1600607687644-c7171b42498f?w=800",
-        "https://images.unsplash.com/photo-1600566752355-35792bedcfea?w=800",
+        "/placeh.png",
+        "/placeh.png",
+        "/placeh.png",
       ],
       variants: [
         {
@@ -662,9 +662,9 @@ const products = [
       rating: 4.8,
       reviews: 64,
       images: [
-        "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800",
-        "https://images.unsplash.com/photo-1600566752355-35792bedcfea?w=800",
-        "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800",
+        "/placeh.png",
+        "/placeh.png",
+        "/placeh.png",
       ],
       variants: [
         {
@@ -713,9 +713,9 @@ const products = [
       rating: 4.9,
       reviews: 87,
       images: [
-        "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800",
-        "https://images.unsplash.com/photo-1600566752355-35792bedcfea?w=800",
-        "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800",
+        "/placeh.png",
+        "/placeh.png",
+        "/placeh.png",
       ],
       variants: [
         {
@@ -777,9 +777,9 @@ const products = [
       rating: 4.9,
       reviews: 112,
       images: [
-        "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800",
-        "https://images.unsplash.com/photo-1600566752355-35792bedcfea?w=800",
-        "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800",
+        "/placeh.png",
+        "/placeh.png",
+        "/placeh.png",
       ],
       variants: [
         {
@@ -853,9 +853,9 @@ const products = [
       rating: 4.7,
       reviews: 189,
       images: [
-        "https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?w=800",
-        "https://images.unsplash.com/photo-1555529669-e69e7aa0ba9a?w=800",
-        "https://images.unsplash.com/photo-1595428774223-ef52624120d2?w=800",
+        "/placeh.png",
+        "/placeh.png",
+        "/placeh.png",
       ],
       variants: [
         {
@@ -923,9 +923,9 @@ const products = [
       rating: 4.9,
       reviews: 43,
       images: [
-        "https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=800",
-        "https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=800",
-        "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800",
+        "/placeh.png",
+        "/placeh.png",
+        "/placeh.png",
       ],
       variants: [
         {
@@ -980,9 +980,9 @@ const products = [
       rating: 4.7,
       reviews: 118,
       images: [
-        "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800",
-        "https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=800",
-        "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800",
+        "/placeh.png",
+        "/placeh.png",
+        "/placeh.png",
       ],
       variants: [
         {
@@ -1035,9 +1035,9 @@ const products = [
       rating: 4.7,
       reviews: 203,
       images: [
-        "https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=800",
-        "https://images.unsplash.com/photo-1497366216548-37526070297c?w=800",
-        "https://images.unsplash.com/photo-1497215728101-856f4ea42174?w=800",
+        "/placeh.png",
+        "/placeh.png",
+        "/placeh.png",
       ],
       variants: [
         {
@@ -1112,9 +1112,9 @@ const products = [
       rating: 4.8,
       reviews: 156,
       images: [
-        "https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?w=800",
-        "https://images.unsplash.com/photo-1555529669-e69e7aa0ba9a?w=800",
-        "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800",
+        "/placeh.png",
+        "/placeh.png",
+        "/placeh.png",
       ],
       variants: [
         {
@@ -1184,9 +1184,9 @@ const products = [
       rating: 4.8,
       reviews: 92,
       images: [
-        "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=800",
-        "https://images.unsplash.com/photo-1600607687644-c7171b42498f?w=800",
-        "https://images.unsplash.com/photo-1600566752355-35792bedcfea?w=800",
+        "/placeh.png",
+        "/placeh.png",
+        "/placeh.png",
       ],
       variants: [
         {
@@ -1242,9 +1242,9 @@ const products = [
       rating: 4.8,
       reviews: 98,
       images: [
-        "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800",
-        "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800",
-        "https://images.unsplash.com/photo-1600566752355-35792bedcfea?w=800",
+        "/placeh.png",
+        "/placeh.png",
+        "/placeh.png",
       ],
       variants: [
         {
@@ -1314,9 +1314,9 @@ const products = [
       rating: 4.7,
       reviews: 234,
       images: [
-        "https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=800",
-        "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800",
-        "https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=800",
+        "/placeh.png",
+        "/placeh.png",
+        "/placeh.png",
       ],
       variants: [
         {
@@ -1374,9 +1374,9 @@ const products = [
       rating: 4.9,
       reviews: 94,
       images: [
-        "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=800",
-        "https://images.unsplash.com/photo-1618221739511-f78d1fa5eaae?w=800",
-        "https://images.unsplash.com/photo-1615875605825-5e4e6e4e3446?w=800",
+        "/placeh.png",
+        "/placeh.png",
+        "/placeh.png",
       ],
       variants: [
         {
@@ -1510,7 +1510,7 @@ const products = [
         {/* Background Image */}
         <div
           className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: 'url("/33.jpg")' }}
+          style={{ backgroundImage: 'url("/a.jpg")' }}
         ></div>
 
         {/* Gradient Overlay */}

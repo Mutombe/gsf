@@ -183,23 +183,23 @@ const FAQ = () => {
       description: 'Chat with us instantly',
       action: 'Start Chat',
       color: '#25D366',
-      link: 'https://wa.me/263XXXXXXXXX',
+      link: 'https://wa.me/263781934986',
     },
     {
       icon: Phone,
       title: 'Call Us',
-      description: '+263 XX XXX XXXX',
+      description: '+263 78 193 4986',
       action: 'Call Now',
       color: colors.chiliRed,
-      link: 'tel:+263XXXXXXXXX',
+      link: 'tel:+263781934986',
     },
     {
       icon: Mail,
       title: 'Email',
-      description: 'info@company.com',
+      description: 'info@globalshopfitters.co.zw',
       action: 'Send Email',
       color: colors.amber,
-      link: 'mailto:info@company.com',
+      link: 'mailto:info@globalshopfitters.co.zw',
     },
   ];
 

@@ -840,7 +840,7 @@ const Home = () => {
             }}
           >
             <img
-              src="/2.jpg"
+              src="/t.jpg"
               alt=""
               style={{
                 width: "100%",
