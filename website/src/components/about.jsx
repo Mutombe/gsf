@@ -98,8 +98,7 @@ const About = () => {
       event: "Major Partnerships",
       description: "Partnered with leading banks and retail chains",
       icon: Users,
-      image:
-        "/h.jpg",
+      image: "/h.jpg",
       color: "#6B7280",
     },
     {
@@ -138,7 +137,7 @@ const About = () => {
     minHeight: "70vh",
     display: "flex",
     alignItems: "center",
-    background: `linear-gradient(135deg, rgba(60, 60, 60, 0.98) 0%, rgba(255, 35, 35, 0.95) 50%, rgba(0, 0, 0, 0.98) 100%)`,
+
     color: colors.darkGray,
     overflow: "hidden",
   };
@@ -160,6 +159,7 @@ const About = () => {
     fontWeight: "800",
     lineHeight: "1.1",
     marginBottom: "24px",
+    color: colors.white,
   };
 
   const heroSubtitleStyle = {
@@ -211,7 +211,15 @@ const About = () => {
             backgroundImage: 'url("/about.jpg")',
             backgroundSize: "cover",
             backgroundPosition: "center",
-            opacity: 0.38,
+          }}
+        ></div>
+
+        {/* Dark Overlay for Better Text Contrast */}
+        <div
+          style={{
+            position: "absolute",
+            inset: 0,
+            background: "rgba(0, 0, 0, 0.3)",
           }}
         ></div>
 
@@ -232,7 +240,7 @@ const About = () => {
                 style={{
                   background: `linear-gradient(90deg, ${colors.chiliRed} 0%, ${colors.amber} 100%)`,
                   WebkitBackgroundClip: "text",
-                  WebkitTextFillColor: "transparent",
+                  WebkitTextFillColor: "white",
                   backgroundClip: "text",
                 }}
               >

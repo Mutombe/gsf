@@ -1365,14 +1365,14 @@ const Products = () => {
           style={{ backgroundImage: 'url("/a.jpg")' }}
         ></div>
 
-        {/* Gradient Overlay */}
+        {/* Gradient Overlay 
         <div
           className="absolute inset-0 mix-blend-multiply"
           style={{
             background:
               "linear-gradient(135deg, #E3180Dee 0%, #E35906dd 50%, #F3B900ee 100%)",
           }}
-        ></div>
+        ></div>*/}
 
         {/* Dark Overlay */}
         <div className="absolute inset-0 bg-black/30"></div>

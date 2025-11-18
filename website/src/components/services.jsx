@@ -288,13 +288,13 @@ const services = [
         <div style={{
           position: 'absolute',
           inset: 0,
-          backgroundImage: 'url("/27.jpg")',
+          backgroundImage: 'url("/8WhiteswayWorkshop-20251115T121447Z-1-001/IMG-20251111-WA0043.jpg")',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
         }}></div>
 
-        {/* Gradient Overlay Blend */}
+        {/* Gradient Overlay Blend 
         <div style={{
           position: 'absolute',
           inset: 0,
@@ -305,7 +305,7 @@ const services = [
             ${colors.safetyOrange}dd 75%,
             ${colors.amber}ee 100%)`,
           mixBlendMode: 'multiply',
-        }}></div>
+        }}></div>*/}
 
         {/* Dark Overlay for Better Text Contrast */}
         <div style={{
@@ -314,13 +314,13 @@ const services = [
           background: 'rgba(0, 0, 0, 0.3)',
         }}></div>
 
-        {/* Pattern Overlay */}
+        {/* Pattern Overlay 
         <div style={{
           position: 'absolute',
           inset: 0,
           opacity: 0.08,
           backgroundImage: 'url("data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%23ffffff\' fill-opacity=\'1\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")',
-        }}></div>
+        }}></div>*/}
 
         <div style={{ ...containerStyle, position: 'relative', zIndex: 10 }}>
           <motion.div
@@ -627,7 +627,7 @@ const services = [
         <div style={{
           position: 'absolute',
           inset: 0,
-          backgroundImage: 'url("/27.jpg")',
+          backgroundImage: 'url("/8WhiteswayWorkshop-20251115T121447Z-1-001/IMG-20251111-WA0061.jpg")',
           opacity: 0.7,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
