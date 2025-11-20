@@ -80,7 +80,7 @@ const About = () => {
     {
       year: "2000",
       event: "Company Founded",
-      description: "Global Shopfitters established by ex Fredic Sage team",
+      description: "Global Shopfitters Zimbabwe established by ex Fredic Sage team",
       icon: Award,
       image: "/m.jpg",
       color: "#FDDB3A",
@@ -210,7 +210,7 @@ const About = () => {
             inset: 0,
             backgroundImage: 'url("/about.jpg")',
             backgroundSize: "cover",
-            backgroundPosition: "center",
+            backgroundPosition: "top center",
           }}
         ></div>
 
@@ -248,7 +248,7 @@ const About = () => {
               </span>
             </motion.div>
 
-            <h1 style={heroTitleStyle}>About Global Shopfitters</h1>
+            <h1 style={heroTitleStyle}>About Global Shopfitters Zimbabwe</h1>
           </motion.div>
         </div>
       </section>
@@ -358,7 +358,7 @@ const About = () => {
                   We are the image creators of today!!
                 </p>
                 <p>
-                  We are Global Shopfitters (Proprietary Limited), formerly
+                  We are Global Shopfitters Zimbabwe (Proprietary Limited), formerly
                   formed in early 2000 by ex Fredic Sage and now under new
                   management. We are a wholly owned by indigenous Zimbabweans
                   with our major shareholder being NM Holdings.
@@ -601,7 +601,7 @@ const About = () => {
                         marginBottom: "2px",
                       }}
                     >
-                      Proud Member
+                      Proud Class A Member
                     </div>
                     <div
                       style={{
@@ -611,7 +611,7 @@ const About = () => {
                         lineHeight: "1.2",
                       }}
                     >
-                      CIFZ
+                      CIFoZ
                     </div>
                   </div>
                 </div>

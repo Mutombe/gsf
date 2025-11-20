@@ -142,6 +142,17 @@ const Home = () => {
     white: "#FFFFFF",
   }), []);
 
+  const [isNavbarScrolled, setIsNavbarScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsNavbarScrolled(window.scrollY > 20);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   // Optimized image list - only unique images, no repetition
   const heroImages = useMemo(() => [
     "/f.jpg", "/g.jpg", "/h.jpg", "/i.jpg", "/j.jpg",
@@ -295,9 +306,10 @@ const Home = () => {
     preloadImages();
   }, [heroImages]);
 
-  // Styles
   const heroSectionStyle = {
     minHeight: "100vh",
+    paddingTop: "140px", // Increased to account for top bar + navbar
+    marginTop: "0", // Remove negative margin to prevent overlap
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
@@ -438,8 +450,8 @@ const Home = () => {
                   src={img}
                   alt=""
                   priority={index < 3}
-                  className="w-full h-full"
-                  style={{ opacity: 0.7 }}
+                  className="w-full h-full object-cover"
+                  style={{ opacity: 0.7, objectPosition: 'top center' }}
                 />
               </motion.div>
             ))}
@@ -447,13 +459,21 @@ const Home = () => {
 
           {/* Overlays for text readability */}
           <div
-            className="absolute inset-0 opacity-20 z-10"
+            className="absolute inset-0 opacity-10 z-10"
             style={{
               background: `linear-gradient(135deg, ${colors.chiliRed}E0 0%, ${colors.scarlet}D0 50%, ${colors.darkOrange}E0 50%)`,
             }}
           />
 
           <div className="absolute inset-0 bg-black/20 opacity-50 z-20" />
+
+          {/* Enhanced top gradient for navbar area */}
+          <div
+            className="absolute top-0 left-0 right-0 h-40 z-30"
+            style={{
+              background: "linear-gradient(to bottom, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.5) 50%, transparent 100%)",
+            }}
+          />
 
           {/* Radial gradient for center focus */}
           <div
@@ -533,7 +553,7 @@ const Home = () => {
                       lineHeight: "1.2",
                     }}
                   >
-                    Proud Member
+                    Proud Class A Member
                   </div>
                   <div
                     style={{

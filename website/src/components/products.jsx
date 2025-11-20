@@ -11,19 +11,21 @@ import {
   ArrowRight,
   X,
   Check,
-  Plus,
-  Minus,
   MessageCircle,
   Mail,
   Info,
-  Ruler,
-  Palette,
   Star,
   ChevronLeft,
   ChevronRight,
   Building2,
   Square,
   Maximize2,
+  FileText,
+  MapPin,
+  Calendar,
+  Ruler,
+  AlertCircle,
+  Cog,
 } from "lucide-react";
 import { useLanguage } from "./lunguageContext";
 
@@ -31,11 +33,19 @@ const Products = () => {
   const { t } = useLanguage();
   const [activeCategory, setActiveCategory] = useState("all");
   const [selectedProduct, setSelectedProduct] = useState(null);
-  const [selectedVariant, setSelectedVariant] = useState(null);
-  const [selectedColor, setSelectedColor] = useState(null);
-  const [selectedSize, setSelectedSize] = useState(null);
-  const [quantity, setQuantity] = useState(1);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  // Project inquiry form state
+  const [projectInfo, setProjectInfo] = useState({
+    projectType: "",
+    buildingType: "",
+    spaceDimensions: "",
+    estimatedArea: "",
+    timeline: "",
+    hasDrawings: "",
+    installationRequired: "",
+    additionalNotes: "",
+  });
 
   const categories = [
     { id: "all", name: "All Products", icon: Layers },
@@ -71,40 +81,6 @@ const Products = () => {
       rating: 4.8,
       reviews: 34,
       images: ["/placeh.png", "/placeh.png", "/placeh.png"],
-      variants: [
-        {
-          id: "v1",
-          name: "Standard Mantrap",
-          colors: [
-            { name: "Black", hex: "#000000", available: true },
-            { name: "Silver", hex: "#C0C0C0", available: true },
-          ],
-          sizes: [
-            {
-              name: "Compact",
-              dimensions: "1.5m x 1.5m x 2.4m",
-              available: true,
-            },
-            {
-              name: "Standard",
-              dimensions: "2.0m x 2.0m x 2.4m",
-              available: true,
-            },
-          ],
-        },
-        {
-          id: "v2",
-          name: "Bulletproof Mantrap",
-          colors: [{ name: "Black", hex: "#000000", available: true }],
-          sizes: [
-            {
-              name: "Standard",
-              dimensions: "2.0m x 2.0m x 2.4m",
-              available: true,
-            },
-          ],
-        },
-      ],
       specifications: {
         material: "Steel frame with glass/panel inserts",
         accessControl: "Card reader compatible",
@@ -132,32 +108,6 @@ const Products = () => {
       rating: 4.9,
       reviews: 143,
       images: ["/placeh.png", "/placeh.png", "/placeh.png"],
-      variants: [
-        {
-          id: "v1",
-          name: "Standard Shopfront",
-          colors: [
-            { name: "Black", hex: "#000000", available: true },
-            { name: "Silver", hex: "#C0C0C0", available: true },
-            { name: "Bronze", hex: "#CD7F32", available: true },
-          ],
-          sizes: [
-            { name: "Single Door", dimensions: "Per sqm", available: true },
-            { name: "Double Door", dimensions: "Per sqm", available: true },
-          ],
-        },
-        {
-          id: "v2",
-          name: "Premium Shopfront",
-          colors: [
-            { name: "Black", hex: "#000000", available: true },
-            { name: "Custom RAL Color", hex: "#404040", available: true },
-          ],
-          sizes: [
-            { name: "Custom Design", dimensions: "Per sqm", available: true },
-          ],
-        },
-      ],
       specifications: {
         material: "Aluminum with powder coating",
         glassType: "10mm toughened glass",
@@ -185,33 +135,6 @@ const Products = () => {
       rating: 4.7,
       reviews: 267,
       images: ["/placeh.png", "/placeh.png", "/placeh.png"],
-      variants: [
-        {
-          id: "v1",
-          name: "Sliding Window",
-          colors: [
-            { name: "White", hex: "#FFFFFF", available: true },
-            { name: "Black", hex: "#000000", available: true },
-            { name: "Silver", hex: "#C0C0C0", available: true },
-          ],
-          sizes: [
-            { name: "Small", dimensions: "1.2m x 1.2m", available: true },
-            { name: "Medium", dimensions: "1.5m x 1.5m", available: true },
-          ],
-        },
-        {
-          id: "v2",
-          name: "Casement Window",
-          colors: [
-            { name: "White", hex: "#FFFFFF", available: true },
-            { name: "Black", hex: "#000000", available: true },
-          ],
-          sizes: [
-            { name: "Small", dimensions: "1.0m x 1.2m", available: true },
-            { name: "Medium", dimensions: "1.2m x 1.5m", available: true },
-          ],
-        },
-      ],
       specifications: {
         material: "Aluminum with thermal break",
         glassType: "6mm + 12mm air + 6mm",
@@ -239,54 +162,6 @@ const Products = () => {
       rating: 4.9,
       reviews: 78,
       images: ["/placeh.png", "/placeh.png", "/placeh.png"],
-      variants: [
-        {
-          id: "v1",
-          name: "Standard Counter",
-          colors: [
-            { name: "Oak", hex: "#C19A6B", available: true },
-            { name: "Walnut", hex: "#5C4033", available: true },
-            { name: "White", hex: "#FFFFFF", available: true },
-          ],
-          sizes: [
-            {
-              name: "Single Station",
-              dimensions: "150cm x 80cm x 110cm",
-              available: true,
-            },
-            {
-              name: "Double Station",
-              dimensions: "300cm x 80cm x 110cm",
-              available: true,
-            },
-          ],
-        },
-        {
-          id: "v2",
-          name: "Premium Security Counter",
-          colors: [
-            { name: "Oak", hex: "#C19A6B", available: true },
-            { name: "Mahogany", hex: "#C04000", available: true },
-          ],
-          sizes: [
-            {
-              name: "Single Station",
-              dimensions: "150cm x 80cm x 110cm",
-              available: true,
-            },
-            {
-              name: "Double Station",
-              dimensions: "300cm x 80cm x 110cm",
-              available: true,
-            },
-            {
-              name: "Triple Station",
-              dimensions: "450cm x 80cm x 110cm",
-              available: true,
-            },
-          ],
-        },
-      ],
       specifications: {
         material: "Laminated wood with steel reinforcement",
         glassType: "Bulletproof glass (optional)",
@@ -314,27 +189,6 @@ const Products = () => {
       rating: 4.9,
       reviews: 76,
       images: ["/placeh.png", "/placeh.png", "/placeh.png"],
-      variants: [
-        {
-          id: "v1",
-          name: "Stick System",
-          colors: [
-            { name: "Silver", hex: "#C0C0C0", available: true },
-            { name: "Black", hex: "#000000", available: true },
-            { name: "Bronze", hex: "#CD7F32", available: true },
-          ],
-          sizes: [{ name: "Standard", dimensions: "Per sqm", available: true }],
-        },
-        {
-          id: "v2",
-          name: "Unitized System",
-          colors: [
-            { name: "Silver", hex: "#C0C0C0", available: true },
-            { name: "Black", hex: "#000000", available: true },
-          ],
-          sizes: [{ name: "Standard", dimensions: "Per sqm", available: true }],
-        },
-      ],
       specifications: {
         material: "Aluminum with thermal break",
         glassType: "Double or triple glazed",
@@ -362,49 +216,6 @@ const Products = () => {
       rating: 4.8,
       reviews: 156,
       images: ["/placeh.png", "/placeh.png", "/placeh.png"],
-      variants: [
-        {
-          id: "v1",
-          name: "Solid Panel",
-          colors: [
-            { name: "White", hex: "#FFFFFF", available: true },
-            { name: "Grey", hex: "#808080", available: true },
-            { name: "Beige", hex: "#F5F5DC", available: true },
-          ],
-          sizes: [
-            {
-              name: "Standard Height",
-              dimensions: "100cm width x 240cm height",
-              available: true,
-            },
-            {
-              name: "Full Height",
-              dimensions: "100cm width x 280cm height",
-              available: true,
-            },
-          ],
-        },
-        {
-          id: "v2",
-          name: "Glass Panel",
-          colors: [
-            { name: "Clear Glass", hex: "#F0F8FF", available: true },
-            { name: "Frosted Glass", hex: "#E0E0E0", available: true },
-          ],
-          sizes: [
-            {
-              name: "Standard Height",
-              dimensions: "100cm width x 240cm height",
-              available: true,
-            },
-            {
-              name: "Full Height",
-              dimensions: "100cm width x 280cm height",
-              available: true,
-            },
-          ],
-        },
-      ],
       specifications: {
         material: "Aluminum frame with MDF or glass panels",
         thickness: "65mm - 100mm",
@@ -432,42 +243,6 @@ const Products = () => {
       rating: 4.6,
       reviews: 189,
       images: ["/placeh.png", "/placeh.png", "/placeh.png"],
-      variants: [
-        {
-          id: "v1",
-          name: "Standard Wall",
-          colors: [{ name: "Unpainted", hex: "#F5F5F5", available: true }],
-          sizes: [
-            {
-              name: "Single Layer",
-              dimensions: "Per sqm - 75mm thick",
-              available: true,
-            },
-            {
-              name: "Double Layer",
-              dimensions: "Per sqm - 100mm thick",
-              available: true,
-            },
-          ],
-        },
-        {
-          id: "v2",
-          name: "Acoustic Wall",
-          colors: [{ name: "Unpainted", hex: "#F5F5F5", available: true }],
-          sizes: [
-            {
-              name: "Enhanced Acoustic",
-              dimensions: "Per sqm - 100mm thick",
-              available: true,
-            },
-            {
-              name: "Premium Acoustic",
-              dimensions: "Per sqm - 150mm thick",
-              available: true,
-            },
-          ],
-        },
-      ],
       specifications: {
         material: "Gypsum board on steel studs",
         fireRating: "Up to 2 hours",
@@ -495,33 +270,6 @@ const Products = () => {
       rating: 4.7,
       reviews: 56,
       images: ["/placeh.png", "/placeh.png", "/placeh.png"],
-      variants: [
-        {
-          id: "v1",
-          name: "Glass Canopy",
-          colors: [
-            { name: "Clear Glass", hex: "#F0F8FF", available: true },
-            { name: "Tinted Glass", hex: "#708090", available: true },
-          ],
-          sizes: [
-            { name: "Small", dimensions: "2m x 1.5m", available: true },
-            { name: "Medium", dimensions: "3m x 2m", available: true },
-            { name: "Large", dimensions: "4m x 2.5m", available: true },
-          ],
-        },
-        {
-          id: "v2",
-          name: "Metal Canopy",
-          colors: [
-            { name: "Black", hex: "#000000", available: true },
-            { name: "Silver", hex: "#C0C0C0", available: true },
-          ],
-          sizes: [
-            { name: "Small", dimensions: "2m x 1.5m", available: true },
-            { name: "Medium", dimensions: "3m x 2m", available: true },
-          ],
-        },
-      ],
       specifications: {
         material: "Laminated glass or powder coated metal",
         structure: "Stainless steel supports",
@@ -549,28 +297,6 @@ const Products = () => {
       rating: 4.8,
       reviews: 67,
       images: ["/placeh.png", "/placeh.png", "/placeh.png"],
-      variants: [
-        {
-          id: "v1",
-          name: "Coffered Design",
-          colors: [
-            { name: "White", hex: "#FFFFFF", available: true },
-            { name: "Natural Wood", hex: "#C19A6B", available: true },
-          ],
-          sizes: [
-            { name: "Standard Module", dimensions: "Per sqm", available: true },
-          ],
-        },
-        {
-          id: "v2",
-          name: "Curved Design",
-          colors: [
-            { name: "White", hex: "#FFFFFF", available: true },
-            { name: "Custom Color", hex: "#F0F0F0", available: true },
-          ],
-          sizes: [{ name: "Custom", dimensions: "Per sqm", available: true }],
-        },
-      ],
       specifications: {
         material: "Gypsum, wood, or metal",
         weight: "Varies by design",
@@ -598,23 +324,6 @@ const Products = () => {
       rating: 4.8,
       reviews: 64,
       images: ["/placeh.png", "/placeh.png", "/placeh.png"],
-      variants: [
-        {
-          id: "v1",
-          name: "Structural Glazing",
-          colors: [
-            { name: "Clear Glass", hex: "#F0F8FF", available: true },
-            { name: "Low-E Glass", hex: "#E8F4F8", available: true },
-          ],
-          sizes: [{ name: "Standard", dimensions: "Per sqm", available: true }],
-        },
-        {
-          id: "v2",
-          name: "Point Fixed Glazing",
-          colors: [{ name: "Clear Glass", hex: "#F0F8FF", available: true }],
-          sizes: [{ name: "Standard", dimensions: "Per sqm", available: true }],
-        },
-      ],
       specifications: {
         material: "12mm toughened or laminated glass",
         fixing: "Silicone bonded or point fixed",
@@ -642,36 +351,6 @@ const Products = () => {
       rating: 4.9,
       reviews: 87,
       images: ["/placeh.png", "/placeh.png", "/placeh.png"],
-      variants: [
-        {
-          id: "v1",
-          name: "Single Door",
-          colors: [
-            { name: "Clear Glass", hex: "#F0F8FF", available: true },
-            { name: "Frosted Glass", hex: "#E0E0E0", available: true },
-          ],
-          sizes: [
-            { name: "Standard", dimensions: "900mm x 2100mm", available: true },
-            { name: "Wide", dimensions: "1200mm x 2100mm", available: true },
-          ],
-        },
-        {
-          id: "v2",
-          name: "Double Door",
-          colors: [
-            { name: "Clear Glass", hex: "#F0F8FF", available: true },
-            { name: "Frosted Glass", hex: "#E0E0E0", available: true },
-          ],
-          sizes: [
-            {
-              name: "Standard",
-              dimensions: "1800mm x 2100mm",
-              available: true,
-            },
-            { name: "Wide", dimensions: "2400mm x 2100mm", available: true },
-          ],
-        },
-      ],
       specifications: {
         material: "12mm toughened glass",
         hardware: "Stainless steel or brass",
@@ -699,48 +378,6 @@ const Products = () => {
       rating: 4.9,
       reviews: 112,
       images: ["/placeh.png", "/placeh.png", "/placeh.png"],
-      variants: [
-        {
-          id: "v1",
-          name: "Standard Patio Door",
-          colors: [
-            { name: "White", hex: "#FFFFFF", available: true },
-            { name: "Grey", hex: "#808080", available: true },
-          ],
-          sizes: [
-            {
-              name: "2-Panel",
-              dimensions: "2.4m wide x 2.1m high",
-              available: true,
-            },
-            {
-              name: "3-Panel",
-              dimensions: "3.6m wide x 2.1m high",
-              available: true,
-            },
-          ],
-        },
-        {
-          id: "v2",
-          name: "Lift & Slide System",
-          colors: [
-            { name: "Black", hex: "#000000", available: true },
-            { name: "Bronze", hex: "#CD7F32", available: true },
-          ],
-          sizes: [
-            {
-              name: "2-Panel",
-              dimensions: "2.4m wide x 2.4m high",
-              available: true,
-            },
-            {
-              name: "3-Panel",
-              dimensions: "3.6m wide x 2.4m high",
-              available: true,
-            },
-          ],
-        },
-      ],
       specifications: {
         material: "Aluminum with double glazing",
         glassType: "6mm Low-E + 16mm argon + 6mm",
@@ -768,42 +405,6 @@ const Products = () => {
       rating: 4.7,
       reviews: 189,
       images: ["/placeh.png", "/placeh.png", "/placeh.png"],
-      variants: [
-        {
-          id: "v1",
-          name: "Standard Gondola",
-          colors: [
-            { name: "White", hex: "#FFFFFF", available: true },
-            { name: "Grey", hex: "#808080", available: true },
-            { name: "Black", hex: "#000000", available: true },
-          ],
-          sizes: [
-            { name: "Low", dimensions: "1.2m x 0.9m x 1.4m", available: true },
-            {
-              name: "Standard",
-              dimensions: "1.2m x 0.9m x 1.8m",
-              available: true,
-            },
-            { name: "Tall", dimensions: "1.2m x 0.9m x 2.2m", available: true },
-          ],
-        },
-        {
-          id: "v2",
-          name: "Heavy Duty Gondola",
-          colors: [
-            { name: "Grey", hex: "#808080", available: true },
-            { name: "Charcoal", hex: "#36454F", available: true },
-          ],
-          sizes: [
-            {
-              name: "Standard",
-              dimensions: "1.2m x 0.9m x 1.8m",
-              available: true,
-            },
-            { name: "Tall", dimensions: "1.2m x 0.9m x 2.2m", available: true },
-          ],
-        },
-      ],
       specifications: {
         material: "Steel with powder coating",
         shelfLoad: "80kg per shelf",
@@ -831,29 +432,6 @@ const Products = () => {
       rating: 4.9,
       reviews: 43,
       images: ["/placeh.png", "/placeh.png", "/placeh.png"],
-      variants: [
-        {
-          id: "v1",
-          name: "Basic Package",
-          colors: [{ name: "Custom", hex: "#FFFFFF", available: true }],
-          sizes: [
-            {
-              name: "Small Space",
-              dimensions: "Up to 50 sqm",
-              available: true,
-            },
-          ],
-        },
-        {
-          id: "v2",
-          name: "Premium Package",
-          colors: [{ name: "Custom", hex: "#FFFFFF", available: true }],
-          sizes: [
-            { name: "Medium Space", dimensions: "50-150 sqm", available: true },
-            { name: "Large Space", dimensions: "150+ sqm", available: true },
-          ],
-        },
-      ],
       specifications: {
         service: "Design, manufacture, and installation",
         timeline: "4-12 weeks depending on size",
@@ -881,27 +459,6 @@ const Products = () => {
       rating: 4.7,
       reviews: 118,
       images: ["/placeh.png", "/placeh.png", "/placeh.png"],
-      variants: [
-        {
-          id: "v1",
-          name: "Fixed Louvre",
-          colors: [
-            { name: "Silver", hex: "#C0C0C0", available: true },
-            { name: "Black", hex: "#000000", available: true },
-            { name: "Bronze", hex: "#CD7F32", available: true },
-          ],
-          sizes: [{ name: "Standard", dimensions: "Per sqm", available: true }],
-        },
-        {
-          id: "v2",
-          name: "Operable Louvre",
-          colors: [
-            { name: "Silver", hex: "#C0C0C0", available: true },
-            { name: "Black", hex: "#000000", available: true },
-          ],
-          sizes: [{ name: "Standard", dimensions: "Per sqm", available: true }],
-        },
-      ],
       specifications: {
         material: "Aluminum with powder coating",
         bladeSize: "100mm - 200mm",
@@ -929,49 +486,6 @@ const Products = () => {
       rating: 4.7,
       reviews: 203,
       images: ["/placeh.png", "/placeh.png", "/placeh.png"],
-      variants: [
-        {
-          id: "v1",
-          name: "Single Desk",
-          colors: [
-            { name: "White", hex: "#FFFFFF", available: true },
-            { name: "Grey", hex: "#808080", available: true },
-            { name: "Oak", hex: "#C19A6B", available: true },
-          ],
-          sizes: [
-            {
-              name: "Compact",
-              dimensions: "120cm x 60cm x 75cm",
-              available: true,
-            },
-            {
-              name: "Standard",
-              dimensions: "160cm x 80cm x 75cm",
-              available: true,
-            },
-          ],
-        },
-        {
-          id: "v2",
-          name: "Cluster Workstation",
-          colors: [
-            { name: "White", hex: "#FFFFFF", available: true },
-            { name: "Grey", hex: "#808080", available: true },
-          ],
-          sizes: [
-            {
-              name: "4-Person Cluster",
-              dimensions: "280cm x 280cm x 75cm",
-              available: true,
-            },
-            {
-              name: "6-Person Cluster",
-              dimensions: "320cm x 320cm x 75cm",
-              available: true,
-            },
-          ],
-        },
-      ],
       specifications: {
         material: "Laminated particle board with steel frame",
         weight: "45kg per unit",
@@ -999,44 +513,6 @@ const Products = () => {
       rating: 4.8,
       reviews: 156,
       images: ["/placeh.png", "/placeh.png", "/placeh.png"],
-      variants: [
-        {
-          id: "v1",
-          name: "Wall Display",
-          colors: [
-            { name: "White", hex: "#FFFFFF", available: true },
-            { name: "Black", hex: "#000000", available: true },
-            { name: "Natural Wood", hex: "#C19A6B", available: true },
-          ],
-          sizes: [
-            {
-              name: "Single Bay",
-              dimensions: "1.0m x 0.4m x 2.4m",
-              available: true,
-            },
-            {
-              name: "Double Bay",
-              dimensions: "2.0m x 0.4m x 2.4m",
-              available: true,
-            },
-          ],
-        },
-        {
-          id: "v2",
-          name: "Freestanding Display",
-          colors: [
-            { name: "White", hex: "#FFFFFF", available: true },
-            { name: "Black", hex: "#000000", available: true },
-          ],
-          sizes: [
-            {
-              name: "Standard",
-              dimensions: "1.2m x 0.6m x 1.8m",
-              available: true,
-            },
-          ],
-        },
-      ],
       specifications: {
         material: "MDF with laminate or powder coated metal",
         shelfLoad: "30kg per shelf",
@@ -1064,30 +540,6 @@ const Products = () => {
       rating: 4.8,
       reviews: 92,
       images: ["/placeh.png", "/placeh.png", "/placeh.png"],
-      variants: [
-        {
-          id: "v1",
-          name: "Fixed Skylight",
-          colors: [
-            { name: "Clear Glass", hex: "#F0F8FF", available: true },
-            { name: "Solar Control", hex: "#B0C4DE", available: true },
-          ],
-          sizes: [
-            { name: "Small", dimensions: "1.0m x 1.0m", available: true },
-            { name: "Medium", dimensions: "1.5m x 1.5m", available: true },
-            { name: "Large", dimensions: "2.0m x 2.0m", available: true },
-          ],
-        },
-        {
-          id: "v2",
-          name: "Opening Skylight",
-          colors: [{ name: "Clear Glass", hex: "#F0F8FF", available: true }],
-          sizes: [
-            { name: "Small", dimensions: "1.0m x 1.0m", available: true },
-            { name: "Medium", dimensions: "1.5m x 1.5m", available: true },
-          ],
-        },
-      ],
       specifications: {
         material: "Aluminum frame with double glazing",
         glassType: "Low-E with solar control",
@@ -1115,44 +567,6 @@ const Products = () => {
       rating: 4.8,
       reviews: 98,
       images: ["/placeh.png", "/placeh.png", "/placeh.png"],
-      variants: [
-        {
-          id: "v1",
-          name: "2-Panel System",
-          colors: [
-            { name: "White", hex: "#FFFFFF", available: true },
-            { name: "Grey", hex: "#808080", available: true },
-            { name: "Black", hex: "#000000", available: true },
-          ],
-          sizes: [
-            {
-              name: "Standard",
-              dimensions: "2.4m wide x 2.1m high",
-              available: true,
-            },
-          ],
-        },
-        {
-          id: "v2",
-          name: "4-Panel System",
-          colors: [
-            { name: "White", hex: "#FFFFFF", available: true },
-            { name: "Black", hex: "#000000", available: true },
-          ],
-          sizes: [
-            {
-              name: "Standard",
-              dimensions: "4.8m wide x 2.1m high",
-              available: true,
-            },
-            {
-              name: "Large",
-              dimensions: "4.8m wide x 2.4m high",
-              available: true,
-            },
-          ],
-        },
-      ],
       specifications: {
         material: "Aluminum with double glazing",
         glassType: "6mm + 12mm air gap + 6mm",
@@ -1168,7 +582,7 @@ const Products = () => {
       category: "ceilings",
       description: "Grid-based suspended ceiling systems",
       fullDescription:
-        "Professional suspended ceiling systems providing easy access to services above. Features include acoustic tiles, various grid finishes, and easy maintainance. Ideal for offices,residential spaces, and commercial buildings.",
+        "Professional suspended ceiling systems providing easy access to services above. Features include acoustic tiles, various grid finishes, and easy maintainance. Ideal for offices, residential spaces, and commercial buildings.",
       features: [
         "Easy access to services",
         "Acoustic properties",
@@ -1180,32 +594,6 @@ const Products = () => {
       rating: 4.7,
       reviews: 234,
       images: ["/placeh.png", "/placeh.png", "/placeh.png"],
-      variants: [
-        {
-          id: "v1",
-          name: "Standard Grid",
-          colors: [
-            { name: "White", hex: "#FFFFFF", available: true },
-            { name: "Black", hex: "#000000", available: true },
-          ],
-          sizes: [
-            { name: "600x600mm tiles", dimensions: "Per sqm", available: true },
-            {
-              name: "1200x600mm tiles",
-              dimensions: "Per sqm",
-              available: true,
-            },
-          ],
-        },
-        {
-          id: "v2",
-          name: "Acoustic Grid",
-          colors: [{ name: "White", hex: "#FFFFFF", available: true }],
-          sizes: [
-            { name: "600x600mm tiles", dimensions: "Per sqm", available: true },
-          ],
-        },
-      ],
       specifications: {
         material: "Metal grid with mineral fiber tiles",
         thickness: "15mm - 20mm",
@@ -1233,32 +621,6 @@ const Products = () => {
       rating: 4.9,
       reviews: 94,
       images: ["/placeh.png", "/placeh.png", "/placeh.png"],
-      variants: [
-        {
-          id: "v1",
-          name: "Wood Veneer",
-          colors: [
-            { name: "Oak", hex: "#C19A6B", available: true },
-            { name: "Walnut", hex: "#5C4033", available: true },
-            { name: "Maple", hex: "#F5DEB3", available: true },
-          ],
-          sizes: [
-            { name: "Standard Panel", dimensions: "Per sqm", available: true },
-          ],
-        },
-        {
-          id: "v2",
-          name: "Acoustic Fabric",
-          colors: [
-            { name: "Grey", hex: "#808080", available: true },
-            { name: "Navy", hex: "#000080", available: true },
-            { name: "Beige", hex: "#F5F5DC", available: true },
-          ],
-          sizes: [
-            { name: "Standard Panel", dimensions: "Per sqm", available: true },
-          ],
-        },
-      ],
       specifications: {
         material: "Various (wood, fabric, acoustic)",
         thickness: "15mm - 50mm",
@@ -1276,12 +638,17 @@ const Products = () => {
   // Handle product selection
   const handleProductClick = (product) => {
     setSelectedProduct(product);
-    setSelectedVariant(product.variants[0]);
-    setSelectedColor(product.variants[0].colors[0]);
-    setSelectedSize(product.variants[0].sizes[0]);
     setCurrentImageIndex(0);
-    setQuantity(1);
-    // Prevent body scroll when modal is open
+    setProjectInfo({
+      projectType: "",
+      buildingType: "",
+      spaceDimensions: "",
+      estimatedArea: "",
+      timeline: "",
+      hasDrawings: "",
+      installationRequired: "",
+      additionalNotes: "",
+    });
     document.body.style.overflow = "hidden";
   };
 
@@ -1294,18 +661,29 @@ const Products = () => {
   // Handle WhatsApp inquiry
   const handleWhatsAppInquiry = () => {
     const product = selectedProduct;
-    const variant = selectedVariant;
-    const color = selectedColor;
-    const size = selectedSize;
+    const info = projectInfo;
 
     const message =
-      `Hello! I'm interested in the following product:\n\n` +
-      `Product: ${product.name}\n` +
-      `Variant: ${variant.name}\n` +
-      `Color: ${color.name}\n` +
-      `Size: ${size.name} (${size.dimensions})\n` +
-      `Quantity: ${quantity}\n\n` +
-      `Could you please provide more information and pricing?`;
+      `🏗️ SHOPFITTING PROJECT INQUIRY\n\n` +
+      `📦 Product: ${product.name}\n` +
+      `━━━━━━━━━━━━━━━━━━\n\n` +
+      `PROJECT DETAILS:\n` +
+      (info.projectType ? `• Project Type: ${info.projectType}\n` : "") +
+      (info.buildingType ? `• Building Type: ${info.buildingType}\n` : "") +
+      (info.spaceDimensions
+        ? `• Space Dimensions: ${info.spaceDimensions}\n`
+        : "") +
+      (info.estimatedArea ? `• Estimated Area: ${info.estimatedArea}\n` : "") +
+      (info.timeline ? `• Timeline: ${info.timeline}\n` : "") +
+      (info.hasDrawings ? `• Drawings Available: ${info.hasDrawings}\n` : "") +
+      (info.installationRequired
+        ? `• Installation Required: ${info.installationRequired}\n`
+        : "") +
+      (info.additionalNotes
+        ? `\n📝 Additional Notes:\n${info.additionalNotes}\n`
+        : "") +
+      `\n━━━━━━━━━━━━━━━━━━\n` +
+      `Please provide a detailed quotation including materials, installation, and timeline.`;
 
     const whatsappUrl = `https://wa.me/263781934986?text=${encodeURIComponent(
       message
@@ -1316,25 +694,40 @@ const Products = () => {
   // Handle Email inquiry
   const handleEmailInquiry = () => {
     const product = selectedProduct;
-    const variant = selectedVariant;
-    const color = selectedColor;
-    const size = selectedSize;
+    const info = projectInfo;
 
-    const subject = `Inquiry: ${product.name}`;
+    const subject = `Quotation Request: ${product.name}`;
     const body =
-      `Hello,\n\nI'm interested in the following product:\n\n` +
+      `SHOPFITTING PROJECT INQUIRY\n\n` +
       `Product: ${product.name}\n` +
-      `Variant: ${variant.name}\n` +
-      `Color: ${color.name}\n` +
-      `Size: ${size.name} (${size.dimensions})\n` +
-      `Quantity: ${quantity}\n\n` +
-      `Please provide more information about:\n` +
-      `- Pricing and quotation\n` +
-      `- Availability\n` +
-      `- Delivery timeline\n` +
-      `- Installation services\n` +
-      `- Warranty details\n\n` +
-      `Thank you!`;
+      `Category: ${product.category}\n\n` +
+      `━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n` +
+      `PROJECT DETAILS:\n\n` +
+      (info.projectType ? `Project Type: ${info.projectType}\n` : "") +
+      (info.buildingType ? `Building Type: ${info.buildingType}\n` : "") +
+      (info.spaceDimensions
+        ? `Space Dimensions: ${info.spaceDimensions}\n`
+        : "") +
+      (info.estimatedArea ? `Estimated Area: ${info.estimatedArea}\n` : "") +
+      (info.timeline ? `Timeline: ${info.timeline}\n` : "") +
+      (info.hasDrawings ? `Drawings Available: ${info.hasDrawings}\n` : "") +
+      (info.installationRequired
+        ? `Installation Required: ${info.installationRequired}\n`
+        : "") +
+      (info.additionalNotes
+        ? `\nAdditional Notes:\n${info.additionalNotes}\n`
+        : "") +
+      `\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n` +
+      `QUOTATION REQUEST:\n\n` +
+      `Please provide a comprehensive quotation including:\n` +
+      `• Material specifications and costs\n` +
+      `• Installation services and timeline\n` +
+      `• Project management fees (if applicable)\n` +
+      `• Warranty and after-sales support\n` +
+      `• Payment terms and schedule\n` +
+      `• Site visit requirements\n\n` +
+      `We look forward to working with you on this project.\n\n` +
+      `Best regards`;
 
     const mailtoUrl = `mailto:sales@yourcompany.com?subject=${encodeURIComponent(
       subject
@@ -1362,17 +755,8 @@ const Products = () => {
         {/* Background Image */}
         <div
           className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: 'url("/a.jpg")' }}
+          style={{ backgroundImage: 'url("/GSZOn-site/11.jpeg")' }}
         ></div>
-
-        {/* Gradient Overlay 
-        <div
-          className="absolute inset-0 mix-blend-multiply"
-          style={{
-            background:
-              "linear-gradient(135deg, #E3180Dee 0%, #E35906dd 50%, #F3B900ee 100%)",
-          }}
-        ></div>*/}
 
         {/* Dark Overlay */}
         <div className="absolute inset-0 bg-black/30"></div>
@@ -1389,8 +773,8 @@ const Products = () => {
             </h1>
 
             <p className="text-lg sm:text-xl md:text-2xl text-white/95 leading-relaxed">
-              We offer a complete range of commercial and residential fixtures,
-              Fittings and architectural solutions
+              We offer a complete range of architectural solutions and
+              commercial and residential fixtures/fittings.
             </p>
           </motion.div>
         </div>
@@ -1465,7 +849,7 @@ const Products = () => {
                     <div className="absolute inset-0 bg-gradient-to-t from-gray-900/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-5">
                       <div className="text-white text-sm font-bold flex items-center gap-2">
                         <Info size={16} />
-                        <span>Click to view details</span>
+                        <span>Click for quotation details</span>
                       </div>
                     </div>
                   </div>
@@ -1492,28 +876,15 @@ const Products = () => {
                       ))}
                     </div>
 
-                    {/* Variants Indicator */}
-                    <div className="flex items-center gap-3 pt-4 border-t border-gray-100">
-                      <div className="flex items-center gap-1">
-                        <Palette size={14} className="text-[#E3180D]" />
-                        <span className="text-xs text-gray-500">
-                          {product.variants.reduce(
-                            (acc, v) => acc + v.colors.length,
-                            0
-                          )}{" "}
-                          colors
-                        </span>
-                      </div>
-                      <div className="flex items-center gap-1">
-                        <Ruler size={14} className="text-[#E3180D]" />
-                        <span className="text-xs text-gray-500">
-                          {product.variants.reduce(
-                            (acc, v) => acc + v.sizes.length,
-                            0
-                          )}{" "}
-                          sizes
-                        </span>
-                      </div>
+                    {/* CTA */}
+                    <div className="flex items-center justify-between pt-4 border-t border-gray-100">
+                      <span className="text-sm text-gray-500 font-semibold">
+                        Get Quote
+                      </span>
+                      <ArrowRight
+                        size={18}
+                        className="text-[#E3180D] group-hover:translate-x-1 transition-transform"
+                      />
                     </div>
                   </div>
                 </motion.div>
@@ -1530,7 +901,7 @@ const Products = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-black/80 backdrop-blur-sm z-80 flex items-start md:items-center justify-center p-4 md:p-5 overflow-y-auto "
+            className="fixed inset-0 bg-black/80 backdrop-blur-sm z-100 flex items-start md:items-center justify-center p-4 md:p-5 overflow-y-auto"
             onClick={handleModalClose}
           >
             <motion.div
@@ -1538,7 +909,7 @@ const Products = () => {
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
               transition={{ type: "spring", damping: 25 }}
-              className="bg-white rounded-sm md:rounded-sm w-full max-w-6xl my-8 md:my-0 overflow-hidden relative "
+              className="bg-white rounded-sm md:rounded-sm w-full max-w-6xl my-8 md:my-0 overflow-hidden relative"
               onClick={(e) => e.stopPropagation()}
             >
               {/* Close Button */}
@@ -1604,7 +975,7 @@ const Products = () => {
                   </div>
                 </div>
 
-                {/* Right Side - Details */}
+                {/* Right Side - Project Information Form */}
                 <div className="p-6 md:p-10 overflow-y-auto max-h-[70vh] lg:max-h-[80vh] order-1 lg:order-2">
                   {/* Product Header */}
                   <div className="mb-6">
@@ -1630,154 +1001,247 @@ const Products = () => {
                     </p>
                   </div>
 
-                  {/* Variant Selection */}
-                  <div className="mb-6">
-                    <h3 className="text-base md:text-lg font-bold text-gray-800 mb-3">
-                      Select Variant
-                    </h3>
-                    <div className="flex gap-3 flex-wrap">
-                      {selectedProduct.variants.map((variant) => (
-                        <button
-                          key={variant.id}
-                          onClick={() => {
-                            setSelectedVariant(variant);
-                            setSelectedColor(variant.colors[0]);
-                            setSelectedSize(variant.sizes[0]);
-                          }}
-                          className={`
-                            px-4 md:px-5 py-2.5 md:py-3 rounded-sm font-semibold transition-all text-sm md:text-base
-                            ${
-                              selectedVariant?.id === variant.id
-                                ? "border-2 border-[#E3180D] bg-red-50 text-[#E3180D]"
-                                : "border-2 border-gray-200 bg-white text-gray-800 hover:border-gray-300"
-                            }
-                          `}
-                        >
-                          {variant.name}
-                        </button>
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* Color Selection */}
-                  {selectedVariant && (
-                    <div className="mb-6">
-                      <h3 className="text-base md:text-lg font-bold text-gray-800 mb-3">
-                        Color: {selectedColor?.name}
-                      </h3>
-                      <div className="flex gap-3 flex-wrap">
-                        {selectedVariant.colors.map((color) => (
-                          <button
-                            key={color.name}
-                            onClick={() => setSelectedColor(color)}
-                            disabled={!color.available}
-                            className={`
-                              w-12 h-12 rounded-sm transition-all flex items-center justify-center
-                              ${
-                                selectedColor?.name === color.name
-                                  ? "border-4 border-[#E3180D] scale-110"
-                                  : "border-4 border-gray-200 hover:border-gray-300"
-                              }
-                              ${
-                                !color.available &&
-                                "opacity-40 cursor-not-allowed"
-                              }
-                            `}
-                            style={{ background: color.hex }}
-                          >
-                            {selectedColor?.name === color.name && (
-                              <Check
-                                size={20}
-                                className={
-                                  color.hex === "#FFFFFF" ||
-                                  color.hex === "#F0F8FF"
-                                    ? "text-gray-800"
-                                    : "text-white"
-                                }
-                              />
-                            )}
-                          </button>
-                        ))}
-                      </div>
-                    </div>
-                  )}
-
-                  {/* Size Selection */}
-                  {selectedVariant && (
-                    <div className="mb-6">
-                      <h3 className="text-base md:text-lg font-bold text-gray-800 mb-3">
-                        Size: {selectedSize?.name}
-                      </h3>
-                      <div className="flex flex-col gap-2">
-                        {selectedVariant.sizes.map((size) => (
-                          <button
-                            key={size.name}
-                            onClick={() => setSelectedSize(size)}
-                            disabled={!size.available}
-                            className={`
-                              p-3 md:p-4 rounded-sm text-left transition-all flex justify-between items-center
-                              ${
-                                selectedSize?.name === size.name
-                                  ? "border-2 border-[#E3180D] bg-red-50"
-                                  : "border-2 border-gray-200 bg-white hover:border-gray-300"
-                              }
-                              ${
-                                !size.available &&
-                                "opacity-40 cursor-not-allowed"
-                              }
-                            `}
-                          >
-                            <div>
-                              <div
-                                className={`font-bold text-sm md:text-base ${
-                                  selectedSize?.name === size.name
-                                    ? "text-[#E3180D]"
-                                    : "text-gray-800"
-                                }`}
-                              >
-                                {size.name}
-                              </div>
-                              <div className="text-xs md:text-sm text-gray-500">
-                                {size.dimensions}
-                              </div>
-                            </div>
-                            {selectedSize?.name === size.name && (
-                              <Check size={20} className="text-[#E3180D]" />
-                            )}
-                          </button>
-                        ))}
-                      </div>
-                    </div>
-                  )}
-
-                  {/* Quantity Selection */}
+                  {/* Project Information Form */}
                   <div className="mb-8">
-                    <h3 className="text-base md:text-lg font-bold text-gray-800 mb-3">
-                      Quantity
-                    </h3>
-                    <div className="flex items-center gap-4">
-                      <button
-                        onClick={() => setQuantity(Math.max(1, quantity - 1))}
-                        className="w-10 h-10 rounded-sm border-2 border-gray-200 bg-white hover:bg-gray-50 flex items-center justify-center transition-all"
-                      >
-                        <Minus size={18} />
-                      </button>
-                      <div className="text-2xl font-bold min-w-[60px] text-center">
-                        {quantity}
+                    <div className="bg-gradient-to-br from-red-50 to-orange-50 rounded-sm p-4 mb-6">
+                      <div className="flex items-center gap-2 text-[#E3180D] mb-2">
+                        <AlertCircle size={20} />
+                        <h3 className="text-lg font-bold">
+                          Get Your Custom Quote
+                        </h3>
                       </div>
-                      <button
-                        onClick={() => setQuantity(quantity + 1)}
-                        className="w-10 h-10 rounded-sm border-2 border-gray-200 bg-white hover:bg-gray-50 flex items-center justify-center transition-all"
-                      >
-                        <Plus size={18} />
-                      </button>
+                      <p className="text-sm text-gray-600">
+                        Fill in your project details below for an accurate
+                        quotation
+                      </p>
+                    </div>
+
+                    <div className="space-y-4">
+                      {/* Project Type */}
+                      <div>
+                        <label className="flex items-center gap-2 text-sm font-bold text-gray-800 mb-2">
+                          <Building2 size={16} className="text-[#E3180D]" />
+                          Project Type
+                        </label>
+                        <select
+                          value={projectInfo.projectType}
+                          onChange={(e) =>
+                            setProjectInfo({
+                              ...projectInfo,
+                              projectType: e.target.value,
+                            })
+                          }
+                          className="w-full px-4 py-3 border-2 border-gray-200 rounded-sm focus:border-[#E3180D] focus:outline-none transition-colors text-sm"
+                        >
+                          <option value="">Select project type</option>
+                          <option value="New Construction">
+                            New Construction
+                          </option>
+                          <option value="Renovation/Refit">
+                            Renovation/Refit
+                          </option>
+                          <option value="Extension">Extension</option>
+                          <option value="Repair/Replacement">
+                            Repair/Replacement
+                          </option>
+                          <option value="Maintenance">Maintenance</option>
+                        </select>
+                      </div>
+
+                      {/* Building Type */}
+                      <div>
+                        <label className="flex items-center gap-2 text-sm font-bold text-gray-800 mb-2">
+                          <MapPin size={16} className="text-[#E3180D]" />
+                          Building Type
+                        </label>
+                        <select
+                          value={projectInfo.buildingType}
+                          onChange={(e) =>
+                            setProjectInfo({
+                              ...projectInfo,
+                              buildingType: e.target.value,
+                            })
+                          }
+                          className="w-full px-4 py-3 border-2 border-gray-200 rounded-sm focus:border-[#E3180D] focus:outline-none transition-colors text-sm"
+                        >
+                          <option value="">Select building type</option>
+                          <option value="Office Building">Office Building</option>
+                          <option value="Retail Store/Shop">
+                            Retail Store/Shop
+                          </option>
+                          <option value="Bank/Financial Institution">
+                            Bank/Financial Institution
+                          </option>
+                          <option value="Showroom">Showroom</option>
+                          <option value="Restaurant/Cafe">
+                            Restaurant/Cafe
+                          </option>
+                          <option value="Warehouse">Warehouse</option>
+                          <option value="Residential">Residential</option>
+                          <option value="Hotel/Hospitality">
+                            Hotel/Hospitality
+                          </option>
+                          <option value="School/Educational">
+                            School/Educational
+                          </option>
+                          <option value="Healthcare">Healthcare</option>
+                          <option value="Other">Other</option>
+                        </select>
+                      </div>
+
+                      {/* Space Dimensions */}
+                      <div>
+                        <label className="flex items-center gap-2 text-sm font-bold text-gray-800 mb-2">
+                          <Ruler size={16} className="text-[#E3180D]" />
+                          Space Dimensions (e.g., 10m x 8m x 3m high)
+                        </label>
+                        <input
+                          type="text"
+                          value={projectInfo.spaceDimensions}
+                          onChange={(e) =>
+                            setProjectInfo({
+                              ...projectInfo,
+                              spaceDimensions: e.target.value,
+                            })
+                          }
+                          placeholder="Length x Width x Height"
+                          className="w-full px-4 py-3 border-2 border-gray-200 rounded-sm focus:border-[#E3180D] focus:outline-none transition-colors text-sm"
+                        />
+                      </div>
+
+                      {/* Estimated Area */}
+                      <div>
+                        <label className="flex items-center gap-2 text-sm font-bold text-gray-800 mb-2">
+                          <Square size={16} className="text-[#E3180D]" />
+                          Estimated Area (sqm or number of units)
+                        </label>
+                        <input
+                          type="text"
+                          value={projectInfo.estimatedArea}
+                          onChange={(e) =>
+                            setProjectInfo({
+                              ...projectInfo,
+                              estimatedArea: e.target.value,
+                            })
+                          }
+                          placeholder="e.g., 50 sqm or 3 units"
+                          className="w-full px-4 py-3 border-2 border-gray-200 rounded-sm focus:border-[#E3180D] focus:outline-none transition-colors text-sm"
+                        />
+                      </div>
+
+                      {/* Timeline */}
+                      <div>
+                        <label className="flex items-center gap-2 text-sm font-bold text-gray-800 mb-2">
+                          <Calendar size={16} className="text-[#E3180D]" />
+                          Project Timeline
+                        </label>
+                        <select
+                          value={projectInfo.timeline}
+                          onChange={(e) =>
+                            setProjectInfo({
+                              ...projectInfo,
+                              timeline: e.target.value,
+                            })
+                          }
+                          className="w-full px-4 py-3 border-2 border-gray-200 rounded-sm focus:border-[#E3180D] focus:outline-none transition-colors text-sm"
+                        >
+                          <option value="">When do you need this?</option>
+                          <option value="Urgent (Within 2 weeks)">
+                            Urgent (Within 2 weeks)
+                          </option>
+                          <option value="1 Month">1 Month</option>
+                          <option value="2-3 Months">2-3 Months</option>
+                          <option value="3-6 Months">3-6 Months</option>
+                          <option value="6+ Months">6+ Months</option>
+                          <option value="Flexible/Planning Stage">
+                            Flexible/Planning Stage
+                          </option>
+                        </select>
+                      </div>
+
+                      {/* Has Drawings */}
+                      <div>
+                        <label className="flex items-center gap-2 text-sm font-bold text-gray-800 mb-2">
+                          <FileText size={16} className="text-[#E3180D]" />
+                          Do you have architectural drawings?
+                        </label>
+                        <select
+                          value={projectInfo.hasDrawings}
+                          onChange={(e) =>
+                            setProjectInfo({
+                              ...projectInfo,
+                              hasDrawings: e.target.value,
+                            })
+                          }
+                          className="w-full px-4 py-3 border-2 border-gray-200 rounded-sm focus:border-[#E3180D] focus:outline-none transition-colors text-sm"
+                        >
+                          <option value="">Select an option</option>
+                          <option value="Yes, I have detailed drawings">
+                            Yes, I have detailed drawings
+                          </option>
+                          <option value="Yes, but only rough sketches">
+                            Yes, but only rough sketches
+                          </option>
+                          <option value="No, I need design services">
+                            No, I need design services
+                          </option>
+                        </select>
+                      </div>
+
+                      {/* Installation Required */}
+                      <div>
+                        <label className="flex items-center gap-2 text-sm font-bold text-gray-800 mb-2">
+                          <Cog size={16} className="text-[#E3180D]" />
+                          Installation Services Needed?
+                        </label>
+                        <select
+                          value={projectInfo.installationRequired}
+                          onChange={(e) =>
+                            setProjectInfo({
+                              ...projectInfo,
+                              installationRequired: e.target.value,
+                            })
+                          }
+                          className="w-full px-4 py-3 border-2 border-gray-200 rounded-sm focus:border-[#E3180D] focus:outline-none transition-colors text-sm"
+                        >
+                          <option value="">Select an option</option>
+                          <option value="Yes, full installation">
+                            Yes, full installation & project management
+                          </option>
+                          <option value="Yes, installation only">
+                            Yes, installation only
+                          </option>
+                          <option value="No, supply only">
+                            No, supply only (I have my own contractors)
+                          </option>
+                        </select>
+                      </div>
+
+                      {/* Additional Notes */}
+                      <div>
+                        <label className="text-sm font-bold text-gray-800 mb-2 block">
+                          Additional Requirements or Notes
+                        </label>
+                        <textarea
+                          value={projectInfo.additionalNotes}
+                          onChange={(e) =>
+                            setProjectInfo({
+                              ...projectInfo,
+                              additionalNotes: e.target.value,
+                            })
+                          }
+                          placeholder="Any specific requirements, fire ratings, acoustic needs, color preferences, or other details..."
+                          rows="4"
+                          className="w-full px-4 py-3 border-2 border-gray-200 rounded-sm focus:border-[#E3180D] focus:outline-none transition-colors text-sm resize-none"
+                        />
+                      </div>
                     </div>
                   </div>
 
-                  {/* Inquiry Methods */}
+                  {/* Submit Inquiry Buttons */}
                   <div className="mb-8">
                     <h3 className="text-base md:text-lg font-bold text-gray-800 mb-4 text-center">
-                      Get a Quote
+                      Send Your Inquiry
                     </h3>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                       {/* WhatsApp Button */}
@@ -1800,10 +1264,10 @@ const Products = () => {
                     </div>
                   </div>
 
-                  {/* Specifications */}
+                  {/* Product Specifications */}
                   <div className="mb-6">
                     <h3 className="text-base md:text-lg font-bold text-gray-800 mb-4">
-                      Specifications
+                      Product Specifications
                     </h3>
                     <div className="bg-gray-50 rounded-sm overflow-hidden">
                       {Object.entries(selectedProduct.specifications).map(
@@ -1831,7 +1295,7 @@ const Products = () => {
                     </div>
                   </div>
 
-                  {/* Features */}
+                  {/* Key Features */}
                   <div>
                     <h3 className="text-base md:text-lg font-bold text-gray-800 mb-4">
                       Key Features

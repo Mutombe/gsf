@@ -82,7 +82,7 @@ const SearchModal = ({ isOpen, onClose }) => {
     {
       title: 'Contact',
       path: '/contact',
-      description: 'Get in touch with Global Shopfitters',
+      description: 'Get in touch with Global Shopfitters Zimbabwe',
       keywords: ['contact', 'reach', 'location', 'address', 'get in touch'],
       category: 'Page'
     },

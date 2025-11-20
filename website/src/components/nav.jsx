@@ -49,7 +49,6 @@ const LazyImage = ({ src, alt, className, style, priority = false }) => {
 
   useEffect(() => {
     if (priority || isInView) {
-      // Create a small blur placeholder
       const img = new Image();
       img.src = src;
       img.onload = () => {
@@ -61,7 +60,6 @@ const LazyImage = ({ src, alt, className, style, priority = false }) => {
 
   return (
     <div ref={imgRef} className={className} style={{ ...style, position: 'relative', overflow: 'hidden' }}>
-      {/* Placeholder with blur effect */}
       <div
         style={{
           position: 'absolute',
@@ -117,7 +115,6 @@ const Navbar = () => {
     setOpenMobileDropdown(null);
   }, [location]);
 
-  // Lock body scroll when mobile menu is open
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = "hidden";
@@ -135,7 +132,6 @@ const Navbar = () => {
     { code: "es", name: "Español", flag: "🇪🇸" },
   ];
 
-  // Social media links
   const socialLinks = [
     { icon: FaFacebookF, url: "https://facebook.com/globalshopfitters", label: "Facebook" },
     { icon: FaXTwitter, url: "https://twitter.com/globalshopfitters", label: "Twitter" },
@@ -144,7 +140,6 @@ const Navbar = () => {
     { icon: FaWhatsapp, url: "https://wa.me/263781934986", label: "WhatsApp" },
   ];
 
-  // Navigation structure with icons and dropdowns
   const navLinks = [
     {
       path: "/",
@@ -194,7 +189,6 @@ const Navbar = () => {
     },
   ];
 
-  // Color palette from images
   const colors = {
     chiliRed: "#E3180D",
     scarlet: "#FF2A00",
@@ -207,24 +201,37 @@ const Navbar = () => {
     white: "#FFFFFF",
   };
 
+  // Updated top bar style - now fixed at the top
   const topBarStyle = {
+    position: "fixed",
+    top: 0,
+    left: 0,
+    right: 0,
+    zIndex: 61, // Higher than navbar
     background: `linear-gradient(90deg, ${colors.darkGray} 0%, #1a1a1a 100%)`,
     color: colors.white,
     padding: "8px 0",
     fontSize: "14px",
   };
 
-  const navbarStyle = {
-    position: "sticky",
-    top: 0,
-    zIndex: 60,
-    background: colors.white,
-    transition: "all 0.3s ease",
-    boxShadow: isScrolled
-      ? "0 4px 20px rgba(0, 0, 0, 0.1)"
-      : "0 2px 10px rgba(0, 0, 0, 0.05)",
-    padding: isScrolled ? "12px 0" : "16px 0",
-  };
+  // Updated navbar style - positioned below top bar
+const navbarStyle = {
+  position: "fixed",
+  top: isScrolled ? "0" : (window.innerWidth < 1024 ? "85px" : "45px"), // 85px for mobile, 45px for desktop
+  left: 0,
+  right: 0,
+  zIndex: 60,
+  background: isScrolled 
+    ? colors.white 
+    : "transparent",
+  backdropFilter: isScrolled ? "none" : "blur(2px)",
+  transition: "all 0.3s ease",
+  boxShadow: isScrolled
+    ? "0 4px 20px rgba(0, 0, 0, 0.1)"
+    : "none",
+  padding: isScrolled ? "12px 0" : "16px 0",
+  borderBottom: isScrolled ? "none" : "1px solid rgba(255, 255, 255, 0.1)",
+};
 
   const logoGradientStyle = {
     display: "flex",
@@ -234,15 +241,18 @@ const Navbar = () => {
   };
 
   const activeLinkStyle = {
-    color: colors.chiliRed,
+    color: isScrolled ? colors.chiliRed : colors.white,
     padding: "10px 16px",
     borderRadius: "5px",
     fontWeight: "600",
     transition: "all 0.3s ease",
+    background: isScrolled 
+      ? "linear-gradient(135deg, rgba(227, 24, 13, 0.1), rgba(255, 42, 0, 0.1))"
+      : "rgba(255, 255, 255, 0.1)",
   };
 
   const inactiveLinkStyle = {
-    color: colors.darkGray,
+    color: isScrolled ? colors.darkGray : colors.white,
     padding: "10px 16px",
     borderRadius: "5px",
     fontWeight: "500",
@@ -250,9 +260,10 @@ const Navbar = () => {
   };
 
   const hoverLinkStyle = {
-    color: colors.chiliRed,
-    background:
-      "linear-gradient(135deg, rgba(227, 24, 13, 0.05), rgba(255, 42, 0, 0.05))",
+    color: isScrolled ? colors.chiliRed : colors.white,
+    background: isScrolled
+      ? "linear-gradient(135deg, rgba(227, 24, 13, 0.05), rgba(255, 42, 0, 0.05))"
+      : "rgba(255, 255, 255, 0.15)",
   };
 
   const langButtonStyle = {
@@ -261,10 +272,11 @@ const Navbar = () => {
     gap: "8px",
     padding: "8px 12px",
     borderRadius: "5px",
-    border: `1px solid ${colors.mediumGray}`,
-    background: colors.white,
+    border: `1px solid ${isScrolled ? colors.mediumGray : "rgba(255, 255, 255, 0.3)"}`,
+    background: isScrolled ? colors.white : "rgba(255, 255, 255, 0.1)",
     transition: "all 0.3s ease",
     cursor: "pointer",
+    color: isScrolled ? colors.darkGray : colors.white,
   };
 
   const searchButtonStyle = {
@@ -277,7 +289,7 @@ const Navbar = () => {
     background: "transparent",
     cursor: "pointer",
     transition: "all 0.3s ease",
-    color: colors.darkGray,
+    color: isScrolled ? colors.darkGray : colors.white,
   };
 
   const isPathActive = (path) => {
@@ -290,173 +302,178 @@ const Navbar = () => {
 
   return (
     <>
-      {/* Search Modal */}
       <SearchModal isOpen={showSearch} onClose={() => setShowSearch(false)} />
 
-      {/* Top Bar - Now visible on all devices */}
-      <div style={topBarStyle}>
-        <div
-          style={{ maxWidth: "1280px", margin: "0 auto", padding: "0 1rem" }}
+      {/* Top Bar - Now fixed and hidden when scrolled */}
+      {!isScrolled && (
+        <motion.div
+          initial={{ y: 0 }}
+          animate={{ y: 0 }}
+          exit={{ y: -45 }}
+          style={topBarStyle}
         >
-          {/* Desktop Top Bar */}
-          <div className="hidden lg:flex justify-between items-center">
-            <div style={{ display: "flex", alignItems: "center", gap: "24px" }}>
-              <a
-                href="mailto:info@globalshopfitters.co.zw"
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  gap: "8px",
-                  color: colors.white,
-                  textDecoration: "none",
-                  transition: "color 0.3s ease",
-                }}
-                onMouseEnter={(e) =>
-                  (e.currentTarget.style.color = colors.amber)
-                }
-                onMouseLeave={(e) =>
-                  (e.currentTarget.style.color = colors.white)
-                }
-              >
-                <Mail size={14} />
-                <span>info@globalshopfitters.co.zw</span>
-              </a>
-              <a
-                href="tel:+263781934986"
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  gap: "8px",
-                  color: colors.white,
-                  textDecoration: "none",
-                  transition: "color 0.3s ease",
-                }}
-                onMouseEnter={(e) =>
-                  (e.currentTarget.style.color = colors.amber)
-                }
-                onMouseLeave={(e) =>
-                  (e.currentTarget.style.color = colors.white)
-                }
-              >
-                <Phone size={14} />
-                <span>+263 78 193 4986</span>
-              </a>
-              <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-                <Clock size={14} />
-                <span>Mon - Fri: 8:00 AM - 5:00 PM</span>
-              </div>
-            </div>
-            <div style={{ display: "flex", alignItems: "center", gap: "16px" }}>
-              <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-                <MapPin size={14} />
-                <span>No. 3, 18 Whitesway, Harare</span>
-              </div>
-              <div
-                style={{
-                  width: "1px",
-                  height: "16px",
-                  background: "rgba(255, 255, 255, 0.3)",
-                }}
-              />
-              <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-                {socialLinks.map((social) => {
-                  const SocialIcon = social.icon;
-                  return (
-                    <a
-                      key={social.label}
-                      href={social.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label={social.label}
-                      style={{
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        width: "28px",
-                        height: "28px",
-                        borderRadius: "3px",
-                        background: "rgba(255, 255, 255, 0.1)",
-                        color: colors.white,
-                        transition: "all 0.3s ease",
-                        textDecoration: "none",
-                      }}
-                      onMouseEnter={(e) => {
-                        e.currentTarget.style.background = colors.chiliRed;
-                        e.currentTarget.style.transform = "translateY(-2px)";
-                      }}
-                      onMouseLeave={(e) => {
-                        e.currentTarget.style.background = "rgba(255, 255, 255, 0.1)";
-                        e.currentTarget.style.transform = "translateY(0)";
-                      }}
-                    >
-                      <SocialIcon size={12} />
-                    </a>
-                  );
-                })}
-              </div>
-            </div>
-          </div>
-
-          {/* Mobile Top Bar */}
-          <div className="lg:hidden">
-            <div className="flex flex-col gap-2 py-1">
-              {/* First Row: Contact Info */}
-              <div className="flex items-center justify-between text-xs">
+          <div
+            style={{ maxWidth: "1280px", margin: "0 auto", padding: "0 1rem" }}
+          >
+            {/* Desktop Top Bar */}
+            <div className="hidden lg:flex justify-between items-center">
+              <div style={{ display: "flex", alignItems: "center", gap: "24px" }}>
+                <a
+                  href="mailto:info@globalshopfitters.co.zw"
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "8px",
+                    color: colors.white,
+                    textDecoration: "none",
+                    transition: "color 0.3s ease",
+                  }}
+                  onMouseEnter={(e) =>
+                    (e.currentTarget.style.color = colors.amber)
+                  }
+                  onMouseLeave={(e) =>
+                    (e.currentTarget.style.color = colors.white)
+                  }
+                >
+                  <Mail size={14} />
+                  <span>info@globalshopfitters.co.zw</span>
+                </a>
                 <a
                   href="tel:+263781934986"
                   style={{
                     display: "flex",
                     alignItems: "center",
-                    gap: "6px",
+                    gap: "8px",
                     color: colors.white,
                     textDecoration: "none",
+                    transition: "color 0.3s ease",
                   }}
+                  onMouseEnter={(e) =>
+                    (e.currentTarget.style.color = colors.amber)
+                  }
+                  onMouseLeave={(e) =>
+                    (e.currentTarget.style.color = colors.white)
+                  }
                 >
-                  <Phone size={12} />
+                  <Phone size={14} />
                   <span>+263 78 193 4986</span>
                 </a>
-                <div style={{ display: "flex", alignItems: "center", gap: "6px" }}>
-                  <Clock size={12} />
-                  <span>Mon-Fri: 8AM-5PM</span>
+                <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+                  <Clock size={14} />
+                  <span>Mon - Fri: 8:00 AM - 5:00 PM</span>
                 </div>
               </div>
-              
-              {/* Second Row: Social Media */}
-              <div className="flex items-center justify-center gap-3 pt-1 border-t border-white/20">
-                {socialLinks.map((social) => {
-                  const SocialIcon = social.icon;
-                  return (
-                    <a
-                      key={social.label}
-                      href={social.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label={social.label}
-                      style={{
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        width: "32px",
-                        height: "32px",
-                        borderRadius: "3px",
-                        background: "rgba(255, 255, 255, 0.1)",
-                        color: colors.white,
-                        transition: "all 0.3s ease",
-                        textDecoration: "none",
-                      }}
-                    >
-                      <SocialIcon size={14} />
-                    </a>
-                  );
-                })}
+              <div style={{ display: "flex", alignItems: "center", gap: "16px" }}>
+                <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+                  <MapPin size={14} />
+                  <span>No. 3, 18 Whitesway, Harare</span>
+                </div>
+                <div
+                  style={{
+                    width: "1px",
+                    height: "16px",
+                    background: "rgba(255, 255, 255, 0.3)",
+                  }}
+                />
+                <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+                  {socialLinks.map((social) => {
+                    const SocialIcon = social.icon;
+                    return (
+                      <a
+                        key={social.label}
+                        href={social.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={social.label}
+                        style={{
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                          width: "28px",
+                          height: "28px",
+                          borderRadius: "3px",
+                          background: "rgba(255, 255, 255, 0.1)",
+                          color: colors.white,
+                          transition: "all 0.3s ease",
+                          textDecoration: "none",
+                        }}
+                        onMouseEnter={(e) => {
+                          e.currentTarget.style.background = colors.chiliRed;
+                          e.currentTarget.style.transform = "translateY(-2px)";
+                        }}
+                        onMouseLeave={(e) => {
+                          e.currentTarget.style.background = "rgba(255, 255, 255, 0.1)";
+                          e.currentTarget.style.transform = "translateY(0)";
+                        }}
+                      >
+                        <SocialIcon size={12} />
+                      </a>
+                    );
+                  })}
+                </div>
+              </div>
+            </div>
+
+            {/* Mobile Top Bar */}
+            <div className="lg:hidden">
+              <div className="flex flex-col gap-2 py-1">
+                <div className="flex items-center justify-between text-xs">
+                  <a
+                    href="tel:+263781934986"
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      gap: "6px",
+                      color: colors.white,
+                      textDecoration: "none",
+                    }}
+                  >
+                    <Phone size={12} />
+                    <span>+263 78 193 4986</span>
+                  </a>
+                  <div style={{ display: "flex", alignItems: "center", gap: "6px" }}>
+                    <Clock size={12} />
+                    <span>Mon-Fri: 8AM-5PM</span>
+                  </div>
+                </div>
+                
+                <div className="flex items-center justify-center gap-3 pt-1 border-t border-white/20">
+                  {socialLinks.map((social) => {
+                    const SocialIcon = social.icon;
+                    return (
+                      <a
+                        key={social.label}
+                        href={social.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={social.label}
+                        style={{
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                          width: "32px",
+                          height: "32px",
+                          borderRadius: "3px",
+                          background: "rgba(255, 255, 255, 0.1)",
+                          color: colors.white,
+                          transition: "all 0.3s ease",
+                          textDecoration: "none",
+                        }}
+                      >
+                        <SocialIcon size={14} />
+                      </a>
+                    );
+                  })}
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </div>
+        </motion.div>
+      )}
 
-      {/* Main Navbar */}
+      {/* Main Navbar - Now with transparency and positioned below top bar */}
       <nav style={navbarStyle}>
+        {/* Rest of the navbar code remains exactly the same... */}
         <div
           style={{ maxWidth: "1280px", margin: "0 auto", padding: "0 1rem" }}
         >
@@ -490,9 +507,6 @@ const Navbar = () => {
                   src="/gsf.png"
                   alt="Logo"
                   className="w-30 h-12"
-                  style={{
-                    
-                  }}
                   priority={true}
                 />
               </div>
@@ -634,13 +648,14 @@ const Navbar = () => {
                   onClick={() => setShowSearch(true)}
                   style={searchButtonStyle}
                   onMouseEnter={(e) => {
-                    e.currentTarget.style.background =
-                      "rgba(227, 24, 13, 0.05)";
-                    e.currentTarget.style.color = colors.chiliRed;
+                    e.currentTarget.style.background = isScrolled
+                      ? "rgba(227, 24, 13, 0.05)"
+                      : "rgba(255, 255, 255, 0.15)";
+                    e.currentTarget.style.color = isScrolled ? colors.chiliRed : colors.white;
                   }}
                   onMouseLeave={(e) => {
                     e.currentTarget.style.background = "transparent";
-                    e.currentTarget.style.color = colors.darkGray;
+                    e.currentTarget.style.color = isScrolled ? colors.darkGray : colors.white;
                   }}
                   aria-label="Search"
                 >
@@ -657,7 +672,7 @@ const Navbar = () => {
                     (e.currentTarget.style.borderColor = colors.chiliRed)
                   }
                   onMouseLeave={(e) =>
-                    (e.currentTarget.style.borderColor = colors.mediumGray)
+                    (e.currentTarget.style.borderColor = isScrolled ? colors.mediumGray : "rgba(255, 255, 255, 0.3)")
                   }
                 >
                   <GiWorld size={18} style={{ color: colors.chiliRed }} />
@@ -749,13 +764,14 @@ const Navbar = () => {
                   onClick={() => setShowSearch(true)}
                   style={searchButtonStyle}
                   onMouseEnter={(e) => {
-                    e.currentTarget.style.background =
-                      "rgba(227, 24, 13, 0.05)";
-                    e.currentTarget.style.color = colors.chiliRed;
+                    e.currentTarget.style.background = isScrolled
+                      ? "rgba(227, 24, 13, 0.05)"
+                      : "rgba(255, 255, 255, 0.15)";
+                    e.currentTarget.style.color = isScrolled ? colors.chiliRed : colors.white;
                   }}
                   onMouseLeave={(e) => {
                     e.currentTarget.style.background = "transparent";
-                    e.currentTarget.style.color = colors.darkGray;
+                    e.currentTarget.style.color = isScrolled ? colors.darkGray : colors.white;
                   }}
                   aria-label="Search"
                 >
@@ -770,18 +786,19 @@ const Navbar = () => {
                     borderRadius: "5px",
                     border: "none",
                     background: "transparent",
-                    color: colors.darkGray,
+                    color: isScrolled ? colors.darkGray : colors.white,
                     cursor: "pointer",
                     transition: "all 0.3s ease",
                   }}
                   onMouseEnter={(e) => {
-                    e.currentTarget.style.background =
-                      "rgba(227, 24, 13, 0.05)";
-                    e.currentTarget.style.color = colors.chiliRed;
+                    e.currentTarget.style.background = isScrolled
+                      ? "rgba(227, 24, 13, 0.05)"
+                      : "rgba(255, 255, 255, 0.15)";
+                    e.currentTarget.style.color = isScrolled ? colors.chiliRed : colors.white;
                   }}
                   onMouseLeave={(e) => {
                     e.currentTarget.style.background = "transparent";
-                    e.currentTarget.style.color = colors.darkGray;
+                    e.currentTarget.style.color = isScrolled ? colors.darkGray : colors.white;
                   }}
                 >
                   {isOpen ? <X size={24} /> : <CgMenuRight size={24} />}
@@ -792,7 +809,7 @@ const Navbar = () => {
         </div>
       </nav>
 
-      {/* Mobile Menu - Fullscreen */}
+      {/* Mobile Menu stays the same... */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
@@ -802,7 +819,6 @@ const Navbar = () => {
             transition={{ type: "tween", duration: 0.15 }}
             className="lg:hidden fixed inset-0 z-[100] overflow-y-auto"
           >
-            {/* Background Image with Overlay */}
             <div className="absolute inset-0">
               <img
                 src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80"
@@ -818,9 +834,7 @@ const Navbar = () => {
               <div className="absolute inset-0 backdrop-blur-sm" />
             </div>
 
-            {/* Content */}
             <div className="relative z-10 min-h-screen flex flex-col">
-              {/* Header with Logo and Close Button */}
               <div
                 className="flex justify-between items-center p-6 border-b"
                 style={{ borderColor: "rgba(255, 255, 255, 0.2)" }}
@@ -845,7 +859,6 @@ const Navbar = () => {
                 </button>
               </div>
 
-              {/* Navigation Links */}
               <div className="flex-1 flex flex-col justify-center px-8 py-12 space-y-2">
                 {navLinks.map((link, index) => {
                   if (link.type === "link") {
@@ -900,7 +913,6 @@ const Navbar = () => {
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ delay: index * 0.05 }}
                       >
-                        {/* Dropdown Trigger */}
                         <button
                           onClick={() =>
                             setOpenMobileDropdown(
@@ -930,7 +942,6 @@ const Navbar = () => {
                           />
                         </button>
 
-                        {/* Dropdown Items */}
                         <AnimatePresence>
                           {isDropdownOpen && (
                             <motion.div
@@ -987,14 +998,12 @@ const Navbar = () => {
                   return null;
                 })}
 
-                {/* Contact Info & Language Switcher */}
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.5 }}
                   className="pt-8 space-y-4"
                 >
-                  {/* Language Switcher in Mobile Menu */}
                   <div className="px-6 py-4">
                     <p
                       className="text-xs font-semibold uppercase tracking-wider mb-3"

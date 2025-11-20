@@ -186,9 +186,8 @@ const Footer = () => {
                   WebkitTextFillColor: 'transparent',
                   backgroundClip: 'text',
                 }}>
-                  Global Shopfitters
+                  Global Shopfitters Zimbabwe
                 </span>
-                <span style={{ fontSize: '12px', color: 'rgba(255, 255, 255, 0.5)' }}>Zimbabwe</span>
               </div>
             </div>
             <p style={{ color: 'rgba(255, 255, 255, 0.7)', fontSize: '14px', lineHeight: '1.8' }}>
@@ -369,9 +368,6 @@ const Footer = () => {
                   <p style={{ color: 'rgba(255, 255, 255, 0.6)', fontSize: '14px', margin: '2px 0' }}>
                     Mon - Fri: 8:00 AM - 5:00 PM
                   </p>
-                  <p style={{ color: 'rgba(255, 255, 255, 0.6)', fontSize: '14px', margin: '2px 0' }}>
-                    Sat: 8:00 AM - 1:00 PM
-                  </p>
                 </div>
               </div>
             </div>
@@ -403,7 +399,7 @@ const Footer = () => {
               margin: 0,
               textAlign: 'center',
             }}>
-              © {currentYear} Global Shopfitters. {t('footer.rights')}
+              © {currentYear} Global Shopfitters Zimbabwe. {t('footer.rights')}
             </p>
             <p style={{ 
               color: 'rgba(255, 255, 255, 0.5)', 

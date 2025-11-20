@@ -202,7 +202,7 @@ ${formData.message}
     {
       icon: Clock,
       title: t("contact.info.hours"),
-      content: ["Mon - Fri: 8:00 AM - 5:00 PM", "Sat: 8:00 AM - 1:00 PM"],
+      content: ["Mon - Fri: 8:00 AM - 5:00 PM"],
       colorFrom: colors.darkOrange,
       colorTo: colors.chiliRed,
       link: null,
@@ -324,6 +324,7 @@ ${formData.message}
             position: "relative",
             zIndex: 10,
           }}
+          className="pt-16"
         >
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -1101,7 +1102,7 @@ ${formData.message}
                             marginBottom: "4px",
                           }}
                         >
-                          Global Shopfitters
+                          Global Shopfitters Zimbabwe
                         </strong>
                         <p
                           style={{

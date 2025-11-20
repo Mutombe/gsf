@@ -41,11 +41,11 @@ const services = [
       description: t('services.afterService.desc'),
       features: [
         '24/7 customer support hotline',
-        'Warranty coverage and claims',
         'Emergency repair services',
-        'Scheduled maintainance programs',
         'Parts replacement and supply',
-        'Technical troubleshooting assistance'
+        'Scheduled maintainance programs',
+        'Technical troubleshooting assistance',
+        'Warranty coverage and claims'
       ],
       colorFrom: colors.persimmon,
       colorTo: colors.tangerine,
@@ -57,11 +57,11 @@ const services = [
       description: t('services.consulting.desc'),
       features: [
         'Expert needs assessment and analysis',
+        'Regulatory compliance checks',
+        'Site evaluation and feasibility assessment',
         'Strategic planning and budgeting',
-        'Site evaluation and feasibility studies',
-        'Regulatory compliance consultation',
-        'Value engineering recommendations',
-        'Technical advisory services'
+        'Technical advisory services',
+        'Value engineering recommendations'
       ],
       colorFrom: colors.chiliRed,
       colorTo: colors.brightOrange,
@@ -72,12 +72,12 @@ const services = [
       title: t('services.design.title'),
       description: t('services.design.desc'),
       features: [
-        'Space planning and layout design',
-        '3D modeling and visualization',
-        'Custom fixture and furniture design',
+        '3D modeling and visualisation',
         'Brand-aligned aesthetic development',
-        'Material and finish selection',
-        'Detailed technical drawings'
+        'Custom fixture and furniture design',
+        'Detailed technical drawings',
+        'Material and finishes selection',
+        'Space planning and layout design'
       ],
       colorFrom: colors.brightOrange,
       colorTo: colors.amber,
@@ -88,11 +88,10 @@ const services = [
       title: t('services.engineering.title'),
       description: t('services.engineering.desc'),
       features: [
-        'Structural engineering solutions',
-        'MEP (Mechanical, Electrical, Plumbing) design',
         'Load calculations and specifications',
-        'Systems integration planning',
         'Performance optimization',
+        'Structural engineering solutions',
+        'Systems integration planning',
         'Technical documentation'
       ],
       colorFrom: colors.scarlet,
@@ -104,12 +103,12 @@ const services = [
       title: t('services.installation.title'),
       description: t('services.installation.desc'),
       features: [
-        'Professional on-site installation',
         'Certified installation teams',
         'Minimal business disruption',
+        'Ongoing maintainance contracts',
         'Post-installation cleanup',
-        'System testing and commissioning',
-        'Ongoing maintainance contracts'
+        'Professional on-site installation',
+        'System testing and commissioning'
       ],
       colorFrom: colors.chiliRed,
       colorTo: colors.darkOrange,
@@ -120,11 +119,11 @@ const services = [
       title: t('services.production.title'),
       description: t('services.production.desc'),
       features: [
-        'In-house manufacturing capabilities',
         'Custom fabrication services',
-        'Quality materials and finishes',
-        'Precision craftsmanship',
         'Efficient production workflows',
+        'In-house manufacturing capabilities',
+        'Precision craftsmanship',
+        'Quality materials and finishes',
         'Timely delivery schedules'
       ],
       colorFrom: colors.darkOrange,
@@ -136,12 +135,12 @@ const services = [
       title: t('services.projectManagement.title'),
       description: t('services.projectManagement.desc'),
       features: [
-        'End-to-end project coordination',
-        'Timeline and milestone tracking',
         'Budget management and control',
+        'End-to-end project coordination',
+        'Quality assurance oversight',
         'Risk assessment and mitigation',
         'Stakeholder communication',
-        'Quality assurance oversight'
+        'Timeline and milestone tracking'
       ],
       colorFrom: colors.safetyOrange,
       colorTo: colors.amber,
@@ -152,12 +151,12 @@ const services = [
       title: t('services.testing.title'),
       description: t('services.testing.desc'),
       features: [
-        'Quality control inspections',
-        'Material testing and verification',
-        'Load and stress testing',
         'Compliance and safety testing',
+        'Load and stress testing',
+        'Material testing and verification',
         'Performance validation',
-        'Pre-installation testing protocols'
+        'Pre-installation testing protocols',
+        'Quality control inspections'
       ],
       colorFrom: colors.flame,
       colorTo: colors.safetyOrange,
@@ -174,7 +173,7 @@ const services = [
     {
       step: '02',
       title: 'Design',
-      description: 'Our team creates detailed designs and 3D visualizations',
+      description: 'Our team creates detailed designs and 3D visualisations',
       icon: PenTool,
     },
     {
@@ -657,7 +656,7 @@ const services = [
             viewport={{ once: true }}
             style={{ marginBottom: '48px', textAlign: 'center' }}
           >
-            <h2 style={sectionTitleStyle}>Why Choose Us</h2>
+            <h2 style={sectionTitleStyle}>Why choose us</h2>
             <p style={sectionSubtitleStyle}>
               The benefits of working with professionals
             </p>

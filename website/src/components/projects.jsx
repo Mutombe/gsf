@@ -439,8 +439,212 @@ const Projects = () => {
   };
 
   // Handle brochure download
-  const handleDownloadBrochure = (project) => {
-    alert(`Downloading brochure for ${project.title}`);
+  const handleDownloadBrochure = async (project) => {
+    try {
+      // Dynamic import of jsPDF
+      const { jsPDF } = await import('jspdf');
+      
+      const doc = new jsPDF('p', 'mm', 'a4');
+      const pageWidth = doc.internal.pageSize.getWidth();
+      const pageHeight = doc.internal.pageSize.getHeight();
+      const margin = 15;
+      const contentWidth = pageWidth - (2 * margin);
+      let yPosition = margin;
+
+      // Helper function to add new page if needed
+      const checkAndAddPage = (requiredHeight) => {
+        if (yPosition + requiredHeight > pageHeight - margin) {
+          doc.addPage();
+          yPosition = margin;
+          return true;
+        }
+        return false;
+      };
+
+      // Helper function to load image as base64
+      const getImageData = (url) => {
+        return new Promise((resolve, reject) => {
+          const img = new Image();
+          img.crossOrigin = 'Anonymous';
+          img.onload = () => {
+            const canvas = document.createElement('canvas');
+            canvas.width = img.width;
+            canvas.height = img.height;
+            const ctx = canvas.getContext('2d');
+            ctx.drawImage(img, 0, 0);
+            resolve(canvas.toDataURL('image/jpeg', 0.8));
+          };
+          img.onerror = () => resolve(null);
+          img.src = url;
+        });
+      };
+
+      // Header with gradient background
+      doc.setFillColor(227, 24, 13);
+      doc.rect(0, 0, pageWidth, 50, 'F');
+      
+      // Company name/logo area
+      doc.setTextColor(255, 255, 255);
+      doc.setFontSize(24);
+      doc.setFont(undefined, 'bold');
+      doc.text('PROJECT BROCHURE', pageWidth / 2, 20, { align: 'center' });
+      
+      // Project title
+      doc.setFontSize(18);
+      doc.text(project.title, pageWidth / 2, 35, { align: 'center' });
+      
+      yPosition = 60;
+
+      // Project info section
+      doc.setTextColor(0, 0, 0);
+      doc.setFontSize(10);
+      doc.setFont(undefined, 'normal');
+      
+      const infoText = `${project.location} • ${project.date} • ${project.category.toUpperCase()}`;
+      doc.text(infoText, pageWidth / 2, yPosition, { align: 'center' });
+      
+      yPosition += 15;
+
+      // Stats section
+      doc.setFillColor(245, 245, 245);
+      doc.rect(margin, yPosition, contentWidth, 30, 'F');
+      
+      doc.setFontSize(9);
+      doc.setFont(undefined, 'bold');
+      doc.setTextColor(102, 102, 102);
+      
+      const statsEntries = Object.entries(project.stats);
+      const statWidth = contentWidth / statsEntries.length;
+      
+      statsEntries.forEach(([key, value], index) => {
+        const xPos = margin + (index * statWidth) + (statWidth / 2);
+        doc.text(key.toUpperCase(), xPos, yPosition + 10, { align: 'center' });
+        doc.setFontSize(12);
+        doc.setTextColor(0, 0, 0);
+        doc.text(value, xPos, yPosition + 20, { align: 'center' });
+        doc.setFontSize(9);
+        doc.setTextColor(102, 102, 102);
+      });
+      
+      yPosition += 40;
+
+      // Before/After Images
+      checkAndAddPage(85);
+      doc.setFontSize(14);
+      doc.setFont(undefined, 'bold');
+      doc.setTextColor(227, 24, 13);
+      doc.text('BEFORE & AFTER', margin, yPosition);
+      yPosition += 8;
+
+      // Load and add before image
+      const beforeImageData = await getImageData(project.beforeImage);
+      if (beforeImageData) {
+        doc.text('Before:', margin, yPosition, { fontSize: 10 });
+        yPosition += 5;
+        doc.addImage(beforeImageData, 'JPEG', margin, yPosition, contentWidth / 2 - 5, 60);
+      }
+
+      // Load and add after image
+      const afterImageData = await getImageData(project.afterImage);
+      if (afterImageData) {
+        doc.text('After:', pageWidth / 2 + 5, yPosition - 5, { fontSize: 10 });
+        doc.addImage(afterImageData, 'JPEG', pageWidth / 2 + 5, yPosition, contentWidth / 2 - 5, 60);
+      }
+      
+      yPosition += 70;
+
+      // Description section
+      checkAndAddPage(40);
+      doc.setFontSize(14);
+      doc.setFont(undefined, 'bold');
+      doc.setTextColor(227, 24, 13);
+      doc.text('PROJECT OVERVIEW', margin, yPosition);
+      yPosition += 8;
+
+      doc.setFontSize(10);
+      doc.setFont(undefined, 'normal');
+      doc.setTextColor(0, 0, 0);
+      const splitDescription = doc.splitTextToSize(project.fullDescription, contentWidth);
+      doc.text(splitDescription, margin, yPosition);
+      yPosition += splitDescription.length * 5 + 10;
+
+      // Features section
+      checkAndAddPage(40);
+      doc.setFontSize(14);
+      doc.setFont(undefined, 'bold');
+      doc.setTextColor(227, 24, 13);
+      doc.text('KEY FEATURES', margin, yPosition);
+      yPosition += 8;
+
+      doc.setFontSize(10);
+      doc.setFont(undefined, 'normal');
+      doc.setTextColor(0, 0, 0);
+      
+      project.features.forEach((feature) => {
+        checkAndAddPage(10);
+        doc.setFillColor(227, 24, 13);
+        doc.circle(margin + 2, yPosition - 1.5, 1.5, 'F');
+        doc.text(feature, margin + 6, yPosition);
+        yPosition += 7;
+      });
+
+      yPosition += 10;
+
+      // Gallery section
+      if (project.gallery && project.gallery.length > 0) {
+        checkAndAddPage(85);
+        doc.setFontSize(14);
+        doc.setFont(undefined, 'bold');
+        doc.setTextColor(227, 24, 13);
+        doc.text('PROJECT GALLERY', margin, yPosition);
+        yPosition += 8;
+
+        const imagesPerRow = 2;
+        const imageWidth = (contentWidth - 10) / imagesPerRow;
+        const imageHeight = 50;
+        
+        for (let i = 0; i < Math.min(project.gallery.length, 6); i++) {
+          const col = i % imagesPerRow;
+          const row = Math.floor(i / imagesPerRow);
+          
+          if (col === 0 && i > 0) {
+            yPosition += imageHeight + 5;
+            checkAndAddPage(imageHeight + 10);
+          }
+          
+          const xPos = margin + (col * (imageWidth + 5));
+          const galleryImageData = await getImageData(project.gallery[i]);
+          
+          if (galleryImageData) {
+            doc.addImage(galleryImageData, 'JPEG', xPos, yPosition, imageWidth, imageHeight);
+          }
+        }
+        
+        yPosition += imageHeight + 10;
+      }
+
+      // Footer
+      const totalPages = doc.internal.pages.length - 1;
+      for (let i = 1; i <= totalPages; i++) {
+        doc.setPage(i);
+        doc.setFontSize(8);
+        doc.setTextColor(150, 150, 150);
+        doc.text(
+          `Global Shopfitters Zimbabwe • Page ${i} of ${totalPages}`,
+          pageWidth / 2,
+          pageHeight - 10,
+          { align: 'center' }
+        );
+      }
+
+      // Save the PDF
+      const filename = `${project.title.replace(/\s+/g, '_')}_Brochure.pdf`;
+      doc.save(filename);
+      
+    } catch (error) {
+      console.error('Error generating PDF:', error);
+      alert('Error generating brochure. Please try again.');
+    }
   };
 
   // Handle share
@@ -477,9 +681,9 @@ const Projects = () => {
         <div style={{
           position: 'absolute',
           inset: 0,
-          backgroundImage: 'url("/8WhiteswayWorkshop-20251115T121447Z-1-001/IMG-20251111-WA0126.jpg")',
+          backgroundImage: 'url("/GSZOn-site/14.jpeg")',
           backgroundSize: 'cover',
-          backgroundPosition: 'center',
+          backgroundPosition: 'top center',
         }}></div>
 
         {/* Gradient Overlay */}
@@ -510,21 +714,6 @@ const Projects = () => {
             transition={{ duration: 0.8 }}
             style={{ textAlign: 'center', maxWidth: '896px', margin: '0 auto' }}
           >
-            <motion.div
-              initial={{ scale: 0.9, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              transition={{ delay: 0.2, duration: 0.6 }}
-              style={{
-                display: 'inline-block',
-                padding: isMobile ? '6px 16px' : '8px 20px',
-                background: 'rgba(255, 255, 255, 0.2)',
-                backdropFilter: 'blur(10px)',
-                borderRadius: '5px',
-                marginBottom: isMobile ? '16px' : '24px',
-                border: '1px solid rgba(255, 255, 255, 0.3)',
-              }}
-            >
-            </motion.div>
             <h1 style={{
               fontSize: isMobile ? '2.5rem' : 'clamp(2.5rem, 8vw, 5rem)',
               fontWeight: '800',

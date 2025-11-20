@@ -46,7 +46,7 @@ const FAQ = () => {
   const faqs = [
     {
       category: 'services',
-      question: 'What services does Global Shopfitters provide?',
+      question: 'What services does Global Shopfitters Zimbabwe provide?',
       answer: 'We provide comprehensive shopfitting solutions including commercial and residential design, custom fixtures, shelving systems, refrigeration solutions, signage and branding, design consultation, and ongoing maintainance services. Our team handles everything from initial concept to final installation.',
       popular: true,
       icon: Package,
@@ -124,7 +124,7 @@ const FAQ = () => {
     {
       category: 'process',
       question: 'What is the consultation process?',
-      answer: 'Our consultation process starts with an initial meeting to understand your needs and vision. We then conduct a site survey, develop design concepts, provide 3D and 2D visualizations, and prepare a detailed proposal. The entire consultation is free with no obligation.',
+      answer: 'Our consultation process starts with an initial meeting to understand your needs and vision. We then conduct a site survey, develop design concepts, provide 3D and 2D visualisations, and prepare a detailed proposal. The entire consultation is free with no obligation.',
       popular: false,
       icon: Users,
     },
@@ -324,6 +324,7 @@ const FAQ = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             style={{ textAlign: 'center', maxWidth: '896px', margin: '0 auto' }}
+            className="pt-16"
           >
             {/* Icon Badge */}
             <motion.div

@@ -36,7 +36,7 @@ const Testimonials = () => {
       role: 'Store Manager',
       company: 'SuperMart Harare',
       rating: 5,
-      text: 'Global Shopfitters exceeded our expectations! From the initial consultation to the final installation, everything was handled professionally. Our store looks amazing and customers love the new layout.',
+      text: 'Global Shopfitters Zimbabwe exceeded our expectations! From the initial consultation to the final installation, everything was handled professionally. Our store looks amazing and customers love the new layout.',
       source: 'google',
       date: '2 weeks ago',
       image: '/placeh.png',
@@ -241,6 +241,7 @@ const Testimonials = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             style={{ textAlign: 'center' }}
+            className='pt-16'
           >
             {/* Badge */}
             <motion.div
@@ -298,7 +299,7 @@ const Testimonials = () => {
               maxWidth: '800px',
               margin: '0 auto 40px',
             }}>
-              See what our clients have to say about their experience working with Global Shopfitters
+              See what our clients have to say about their experience working with Global Shopfitters Zimbabwe
             </p>
 
             {/* Stats Row */}

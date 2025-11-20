@@ -16,7 +16,7 @@ export const translations = {
     nav: {
       home: 'Home',
       about: 'About Us',
-      services: 'Services',
+      services: 'Our Standards',
       products: 'Products',
       projects: 'Projects',
       gallery: 'Gallery',
@@ -41,11 +41,11 @@ export const translations = {
         satisfaction: 'Satisfaction Rate',
       },
       services: {
-        title: 'Our Services',
+        title: 'Our Standards',
         subtitle: 'Comprehensive shopfitting solutions tailored to your business needs',
       },
       whyUs: {
-        title: 'Why Choose Global Shopfitters',
+        title: 'Why choose Global Shopfitters Zimbabwe',
         subtitle: 'Excellence in every detail',
       },
       cta: {
@@ -56,11 +56,11 @@ export const translations = {
     },
     // About Page
     about: {
-      title: 'About Global Shopfitters',
+      title: 'About Global Shopfitters Zimbabwe',
       subtitle: 'Your Trusted Partner in Shopfitting Excellence',
       story: {
         title: 'Our Story',
-        text: 'Global Shopfitters, trading as Mukuvisi Manufacturing (Private) Limited, is Zimbabwe\'s premium shopfitting company. We specialize in creating innovative spaces that combine functionality with aesthetic appeal.',
+        text: 'Trading as Global Shopfitters Zimbabwe, Mukuvisi Manufacturing (Private) Limited, is Zimbabwe\'s premium shopfitting company. We specialize in creating innovative spaces that combine functionality with aesthetic appeal.',
       },
       mission: {
         title: 'Our Mission',
@@ -91,7 +91,7 @@ export const translations = {
         desc: 'Expert consultation services to understand your needs, assess feasibility, and plan your perfect space.',
       },
       engineering: {
-        title: 'Engineering',
+        title: 'Technical',
         desc: 'Technical engineering solutions ensuring structural integrity, safety compliance, and optimal functionality.',
       },
       design: {
@@ -99,8 +99,8 @@ export const translations = {
         desc: 'Creative and functional design services bringing your vision to life with 3D visualization and detailed planning.',
       },
       testing: {
-        title: 'Testing',
-        desc: 'Rigorous quality control and testing procedures to ensure all materials and installations meet the highest standards.',
+        title: 'Quality',
+        desc: 'Rigorous Quality control procedures to ensure all fit-outs meet the highest standards',
       },
       production: {
         title: 'Production',
@@ -108,7 +108,7 @@ export const translations = {
       },
       afterService: {
         title: 'After Service Support',
-        desc: 'Comprehensive post-installation support including warranty coverage, maintainance, and 24/7 customer assistance.',
+        desc: 'We do not abandon you. We attend to all and any snags post Installation to ensure you are 100% satisfied.',
       },
       projectManagement: {
         title: 'Project Management',
@@ -116,7 +116,7 @@ export const translations = {
       },
       installation: {
         title: 'Installation & Maintainance',
-        desc: 'Professional installation services with certified teams and ongoing maintainance programs.',
+        desc: 'Professional installation services with trained and certified teams and ongoing maintainance programs.',
       },
     },
     // Products Page
@@ -157,7 +157,7 @@ export const translations = {
     // Footer
     footer: {
       about: 'About Us',
-      aboutText: 'Global Shopfitters is Zimbabwe\'s premium shopfitting company, delivering excellence in space transformation.',
+      aboutText: 'Global Shopfitters Zimbabwe is Zimbabwe\'s premium shopfitting company, delivering excellence in space transformation.',
       quickLinks: 'Quick Links',
       services: 'Services',
       followUs: 'Follow Us',
@@ -210,7 +210,7 @@ export const translations = {
         subtitle: 'Izixazululo ezipheleleyo zokwakha izitolo ezilungele ibhizinisi lakho',
       },
       whyUs: {
-        title: 'Kungani Ukhetha I-Global Shopfitters',
+        title: 'Kungani Ukhetha I-Global Shopfitters Zimbabwe',
         subtitle: 'Ubuhle emisebenzini yonke',
       },
       cta: {
@@ -221,11 +221,11 @@ export const translations = {
     },
     // About Page (Ndebele)
     about: {
-      title: 'Nge-Global Shopfitters',
+      title: 'Nge-Global Shopfitters Zimbabwe',
       subtitle: 'Umlingani Wakho Othembekileyo Ekuthengiseni Okuhle',
       story: {
         title: 'Indaba Yethu',
-        text: 'I-Global Shopfitters, ethengisa ngaphansi kwe-Mukuvisi Manufacturing (Private) Limited, yinkampani ephambili yokwakha izitolo eZimbabwe. Sizwa ngokudala iindawo zokuthengisela ezintsha ezihlanganisa ukusebenza lobuhle.',
+        text: 'I-Global Shopfitters Zimbabwe, ethengisa ngaphansi kwe-Mukuvisi Manufacturing (Private) Limited, yinkampani ephambili yokwakha izitolo eZimbabwe. Sizwa ngokudala iindawo zokuthengisela ezintsha ezihlanganisa ukusebenza lobuhle.',
       },
       mission: {
         title: 'Injongo Yethu',
@@ -322,7 +322,7 @@ export const translations = {
     // Footer (Ndebele)
     footer: {
       about: 'Ngathi',
-      aboutText: 'I-Global Shopfitters yinkampani ephambili yokwakha izitolo eZimbabwe, inikela ngobuhle ekuguquleni iindawo zokuthengisa.',
+      aboutText: 'I-Global Shopfitters Zimbabwe yinkampani ephambili yokwakha izitolo eZimbabwe, inikela ngobuhle ekuguquleni iindawo zokuthengisa.',
       quickLinks: 'Izixhumanisi Ezishesha',
       services: 'Izinsizakalo',
       followUs: 'Sihambele',
@@ -375,7 +375,7 @@ export const translations = {
         subtitle: 'Soluciones integrales de equipamiento comercial adaptadas a sus necesidades',
       },
       whyUs: {
-        title: 'Por Qué Elegir Global Shopfitters',
+        title: 'Por Qué Elegir Global Shopfitters Zimbabwe',
         subtitle: 'Excelencia en cada detalle',
       },
       cta: {
@@ -386,11 +386,11 @@ export const translations = {
     },
     // About Page (Spanish)
     about: {
-      title: 'Acerca de Global Shopfitters',
+      title: 'Acerca de Global Shopfitters Zimbabwe',
       subtitle: 'Su Socio de Confianza en Excelencia Minorista',
       story: {
         title: 'Nuestra Historia',
-        text: 'Global Shopfitters, operando como Mukuvisi Manufacturing (Private) Limited, es la principal empresa de equipamiento comercial de Zimbabwe. Nos especializamos en crear espacios minoristas innovadores que combinan funcionalidad con atractivo estético.',
+        text: 'Global Shopfitters Zimbabwe, operando como Mukuvisi Manufacturing (Private) Limited, es la principal empresa de equipamiento comercial de Zimbabwe. Nos especializamos en crear espacios minoristas innovadores que combinan funcionalidad con atractivo estético.',
       },
       mission: {
         title: 'Nuestra Misión',
@@ -487,7 +487,7 @@ export const translations = {
     // Footer (Spanish)
     footer: {
       about: 'Nosotros',
-      aboutText: 'Global Shopfitters es la principal empresa de equipamiento comercial de Zimbabwe, ofreciendo excelencia en la transformación de espacios minoristas.',
+      aboutText: 'Global Shopfitters Zimbabwe es la principal empresa de equipamiento comercial de Zimbabwe, ofreciendo excelencia en la transformación de espacios minoristas.',
       quickLinks: 'Enlaces Rápidos',
       services: 'Servicios',
       followUs: 'Síguenos',
