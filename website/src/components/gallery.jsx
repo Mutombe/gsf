@@ -72,8 +72,8 @@ const Gallery = () => {
       icon: Building2,
       count: 48,
       color: colors.blue,
-      gradient: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
-      bgPattern: "radial-gradient(circle at 20% 50%, rgba(255,255,255,0.1) 0%, transparent 50%)",
+      gradient: "linear-gradient(135deg, #ea6666ff 0%, #a27c4bff 100%)",
+      bgPattern: "radial-gradient(circle at 20% 50%, rgba(223, 199, 82, 0.1) 0%, transparent 50%)",
     },
     {
       id: "workshop",
@@ -82,7 +82,7 @@ const Gallery = () => {
       icon: Wrench,
       count: 46,
       color: colors.chiliRed,
-      gradient: "linear-gradient(135deg, #f093fb 0%, #f5576c 100%)",
+      gradient: "linear-gradient(135deg, #c7ce00ff 0%, #f5576c 100%)",
       bgPattern: "radial-gradient(circle at 80% 20%, rgba(255,255,255,0.1) 0%, transparent 50%)",
     },
   ];
