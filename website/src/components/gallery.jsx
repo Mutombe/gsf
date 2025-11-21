@@ -321,7 +321,7 @@ const Gallery = () => {
             position: "relative",
             zIndex: 10,
           }}
-          className="pt-16"
+          className="pt-20"
         >
           <motion.div
             initial={{ opacity: 0, y: 30 }}
