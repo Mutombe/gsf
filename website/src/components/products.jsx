@@ -755,7 +755,7 @@ const Products = () => {
         {/* Background Image */}
         <div
           className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: 'url("/GSZOn-site/11.jpeg")' }}
+          style={{ backgroundImage: 'url("/22.jpeg")' }}
         ></div>
 
         {/* Dark Overlay */}

@@ -431,7 +431,7 @@ const Home = () => {
           />
 
           {/* Reduced image grid - only 20 images instead of 100 */}
-          <div className="absolute inset-0 grid grid-cols-4 md:grid-cols-5 gap-2 p-4 transform -rotate-12 scale-125">
+          <div className="absolute inset-0 grid grid-cols-4 md:grid-cols-5 gap-0.5 p-4 transform -rotate-12 scale-125">
             {heroImages.concat(heroImages).map((img, index) => (
               <motion.div
                 key={index}
