@@ -73,7 +73,8 @@ const Gallery = () => {
       count: 48,
       color: colors.blue,
       gradient: "linear-gradient(135deg, #ea6666ff 0%, #a27c4bff 100%)",
-      bgPattern: "radial-gradient(circle at 20% 50%, rgba(223, 199, 82, 0.1) 0%, transparent 50%)",
+      bgPattern:
+        "radial-gradient(circle at 20% 50%, rgba(223, 199, 82, 0.1) 0%, transparent 50%)",
     },
     {
       id: "workshop",
@@ -83,109 +84,862 @@ const Gallery = () => {
       count: 46,
       color: colors.chiliRed,
       gradient: "linear-gradient(135deg, #c7ce00ff 0%, #f5576c 100%)",
-      bgPattern: "radial-gradient(circle at 80% 20%, rgba(255,255,255,0.1) 0%, transparent 50%)",
+      bgPattern:
+        "radial-gradient(circle at 80% 20%, rgba(255,255,255,0.1) 0%, transparent 50%)",
     },
   ];
 
   // All images organized by folder
   const allImages = {
     onsite: [
-      { id: "os1", folder: "onsite", category: "Site Installation", title: "Team Briefing", url: "/GSZOn-site/1.jpeg", size: "medium", color: colors.chiliRed },
-      { id: "os2", folder: "onsite", category: "Site Installation", title: "Project Planning", url: "/GSZOn-site/2.jpeg", size: "medium", color: colors.brightOrange },
-      { id: "os3", folder: "onsite", category: "Site Installation", title: "Safety Discussion", url: "/GSZOn-site/3.jpeg", size: "small", color: colors.amber },
-      { id: "os4", folder: "onsite", category: "Frame Installation", title: "Aluminum Frame Setup", url: "/GSZOn-site/4.jpeg", size: "large", color: colors.scarlet },
-      { id: "os5", folder: "onsite", category: "Frame Installation", title: "Structural Assembly", url: "/GSZOn-site/5.jpeg", size: "medium", color: colors.darkOrange },
-      { id: "os6", folder: "onsite", category: "Glass Installation", title: "Panel Positioning", url: "/GSZOn-site/6.jpeg", size: "small", color: colors.safetyOrange },
-      { id: "os7", folder: "onsite", category: "Glass Installation", title: "Glass Fitting", url: "/GSZOn-site/7.jpeg", size: "medium", color: colors.tangerine },
-      { id: "os8", folder: "onsite", category: "Frame Installation", title: "Frame Alignment", url: "/GSZOn-site/8.jpeg", size: "large", color: colors.mustardYellow },
-      { id: "os9", folder: "onsite", category: "Site Work", title: "Installation Progress", url: "/GSZOn-site/9.jpeg", size: "small", color: colors.persimmon },
-      { id: "os10", folder: "onsite", category: "Glass Installation", title: "Panel Installation", url: "/GSZOn-site/10.jpeg", size: "medium", color: colors.flame },
-      { id: "os11", folder: "onsite", category: "Glass Installation", title: "Glass Alignment", url: "/GSZOn-site/11.jpeg", size: "large", color: colors.bloodOrange },
-      { id: "os12", folder: "onsite", category: "Site Work", title: "Team Collaboration", url: "/GSZOn-site/12.jpeg", size: "medium", color: colors.brightOrange },
-      { id: "os13", folder: "onsite", category: "Frame Installation", title: "Frame Measurement", url: "/GSZOn-site/13.jpeg", size: "small", color: colors.chiliRed },
-      { id: "os14", folder: "onsite", category: "Site Installation", title: "Building Exterior", url: "/GSZOn-site/14.jpeg", size: "medium", color: colors.darkOrange },
-      { id: "os15", folder: "onsite", category: "Floor Work", title: "Ground Level Installation", url: "/GSZOn-site/15.jpeg", size: "large", color: colors.amber },
-      { id: "os16", folder: "onsite", category: "Floor Work", title: "Foundation Work", url: "/GSZOn-site/16.jpeg", size: "small", color: colors.safetyOrange },
-      { id: "os17", folder: "onsite", category: "Floor Work", title: "Base Installation", url: "/GSZOn-site/17.jpeg", size: "medium", color: colors.tangerine },
-      { id: "os18", folder: "onsite", category: "Measurement", title: "Floor Leveling", url: "/GSZOn-site/18.jpeg", size: "large", color: colors.scarlet },
-      { id: "os19", folder: "onsite", category: "Floor Work", title: "Surface Preparation", url: "/GSZOn-site/19.jpeg", size: "small", color: colors.mustardYellow },
-      { id: "os20", folder: "onsite", category: "Measurement", title: "Precision Measuring", url: "/GSZOn-site/20.jpeg", size: "medium", color: colors.persimmon },
-      { id: "os21", folder: "onsite", category: "Floor Work", title: "Installation Detail", url: "/GSZOn-site/21.jpeg", size: "large", color: colors.flame },
-      { id: "os22", folder: "onsite", category: "Floor Work", title: "Detail Work", url: "/GSZOn-site/22.jpeg", size: "medium", color: colors.brightOrange },
-      { id: "os23", folder: "onsite", category: "Team Work", title: "Collaborative Installation", url: "/GSZOn-site/23.jpeg", size: "small", color: colors.bloodOrange },
-      { id: "os24", folder: "onsite", category: "Team Work", title: "Joint Effort", url: "/GSZOn-site/24.jpeg", size: "medium", color: colors.chiliRed },
-      { id: "os25", folder: "onsite", category: "Glass Facade", title: "Evening Installation", url: "/GSZOn-site/25.jpeg", size: "large", color: colors.darkOrange },
-      { id: "os26", folder: "onsite", category: "Glass Facade", title: "Night Work", url: "/GSZOn-site/26.jpeg", size: "small", color: colors.amber },
-      { id: "os27", folder: "onsite", category: "Glass Facade", title: "Exterior Glazing", url: "/GSZOn-site/27.jpeg", size: "medium", color: colors.safetyOrange },
-      { id: "os28", folder: "onsite", category: "Glass Facade", title: "Facade Installation", url: "/GSZOn-site/28.jpeg", size: "large", color: colors.tangerine },
-      { id: "os29", folder: "onsite", category: "Interior Work", title: "Interior Frame", url: "/GSZOn-site/29.jpeg", size: "small", color: colors.scarlet },
-      { id: "os30", folder: "onsite", category: "Glass Facade", title: "Panel Fixing", url: "/GSZOn-site/30.jpeg", size: "medium", color: colors.mustardYellow },
-      { id: "os31", folder: "onsite", category: "Interior Work", title: "Indoor Installation", url: "/GSZOn-site/31.jpeg", size: "large", color: colors.persimmon },
-      { id: "os32", folder: "onsite", category: "Interior Work", title: "Internal Frame", url: "/GSZOn-site/32.jpeg", size: "medium", color: colors.flame },
-      { id: "os33", folder: "onsite", category: "Team Work", title: "Group Installation", url: "/GSZOn-site/33.jpeg", size: "small", color: colors.brightOrange },
-      { id: "os34", folder: "onsite", category: "Team Work", title: "Team Assembly", url: "/GSZOn-site/34.jpeg", size: "medium", color: colors.bloodOrange },
-      { id: "os35", folder: "onsite", category: "Team Work", title: "Coordinated Work", url: "/GSZOn-site/35.jpeg", size: "large", color: colors.chiliRed },
-      { id: "os36", folder: "onsite", category: "Team Work", title: "Project Execution", url: "/GSZOn-site/36.jpeg", size: "small", color: colors.darkOrange },
-      { id: "os37", folder: "onsite", category: "Team Work", title: "Installation Team", url: "/GSZOn-site/37.jpeg", size: "medium", color: colors.amber },
-      { id: "os38", folder: "onsite", category: "Floor Work", title: "Ground Work", url: "/GSZOn-site/38.jpeg", size: "large", color: colors.safetyOrange },
-      { id: "os39", folder: "onsite", category: "Interior Work", title: "Interior Detail", url: "/GSZOn-site/39.jpeg", size: "small", color: colors.tangerine },
-      { id: "os40", folder: "onsite", category: "Floor Work", title: "Floor Installation", url: "/GSZOn-site/40.jpeg", size: "medium", color: colors.scarlet },
-      { id: "os41", folder: "onsite", category: "Floor Work", title: "Base Work", url: "/GSZOn-site/41.jpeg", size: "large", color: colors.mustardYellow },
-      { id: "os42", folder: "onsite", category: "Measurement", title: "Precision Check", url: "/GSZOn-site/42.jpeg", size: "medium", color: colors.persimmon },
-      { id: "os43", folder: "onsite", category: "Floor Work", title: "Surface Work", url: "/GSZOn-site/43.jpeg", size: "small", color: colors.flame },
-      { id: "os44", folder: "onsite", category: "Measurement", title: "Level Check", url: "/GSZOn-site/44.jpeg", size: "medium", color: colors.brightOrange },
-      { id: "os45", folder: "onsite", category: "Team Work", title: "Team Discussion", url: "/GSZOn-site/45.jpeg", size: "large", color: colors.bloodOrange },
-      { id: "os46", folder: "onsite", category: "Team Work", title: "Project Review", url: "/GSZOn-site/46.jpeg", size: "small", color: colors.chiliRed },
-      { id: "os47", folder: "onsite", category: "Team Work", title: "Site Meeting", url: "/GSZOn-site/47.jpeg", size: "medium", color: colors.darkOrange },
-      { id: "os48", folder: "onsite", category: "Team Work", title: "Planning Session", url: "/GSZOn-site/48.jpeg", size: "large", color: colors.amber },
+      {
+        id: "os1",
+        folder: "onsite",
+        category: "Site Installation",
+        title: "Team Briefing",
+        url: "/GSZOn-site/1.jpeg",
+        size: "medium",
+        color: colors.chiliRed,
+      },
+      {
+        id: "os2",
+        folder: "onsite",
+        category: "Site Installation",
+        title: "Project Planning",
+        url: "/GSZOn-site/2.jpeg",
+        size: "medium",
+        color: colors.brightOrange,
+      },
+      {
+        id: "os3",
+        folder: "onsite",
+        category: "Site Installation",
+        title: "Safety Discussion",
+        url: "/GSZOn-site/3.jpeg",
+        size: "small",
+        color: colors.amber,
+      },
+      {
+        id: "os4",
+        folder: "onsite",
+        category: "Frame Installation",
+        title: "Aluminum Frame Setup",
+        url: "/GSZOn-site/4.jpeg",
+        size: "large",
+        color: colors.scarlet,
+      },
+      {
+        id: "os5",
+        folder: "onsite",
+        category: "Frame Installation",
+        title: "Structural Assembly",
+        url: "/GSZOn-site/5.jpeg",
+        size: "medium",
+        color: colors.darkOrange,
+      },
+      {
+        id: "os6",
+        folder: "onsite",
+        category: "Glass Installation",
+        title: "Panel Positioning",
+        url: "/GSZOn-site/6.jpeg",
+        size: "small",
+        color: colors.safetyOrange,
+      },
+      {
+        id: "os7",
+        folder: "onsite",
+        category: "Glass Installation",
+        title: "Glass Fitting",
+        url: "/GSZOn-site/7.jpeg",
+        size: "medium",
+        color: colors.tangerine,
+      },
+      {
+        id: "os8",
+        folder: "onsite",
+        category: "Frame Installation",
+        title: "Frame Alignment",
+        url: "/GSZOn-site/8.jpeg",
+        size: "large",
+        color: colors.mustardYellow,
+      },
+      {
+        id: "os9",
+        folder: "onsite",
+        category: "Site Work",
+        title: "Installation Progress",
+        url: "/GSZOn-site/9.jpeg",
+        size: "small",
+        color: colors.persimmon,
+      },
+      {
+        id: "os10",
+        folder: "onsite",
+        category: "Glass Installation",
+        title: "Panel Installation",
+        url: "/GSZOn-site/10.jpeg",
+        size: "medium",
+        color: colors.flame,
+      },
+      {
+        id: "os11",
+        folder: "onsite",
+        category: "Glass Installation",
+        title: "Glass Alignment",
+        url: "/GSZOn-site/11.jpeg",
+        size: "large",
+        color: colors.bloodOrange,
+      },
+      {
+        id: "os12",
+        folder: "onsite",
+        category: "Site Work",
+        title: "Team Collaboration",
+        url: "/GSZOn-site/12.jpeg",
+        size: "medium",
+        color: colors.brightOrange,
+      },
+      {
+        id: "os13",
+        folder: "onsite",
+        category: "Frame Installation",
+        title: "Frame Measurement",
+        url: "/GSZOn-site/13.jpeg",
+        size: "small",
+        color: colors.chiliRed,
+      },
+      {
+        id: "os14",
+        folder: "onsite",
+        category: "Site Installation",
+        title: "Building Exterior",
+        url: "/GSZOn-site/14.jpeg",
+        size: "medium",
+        color: colors.darkOrange,
+      },
+      {
+        id: "os15",
+        folder: "onsite",
+        category: "Floor Work",
+        title: "Ground Level Installation",
+        url: "/GSZOn-site/15.jpeg",
+        size: "large",
+        color: colors.amber,
+      },
+      {
+        id: "os16",
+        folder: "onsite",
+        category: "Floor Work",
+        title: "Foundation Work",
+        url: "/GSZOn-site/16.jpeg",
+        size: "small",
+        color: colors.safetyOrange,
+      },
+      {
+        id: "os17",
+        folder: "onsite",
+        category: "Floor Work",
+        title: "Base Installation",
+        url: "/GSZOn-site/17.jpeg",
+        size: "medium",
+        color: colors.tangerine,
+      },
+      {
+        id: "os18",
+        folder: "onsite",
+        category: "Measurement",
+        title: "Floor Leveling",
+        url: "/GSZOn-site/18.jpeg",
+        size: "large",
+        color: colors.scarlet,
+      },
+      {
+        id: "os19",
+        folder: "onsite",
+        category: "Floor Work",
+        title: "Surface Preparation",
+        url: "/GSZOn-site/19.jpeg",
+        size: "small",
+        color: colors.mustardYellow,
+      },
+      {
+        id: "os20",
+        folder: "onsite",
+        category: "Measurement",
+        title: "Precision Measuring",
+        url: "/GSZOn-site/20.jpeg",
+        size: "medium",
+        color: colors.persimmon,
+      },
+      {
+        id: "os21",
+        folder: "onsite",
+        category: "Floor Work",
+        title: "Installation Detail",
+        url: "/GSZOn-site/21.jpeg",
+        size: "large",
+        color: colors.flame,
+      },
+      {
+        id: "os22",
+        folder: "onsite",
+        category: "Floor Work",
+        title: "Detail Work",
+        url: "/GSZOn-site/22.jpeg",
+        size: "medium",
+        color: colors.brightOrange,
+      },
+      {
+        id: "os23",
+        folder: "onsite",
+        category: "Team Work",
+        title: "Collaborative Installation",
+        url: "/GSZOn-site/23.jpeg",
+        size: "small",
+        color: colors.bloodOrange,
+      },
+      {
+        id: "os24",
+        folder: "onsite",
+        category: "Team Work",
+        title: "Joint Effort",
+        url: "/GSZOn-site/24.jpeg",
+        size: "medium",
+        color: colors.chiliRed,
+      },
+      {
+        id: "os25",
+        folder: "onsite",
+        category: "Glass Facade",
+        title: "Evening Installation",
+        url: "/GSZOn-site/25.jpeg",
+        size: "large",
+        color: colors.darkOrange,
+      },
+      {
+        id: "os26",
+        folder: "onsite",
+        category: "Glass Facade",
+        title: "Night Work",
+        url: "/GSZOn-site/26.jpeg",
+        size: "small",
+        color: colors.amber,
+      },
+      {
+        id: "os27",
+        folder: "onsite",
+        category: "Glass Facade",
+        title: "Exterior Glazing",
+        url: "/GSZOn-site/27.jpeg",
+        size: "medium",
+        color: colors.safetyOrange,
+      },
+      {
+        id: "os28",
+        folder: "onsite",
+        category: "Glass Facade",
+        title: "Facade Installation",
+        url: "/GSZOn-site/28.jpeg",
+        size: "large",
+        color: colors.tangerine,
+      },
+      {
+        id: "os29",
+        folder: "onsite",
+        category: "Interior Work",
+        title: "Interior Frame",
+        url: "/GSZOn-site/29.jpeg",
+        size: "small",
+        color: colors.scarlet,
+      },
+      {
+        id: "os30",
+        folder: "onsite",
+        category: "Glass Facade",
+        title: "Panel Fixing",
+        url: "/GSZOn-site/30.jpeg",
+        size: "medium",
+        color: colors.mustardYellow,
+      },
+      {
+        id: "os31",
+        folder: "onsite",
+        category: "Interior Work",
+        title: "Indoor Installation",
+        url: "/GSZOn-site/31.jpeg",
+        size: "large",
+        color: colors.persimmon,
+      },
+      {
+        id: "os32",
+        folder: "onsite",
+        category: "Interior Work",
+        title: "Internal Frame",
+        url: "/GSZOn-site/32.jpeg",
+        size: "medium",
+        color: colors.flame,
+      },
+      {
+        id: "os33",
+        folder: "onsite",
+        category: "Team Work",
+        title: "Group Installation",
+        url: "/GSZOn-site/33.jpeg",
+        size: "small",
+        color: colors.brightOrange,
+      },
+      {
+        id: "os34",
+        folder: "onsite",
+        category: "Team Work",
+        title: "Team Assembly",
+        url: "/GSZOn-site/34.jpeg",
+        size: "medium",
+        color: colors.bloodOrange,
+      },
+      {
+        id: "os35",
+        folder: "onsite",
+        category: "Team Work",
+        title: "Coordinated Work",
+        url: "/GSZOn-site/35.jpeg",
+        size: "large",
+        color: colors.chiliRed,
+      },
+      {
+        id: "os36",
+        folder: "onsite",
+        category: "Team Work",
+        title: "Project Execution",
+        url: "/GSZOn-site/36.jpeg",
+        size: "small",
+        color: colors.darkOrange,
+      },
+      {
+        id: "os37",
+        folder: "onsite",
+        category: "Team Work",
+        title: "Installation Team",
+        url: "/GSZOn-site/37.jpeg",
+        size: "medium",
+        color: colors.amber,
+      },
+      {
+        id: "os38",
+        folder: "onsite",
+        category: "Floor Work",
+        title: "Ground Work",
+        url: "/GSZOn-site/38.jpeg",
+        size: "large",
+        color: colors.safetyOrange,
+      },
+      {
+        id: "os39",
+        folder: "onsite",
+        category: "Interior Work",
+        title: "Interior Detail",
+        url: "/GSZOn-site/39.jpeg",
+        size: "small",
+        color: colors.tangerine,
+      },
+      {
+        id: "os40",
+        folder: "onsite",
+        category: "Floor Work",
+        title: "Floor Installation",
+        url: "/GSZOn-site/40.jpeg",
+        size: "medium",
+        color: colors.scarlet,
+      },
+      {
+        id: "os41",
+        folder: "onsite",
+        category: "Floor Work",
+        title: "Base Work",
+        url: "/GSZOn-site/41.jpeg",
+        size: "large",
+        color: colors.mustardYellow,
+      },
+      {
+        id: "os42",
+        folder: "onsite",
+        category: "Measurement",
+        title: "Precision Check",
+        url: "/GSZOn-site/42.jpeg",
+        size: "medium",
+        color: colors.persimmon,
+      },
+      {
+        id: "os43",
+        folder: "onsite",
+        category: "Floor Work",
+        title: "Surface Work",
+        url: "/GSZOn-site/43.jpeg",
+        size: "small",
+        color: colors.flame,
+      },
+      {
+        id: "os44",
+        folder: "onsite",
+        category: "Measurement",
+        title: "Level Check",
+        url: "/GSZOn-site/44.jpeg",
+        size: "medium",
+        color: colors.brightOrange,
+      },
+      {
+        id: "os45",
+        folder: "onsite",
+        category: "Team Work",
+        title: "Team Discussion",
+        url: "/GSZOn-site/45.jpeg",
+        size: "large",
+        color: colors.bloodOrange,
+      },
+      {
+        id: "os46",
+        folder: "onsite",
+        category: "Team Work",
+        title: "Project Review",
+        url: "/GSZOn-site/46.jpeg",
+        size: "small",
+        color: colors.chiliRed,
+      },
+      {
+        id: "os47",
+        folder: "onsite",
+        category: "Team Work",
+        title: "Site Meeting",
+        url: "/GSZOn-site/47.jpeg",
+        size: "medium",
+        color: colors.darkOrange,
+      },
+      {
+        id: "os48",
+        folder: "onsite",
+        category: "Team Work",
+        title: "Planning Session",
+        url: "/GSZOn-site/48.jpeg",
+        size: "large",
+        color: colors.amber,
+      },
     ],
     workshop: [
-      { id: 1, folder: "workshop", category: "Aluminum Welding", title: "Precision TIG Welding", url: "/8WhiteswayWorkshop-20251115T121447Z-1-001/IMG-20251111-WA0061.jpg", size: "large", color: colors.chiliRed },
-      { id: 2, folder: "workshop", category: "Frame Fabrication", title: "Shopfront Frame Assembly", url: "/8WhiteswayWorkshop-20251115T121447Z-1-001/IMG-20251111-WA0086.jpg", size: "medium", color: colors.brightOrange },
-      { id: 3, folder: "workshop", category: "Metal Cutting", title: "Aluminum Profile Cutting", url: "/8WhiteswayWorkshop-20251115T121447Z-1-001/IMG-20251111-WA0039.jpg", size: "small", color: colors.amber },
-      { id: 4, folder: "workshop", category: "Workshop Fabrication", title: "Custom Aluminum Work", url: "/8WhiteswayWorkshop-20251115T121447Z-1-001/IMG-20251111-WA0047.jpg", size: "medium", color: colors.scarlet },
-      { id: 5, folder: "workshop", category: "Structural Welding", title: "Heavy Duty Frame Welding", url: "/8WhiteswayWorkshop-20251115T121447Z-1-001/IMG-20251111-WA0063.jpg", size: "large", color: colors.darkOrange },
-      { id: 6, folder: "workshop", category: "Profile Processing", title: "Aluminum Extrusion Work", url: "/8WhiteswayWorkshop-20251115T121447Z-1-001/IMG-20251111-WA0049.jpg", size: "small", color: colors.safetyOrange },
-      { id: 7, folder: "workshop", category: "Display Systems", title: "Retail Display Frames", url: "/8WhiteswayWorkshop-20251115T121447Z-1-001/IMG-20251111-WA0088.jpg", size: "medium", color: colors.tangerine },
-      { id: 8, folder: "workshop", category: "Aluminum Finishing", title: "Surface Preparation", url: "/8WhiteswayWorkshop-20251115T121447Z-1-001/IMG-20251111-WA0041.jpg", size: "large", color: colors.mustardYellow },
-      { id: 9, folder: "workshop", category: "Custom Profiles", title: "Bespoke Frame Design", url: "/8WhiteswayWorkshop-20251115T121447Z-1-001/IMG-20251111-WA0055.jpg", size: "small", color: colors.persimmon },
-      { id: 10, folder: "workshop", category: "Shopfront Installation", title: "Commercial Entrance Work", url: "/8WhiteswayWorkshop-20251115T121447Z-1-001/IMG-20251111-WA0067.jpg", size: "medium", color: colors.flame },
-      { id: 11, folder: "workshop", category: "Aluminum Welding", title: "MIG Welding Process", url: "/8WhiteswayWorkshop-20251115T121447Z-1-001/IMG-20251111-WA0065.jpg", size: "large", color: colors.bloodOrange },
-      { id: 12, folder: "workshop", category: "Frame Assembly", title: "Window Frame Construction", url: "/8WhiteswayWorkshop-20251115T121447Z-1-001/IMG-20251111-WA0043.jpg", size: "medium", color: colors.brightOrange },
-      { id: 13, folder: "workshop", category: "Metal Fabrication", title: "Precision Cutting Work", url: "/8WhiteswayWorkshop-20251115T121447Z-1-001/IMG-20251111-WA0057.jpg", size: "small", color: colors.chiliRed },
-      { id: 14, folder: "workshop", category: "Structural Work", title: "Load Bearing Frames", url: "/8WhiteswayWorkshop-20251115T121447Z-1-001/IMG-20251111-WA0069.jpg", size: "medium", color: colors.darkOrange },
-      { id: 15, folder: "workshop", category: "Workshop Assembly", title: "Component Preparation", url: "/8WhiteswayWorkshop-20251115T121447Z-1-001/IMG-20251111-WA0071.jpg", size: "large", color: colors.amber },
-      { id: 16, folder: "workshop", category: "Aluminum Cutting", title: "Profile Sectioning", url: "/8WhiteswayWorkshop-20251115T121447Z-1-001/IMG-20251111-WA0045.jpg", size: "small", color: colors.safetyOrange },
-      { id: 17, folder: "workshop", category: "Display Fabrication", title: "Retail System Build", url: "/8WhiteswayWorkshop-20251115T121447Z-1-001/IMG-20251111-WA0073.jpg", size: "medium", color: colors.tangerine },
-      { id: 18, folder: "workshop", category: "Welding Services", title: "Joint Fabrication", url: "/8WhiteswayWorkshop-20251115T121447Z-1-001/IMG-20251111-WA0059.jpg", size: "large", color: colors.scarlet },
-      { id: 19, folder: "workshop", category: "Custom Frames", title: "Bespoke Aluminum Work", url: "/8WhiteswayWorkshop-20251115T121447Z-1-001/IMG-20251111-WA0077.jpg", size: "small", color: colors.mustardYellow },
-      { id: 20, folder: "workshop", category: "Shopfitting Work", title: "Commercial Fitting", url: "/8WhiteswayWorkshop-20251115T121447Z-1-001/IMG-20251111-WA0079.jpg", size: "medium", color: colors.persimmon },
-      { id: 21, folder: "workshop", category: "Metal Processing", title: "Aluminum Shaping", url: "/8WhiteswayWorkshop-20251115T121447Z-1-001/IMG-20251111-WA0081.jpg", size: "large", color: colors.flame },
-      { id: 22, folder: "workshop", category: "Frame Construction", title: "Door Frame Assembly", url: "/8WhiteswayWorkshop-20251115T121447Z-1-001/IMG-20251111-WA0090.jpg", size: "medium", color: colors.brightOrange },
-      { id: 23, folder: "workshop", category: "Aluminum Welding", title: "Arc Welding Process", url: "/8WhiteswayWorkshop-20251115T121447Z-1-001/IMG-20251111-WA0092.jpg", size: "small", color: colors.bloodOrange },
-      { id: 24, folder: "workshop", category: "Workshop Production", title: "Manufacturing Process", url: "/8WhiteswayWorkshop-20251115T121447Z-1-001/IMG-20251111-WA0094.jpg", size: "medium", color: colors.chiliRed },
-      { id: 25, folder: "workshop", category: "Profile Fabrication", title: "Custom Extrusion", url: "/8WhiteswayWorkshop-20251115T121447Z-1-001/IMG-20251111-WA0096.jpg", size: "large", color: colors.darkOrange },
-      { id: 26, folder: "workshop", category: "Structural Frames", title: "Heavy Duty Construction", url: "/8WhiteswayWorkshop-20251115T121447Z-1-001/IMG-20251111-WA0098.jpg", size: "small", color: colors.amber },
-      { id: 27, folder: "workshop", category: "Display Systems", title: "Showcase Fabrication", url: "/8WhiteswayWorkshop-20251115T121447Z-1-001/IMG-20251111-WA0100.jpg", size: "medium", color: colors.safetyOrange },
-      { id: 28, folder: "workshop", category: "Metal Working", title: "Precision Fabrication", url: "/8WhiteswayWorkshop-20251115T121447Z-1-001/IMG-20251111-WA0102.jpg", size: "large", color: colors.tangerine },
-      { id: 29, folder: "workshop", category: "Aluminum Assembly", title: "Component Integration", url: "/8WhiteswayWorkshop-20251115T121447Z-1-001/IMG-20251111-WA0104.jpg", size: "small", color: colors.scarlet },
-      { id: 30, folder: "workshop", category: "Shopfront Work", title: "Entrance Frame Build", url: "/8WhiteswayWorkshop-20251115T121447Z-1-001/IMG-20251111-WA0106.jpg", size: "medium", color: colors.mustardYellow },
-      { id: 31, folder: "workshop", category: "Welding Operations", title: "Seam Welding", url: "/8WhiteswayWorkshop-20251115T121447Z-1-001/IMG-20251111-WA0108.jpg", size: "large", color: colors.persimmon },
-      { id: 32, folder: "workshop", category: "Custom Fabrication", title: "Specialty Aluminum Work", url: "/8WhiteswayWorkshop-20251115T121447Z-1-001/IMG-20251111-WA0112.jpg", size: "medium", color: colors.flame },
-      { id: 33, folder: "workshop", category: "Frame Manufacturing", title: "Window System Production", url: "/8WhiteswayWorkshop-20251115T121447Z-1-001/IMG-20251111-WA0118.jpg", size: "small", color: colors.brightOrange },
-      { id: 34, folder: "workshop", category: "Aluminum Processing", title: "Profile Modification", url: "/8WhiteswayWorkshop-20251115T121447Z-1-001/IMG-20251111-WA0120.jpg", size: "medium", color: colors.bloodOrange },
-      { id: 35, folder: "workshop", category: "Workshop Welding", title: "Fabrication Bay Work", url: "/8WhiteswayWorkshop-20251115T121447Z-1-001/IMG-20251111-WA0124.jpg", size: "large", color: colors.chiliRed },
-      { id: 36, folder: "workshop", category: "Metal Cutting", title: "Precision Sawing", url: "/8WhiteswayWorkshop-20251115T121447Z-1-001/IMG-20251111-WA0126.jpg", size: "small", color: colors.darkOrange },
-      { id: 37, folder: "workshop", category: "Display Construction", title: "Retail Frame Build", url: "/8WhiteswayWorkshop-20251115T121447Z-1-001/IMG-20251111-WA0128.jpg", size: "medium", color: colors.amber },
-      { id: 38, folder: "workshop", category: "Structural Assembly", title: "Support Frame Work", url: "/8WhiteswayWorkshop-20251115T121447Z-1-001/IMG-20251111-WA0130.jpg", size: "large", color: colors.safetyOrange },
-      { id: 39, folder: "workshop", category: "Aluminum Welding", title: "Corner Joint Welding", url: "/8WhiteswayWorkshop-20251115T121447Z-1-001/IMG-20251111-WA0132.jpg", size: "small", color: colors.tangerine },
-      { id: 40, folder: "workshop", category: "Custom Profiles", title: "Special Section Work", url: "/8WhiteswayWorkshop-20251115T121447Z-1-001/IMG-20251111-WA0134.jpg", size: "medium", color: colors.scarlet },
-      { id: 41, folder: "workshop", category: "Shopfitting Frames", title: "Commercial Frame Systems", url: "/8WhiteswayWorkshop-20251115T121447Z-1-001/IMG-20251111-WA0136.jpg", size: "large", color: colors.mustardYellow },
-      { id: 42, folder: "workshop", category: "Metal Fabrication", title: "Workshop Assembly", url: "/8WhiteswayWorkshop-20251115T121447Z-1-001/IMG-20251111-WA0138.jpg", size: "medium", color: colors.persimmon },
-      { id: 43, folder: "workshop", category: "Frame Welding", title: "Structural Joint Work", url: "/8WhiteswayWorkshop-20251115T121447Z-1-001/IMG-20251111-WA0140.jpg", size: "small", color: colors.flame },
-      { id: 44, folder: "workshop", category: "Aluminum Work", title: "Profile Assembly", url: "/8WhiteswayWorkshop-20251115T121447Z-1-001/IMG-20251111-WA0142.jpg", size: "medium", color: colors.brightOrange },
-      { id: 45, folder: "workshop", category: "Workshop Production", title: "Fabrication Operations", url: "/8WhiteswayWorkshop-20251115T121447Z-1-001/IMG-20251111-WA0144.jpg", size: "large", color: colors.bloodOrange },
-      { id: 46, folder: "workshop", category: "Custom Manufacturing", title: "Specialty Frame Build", url: "/8WhiteswayWorkshop-20251115T121447Z-1-001/IMG-20251111-WA0146.jpg", size: "small", color: colors.chiliRed },
+      {
+        id: 1,
+        folder: "workshop",
+        category: "Aluminum Welding",
+        title: "Precision TIG Welding",
+        url: "/8WhiteswayWorkshop-20251115T121447Z-1-001/IMG-20251111-WA0061.jpg",
+        size: "large",
+        color: colors.chiliRed,
+      },
+      {
+        id: 2,
+        folder: "workshop",
+        category: "Frame Fabrication",
+        title: "Shopfront Frame Assembly",
+        url: "/8WhiteswayWorkshop-20251115T121447Z-1-001/IMG-20251111-WA0086.jpg",
+        size: "medium",
+        color: colors.brightOrange,
+      },
+      {
+        id: 3,
+        folder: "workshop",
+        category: "Metal Cutting",
+        title: "Aluminum Profile Cutting",
+        url: "/8WhiteswayWorkshop-20251115T121447Z-1-001/IMG-20251111-WA0039.jpg",
+        size: "small",
+        color: colors.amber,
+      },
+      {
+        id: 4,
+        folder: "workshop",
+        category: "Workshop Fabrication",
+        title: "Custom Aluminum Work",
+        url: "/8WhiteswayWorkshop-20251115T121447Z-1-001/IMG-20251111-WA0047.jpg",
+        size: "medium",
+        color: colors.scarlet,
+      },
+      {
+        id: 5,
+        folder: "workshop",
+        category: "Structural Welding",
+        title: "Heavy Duty Frame Welding",
+        url: "/8WhiteswayWorkshop-20251115T121447Z-1-001/IMG-20251111-WA0063.jpg",
+        size: "large",
+        color: colors.darkOrange,
+      },
+      {
+        id: 6,
+        folder: "workshop",
+        category: "Profile Processing",
+        title: "Aluminum Extrusion Work",
+        url: "/8WhiteswayWorkshop-20251115T121447Z-1-001/IMG-20251111-WA0049.jpg",
+        size: "small",
+        color: colors.safetyOrange,
+      },
+      {
+        id: 7,
+        folder: "workshop",
+        category: "Display Systems",
+        title: "Retail Display Frames",
+        url: "/8WhiteswayWorkshop-20251115T121447Z-1-001/IMG-20251111-WA0088.jpg",
+        size: "medium",
+        color: colors.tangerine,
+      },
+      {
+        id: 8,
+        folder: "workshop",
+        category: "Aluminum Finishing",
+        title: "Surface Preparation",
+        url: "/8WhiteswayWorkshop-20251115T121447Z-1-001/IMG-20251111-WA0041.jpg",
+        size: "large",
+        color: colors.mustardYellow,
+      },
+      {
+        id: 9,
+        folder: "workshop",
+        category: "Custom Profiles",
+        title: "Bespoke Frame Design",
+        url: "/8WhiteswayWorkshop-20251115T121447Z-1-001/IMG-20251111-WA0055.jpg",
+        size: "small",
+        color: colors.persimmon,
+      },
+      {
+        id: 10,
+        folder: "workshop",
+        category: "Shopfront Installation",
+        title: "Commercial Entrance Work",
+        url: "/8WhiteswayWorkshop-20251115T121447Z-1-001/IMG-20251111-WA0067.jpg",
+        size: "medium",
+        color: colors.flame,
+      },
+      {
+        id: 11,
+        folder: "workshop",
+        category: "Aluminum Welding",
+        title: "MIG Welding Process",
+        url: "/8WhiteswayWorkshop-20251115T121447Z-1-001/IMG-20251111-WA0065.jpg",
+        size: "large",
+        color: colors.bloodOrange,
+      },
+      {
+        id: 12,
+        folder: "workshop",
+        category: "Frame Assembly",
+        title: "Window Frame Construction",
+        url: "/8WhiteswayWorkshop-20251115T121447Z-1-001/IMG-20251111-WA0043.jpg",
+        size: "medium",
+        color: colors.brightOrange,
+      },
+      {
+        id: 13,
+        folder: "workshop",
+        category: "Metal Fabrication",
+        title: "Precision Cutting Work",
+        url: "/8WhiteswayWorkshop-20251115T121447Z-1-001/IMG-20251111-WA0057.jpg",
+        size: "small",
+        color: colors.chiliRed,
+      },
+      {
+        id: 14,
+        folder: "workshop",
+        category: "Structural Work",
+        title: "Load Bearing Frames",
+        url: "/8WhiteswayWorkshop-20251115T121447Z-1-001/IMG-20251111-WA0069.jpg",
+        size: "medium",
+        color: colors.darkOrange,
+      },
+      {
+        id: 15,
+        folder: "workshop",
+        category: "Workshop Assembly",
+        title: "Component Preparation",
+        url: "/8WhiteswayWorkshop-20251115T121447Z-1-001/IMG-20251111-WA0071.jpg",
+        size: "large",
+        color: colors.amber,
+      },
+      {
+        id: 16,
+        folder: "workshop",
+        category: "Aluminum Cutting",
+        title: "Profile Sectioning",
+        url: "/8WhiteswayWorkshop-20251115T121447Z-1-001/IMG-20251111-WA0045.jpg",
+        size: "small",
+        color: colors.safetyOrange,
+      },
+      {
+        id: 17,
+        folder: "workshop",
+        category: "Display Fabrication",
+        title: "Retail System Build",
+        url: "/8WhiteswayWorkshop-20251115T121447Z-1-001/IMG-20251111-WA0073.jpg",
+        size: "medium",
+        color: colors.tangerine,
+      },
+      {
+        id: 18,
+        folder: "workshop",
+        category: "Welding Services",
+        title: "Joint Fabrication",
+        url: "/8WhiteswayWorkshop-20251115T121447Z-1-001/IMG-20251111-WA0059.jpg",
+        size: "large",
+        color: colors.scarlet,
+      },
+      {
+        id: 19,
+        folder: "workshop",
+        category: "Custom Frames",
+        title: "Bespoke Aluminum Work",
+        url: "/8WhiteswayWorkshop-20251115T121447Z-1-001/IMG-20251111-WA0077.jpg",
+        size: "small",
+        color: colors.mustardYellow,
+      },
+      {
+        id: 20,
+        folder: "workshop",
+        category: "Shopfitting Work",
+        title: "Commercial Fitting",
+        url: "/8WhiteswayWorkshop-20251115T121447Z-1-001/IMG-20251111-WA0079.jpg",
+        size: "medium",
+        color: colors.persimmon,
+      },
+      {
+        id: 21,
+        folder: "workshop",
+        category: "Metal Processing",
+        title: "Aluminum Shaping",
+        url: "/8WhiteswayWorkshop-20251115T121447Z-1-001/IMG-20251111-WA0081.jpg",
+        size: "large",
+        color: colors.flame,
+      },
+      {
+        id: 22,
+        folder: "workshop",
+        category: "Frame Construction",
+        title: "Door Frame Assembly",
+        url: "/8WhiteswayWorkshop-20251115T121447Z-1-001/IMG-20251111-WA0090.jpg",
+        size: "medium",
+        color: colors.brightOrange,
+      },
+      {
+        id: 23,
+        folder: "workshop",
+        category: "Aluminum Welding",
+        title: "Arc Welding Process",
+        url: "/8WhiteswayWorkshop-20251115T121447Z-1-001/IMG-20251111-WA0092.jpg",
+        size: "small",
+        color: colors.bloodOrange,
+      },
+      {
+        id: 24,
+        folder: "workshop",
+        category: "Workshop Production",
+        title: "Manufacturing Process",
+        url: "/8WhiteswayWorkshop-20251115T121447Z-1-001/IMG-20251111-WA0094.jpg",
+        size: "medium",
+        color: colors.chiliRed,
+      },
+      {
+        id: 25,
+        folder: "workshop",
+        category: "Profile Fabrication",
+        title: "Custom Extrusion",
+        url: "/8WhiteswayWorkshop-20251115T121447Z-1-001/IMG-20251111-WA0096.jpg",
+        size: "large",
+        color: colors.darkOrange,
+      },
+      {
+        id: 26,
+        folder: "workshop",
+        category: "Structural Frames",
+        title: "Heavy Duty Construction",
+        url: "/8WhiteswayWorkshop-20251115T121447Z-1-001/IMG-20251111-WA0098.jpg",
+        size: "small",
+        color: colors.amber,
+      },
+      {
+        id: 27,
+        folder: "workshop",
+        category: "Display Systems",
+        title: "Showcase Fabrication",
+        url: "/8WhiteswayWorkshop-20251115T121447Z-1-001/IMG-20251111-WA0100.jpg",
+        size: "medium",
+        color: colors.safetyOrange,
+      },
+      {
+        id: 28,
+        folder: "workshop",
+        category: "Metal Working",
+        title: "Precision Fabrication",
+        url: "/8WhiteswayWorkshop-20251115T121447Z-1-001/IMG-20251111-WA0102.jpg",
+        size: "large",
+        color: colors.tangerine,
+      },
+      {
+        id: 29,
+        folder: "workshop",
+        category: "Aluminum Assembly",
+        title: "Component Integration",
+        url: "/8WhiteswayWorkshop-20251115T121447Z-1-001/IMG-20251111-WA0104.jpg",
+        size: "small",
+        color: colors.scarlet,
+      },
+      {
+        id: 30,
+        folder: "workshop",
+        category: "Shopfront Work",
+        title: "Entrance Frame Build",
+        url: "/8WhiteswayWorkshop-20251115T121447Z-1-001/IMG-20251111-WA0106.jpg",
+        size: "medium",
+        color: colors.mustardYellow,
+      },
+      {
+        id: 31,
+        folder: "workshop",
+        category: "Welding Operations",
+        title: "Seam Welding",
+        url: "/8WhiteswayWorkshop-20251115T121447Z-1-001/IMG-20251111-WA0108.jpg",
+        size: "large",
+        color: colors.persimmon,
+      },
+      {
+        id: 32,
+        folder: "workshop",
+        category: "Custom Fabrication",
+        title: "Specialty Aluminum Work",
+        url: "/8WhiteswayWorkshop-20251115T121447Z-1-001/IMG-20251111-WA0112.jpg",
+        size: "medium",
+        color: colors.flame,
+      },
+      {
+        id: 33,
+        folder: "workshop",
+        category: "Frame Manufacturing",
+        title: "Window System Production",
+        url: "/8WhiteswayWorkshop-20251115T121447Z-1-001/IMG-20251111-WA0118.jpg",
+        size: "small",
+        color: colors.brightOrange,
+      },
+      {
+        id: 34,
+        folder: "workshop",
+        category: "Aluminum Processing",
+        title: "Profile Modification",
+        url: "/8WhiteswayWorkshop-20251115T121447Z-1-001/IMG-20251111-WA0120.jpg",
+        size: "medium",
+        color: colors.bloodOrange,
+      },
+      {
+        id: 35,
+        folder: "workshop",
+        category: "Workshop Welding",
+        title: "Fabrication Bay Work",
+        url: "/8WhiteswayWorkshop-20251115T121447Z-1-001/IMG-20251111-WA0124.jpg",
+        size: "large",
+        color: colors.chiliRed,
+      },
+      {
+        id: 36,
+        folder: "workshop",
+        category: "Metal Cutting",
+        title: "Precision Sawing",
+        url: "/8WhiteswayWorkshop-20251115T121447Z-1-001/IMG-20251111-WA0126.jpg",
+        size: "small",
+        color: colors.darkOrange,
+      },
+      {
+        id: 37,
+        folder: "workshop",
+        category: "Display Construction",
+        title: "Retail Frame Build",
+        url: "/8WhiteswayWorkshop-20251115T121447Z-1-001/IMG-20251111-WA0128.jpg",
+        size: "medium",
+        color: colors.amber,
+      },
+      {
+        id: 38,
+        folder: "workshop",
+        category: "Structural Assembly",
+        title: "Support Frame Work",
+        url: "/8WhiteswayWorkshop-20251115T121447Z-1-001/IMG-20251111-WA0130.jpg",
+        size: "large",
+        color: colors.safetyOrange,
+      },
+      {
+        id: 39,
+        folder: "workshop",
+        category: "Aluminum Welding",
+        title: "Corner Joint Welding",
+        url: "/8WhiteswayWorkshop-20251115T121447Z-1-001/IMG-20251111-WA0132.jpg",
+        size: "small",
+        color: colors.tangerine,
+      },
+      {
+        id: 40,
+        folder: "workshop",
+        category: "Custom Profiles",
+        title: "Special Section Work",
+        url: "/8WhiteswayWorkshop-20251115T121447Z-1-001/IMG-20251111-WA0134.jpg",
+        size: "medium",
+        color: colors.scarlet,
+      },
+      {
+        id: 41,
+        folder: "workshop",
+        category: "Shopfitting Frames",
+        title: "Commercial Frame Systems",
+        url: "/8WhiteswayWorkshop-20251115T121447Z-1-001/IMG-20251111-WA0136.jpg",
+        size: "large",
+        color: colors.mustardYellow,
+      },
+      {
+        id: 42,
+        folder: "workshop",
+        category: "Metal Fabrication",
+        title: "Workshop Assembly",
+        url: "/8WhiteswayWorkshop-20251115T121447Z-1-001/IMG-20251111-WA0138.jpg",
+        size: "medium",
+        color: colors.persimmon,
+      },
+      {
+        id: 43,
+        folder: "workshop",
+        category: "Frame Welding",
+        title: "Structural Joint Work",
+        url: "/8WhiteswayWorkshop-20251115T121447Z-1-001/IMG-20251111-WA0140.jpg",
+        size: "small",
+        color: colors.flame,
+      },
+      {
+        id: 44,
+        folder: "workshop",
+        category: "Aluminum Work",
+        title: "Profile Assembly",
+        url: "/8WhiteswayWorkshop-20251115T121447Z-1-001/IMG-20251111-WA0142.jpg",
+        size: "medium",
+        color: colors.brightOrange,
+      },
+      {
+        id: 45,
+        folder: "workshop",
+        category: "Workshop Production",
+        title: "Fabrication Operations",
+        url: "/8WhiteswayWorkshop-20251115T121447Z-1-001/IMG-20251111-WA0144.jpg",
+        size: "large",
+        color: colors.bloodOrange,
+      },
+      {
+        id: 46,
+        folder: "workshop",
+        category: "Custom Manufacturing",
+        title: "Specialty Frame Build",
+        url: "/8WhiteswayWorkshop-20251115T121447Z-1-001/IMG-20251111-WA0146.jpg",
+        size: "small",
+        color: colors.chiliRed,
+      },
     ],
   };
 
@@ -243,13 +997,17 @@ const Gallery = () => {
     switch (platform) {
       case "facebook":
         window.open(
-          `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`,
+          `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(
+            url
+          )}`,
           "_blank"
         );
         break;
       case "twitter":
         window.open(
-          `https://twitter.com/intent/tweet?url=${encodeURIComponent(url)}&text=${encodeURIComponent(text)}`,
+          `https://twitter.com/intent/tweet?url=${encodeURIComponent(
+            url
+          )}&text=${encodeURIComponent(text)}`,
           "_blank"
         );
         break;
@@ -264,12 +1022,15 @@ const Gallery = () => {
   };
 
   const navigateImage = (direction) => {
-    const currentIndex = displayImages.findIndex((img) => img.id === selectedImage.id);
+    const currentIndex = displayImages.findIndex(
+      (img) => img.id === selectedImage.id
+    );
     let newIndex;
     if (direction === "next") {
       newIndex = (currentIndex + 1) % displayImages.length;
     } else {
-      newIndex = currentIndex === 0 ? displayImages.length - 1 : currentIndex - 1;
+      newIndex =
+        currentIndex === 0 ? displayImages.length - 1 : currentIndex - 1;
     }
     setSelectedImage(displayImages[newIndex]);
     setZoom(1);
@@ -291,7 +1052,13 @@ const Gallery = () => {
   };
 
   return (
-    <div style={{ overflow: "hidden", background: colors.white, minHeight: "100vh" }}>
+    <div
+      style={{
+        overflow: "hidden",
+        background: colors.white,
+        minHeight: "100vh",
+      }}
+    >
       {/* Hero Section */}
       <section
         style={{
@@ -301,6 +1068,38 @@ const Gallery = () => {
           overflow: "hidden",
         }}
       >
+        {/* Background Image with Blend */}
+        <div
+          style={{
+            position: "absolute",
+            top: 0,
+            left: 0,
+            width: "100%",
+            height: "100%",
+            backgroundImage: "url('/11.jpeg')", // Replace with your image path
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            backgroundRepeat: "no-repeat",
+            opacity: 0.95,
+            mixBlendMode: "overlay",
+            zIndex: 1,
+          }}
+        />
+
+        {/* Dark Overlay for better text readability */}
+        <div
+          style={{
+            position: "absolute",
+            top: 0,
+            left: 0,
+            width: "100%",
+            height: "100%",
+            background: `linear-gradient(135deg, ${colors.darkGray}75 0%, #1a1a1a95 80%)`,
+            zIndex: 2,
+          }}
+        />
+
+        {/* Decorative blur effect */}
         <div
           style={{
             position: "absolute",
@@ -309,10 +1108,11 @@ const Gallery = () => {
             width: "300px",
             height: "300px",
             background: `radial-gradient(circle, ${colors.chiliRed}20, transparent)`,
-            borderRadius: "5%",
+            borderRadius: "50%",
             filter: "blur(60px)",
+            zIndex: 3,
           }}
-        ></div>
+        />
 
         <div
           style={{
@@ -387,7 +1187,8 @@ const Gallery = () => {
                 margin: "0 auto",
               }}
             >
-              Professional aluminum fabrication and welding services for commercial shopfitting projects
+              Professional aluminum fabrication and welding services for
+              commercial shopfitting projects
             </p>
           </motion.div>
 
@@ -438,9 +1239,16 @@ const Gallery = () => {
                   style={{
                     padding: "12px 24px",
                     borderRadius: "5px",
-                    border: layoutMode === "masonry" ? `2px solid ${colors.chiliRed}` : "2px solid transparent",
-                    background: layoutMode === "masonry" ? colors.white : "rgba(255, 255, 255, 0.1)",
-                    color: layoutMode === "masonry" ? colors.darkGray : colors.white,
+                    border:
+                      layoutMode === "masonry"
+                        ? `2px solid ${colors.chiliRed}`
+                        : "2px solid transparent",
+                    background:
+                      layoutMode === "masonry"
+                        ? colors.white
+                        : "rgba(255, 255, 255, 0.1)",
+                    color:
+                      layoutMode === "masonry" ? colors.darkGray : colors.white,
                     fontWeight: "600",
                     fontSize: "14px",
                     cursor: "pointer",
@@ -461,9 +1269,16 @@ const Gallery = () => {
                   style={{
                     padding: "12px 24px",
                     borderRadius: "5px",
-                    border: layoutMode === "grid" ? `2px solid ${colors.chiliRed}` : "2px solid transparent",
-                    background: layoutMode === "grid" ? colors.white : "rgba(255, 255, 255, 0.1)",
-                    color: layoutMode === "grid" ? colors.darkGray : colors.white,
+                    border:
+                      layoutMode === "grid"
+                        ? `2px solid ${colors.chiliRed}`
+                        : "2px solid transparent",
+                    background:
+                      layoutMode === "grid"
+                        ? colors.white
+                        : "rgba(255, 255, 255, 0.1)",
+                    color:
+                      layoutMode === "grid" ? colors.darkGray : colors.white,
                     fontWeight: "600",
                     fontSize: "14px",
                     cursor: "pointer",
@@ -483,7 +1298,13 @@ const Gallery = () => {
       </section>
 
       {/* Main Content Section */}
-      <section style={{ padding: "80px 20px", background: colors.lightGray, minHeight: "60vh" }}>
+      <section
+        style={{
+          padding: "80px 20px",
+          background: colors.lightGray,
+          minHeight: "60vh",
+        }}
+      >
         <div style={{ maxWidth: "1400px", margin: "0 auto" }}>
           <AnimatePresence mode="wait">
             {currentView === "folders" ? (
@@ -553,7 +1374,8 @@ const Gallery = () => {
                           e.currentTarget.style.boxShadow = `0 20px 60px ${folder.color}40`;
                         }}
                         onMouseLeave={(e) => {
-                          e.currentTarget.style.boxShadow = "0 10px 40px rgba(0, 0, 0, 0.15)";
+                          e.currentTarget.style.boxShadow =
+                            "0 10px 40px rgba(0, 0, 0, 0.15)";
                         }}
                       >
                         {/* Background Pattern */}
@@ -580,7 +1402,13 @@ const Gallery = () => {
                           }}
                         ></div>
 
-                        <div style={{ position: "relative", zIndex: 10, padding: "40px" }}>
+                        <div
+                          style={{
+                            position: "relative",
+                            zIndex: 10,
+                            padding: "40px",
+                          }}
+                        >
                           {/* Icon */}
                           <motion.div
                             whileHover={{ scale: 1.1, rotate: 5 }}
@@ -597,7 +1425,10 @@ const Gallery = () => {
                               border: "2px solid rgba(255, 255, 255, 0.3)",
                             }}
                           >
-                            <IconComponent size={40} style={{ color: colors.white }} />
+                            <IconComponent
+                              size={40}
+                              style={{ color: colors.white }}
+                            />
                           </motion.div>
 
                           {/* Content */}
@@ -645,7 +1476,10 @@ const Gallery = () => {
                                 border: "1px solid rgba(255, 255, 255, 0.3)",
                               }}
                             >
-                              <ImageIcon size={20} style={{ color: colors.white }} />
+                              <ImageIcon
+                                size={20}
+                                style={{ color: colors.white }}
+                              />
                               <span
                                 style={{
                                   fontSize: "1.125rem",
@@ -679,7 +1513,10 @@ const Gallery = () => {
                                 border: "1px solid rgba(255, 255, 255, 0.3)",
                               }}
                             >
-                              <ChevronRight size={24} style={{ color: colors.white }} />
+                              <ChevronRight
+                                size={24}
+                                style={{ color: colors.white }}
+                              />
                             </motion.div>
                           </div>
                         </div>
@@ -691,7 +1528,8 @@ const Gallery = () => {
                           style={{
                             position: "absolute",
                             inset: 0,
-                            background: "linear-gradient(135deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.3) 100%)",
+                            background:
+                              "linear-gradient(135deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.3) 100%)",
                             pointerEvents: "none",
                           }}
                         ></motion.div>
@@ -712,7 +1550,10 @@ const Gallery = () => {
                 <div
                   style={{
                     display: "grid",
-                    gridTemplateColumns: layoutMode === "grid" ? "repeat(auto-fill, minmax(300px, 1fr))" : "repeat(auto-fit, minmax(280px, 1fr))",
+                    gridTemplateColumns:
+                      layoutMode === "grid"
+                        ? "repeat(auto-fill, minmax(300px, 1fr))"
+                        : "repeat(auto-fit, minmax(280px, 1fr))",
                     gap: "24px",
                     gridAutoRows: layoutMode === "grid" ? "300px" : "auto",
                   }}
@@ -727,7 +1568,10 @@ const Gallery = () => {
                       onClick={() => openModal(image)}
                       style={{
                         gridColumn: getSizeClass(image.size),
-                        gridRow: layoutMode === "masonry" && image.size === "large" ? "span 2" : "span 1",
+                        gridRow:
+                          layoutMode === "masonry" && image.size === "large"
+                            ? "span 2"
+                            : "span 1",
                         borderRadius: "5px",
                         overflow: "hidden",
                         cursor: "pointer",
@@ -740,13 +1584,19 @@ const Gallery = () => {
                         e.currentTarget.style.boxShadow = `0 12px 40px ${image.color}30`;
                       }}
                       onMouseLeave={(e) => {
-                        e.currentTarget.style.boxShadow = "0 4px 20px rgba(0, 0, 0, 0.1)";
+                        e.currentTarget.style.boxShadow =
+                          "0 4px 20px rgba(0, 0, 0, 0.1)";
                       }}
                     >
                       <div
                         style={{
                           width: "100%",
-                          height: layoutMode === "grid" ? "100%" : image.size === "large" ? "500px" : "250px",
+                          height:
+                            layoutMode === "grid"
+                              ? "100%"
+                              : image.size === "large"
+                              ? "500px"
+                              : "250px",
                           position: "relative",
                           overflow: "hidden",
                         }}
@@ -773,7 +1623,8 @@ const Gallery = () => {
                           style={{
                             position: "absolute",
                             inset: 0,
-                            background: "linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, transparent 60%)",
+                            background:
+                              "linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, transparent 60%)",
                             opacity: 0,
                             transition: "opacity 0.3s ease",
                           }}
@@ -843,7 +1694,8 @@ const Gallery = () => {
                             boxShadow: "0 8px 24px rgba(0, 0, 0, 0.3)",
                           }}
                           onMouseEnter={(e) => {
-                            e.currentTarget.style.transform = "translate(-50%, -50%) scale(1)";
+                            e.currentTarget.style.transform =
+                              "translate(-50%, -50%) scale(1)";
                           }}
                         >
                           <Maximize2 size={24} style={{ color: image.color }} />
@@ -999,7 +1851,7 @@ const Gallery = () => {
                 >
                   <ChevronLeft size={24} />
                 </motion.button>
-                
+
                 <motion.button
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.9 }}
@@ -1050,7 +1902,10 @@ const Gallery = () => {
                     height: "44px",
                     borderRadius: "5%",
                     border: "none",
-                    background: zoom <= 0.5 ? "rgba(255, 255, 255, 0.2)" : "rgba(255, 255, 255, 0.9)",
+                    background:
+                      zoom <= 0.5
+                        ? "rgba(255, 255, 255, 0.2)"
+                        : "rgba(255, 255, 255, 0.9)",
                     color: colors.darkGray,
                     cursor: zoom <= 0.5 ? "not-allowed" : "pointer",
                     display: "flex",
@@ -1087,7 +1942,10 @@ const Gallery = () => {
                     height: "44px",
                     borderRadius: "5%",
                     border: "none",
-                    background: zoom >= 3 ? "rgba(255, 255, 255, 0.2)" : "rgba(255, 255, 255, 0.9)",
+                    background:
+                      zoom >= 3
+                        ? "rgba(255, 255, 255, 0.2)"
+                        : "rgba(255, 255, 255, 0.9)",
                     color: colors.darkGray,
                     cursor: zoom >= 3 ? "not-allowed" : "pointer",
                     display: "flex",
@@ -1270,7 +2128,10 @@ const Gallery = () => {
                         >
                           {copied ? (
                             <>
-                              <Check size={18} style={{ color: colors.chiliRed }} />
+                              <Check
+                                size={18}
+                                style={{ color: colors.chiliRed }}
+                              />
                               Copied!
                             </>
                           ) : (

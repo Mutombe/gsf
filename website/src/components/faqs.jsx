@@ -298,9 +298,9 @@ const FAQ = () => {
         <div style={{
           position: 'absolute',
           inset: 0,
-          backgroundImage: 'url("https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2000")',
+          backgroundImage: 'url("/about.jpg")',
           backgroundSize: 'cover',
-          backgroundPosition: 'center',
+          backgroundPosition: 'top',
         }}></div>
 
         {/* Gradient Overlay */}

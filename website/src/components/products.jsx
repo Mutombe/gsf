@@ -751,11 +751,11 @@ const Products = () => {
   return (
     <div className="overflow-hidden">
       {/* Hero Section with Blended Background */}
-      <section className="relative min-h-[70vh] flex items-center text-white overflow-hidden px-5 py-20 md:py-32">
+      <section className="relative min-h-[90vh] flex items-center text-white overflow-hidden px-5 py-20 md:py-32">
         {/* Background Image */}
         <div
           className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: 'url("/22.jpeg")' }}
+          style={{ backgroundImage: 'url("/22.jpeg")', backgroundPosition: 'top', backgroundSize: 'cover' }}
         ></div>
 
         {/* Dark Overlay */}

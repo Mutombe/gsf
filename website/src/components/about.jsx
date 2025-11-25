@@ -208,7 +208,7 @@ const About = () => {
           style={{
             position: "absolute",
             inset: 0,
-            backgroundImage: 'url("/about.jpg")',
+            backgroundImage: 'url("/about.jpeg")',
             backgroundSize: "cover",
             backgroundPosition: "top center",
           }}
