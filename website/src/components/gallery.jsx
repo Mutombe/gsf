@@ -1064,7 +1064,7 @@ const Gallery = () => {
         style={{
           position: "relative",
           padding: "100px 20px 60px",
-          background: `linear-gradient(135deg, ${colors.darkGray} 0%, #1a1a1a 100%)`,
+          background: `linear-gradient(135deg, ${colors.darkGray} 0%, #353535ff 1%)`,
           overflow: "hidden",
         }}
       >
@@ -1080,13 +1080,13 @@ const Gallery = () => {
             backgroundSize: "cover",
             backgroundPosition: "center",
             backgroundRepeat: "no-repeat",
-            opacity: 0.95,
+            opacity: 1,
             mixBlendMode: "overlay",
             zIndex: 1,
           }}
         />
 
-        {/* Dark Overlay for better text readability */}
+        {/* Dark Overlay for better text readability 
         <div
           style={{
             position: "absolute",
@@ -1094,10 +1094,10 @@ const Gallery = () => {
             left: 0,
             width: "100%",
             height: "100%",
-            background: `linear-gradient(135deg, ${colors.darkGray}75 0%, #1a1a1a95 80%)`,
+            background: `linear-gradient(135deg, ${colors.darkGray}75 0%, #1a1a1a95 20%)`,
             zIndex: 2,
           }}
-        />
+        />*/}
 
         {/* Decorative blur effect */}
         <div
@@ -1136,7 +1136,7 @@ const Gallery = () => {
                 display: "inline-block",
                 padding: "10px 24px",
                 background: "rgba(255, 255, 255, 0.1)",
-                backdropFilter: "blur(10px)",
+                backdropFilter: "blur(1px)",
                 borderRadius: "5px",
                 border: "1px solid rgba(255, 255, 255, 0.2)",
                 marginBottom: "24px",

@@ -91,7 +91,7 @@ const Products = () => {
       icon: ShoppingCart,
       rating: 4.8,
       reviews: 34,
-      images: ["/placeh.png", "/placeh.png", "/placeh.png"],
+      images: ["/005.jpeg", "/placeh.png", "/placeh.png"],
       specifications: {
         material: "Steel frame with glass/panel inserts",
         accessControl: "Card reader compatible",
@@ -118,7 +118,7 @@ const Products = () => {
       icon: Building2,
       rating: 4.9,
       reviews: 143,
-      images: ["/placeh.png", "/placeh.png", "/placeh.png"],
+      images: ["/003.jpeg", "/placeh.png", "/placeh.png"],
       specifications: {
         material: "Aluminum with powder coating",
         glassType: "10mm toughened glass",
@@ -145,7 +145,7 @@ const Products = () => {
       icon: Square,
       rating: 4.7,
       reviews: 267,
-      images: ["/placeh.png", "/placeh.png", "/placeh.png"],
+      images: ["/999.jpeg", "/placeh.png", "/placeh.png"],
       specifications: {
         material: "Aluminum with thermal break",
         glassType: "6mm + 12mm air + 6mm",
@@ -172,7 +172,7 @@ const Products = () => {
       icon: ShoppingCart,
       rating: 4.9,
       reviews: 78,
-      images: ["/placeh.png", "/placeh.png", "/placeh.png"],
+      images: ["/000.jpeg", "/placeh.png", "/placeh.png"],
       specifications: {
         material: "Laminated wood with steel reinforcement",
         glassType: "Bulletproof glass (optional)",
@@ -226,7 +226,7 @@ const Products = () => {
       icon: Package,
       rating: 4.8,
       reviews: 156,
-      images: ["/placeh.png", "/placeh.png", "/placeh.png"],
+      images: ["/002.jpeg", "/placeh.png", "/placeh.png"],
       specifications: {
         material: "Aluminum frame with MDF or glass panels",
         thickness: "65mm - 100mm",
@@ -334,7 +334,7 @@ const Products = () => {
       icon: Maximize2,
       rating: 4.8,
       reviews: 64,
-      images: ["/placeh.png", "/placeh.png", "/placeh.png"],
+      images: ["/004.jpeg", "/placeh.png", "/placeh.png"],
       specifications: {
         material: "12mm toughened or laminated glass",
         fixing: "Silicone bonded or point fixed",
@@ -388,7 +388,7 @@ const Products = () => {
       icon: Maximize2,
       rating: 4.9,
       reviews: 112,
-      images: ["/placeh.png", "/placeh.png", "/placeh.png"],
+      images: ["/111.jpeg", "/placeh.png", "/placeh.png"],
       specifications: {
         material: "Aluminum with double glazing",
         glassType: "6mm Low-E + 16mm argon + 6mm",
@@ -415,7 +415,7 @@ const Products = () => {
       icon: Package,
       rating: 4.7,
       reviews: 189,
-      images: ["/placeh.png", "/placeh.png", "/placeh.png"],
+      images: ["/11.jpeg", "/placeh.png", "/placeh.png"],
       specifications: {
         material: "Steel with powder coating",
         shelfLoad: "80kg per shelf",
@@ -496,7 +496,7 @@ const Products = () => {
       icon: Building2,
       rating: 4.7,
       reviews: 203,
-      images: ["/placeh.png", "/placeh.png", "/placeh.png"],
+      images: ["/001.jpeg", "/placeh.png", "/placeh.png"],
       specifications: {
         material: "Laminated particle board with steel frame",
         weight: "45kg per unit",
@@ -604,7 +604,7 @@ const Products = () => {
       icon: Grid,
       rating: 4.7,
       reviews: 234,
-      images: ["/placeh.png", "/placeh.png", "/placeh.png"],
+      images: ["/555.jpeg", "/placeh.png", "/placeh.png"],
       specifications: {
         material: "Metal grid with mineral fiber tiles",
         thickness: "15mm - 20mm",
@@ -631,7 +631,7 @@ const Products = () => {
       icon: Layers,
       rating: 4.9,
       reviews: 94,
-      images: ["/placeh.png", "/placeh.png", "/placeh.png"],
+      images: ["/222.jpeg", "/placeh.png", "/placeh.png"],
       specifications: {
         material: "Various (wood, fabric, acoustic)",
         thickness: "15mm - 50mm",
@@ -639,6 +639,194 @@ const Products = () => {
         warranty: "3 years",
       },
     },
+    // Customised Furniture (id: 22)
+{
+  id: 22,
+  name: "Customised Furniture",
+  category: "display-shelving",
+  description: "Bespoke furniture solutions for any space",
+  fullDescription:
+    "Custom-designed furniture tailored to your specific requirements. From reception desks to executive suites, we create unique pieces that match your brand identity and functional needs. Full design consultation and installation service included.",
+  features: [
+    "Fully customizable",
+    "Brand integration",
+    "Premium materials",
+    "Professional installation",
+    "Design consultation",
+  ],
+  icon: Package,
+  rating: 4.9,
+  reviews: 127,
+  images: ["/22.jpeg", "/placeh.png", "/placeh.png"],
+  specifications: {
+    material: "Various (wood, metal, glass, upholstery)",
+    service: "Design, manufacture, installation",
+    timeline: "4-8 weeks depending on complexity",
+    warranty: "3 years",
+  },
+},
+
+// T&G Racked Ceilings (id: 23)
+{
+  id: 23,
+  name: "T&G Racked Ceilings",
+  category: "ceilings",
+  description: "Tongue and groove wooden ceiling systems",
+  fullDescription:
+    "Premium tongue and groove racked ceiling systems offering a warm, natural aesthetic. Features solid timber construction, various wood species, and finishes. Perfect for creating sophisticated, inviting spaces in restaurants, hotels, and upscale offices.",
+  features: [
+    "Natural wood finish",
+    "Various timber options",
+    "Easy installation",
+    "Acoustic benefits",
+    "Durable construction",
+  ],
+  icon: Grid,
+  rating: 4.8,
+  reviews: 84,
+  images: ["/666.jpeg", "/placeh.png", "/placeh.png"],
+  specifications: {
+    material: "Solid timber (pine, cedar, oak options)",
+    thickness: "12mm - 19mm",
+    installation: "Racked system with clips",
+    warranty: "5 years",
+  },
+},
+
+// Tiered Seating (id: 24)
+{
+  id: 24,
+  name: "Tiered Seating",
+  category: "counters-workstations",
+  description: "Multi-level audience seating systems",
+  fullDescription:
+    "Professional tiered seating systems for auditoriums, lecture halls, and conference venues. Features include ergonomic seating, integrated writing surfaces, cable management, and various upholstery options. Custom configurations available.",
+  features: [
+    "Multi-level design",
+    "Ergonomic seating",
+    "Writing surfaces available",
+    "Fire retardant materials",
+    "Custom configurations",
+  ],
+  icon: Package,
+  rating: 4.7,
+  reviews: 52,
+  images: ["/007.jpeg", "/placeh.png", "/placeh.png"],
+  specifications: {
+    material: "Steel frame with upholstered seating",
+    riserHeight: "200mm - 400mm per tier",
+    capacity: "Custom (20-500+ seats)",
+    warranty: "5 years",
+  },
+},
+
+// Plasterboard Ceilings (id: 25)
+{
+  id: 25,
+  name: "Plasterboard Ceilings",
+  category: "ceilings",
+  description: "Smooth finish gypsum ceiling systems",
+  fullDescription:
+    "High-quality plasterboard ceiling systems providing a seamless, smooth finish. Features include fire resistance, sound insulation, and easy painting. Perfect for residential and commercial applications requiring a clean, professional look.",
+  features: [
+    "Smooth finish",
+    "Fire resistant",
+    "Sound insulation",
+    "Paintable surface",
+    "Cost effective",
+  ],
+  icon: Layers,
+  rating: 4.6,
+  reviews: 178,
+  images: ["/777.jpeg", "/placeh.png", "/placeh.png"],
+  specifications: {
+    material: "Gypsum plasterboard on steel frame",
+    thickness: "9.5mm - 15mm",
+    fireRating: "Up to 2 hours",
+    warranty: "2 years",
+  },
+},
+
+// ATM Lobbies (id: 26)
+{
+  id: 26,
+  name: "ATM Lobbies",
+  category: "windows-doors",
+  description: "Secure 24-hour ATM enclosure systems",
+  fullDescription:
+    "Fully integrated ATM lobby solutions providing secure 24-hour access. Features include bulletproof glass, access control systems, surveillance integration, climate control, and vandal-resistant construction. Complete turnkey installation.",
+  features: [
+    "24/7 access control",
+    "Bulletproof glass",
+    "Surveillance ready",
+    "Climate controlled",
+    "Vandal resistant",
+  ],
+  icon: Building2,
+  rating: 4.9,
+  reviews: 67,
+  images: ["/888.jpeg", "/placeh.png", "/placeh.png"],
+  specifications: {
+    material: "Steel frame with bulletproof glass",
+    accessControl: "Card reader and keypad entry",
+    safetyRating: "EN 1627-1630 RC4",
+    warranty: "5 years",
+  },
+},
+
+// Bulkheads (id: 27)
+{
+  id: 27,
+  name: "Bulkheads",
+  category: "ceilings",
+  description: "Architectural ceiling bulkhead systems",
+  fullDescription:
+    "Custom bulkhead ceiling systems creating visual definition and concealing services. Features include integrated lighting, various finishes, and custom shapes. Perfect for retail stores, restaurants, and commercial spaces requiring architectural interest.",
+  features: [
+    "Custom designs",
+    "Integrated lighting",
+    "Service concealment",
+    "Various finishes",
+    "Architectural detail",
+  ],
+  icon: Layers,
+  rating: 4.7,
+  reviews: 91,
+  images: ["/444.jpeg", "/placeh.png", "/placeh.png"],
+  specifications: {
+    material: "Gypsum board or aluminum composite",
+    depth: "150mm - 600mm",
+    lighting: "LED strip integration available",
+    warranty: "3 years",
+  },
+},
+
+// Glass Partitions (id: 28)
+{
+  id: 28,
+  name: "Glass Partitions",
+  category: "partitions-walls",
+  description: "Modern glass partition wall systems",
+  fullDescription:
+    "Contemporary glass partition systems creating open, light-filled spaces while maintaining acoustic separation. Features include frameless or framed options, frosted or clear glass, and integrated door systems. Perfect for modern offices and meeting rooms.",
+  features: [
+    "Natural light flow",
+    "Acoustic rated",
+    "Frameless options",
+    "Various glass types",
+    "Modern aesthetic",
+  ],
+  icon: Square,
+  rating: 4.8,
+  reviews: 145,
+  images: ["/333.jpeg", "/placeh.png", "/placeh.png"],
+  specifications: {
+    material: "10mm or 12mm toughened glass",
+    frameOptions: "Frameless or aluminum framed",
+    soundRating: "Up to 38dB",
+    warranty: "5 years",
+  },
+},
   ];
 
   const filteredProducts =
