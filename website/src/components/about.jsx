@@ -80,7 +80,8 @@ const About = () => {
     {
       year: "2000",
       event: "Company Founded",
-      description: "Global Shopfitters Zimbabwe established by ex Fredic Sage team",
+      description:
+        "Global Shopfitters Zimbabwe established by ex Fredic Sage team",
       icon: Award,
       image: "/m.jpg",
       color: "#FDDB3A",
@@ -201,58 +202,50 @@ const About = () => {
 
   return (
     <div style={{ overflow: "hidden" }}>
-      {/* Enhanced Hero Section with Light Background */}
-      <section style={heroSectionStyle}>
-        {/* Background Image Layer */}
-        <div
+{/* Enhanced Hero Section with Light Background */}
+<section style={heroSectionStyle}>
+  {/* Background Image Layer - Mobile Optimized with Tailwind */}
+  <div
+    className="absolute inset-0 bg-cover bg-no-repeat bg-[top] sm:bg-[top] md:bg-[top]"
+    style={{
+      backgroundImage: 'url("/about.jpeg")',
+    }}
+  ></div>
+
+  {/* Dark Overlay for Better Text Contrast */}
+  <div
+    className="absolute inset-0 bg-black/40"
+  ></div>
+
+  <div style={{ ...containerStyle, position: "relative", zIndex: 10 }}>
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8 }}
+      style={{ textAlign: "center", maxWidth: "896px", margin: "0 auto" }}
+    >
+      <motion.div
+        initial={{ opacity: 0, scale: 0.5 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ delay: 0.2, duration: 0.6 }}
+        style={heroBadgeStyle}
+      >
+        <span
           style={{
-            position: "absolute",
-            inset: 0,
-            backgroundImage: 'url("/about.jpeg")',
-            backgroundSize: "cover",
-            backgroundPosition: "top center",
+            background: `linear-gradient(90deg, ${colors.chiliRed} 0%, ${colors.amber} 100%)`,
+            WebkitBackgroundClip: "text",
+            WebkitTextFillColor: "white",
+            backgroundClip: "text",
           }}
-        ></div>
+        >
+          Established 2000 • Zimbabwe's Trusted Partner
+        </span>
+      </motion.div>
 
-        {/* Dark Overlay for Better Text Contrast */}
-        <div
-          style={{
-            position: "absolute",
-            inset: 0,
-            background: "rgba(0, 0, 0, 0.3)",
-          }}
-        ></div>
-
-        <div style={{ ...containerStyle, position: "relative", zIndex: 10 }}>
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            style={{ textAlign: "center", maxWidth: "896px", margin: "0 auto" }}
-          >
-            <motion.div
-              initial={{ opacity: 0, scale: 0.5 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.2, duration: 0.6 }}
-              style={heroBadgeStyle}
-            >
-              <span
-                style={{
-                  background: `linear-gradient(90deg, ${colors.chiliRed} 0%, ${colors.amber} 100%)`,
-                  WebkitBackgroundClip: "text",
-                  WebkitTextFillColor: "white",
-                  backgroundClip: "text",
-                }}
-              >
-                Established 2000 • Zimbabwe's Trusted Partner
-              </span>
-            </motion.div>
-
-            <h1 style={heroTitleStyle}>About Global Shopfitters Zimbabwe</h1>
-          </motion.div>
-        </div>
-      </section>
-
+      <h1 style={heroTitleStyle}>About Global Shopfitters Zimbabwe</h1>
+    </motion.div>
+  </div>
+</section>
       {/* Creative Company Story Section */}
       <section
         style={{
@@ -358,10 +351,10 @@ const About = () => {
                   We are the image creators of today!!
                 </p>
                 <p>
-                  We are Global Shopfitters Zimbabwe (Proprietary Limited), formerly
-                  formed in early 2000 by ex Fredic Sage and now under new
-                  management. We are a wholly owned by indigenous Zimbabweans
-                  with our major shareholder being NM Holdings.
+                  We are Global Shopfitters Zimbabwe (Proprietary Limited),
+                  formerly formed in early 2000 by ex Fredic Sage and now under
+                  new management. We are a wholly owned by indigenous
+                  Zimbabweans with our major shareholder being NM Holdings.
                 </p>
                 <p>
                   We are an established, comprehensive leading and not just
