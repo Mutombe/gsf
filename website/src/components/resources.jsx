@@ -370,7 +370,7 @@ const Resources = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="max-w-3xl pt-16"
+            className="max-w-3xl pt-28"
           >
             <motion.div
               initial={{ scale: 0.9, opacity: 0 }}

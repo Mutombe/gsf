@@ -68,7 +68,7 @@ const Contact = () => {
   };
 
   // Harare, Zimbabwe coordinates
-  const position = [-17.8490877, 31.1234503,17]; // Latitude, Longitude for Harare
+  const position = [-17.8490877, 31.1234503, 17]; // Latitude, Longitude for Harare
 
   // WhatsApp number (replace with actual number)
   const whatsappNumber = "263781934986"; // Format: country code + number (no + or spaces)
@@ -331,6 +331,7 @@ ${formData.message}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             style={{ textAlign: "center" }}
+            className="pt-10"
           >
             {/* Badge */}
             <motion.div

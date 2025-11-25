@@ -751,7 +751,7 @@ const Products = () => {
   return (
     <div className="overflow-hidden">
       {/* Hero Section with Blended Background */}
-      <section className="relative min-h-[90vh] flex items-center text-white overflow-hidden px-5 py-20 md:py-32">
+      <section className="relative lg:min-h-[90vh] sm:min-h-screen flex items-center text-white overflow-hidden px-5 py-20 md:py-32">
         {/* Background Image */}
         <div
           className="absolute inset-0 bg-cover bg-center"
@@ -766,7 +766,7 @@ const Products = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-center max-w-4xl mx-auto"
+            className="text-center max-w-4xl mx-auto pt-26"
           >
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold leading-tight mb-6">
               Our Products
