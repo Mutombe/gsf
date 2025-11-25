@@ -28,12 +28,16 @@ import {
   Cog,
 } from "lucide-react";
 import { useLanguage } from "./lunguageContext";
+import { toast, Toaster } from "sonner";
+
 
 const Products = () => {
   const { t } = useLanguage();
   const [activeCategory, setActiveCategory] = useState("all");
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [userRating, setUserRating] = useState(0);
+  const [hoveredStar, setHoveredStar] = useState(0);
 
   // Project inquiry form state
   const [projectInfo, setProjectInfo] = useState({
@@ -46,6 +50,13 @@ const Products = () => {
     installationRequired: "",
     additionalNotes: "",
   });
+    const handleStarClick = (rating) => {
+    setUserRating(rating);
+    toast.success("Thank you for your review! 🌟", {
+      description: `You rated this product ${rating} star${rating > 1 ? 's' : ''}`,
+      duration: 3000,
+    });
+  };
 
   const categories = [
     { id: "all", name: "All Products", icon: Layers },
@@ -835,16 +846,6 @@ const Products = () => {
                       style={{ backgroundImage: `url(${product.images[0]})` }}
                     ></div>
 
-                    {/* Rating Badge */}
-                    <div className="absolute top-4 left-4 px-3 py-1.5 bg-white/95 backdrop-blur-md rounded-full flex items-center gap-1 text-xs md:text-sm font-bold">
-                      <Star
-                        size={14}
-                        className="text-[#F3B900] fill-[#F3B900]"
-                      />
-                      <span>{product.rating}</span>
-                      <span className="text-gray-500">({product.reviews})</span>
-                    </div>
-
                     {/* Hover Overlay */}
                     <div className="absolute inset-0 bg-gradient-to-t from-gray-900/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-5">
                       <div className="text-white text-sm font-bold flex items-center gap-2">
@@ -979,17 +980,40 @@ const Products = () => {
                 <div className="p-6 md:p-10 overflow-y-auto max-h-[70vh] lg:max-h-[80vh] order-1 lg:order-2">
                   {/* Product Header */}
                   <div className="mb-6">
-                    <div className="flex items-center gap-2 mb-3">
-                      <Star
-                        size={18}
-                        className="text-[#F3B900] fill-[#F3B900]"
-                      />
-                      <span className="text-base font-bold">
-                        {selectedProduct.rating}
-                      </span>
-                      <span className="text-gray-500">
-                        ({selectedProduct.reviews} reviews)
-                      </span>
+                    {/* Interactive Star Rating */}
+                    <div className="mb-4">
+                      <div className="flex items-center gap-3 mb-2">
+                        <div className="flex gap-1">
+                          {[1, 2, 3, 4, 5].map((star) => (
+                            <button
+                              key={star}
+                              onClick={() => handleStarClick(star)}
+                              onMouseEnter={() => setHoveredStar(star)}
+                              onMouseLeave={() => setHoveredStar(0)}
+                              className="transition-all duration-200 transform hover:scale-110"
+                            >
+                              <Star
+                                size={24}
+                                className={`transition-colors ${
+                                  star <= (hoveredStar || userRating)
+                                    ? "text-[#F3B900] fill-[#F3B900]"
+                                    : "text-gray-300"
+                                }`}
+                              />
+                            </button>
+                          ))}
+                        </div>
+                        {userRating > 0 && (
+                          <span className="text-sm font-semibold text-[#E3180D]">
+                            You rated: {userRating} star{userRating > 1 ? 's' : ''}
+                          </span>
+                        )}
+                      </div>
+                      <p className="text-xs text-gray-500">
+                        {userRating > 0
+                          ? "Thank you for your feedback!"
+                          : "Click to rate this product"}
+                      </p>
                     </div>
 
                     <h2 className="text-2xl md:text-3xl lg:text-4xl font-extrabold text-gray-800 mb-3">
