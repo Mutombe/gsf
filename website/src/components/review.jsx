@@ -186,7 +186,8 @@ const Testimonials = () => {
         padding: '100px 20px 80px',
         background: `linear-gradient(135deg, ${colors.darkGray} 0%, #1a1a1a 100%)`,
         overflow: 'hidden',
-      }}>
+      }}
+      >
         {/* Animated Background Elements */}
         <div style={{
           position: 'absolute',
@@ -197,7 +198,8 @@ const Testimonials = () => {
           background: `radial-gradient(circle, ${colors.chiliRed}20, transparent)`,
           borderRadius: '5px',
           filter: 'blur(60px)',
-        }}></div>
+        }}
+              className='pt-10'></div>
         <div style={{
           position: 'absolute',
           bottom: '10%',
@@ -241,7 +243,7 @@ const Testimonials = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             style={{ textAlign: 'center' }}
-            className='pt-16'
+            className='pt-22'
           >
             {/* Badge */}
             <motion.div
@@ -259,6 +261,7 @@ const Testimonials = () => {
                 border: '1px solid rgba(255, 255, 255, 0.2)',
                 marginBottom: '24px',
               }}
+                    className='pt-20'
             >
               <div style={{ display: 'flex', gap: '4px' }}>
                 {[...Array(5)].map((_, i) => (
