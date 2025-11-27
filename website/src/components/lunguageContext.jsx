@@ -115,7 +115,7 @@ export const translations = {
         desc: 'End-to-end project coordination ensuring timely delivery, budget control, and quality assurance.',
       },
       installation: {
-        title: 'Installation & Maintainance',
+        title: 'Installation',
         desc: 'Professional installation services with trained and certified teams and ongoing maintainance programs.',
       },
     },
