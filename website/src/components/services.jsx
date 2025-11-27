@@ -36,25 +36,9 @@ const Services = () => {
 
 const services = [
     {
-      icon: HeadphonesIcon,
-      title: t('services.afterService.title'),
-      description: t('services.afterService.desc'),
-      features: [
-        '24/7 customer support hotline',
-        'Emergency repair services',
-        'Parts replacement and supply',
-        'Scheduled maintainance programs',
-        'Technical troubleshooting assistance',
-        'Warranty coverage and claims'
-      ],
-      colorFrom: colors.persimmon,
-      colorTo: colors.tangerine,
-      size: 'small',
-    },
-    {
       icon: MessageCircle,
-      title: t('services.consulting.title'),
-      description: t('services.consulting.desc'),
+      title: t("services.consulting.title"),
+      description: t("services.consulting.desc"),
       features: [
         'Expert needs assessment and analysis',
         'Regulatory compliance checks',
@@ -68,9 +52,24 @@ const services = [
       size: 'large',
     },
     {
+      icon: Cpu,
+      title: t("services.engineering.title"),
+      description: t("services.engineering.desc"),
+      features: [
+        'Load calculations and specifications',
+        'Performance optimization',
+        'Structural engineering solutions',
+        'Systems integration planning',
+        'Technical documentation'
+      ],
+      colorFrom: colors.scarlet,
+      colorTo: colors.persimmon,
+      size: 'medium',
+    },
+    {
       icon: Lightbulb,
-      title: t('services.design.title'),
-      description: t('services.design.desc'),
+      title: t("services.design.title"),
+      description: t("services.design.desc"),
       features: [
         '3D modeling and visualisation',
         'Brand-aligned aesthetic development',
@@ -84,40 +83,25 @@ const services = [
       size: 'large',
     },
     {
-      icon: Cpu,
-      title: t('services.engineering.title'),
-      description: t('services.engineering.desc'),
+      icon: FlaskConical,
+      title: t("services.testing.title"),
+      description: t("services.testing.desc"),
       features: [
-        'Load calculations and specifications',
-        'Performance optimization',
-        'Structural engineering solutions',
-        'Systems integration planning',
-        'Technical documentation'
+        'Compliance and safety testing',
+        'Load and stress testing',
+        'Material testing and verification',
+        'Performance validation',
+        'Pre-installation testing protocols',
+        'Quality control inspections'
       ],
-      colorFrom: colors.scarlet,
-      colorTo: colors.persimmon,
-      size: 'medium',
-    },
-    {
-      icon: Settings,
-      title: t('services.installation.title'),
-      description: t('services.installation.desc'),
-      features: [
-        'Certified installation teams',
-        'Minimal business disruption',
-        'Ongoing maintainance contracts',
-        'Post-installation cleanup',
-        'Professional on-site installation',
-        'System testing and commissioning'
-      ],
-      colorFrom: colors.chiliRed,
-      colorTo: colors.darkOrange,
-      size: 'large',
+      colorFrom: colors.flame,
+      colorTo: colors.safetyOrange,
+      size: 'small',
     },
     {
       icon: Factory,
-      title: t('services.production.title'),
-      description: t('services.production.desc'),
+      title: t("services.production.title"),
+      description: t("services.production.desc"),
       features: [
         'Custom fabrication services',
         'Efficient production workflows',
@@ -131,9 +115,25 @@ const services = [
       size: 'medium',
     },
     {
+      icon: HeadphonesIcon,
+      title: t("services.afterService.title"),
+      description: t("services.afterService.desc"),
+      features: [
+        '24/7 customer support hotline',
+        'Emergency repair services',
+        'Parts replacement and supply',
+        'Scheduled maintainance programs',
+        'Technical troubleshooting assistance',
+        'Warranty coverage and claims'
+      ],
+      colorFrom: colors.persimmon,
+      colorTo: colors.tangerine,
+      size: 'small',
+    },
+    {
       icon: FolderKanban,
-      title: t('services.projectManagement.title'),
-      description: t('services.projectManagement.desc'),
+      title: t("services.projectManagement.title"),
+      description: t("services.projectManagement.desc"),
       features: [
         'Budget management and control',
         'End-to-end project coordination',
@@ -147,20 +147,20 @@ const services = [
       size: 'medium',
     },
     {
-      icon: FlaskConical,
-      title: t('services.testing.title'),
-      description: t('services.testing.desc'),
+      icon: Settings,
+      title: t("services.installation.title"),
+      description: t("services.installation.desc"),
       features: [
-        'Compliance and safety testing',
-        'Load and stress testing',
-        'Material testing and verification',
-        'Performance validation',
-        'Pre-installation testing protocols',
-        'Quality control inspections'
+        'Certified installation teams',
+        'Minimal business disruption',
+        'Ongoing maintainance contracts',
+        'Post-installation cleanup',
+        'Professional on-site installation',
+        'System testing and commissioning'
       ],
-      colorFrom: colors.flame,
-      colorTo: colors.safetyOrange,
-      size: 'small',
+      colorFrom: colors.chiliRed,
+      colorTo: colors.darkOrange,
+      size: 'large',
     },
   ];
   const process = [
