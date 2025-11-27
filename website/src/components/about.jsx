@@ -297,7 +297,7 @@ const About = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
             >
-              <motion.div
+<motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -314,7 +314,7 @@ const About = () => {
                   letterSpacing: "1px",
                 }}
               >
-                WHO WE ARE
+                OUR STORY
               </motion.div>
 
               <h2
@@ -326,7 +326,7 @@ const About = () => {
                   lineHeight: "1.2",
                 }}
               >
-                Who Are We?
+                Our Story
               </h2>
 
               <div
@@ -348,23 +348,25 @@ const About = () => {
                     color: colors.darkGray,
                   }}
                 >
-                  We are the image creators of today!!
+                  Global Shopfitters (trading as Mukuvisi Manufacturing Private) Limited, is Zimbabwe's premium shopfitting company.
                 </p>
                 <p>
-                  We are Global Shopfitters Zimbabwe (Proprietary Limited),
-                  formerly formed in early 2000 by ex Fredic Sage and now under
-                  new management. We are a wholly owned by indigenous
-                  Zimbabweans with our major shareholder being NM Holdings.
+                  Founded in 2000 by a group of seasoned industry professionals, our company was established with a vision to deliver excellence in shopfitting and commercial construction. We acquired the assets of DK Manufacturing and later, in 2003, expanded our capabilities by acquiring The Workbench, a long-established company with Italian heritage.
                 </p>
                 <p>
-                  We are an established, comprehensive leading and not just
-                  shopfitting services company in the Construction Industry in
-                  Zimbabwe. We are a Class A member organisation of CIFZ
-                  (Construction Industry Federation of Zimbabwe).
+                  We specialize in creating innovative spaces that combine functionality with aesthetic appeal. Our foundation was built by a dedicated team of technical experts, estimators, site managers, and skilled craftsmen who brought decades of combined experience to establish new standards in the industry.
                 </p>
                 <p>
-                  We are registered with ZIMRA, NSSA, NEC and Zimdef, and we
-                  practice environmentally compliant manufacturing.
+                  Throughout our journey, we've had the privilege of executing major national rollouts for emerging financial institutions including Trust Bank, Trust Towers, Century Bank, Intermarket Bank, and Barbican, as well as refurbishment projects for established banks such as ZB Bank, CBZ, Barclays, and POSB. At our peak, we grew to employ over 400 people across two factory locations.
+                </p>
+                <p>
+                  Like many Zimbabwean businesses, we weathered significant economic challenges, including the banking sector crisis and currency instability. However, our resilience and commitment to excellence saw us through these difficult times. The stabilization period from 2009 onwards marked our rehabilitation, and by 2015, we had successfully regained our strong footing in the market.
+                </p>
+                <p>
+                  Today, we continue our commitment to delivering excellence in every project. Our team of skilled craftsmen and designers work tirelessly to create commercial and residential spaces that not only look impressive but also function efficiently to drive business success.
+                </p>
+                <p>
+                  From small boutique stores to large commercial spaces, we have successfully completed hundreds of projects across Zimbabwe, establishing ourselves as leaders in the construction industry and proud members of the Construction Industry Federation of Zimbabwe (CIFZ).
                 </p>
               </div>
 
