@@ -162,14 +162,14 @@ const Home = () => {
   const stats = [
     {
       icon: GrProjects,
-      value: "1000+",
+      value: "5000+",
       label: t("home.stats.projects"),
       colorFrom: colors.chiliRed,
       colorTo: colors.brightOrange,
     },
     {
       icon: FaJenkins,
-      value: "350+",
+      value: "1000+",
       label: t("home.stats.clients"),
       colorFrom: colors.scarlet,
       colorTo: colors.darkOrange,
