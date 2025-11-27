@@ -31,7 +31,7 @@ export const translations = {
         title: 'For a',
         titleHighlight: 'Perfect Fit',
         subtitle: 'Transforming Spaces with Premium Shopfitting Solutions',
-        cta1: 'Explore Our Services',
+        cta1: 'Explore Our Standards',
         cta2: 'View Projects',
       },
       stats: {
@@ -84,7 +84,7 @@ export const translations = {
     },
     // Services Page
     services: {
-      title: 'Our Services',
+      title: 'Our Standards',
       subtitle: 'Comprehensive Solutions for everyday needs',
       consulting: {
         title: 'Consulting',

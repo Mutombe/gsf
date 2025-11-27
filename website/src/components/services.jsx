@@ -347,7 +347,7 @@ const services = [
             viewport={{ once: true }}
             style={{ marginBottom: '64px', textAlign: 'center' }}
           >
-            <h2 style={sectionTitleStyle}>Our Services</h2>
+            <h2 style={sectionTitleStyle}>Our Standards</h2>
             <p style={sectionSubtitleStyle}>
               Complete end-to-end solutions for your project
             </p>
