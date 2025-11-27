@@ -54,15 +54,19 @@ const LazyImage = ({ src, alt, className, style, priority = false }) => {
   }, [src, isInView, priority]);
 
   return (
-    <div ref={imgRef} className={className} style={{ ...style, position: 'relative', overflow: 'hidden' }}>
+    <div
+      ref={imgRef}
+      className={className}
+      style={{ ...style, position: "relative", overflow: "hidden" }}
+    >
       {/* Placeholder with blur effect */}
       <div
         style={{
-          position: 'absolute',
+          position: "absolute",
           inset: 0,
-          background: 'linear-gradient(135deg, #e3180d20, #ff7805020)',
-          filter: imageLoaded ? 'blur(0px)' : 'blur(10px)',
-          transition: 'filter 0.3s ease',
+          background: "linear-gradient(135deg, #e3180d20, #ff7805020)",
+          filter: imageLoaded ? "blur(0px)" : "blur(10px)",
+          transition: "filter 0.3s ease",
         }}
       />
       {imageSrc && (
@@ -72,11 +76,11 @@ const LazyImage = ({ src, alt, className, style, priority = false }) => {
           loading={priority ? "eager" : "lazy"}
           decoding="async"
           style={{
-            width: '100%',
-            height: '100%',
-            objectFit: 'cover',
+            width: "100%",
+            height: "100%",
+            objectFit: "cover",
             opacity: imageLoaded ? 1 : 0,
-            transition: 'opacity 0.3s ease',
+            transition: "opacity 0.3s ease",
           }}
           onLoad={() => setImageLoaded(true)}
         />
@@ -120,27 +124,30 @@ const Home = () => {
   const [heroImagesLoaded, setHeroImagesLoaded] = useState(false);
 
   // Color palette
-  const colors = useMemo(() => ({
-    chiliRed: "#E3180D",
-    scarlet: "#FF2A00",
-    flame: "#D92603",
-    bloodOrange: "#B50001",
-    persimmon: "#E45B11",
-    safetyOrange: "#FA7301",
-    tangerine: "#FF7805",
-    darkOrange: "#E35906",
-    brightOrange: "#F99E09",
-    amber: "#F3B900",
-    mustardYellow: "#FFC60A",
-    mustard: "#FCD92A",
-    mustardLight: "#FFDC5E",
-    sunset: "#F2CC88",
-    peach: "#FBCB98",
-    darkGray: "#2D2D2D",
-    mediumGray: "#666666",
-    lightGray: "#F5F5F5",
-    white: "#FFFFFF",
-  }), []);
+  const colors = useMemo(
+    () => ({
+      chiliRed: "#E3180D",
+      scarlet: "#FF2A00",
+      flame: "#D92603",
+      bloodOrange: "#B50001",
+      persimmon: "#E45B11",
+      safetyOrange: "#FA7301",
+      tangerine: "#FF7805",
+      darkOrange: "#E35906",
+      brightOrange: "#F99E09",
+      amber: "#F3B900",
+      mustardYellow: "#FFC60A",
+      mustard: "#FCD92A",
+      mustardLight: "#FFDC5E",
+      sunset: "#F2CC88",
+      peach: "#FBCB98",
+      darkGray: "#2D2D2D",
+      mediumGray: "#666666",
+      lightGray: "#F5F5F5",
+      white: "#FFFFFF",
+    }),
+    []
+  );
 
   const [isNavbarScrolled, setIsNavbarScrolled] = useState(false);
 
@@ -154,10 +161,21 @@ const Home = () => {
   }, []);
 
   // Optimized image list - only unique images, no repetition
-  const heroImages = useMemo(() => [
-    "/f.jpg", "/g.jpg", "/h.jpg", "/i.jpg", "/j.jpg",
-    "/k.jpg", "/l.jpg", "/m.jpg", "/q.jpg", "/r.jpg"
-  ], []);
+  const heroImages = useMemo(
+    () => [
+      "/f.jpg",
+      "/g.jpg",
+      "/h.jpg",
+      "/i.jpg",
+      "/j.jpg",
+      "/k.jpg",
+      "/l.jpg",
+      "/m.jpg",
+      "/q.jpg",
+      "/r.jpg",
+    ],
+    []
+  );
 
   const stats = [
     {
@@ -213,13 +231,6 @@ const Home = () => {
       colorTo: colors.amber,
     },
     {
-      icon: FlaskConical,
-      title: t("services.testing.title"),
-      description: t("services.testing.desc"),
-      colorFrom: colors.flame,
-      colorTo: colors.safetyOrange,
-    },
-    {
       icon: Factory,
       title: t("services.production.title"),
       description: t("services.production.desc"),
@@ -227,11 +238,19 @@ const Home = () => {
       colorTo: colors.mustardYellow,
     },
     {
-      icon: HeadphonesIcon,
-      title: t("services.afterService.title"),
-      description: t("services.afterService.desc"),
-      colorFrom: colors.persimmon,
-      colorTo: colors.tangerine,
+      icon: FlaskConical,
+      title: t("services.testing.title"),
+      description: t("services.testing.desc"),
+      colorFrom: colors.flame,
+      colorTo: colors.safetyOrange,
+    },
+
+    {
+      icon: Settings,
+      title: t("services.installation.title"),
+      description: t("services.installation.desc"),
+      colorFrom: colors.chiliRed,
+      colorTo: colors.darkOrange,
     },
     {
       icon: FolderKanban,
@@ -241,11 +260,11 @@ const Home = () => {
       colorTo: colors.amber,
     },
     {
-      icon: Settings,
-      title: t("services.installation.title"),
-      description: t("services.installation.desc"),
-      colorFrom: colors.chiliRed,
-      colorTo: colors.darkOrange,
+      icon: HeadphonesIcon,
+      title: t("services.afterService.title"),
+      description: t("services.afterService.desc"),
+      colorFrom: colors.persimmon,
+      colorTo: colors.tangerine,
     },
   ];
 
@@ -290,7 +309,7 @@ const Home = () => {
   // Preload critical images
   useEffect(() => {
     const preloadImages = async () => {
-      const imagePromises = heroImages.slice(0, 3).map(src => {
+      const imagePromises = heroImages.slice(0, 3).map((src) => {
         return new Promise((resolve) => {
           const img = new Image();
           img.src = src;
@@ -298,11 +317,11 @@ const Home = () => {
           img.onerror = resolve;
         });
       });
-      
+
       await Promise.all(imagePromises);
       setHeroImagesLoaded(true);
     };
-    
+
     preloadImages();
   }, [heroImages]);
 
@@ -408,7 +427,7 @@ const Home = () => {
           />
 
           {/* Optimized Image Mosaic Grid - Much fewer images with CSS pattern */}
-          <div 
+          <div
             className="absolute inset-0 opacity-20"
             style={{
               backgroundImage: `
@@ -443,7 +462,7 @@ const Home = () => {
                 }}
                 className="relative aspect-square rounded-sm overflow-hidden"
                 style={{
-                  willChange: 'auto',
+                  willChange: "auto",
                 }}
               >
                 <LazyImage
@@ -451,7 +470,7 @@ const Home = () => {
                   alt=""
                   priority={index < 3}
                   className="w-full h-full object-cover"
-                  style={{ opacity: 0.7, objectPosition: 'top center' }}
+                  style={{ opacity: 0.7, objectPosition: "top center" }}
                 />
               </motion.div>
             ))}
@@ -471,7 +490,8 @@ const Home = () => {
           <div
             className="absolute top-0 left-0 right-0 h-40 z-30"
             style={{
-              background: "linear-gradient(to bottom, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.5) 50%, transparent 100%)",
+              background:
+                "linear-gradient(to bottom, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.5) 50%, transparent 100%)",
             }}
           />
 
@@ -729,7 +749,7 @@ const Home = () => {
                     marginBottom: "16px",
                     boxShadow: `0 4px 20px ${stat.colorFrom}30`,
                     transition: "transform 0.3s ease",
-                    willChange: 'transform',
+                    willChange: "transform",
                   }}
                   onMouseEnter={(e) =>
                     (e.currentTarget.style.transform = "scale(1.1)")
@@ -829,7 +849,7 @@ const Home = () => {
                   ...glassmorphismCardStyle,
                   padding: "32px",
                   cursor: "pointer",
-                  willChange: 'auto',
+                  willChange: "auto",
                 }}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.background =
@@ -992,7 +1012,7 @@ const Home = () => {
                     marginBottom: "24px",
                     boxShadow: `0 4px 20px ${colors.chiliRed}30`,
                     transition: "all 0.3s ease",
-                    willChange: 'transform',
+                    willChange: "transform",
                   }}
                   onMouseEnter={(e) => {
                     e.currentTarget.style.transform = "scale(1.1) rotate(5deg)";
