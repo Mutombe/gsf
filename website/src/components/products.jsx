@@ -544,33 +544,6 @@ const Products = () => {
       },
     },
 
-    // Interior Modelling (id: 20)
-    {
-      id: 20,
-      name: "Interior Modelling",
-      category: "display-shelving",
-      description: "Custom interior design and modeling",
-      fullDescription:
-        "Comprehensive interior modeling services creating bespoke retail and commercial spaces. Includes custom joinery, display fixtures, reception desks, and branded elements. Full design-to-installation service.",
-      features: [
-        "Custom design",
-        "CAD modeling",
-        "Branded elements",
-        "Full installation",
-        "Project management",
-      ],
-      icon: Building2,
-      rating: 4.9,
-      reviews: 43,
-      images: ["/placeh.png", "/placeh.png", "/placeh.png"],
-      specifications: {
-        service: "Design, manufacture, and installation",
-        timeline: "4-12 weeks depending on size",
-        includes: "3D renders, material samples, project management",
-        warranty: "2 years",
-      },
-    },
-
     // Lockers (id: 29)
     {
       id: 29,
@@ -598,32 +571,6 @@ const Products = () => {
       },
     },
 
-    // Louvres (id: 18)
-    {
-      id: 18,
-      name: "Louvres",
-      category: "glass-glazing",
-      description: "Ventilation and privacy louvre systems",
-      fullDescription:
-        "Architectural louvre systems providing ventilation, privacy, and solar shading. Available in aluminum or glass with fixed or operable blades. Perfect for facades, privacy screens, and mechanical areas.",
-      features: [
-        "Ventilation control",
-        "Privacy screening",
-        "Solar shading",
-        "Various blade angles",
-        "Powder coated finish",
-      ],
-      icon: Grid,
-      rating: 4.7,
-      reviews: 118,
-      images: ["/placeh.png", "/placeh.png", "/placeh.png"],
-      specifications: {
-        material: "Aluminum with powder coating",
-        bladeSize: "100mm - 200mm",
-        operation: "Fixed or motorized",
-        warranty: "5 years",
-      },
-    },
 
     // Office Work Stations (id: 2)
     {
@@ -676,33 +623,6 @@ const Products = () => {
         thickness: "9.5mm - 15mm",
         fireRating: "Up to 2 hours",
         warranty: "2 years",
-      },
-    },
-
-    // Shop Product Display (id: 19)
-    {
-      id: 19,
-      name: "Shop Product Display",
-      category: "display-shelving",
-      description: "Versatile retail display systems",
-      fullDescription:
-        "Comprehensive retail display systems including wall units, freestanding displays, and specialty showcases. Features adjustable shelving, integrated lighting, and various finishes. Perfect for retail stores, showrooms, and exhibitions.",
-      features: [
-        "Modular design",
-        "Adjustable shelves",
-        "LED lighting options",
-        "Various finishes",
-        "Easy reconfiguration",
-      ],
-      icon: Grid,
-      rating: 4.8,
-      reviews: 156,
-      images: ["/placeh.png", "/placeh.png", "/placeh.png"],
-      specifications: {
-        material: "MDF with laminate or powder coated metal",
-        shelfLoad: "30kg per shelf",
-        lighting: "LED strip optional",
-        warranty: "3 years",
       },
     },
 
