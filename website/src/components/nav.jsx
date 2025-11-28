@@ -171,12 +171,12 @@ const Navbar = () => {
       icon: LiaProjectDiagramSolid,
       type: "link",
     },
-    {
-      path: "/testimonials",
-      label: t("nav.testimonials"),
-      icon: PiSmiley,
-      type: "link",
-    },
+    //{
+    //  path: "/testimonials",
+    //  label: t("nav.testimonials"),
+    //  icon: PiSmiley,
+    //  type: "link",
+    //},
     {
       label: "Resources",
       icon: Package,
