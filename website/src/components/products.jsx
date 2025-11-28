@@ -703,7 +703,6 @@ const Products = () => {
         "/random/9.jpeg",
         "/random/10.jpeg",
         "/random/18.jpeg",
-        "/random/19.jpeg",
       ],
       specifications: {
         material: "Metal grid with mineral fiber tiles",
