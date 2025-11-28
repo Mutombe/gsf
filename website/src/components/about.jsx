@@ -1009,11 +1009,6 @@ const About = () => {
             >
               {[
                 {
-                  name: "Edgars",
-                  category: "Retail",
-                  logo: "/logos/ed.png",
-                },
-                {
                   name: "OK Zimbabwe",
                   category: "Supermarkets",
                   logo: "/logos/ok.png",
@@ -1058,7 +1053,7 @@ const About = () => {
                   category: "Banking",
                   logo: "/logos/nb.png",
                 },
-                { name: "Bata", category: "Retail", logo: "/logos/bt.png" },
+                //{ name: "Bata", category: "Retail", logo: "/logos/bt.png" },
               ].map((client, index) => (
                 <motion.div
                   key={index}
