@@ -1053,7 +1053,9 @@ const About = () => {
                   category: "Banking",
                   logo: "/logos/nb.png",
                 },
-                //{ name: "Bata", category: "Retail", logo: "/logos/bt.png" },
+                { name: "Ecobank", category: "Banking", logo: "/logos/eb.png" },
+                 { name: "Cimas", category: "Health", logo: "/logos/cm.webp" },
+                  { name: "First Capital", category: "Banking", logo: "/logos/fc.jpg" },
               ].map((client, index) => (
                 <motion.div
                   key={index}
