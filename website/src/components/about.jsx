@@ -89,7 +89,7 @@ const About = () => {
     {
       year: "2005",
       event: "Industry Recognition",
-      description: "Became a Class A member of CIFZ",
+      description: "Became a Class A member of CIFoZ",
       icon: Award,
       image: "/27.jpg",
       color: "#10B981",
