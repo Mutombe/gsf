@@ -69,8 +69,10 @@ const Products = () => {
     { id: "partitions-walls", name: "Partitions & Walls", icon: Package },
     { id: "ceilings", name: "Ceilings", icon: Layers },
     { id: "windows-doors", name: "Windows & Doors", icon: DoorOpen },
-    { id: "glass-glazing", name: "Glass & Glazing", icon: Sparkles },
-    { id: "display-shelving", name: "Display & Shelving", icon: Grid },
+    { id: "glass-glazing", name: "Aluminium & Glazing", icon: Sparkles },
+    { id: "atm-lobbies", name: "ATM & Lobbies", icon: Grid },
+    { id: "partitions", name: "Partitions", icon: Grid },
+    { id: "other", name: "Other", icon: Layers },
   ];
 
   const products = [

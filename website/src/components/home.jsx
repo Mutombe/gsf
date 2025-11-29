@@ -187,7 +187,7 @@ const Home = () => {
     },
     {
       icon: FaJenkins,
-      value: "1000+",
+      value: "5000+",
       label: t("home.stats.clients"),
       colorFrom: colors.scarlet,
       colorTo: colors.darkOrange,

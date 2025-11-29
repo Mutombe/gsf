@@ -1153,7 +1153,7 @@ ${formData.message}
                   No. 3, 18 Whitesway, Harare Zimbabwe
                 </p>
                 <motion.a
-                  href="https://maps.google.com/?q=Harare,Zimbabwe"
+                  href="https://maps.google.com/?q=Whitesway,Msasa,Harare,Zimbabwe"
                   target="_blank"
                   rel="noopener noreferrer"
                   whileHover={{ scale: 1.02 }}
