@@ -385,7 +385,7 @@ const About = () => {
               >
                 {[
                   { number: "5000+", label: "Projects Completed" },
-                  { number: "1000+", label: "Happy Clients" },
+                  { number: "5000+", label: "Happy Clients" },
                   { number: "25+", label: "Years Experience" },
                 ].map((stat, index) => (
                   <div key={index} style={{ textAlign: "center" }}>
