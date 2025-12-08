@@ -68,9 +68,8 @@ const ScrollingColumn = ({ images, direction, delay = 0 }) => {
             key={index}
             className="relative w-full h-screen rounded-sm overflow-hidden flex-shrink-0"
           >
-            <img src={img} alt="" className="w-full h-full object-cover" />
+            <LazyImage src={img} alt={`Image ${index}`} priority={true} className="w-full h-full object-cover" />
             {/* Lighter gradient overlay on individual images */}
-          
           </div>
         ))}
       </motion.div>
