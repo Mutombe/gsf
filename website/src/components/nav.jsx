@@ -201,17 +201,19 @@ const Navbar = () => {
     white: "#FFFFFF",
   };
 
-  // Updated top bar style - now fixed at the top
+  // Updated top bar style - now white with subtle border
   const topBarStyle = {
     position: "fixed",
     top: 0,
     left: 0,
     right: 0,
     zIndex: 61, // Higher than navbar
-    background: `linear-gradient(90deg, ${colors.darkGray} 0%, #1a1a1a 100%)`,
-    color: colors.white,
+    background: colors.white,
+    color: colors.darkGray,
     padding: "8px 0",
     fontSize: "14px",
+    borderBottom: "1px solid #E5E7EB",
+    boxShadow: "0 1px 3px rgba(0, 0, 0, 0.05)",
   };
 
   // Updated navbar style - positioned below top bar
@@ -304,7 +306,7 @@ const navbarStyle = {
     <>
       <SearchModal isOpen={showSearch} onClose={() => setShowSearch(false)} />
 
-      {/* Top Bar - Now fixed and hidden when scrolled */}
+      {/* Top Bar - Now white with dark text */}
       {!isScrolled && (
         <motion.div
           initial={{ y: 0 }}
@@ -324,15 +326,15 @@ const navbarStyle = {
                     display: "flex",
                     alignItems: "center",
                     gap: "8px",
-                    color: colors.white,
+                    color: colors.darkGray,
                     textDecoration: "none",
                     transition: "color 0.3s ease",
                   }}
                   onMouseEnter={(e) =>
-                    (e.currentTarget.style.color = colors.amber)
+                    (e.currentTarget.style.color = colors.chiliRed)
                   }
                   onMouseLeave={(e) =>
-                    (e.currentTarget.style.color = colors.white)
+                    (e.currentTarget.style.color = colors.darkGray)
                   }
                 >
                   <Mail size={14} />
@@ -344,27 +346,27 @@ const navbarStyle = {
                     display: "flex",
                     alignItems: "center",
                     gap: "8px",
-                    color: colors.white,
+                    color: colors.darkGray,
                     textDecoration: "none",
                     transition: "color 0.3s ease",
                   }}
                   onMouseEnter={(e) =>
-                    (e.currentTarget.style.color = colors.amber)
+                    (e.currentTarget.style.color = colors.chiliRed)
                   }
                   onMouseLeave={(e) =>
-                    (e.currentTarget.style.color = colors.white)
+                    (e.currentTarget.style.color = colors.darkGray)
                   }
                 >
                   <Phone size={14} />
                   <span>+263 78 193 4986</span>
                 </a>
-                <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+                <div style={{ display: "flex", alignItems: "center", gap: "8px", color: colors.mediumGray }}>
                   <Clock size={14} />
                   <span>Mon - Fri: 8:00 AM - 5:00 PM</span>
                 </div>
               </div>
               <div style={{ display: "flex", alignItems: "center", gap: "16px" }}>
-                <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+                <div style={{ display: "flex", alignItems: "center", gap: "8px", color: colors.mediumGray }}>
                   <MapPin size={14} />
                   <span>No. 3, 18 Whitesway, Harare</span>
                 </div>
@@ -372,7 +374,7 @@ const navbarStyle = {
                   style={{
                     width: "1px",
                     height: "16px",
-                    background: "rgba(255, 255, 255, 0.3)",
+                    background: "#E5E7EB",
                   }}
                 />
                 <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
@@ -392,17 +394,19 @@ const navbarStyle = {
                           width: "28px",
                           height: "28px",
                           borderRadius: "3px",
-                          background: "rgba(255, 255, 255, 0.1)",
-                          color: colors.white,
+                          background: "#F3F4F6",
+                          color: colors.darkGray,
                           transition: "all 0.3s ease",
                           textDecoration: "none",
                         }}
                         onMouseEnter={(e) => {
                           e.currentTarget.style.background = colors.chiliRed;
+                          e.currentTarget.style.color = colors.white;
                           e.currentTarget.style.transform = "translateY(-2px)";
                         }}
                         onMouseLeave={(e) => {
-                          e.currentTarget.style.background = "rgba(255, 255, 255, 0.1)";
+                          e.currentTarget.style.background = "#F3F4F6";
+                          e.currentTarget.style.color = colors.darkGray;
                           e.currentTarget.style.transform = "translateY(0)";
                         }}
                       >
@@ -424,20 +428,20 @@ const navbarStyle = {
                       display: "flex",
                       alignItems: "center",
                       gap: "6px",
-                      color: colors.white,
+                      color: colors.darkGray,
                       textDecoration: "none",
                     }}
                   >
                     <Phone size={12} />
                     <span>+263 78 193 4986</span>
                   </a>
-                  <div style={{ display: "flex", alignItems: "center", gap: "6px" }}>
+                  <div style={{ display: "flex", alignItems: "center", gap: "6px", color: colors.mediumGray }}>
                     <Clock size={12} />
                     <span>Mon-Fri: 8AM-5PM</span>
                   </div>
                 </div>
                 
-                <div className="flex items-center justify-center gap-3 pt-1 border-t border-white/20">
+                <div className="flex items-center justify-center gap-3 pt-1 border-t border-gray-200">
                   {socialLinks.map((social) => {
                     const SocialIcon = social.icon;
                     return (
@@ -454,8 +458,8 @@ const navbarStyle = {
                           width: "32px",
                           height: "32px",
                           borderRadius: "3px",
-                          background: "rgba(255, 255, 255, 0.1)",
-                          color: colors.white,
+                          background: "#F3F4F6",
+                          color: colors.darkGray,
                           transition: "all 0.3s ease",
                           textDecoration: "none",
                         }}
