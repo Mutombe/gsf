@@ -34,6 +34,56 @@ import { FaJenkins } from "react-icons/fa";
 import { RxTimer } from "react-icons/rx";
 import { TiArrowRepeatOutline } from "react-icons/ti";
 
+// Scrolling Column Component
+// Scrolling Column Component
+const ScrollingColumn = ({ images, direction, delay = 0 }) => {
+  const [isPaused, setIsPaused] = useState(false);
+
+  // Duplicate images for seamless infinite loop
+  const duplicatedImages = [...images, ...images];
+
+  return (
+    <div
+      className="relative overflow-hidden h-full"
+      onMouseEnter={() => setIsPaused(true)}
+      onMouseLeave={() => setIsPaused(false)}
+    >
+      <motion.div
+        animate={{
+          y: direction === "up" ? ["0%", "-50%"] : ["-50%", "0%"],
+        }}
+        transition={{
+          duration: 25,
+          repeat: Infinity,
+          ease: "linear",
+          delay: delay,
+        }}
+        style={{
+          willChange: "transform",
+        }}
+        className={`flex flex-col gap-4 ${isPaused ? "pause-animation" : ""}`}
+      >
+        {duplicatedImages.map((img, index) => (
+          <div
+            key={index}
+            className="relative w-full h-screen rounded-sm overflow-hidden flex-shrink-0"
+          >
+            <img src={img} alt="" className="w-full h-full object-cover" />
+            {/* Lighter gradient overlay on individual images */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
+          </div>
+        ))}
+      </motion.div>
+
+      <style jsx>{`
+        .pause-animation {
+          animation-play-state: paused !important;
+        }
+      `}</style>
+    </div>
+  );
+};
+
 // Lazy load component for images
 const LazyImage = ({ src, alt, className, style, priority = false }) => {
   const [imageSrc, setImageSrc] = useState(null);
@@ -43,7 +93,6 @@ const LazyImage = ({ src, alt, className, style, priority = false }) => {
 
   useEffect(() => {
     if (priority || isInView) {
-      // Create a small blur placeholder
       const img = new Image();
       img.src = src;
       img.onload = () => {
@@ -59,7 +108,6 @@ const LazyImage = ({ src, alt, className, style, priority = false }) => {
       className={className}
       style={{ ...style, position: "relative", overflow: "hidden" }}
     >
-      {/* Placeholder with blur effect */}
       <div
         style={{
           position: "absolute",
@@ -160,7 +208,7 @@ const Home = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Optimized image list - only unique images, no repetition
+  // Optimized image list - split into columns
   const heroImages = useMemo(
     () => [
       "/f.jpg",
@@ -175,6 +223,20 @@ const Home = () => {
       "/r.jpg",
     ],
     []
+  );
+
+  // Split images into three columns
+  const column1Images = useMemo(
+    () => [heroImages[0], heroImages[1], heroImages[2], heroImages[3]],
+    [heroImages]
+  );
+  const column2Images = useMemo(
+    () => [heroImages[4], heroImages[5], heroImages[6]],
+    [heroImages]
+  );
+  const column3Images = useMemo(
+    () => [heroImages[7], heroImages[8], heroImages[9]],
+    [heroImages]
   );
 
   const stats = [
@@ -201,7 +263,7 @@ const Home = () => {
     },
     {
       icon: TiArrowRepeatOutline,
-      value: "98%",
+      value: "0%",
       label: t("home.stats.satisfaction"),
       colorFrom: colors.darkOrange,
       colorTo: colors.mustardYellow,
@@ -327,12 +389,12 @@ const Home = () => {
 
   const heroSectionStyle = {
     minHeight: "100vh",
-    paddingTop: "140px", // Increased to account for top bar + navbar
-    marginTop: "0", // Remove negative margin to prevent overlap
+    paddingTop: "140px",
+    marginTop: "0",
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-    background: `linear-gradient(135deg, #1a1a1a 0%, ${colors.darkGray} 50%, #2a2a2a 100%)`,
+    background: `linear-gradient(135deg, #ff0000ff 0%, ${colors.darkGray} 50%, #ffffffff 100%)`,
     position: "relative",
     overflow: "hidden",
   };
@@ -414,352 +476,281 @@ const Home = () => {
 
   return (
     <div style={{ overflow: "hidden" }}>
-{/* Hero Section - Optimized */}
-<section style={heroSectionStyle}>
-  {/* Optimized Image Mosaic Background */}
-  <div className="absolute inset-0 overflow-hidden">
-    {/* Base gradient - keep this for immediate color */}
-    <div
-      className="absolute inset-0 bg-gradient-to-br z-0"
-      style={{
-        background: `linear-gradient(135deg, ${colors.chiliRed} 0%, ${colors.scarlet} 50%, ${colors.darkOrange} 100%)`,
-      }}
-    />
+      {/* Hero Section with Infinite Scrolling Columns */}
+      <section style={heroSectionStyle}>
+        {/* Infinite Scrolling Background Columns */}
+        <div className="absolute inset-0 flex gap-4 px-2">
+          {/* Column 1 - Scrolling UP */}
+          <div className="flex-1 h-full">
+            <ScrollingColumn images={column1Images} direction="up" delay={0} />
+          </div>
 
-    {/* Optimized Image Mosaic Grid - Much fewer images with CSS pattern */}
-    <div
-      className="absolute inset-0 opacity-20"
-      style={{
-        backgroundImage: `
-          repeating-linear-gradient(
-            45deg,
-            transparent,
-            transparent 35px,
-            rgba(255, 255, 255, 0.05) 35px,
-            rgba(255, 255, 255, 0.05) 70px
-          ),
-          repeating-linear-gradient(
-            -45deg,
-            transparent,
-            transparent 35px,
-            rgba(0, 0, 0, 0.03) 35px,
-            rgba(0, 0, 0, 0.03) 70px
-          )
-        `,
-      }}
-    />
+          {/* Column 2 - Scrolling DOWN */}
+          <div className="flex-1 h-full hidden sm:block">
+            <ScrollingColumn
+              images={column2Images}
+              direction="down"
+              delay={0}
+            />
+          </div>
 
-    {/* Mobile image grid - enhanced coverage for mobile only */}
-    <div 
-      className="md:hidden absolute grid gap-0.5 transform -rotate-12"
-      style={{
-        top: '-30%',
-        left: '-30%',
-        width: '160%',
-        height: '160%',
-        scale: '1.5',
-        gridTemplateColumns: 'repeat(3, 1fr)',
-      }}
-    >
-      {heroImages.concat(heroImages).concat(heroImages).concat(heroImages).map((img, index) => (
-        <motion.div
-          key={`mobile-${index}`}
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={heroImagesLoaded ? { opacity: 1, scale: 1 } : {}}
-          transition={{
-            delay: (index % 5) * 0.05,
-            duration: 0.5,
-          }}
-          className="relative aspect-square rounded-sm overflow-hidden"
-          style={{
-            willChange: "auto",
-          }}
-        >
-          <LazyImage
-            src={img}
-            alt=""
-            priority={index < 4}
-            className="w-full h-full object-cover"
-            style={{ opacity: 0.7, objectPosition: "center" }}
+          {/* Column 3 - Scrolling UP */}
+          <div className="flex-1 h-full hidden lg:block">
+            <ScrollingColumn images={column3Images} direction="up" delay={0} />
+          </div>
+        </div>
+
+        {/* Lighter Dark Overlay - Reduced opacity */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/60" />
+
+        {/* Animated Grid Overlay - Reduced opacity */}
+        <div className="absolute inset-0 opacity-3">
+          <div
+            className="absolute inset-0"
+            style={{
+              backgroundImage: `linear-gradient(${colors.chiliRed} 1px, transparent 1px), linear-gradient(90deg, ${colors.chiliRed} 1px, transparent 1px)`,
+              backgroundSize: "50px 50px",
+            }}
           />
-        </motion.div>
-      ))}
-    </div>
+        </div>
 
-    {/* Desktop image grid - original layout */}
-    <div className="hidden md:grid absolute inset-0 grid-cols-5 gap-0.5 p-4 transform -rotate-12 scale-125">
-      {heroImages.concat(heroImages).map((img, index) => (
-        <motion.div
-          key={index}
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={heroImagesLoaded ? { opacity: 1, scale: 1 } : {}}
-          transition={{
-            delay: (index % 5) * 0.1,
-            duration: 0.5,
-          }}
-          className="relative aspect-square rounded-sm overflow-hidden"
+        {/* Enhanced top gradient for navbar area */}
+        <div
+          className="absolute top-0 left-0 right-0 h-40 z-30"
           style={{
-            willChange: "auto",
+            background:
+              "linear-gradient(to bottom, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.4) 50%, transparent 100%)",
           }}
-        >
-          <LazyImage
-            src={img}
-            alt=""
-            priority={index < 3}
-            className="w-full h-full object-cover"
-            style={{ opacity: 0.7, objectPosition: "top center" }}
-          />
-        </motion.div>
-      ))}
-    </div>
+        />
 
-    {/* Overlays for text readability */}
-    <div
-      className="absolute inset-0 opacity-10 z-10"
-      style={{
-        background: `linear-gradient(135deg, ${colors.chiliRed}E0 0%, ${colors.scarlet}D0 50%, ${colors.darkOrange}E0 50%)`,
-      }}
-    />
+        {/* Lighter radial gradient for center focus */}
+        <div
+          className="absolute inset-0 z-30"
+          style={{
+            background:
+              "radial-gradient(circle at center, transparent 0%, rgba(0, 0, 0, 0.2) 100%)",
+          }}
+        />
 
-    <div className="absolute inset-0 bg-black/20 opacity-50 z-20" />
-
-    {/* Enhanced top gradient for navbar area */}
-    <div
-      className="absolute top-0 left-0 right-0 h-40 z-30"
-      style={{
-        background:
-          "linear-gradient(to bottom, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.5) 50%, transparent 100%)",
-      }}
-    />
-
-    {/* Radial gradient for center focus */}
-    <div
-      className="absolute inset-0 z-30"
-      style={{
-        background:
-          "radial-gradient(circle at center, transparent 0%, rgba(0, 0, 0, 0.3) 100%)",
-      }}
-    />
-  </div>
-
-  <div
-    style={{
-      ...containerStyle,
-      position: "relative",
-      zIndex: 40,
-      padding: "10px 20px 80px",
-      textAlign: "center",
-    }}
-  >
-    <motion.div
-      initial={{ opacity: 0, y: 50 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8 }}
-      style={{ color: colors.white }}
-    >
-      <motion.div
-        initial={{ opacity: 0, scale: 0.5 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.8 }}
-        style={{ marginBottom: "32px" }}
-      >
-        {/* CIFZ Membership Badge */}
+        {/* Content */}
         <div
           style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            gap: "12px",
-            background: "rgba(255, 255, 255, 0.15)",
-            backdropFilter: "blur(10px)",
-            padding: "12px 20px",
-            borderRadius: "5px",
-            border: "1px solid rgba(255, 255, 255, 0.25)",
-            maxWidth: "fit-content",
-            margin: "0 auto",
+            ...containerStyle,
+            position: "relative",
+            zIndex: 40,
+            padding: "10px 20px 80px",
+            textAlign: "center",
+          }}
+        >
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            style={{ color: colors.white }}
+          >
+            <motion.div
+              initial={{ opacity: 0, scale: 0.5 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8 }}
+              style={{ marginBottom: "32px" }}
+            >
+              {/* CIFZ Membership Badge */}
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  gap: "12px",
+                  background: "rgba(255, 255, 255, 0.15)",
+                  backdropFilter: "blur(10px)",
+                  padding: "12px 20px",
+                  borderRadius: "5px",
+                  border: "1px solid rgba(255, 255, 255, 0.25)",
+                  maxWidth: "fit-content",
+                  margin: "0 auto",
+                }}
+              >
+                <div
+                  style={{
+                    width: "40px",
+                    height: "40px",
+                    borderRadius: "5px",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    padding: "4px",
+                  }}
+                >
+                  <LazyImage
+                    src="/cifz.png"
+                    alt="CIFZ Logo"
+                    priority={true}
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      objectFit: "contain",
+                    }}
+                  />
+                </div>
+                <div style={{ textAlign: "left" }}>
+                  <div
+                    style={{
+                      color: colors.white,
+                      fontWeight: "700",
+                      fontSize: "0.875rem",
+                      lineHeight: "1.2",
+                    }}
+                  >
+                    Proud Class A Member
+                  </div>
+                  <div
+                    style={{
+                      color: "rgba(255, 255, 255, 0.85)",
+                      fontSize: "0.75rem",
+                      lineHeight: "1.2",
+                    }}
+                  >
+                    Construction Industry Federation of Zimbabwe
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+
+            <motion.h1
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3, duration: 0.8 }}
+              style={{
+                fontSize: "clamp(3rem, 8vw, 5rem)",
+                fontWeight: "900",
+                lineHeight: "1.1",
+                color: colors.white,
+                marginBottom: "24px",
+                textShadow: "0 2px 20px rgba(0, 0, 0, 0.3)",
+              }}
+            >
+              {t("home.hero.title")}{" "}
+              <span
+                style={{
+                  display: "",
+                  marginTop: "12px",
+                  background: `linear-gradient(90deg, ${colors.mustardLight} 0%, ${colors.amber} 50%, ${colors.brightOrange} 100%)`,
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
+                  backgroundClip: "text",
+                  fontWeight: "900",
+                }}
+              >
+                {t("home.hero.titleHighlight")}
+              </span>
+            </motion.h1>
+
+            <motion.p
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.5, duration: 0.8 }}
+              style={{
+                fontSize: "clamp(1.125rem, 3vw, 1.5rem)",
+                color: "rgba(255, 255, 255, 0.95)",
+                lineHeight: "1.7",
+                maxWidth: "768px",
+                margin: "0 auto 48px",
+                fontWeight: "500",
+                textShadow: "0 1px 10px rgba(0, 0, 0, 0.2)",
+              }}
+            >
+              {t("home.hero.subtitle")}{" "}
+            </motion.p>
+
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.7, duration: 0.8 }}
+              style={{
+                display: "flex",
+                flexWrap: "wrap",
+                gap: "16px",
+                justifyContent: "center",
+              }}
+            >
+              <Link
+                to="/services"
+                style={buttonPrimaryStyle}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform =
+                    "translateY(-2px) scale(1.05)";
+                  e.currentTarget.style.boxShadow =
+                    "0 6px 20px rgba(227, 24, 13, 0.5)";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = "translateY(0) scale(1)";
+                  e.currentTarget.style.boxShadow =
+                    "0 4px 15px rgba(227, 24, 13, 0.4)";
+                }}
+              >
+                <span>{t("home.hero.cta1")}</span>
+                <ArrowRight size={20} />
+              </Link>
+              <Link
+                to="/projects"
+                style={{
+                  ...buttonSecondaryStyle,
+                  background: "transparent",
+                  border: "2px solid white",
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.background = colors.white;
+                  e.currentTarget.style.color = colors.darkGray;
+                  e.currentTarget.style.transform =
+                    "translateY(-2px) scale(1.05)";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.background = "transparent";
+                  e.currentTarget.style.color = colors.white;
+                  e.currentTarget.style.transform = "translateY(0) scale(1)";
+                }}
+              >
+                <span>{t("home.hero.cta2")}</span>
+                <ArrowRight size={20} />
+              </Link>
+            </motion.div>
+          </motion.div>
+        </div>
+
+        {/* Scroll Indicator */}
+        <motion.div
+          animate={{ y: [0, 10, 0] }}
+          transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+          style={{
+            position: "absolute",
+            bottom: "40px",
+            left: "50%",
+            transform: "translateX(-50%)",
+            zIndex: 50,
           }}
         >
           <div
             style={{
-              width: "40px",
+              width: "24px",
               height: "40px",
+              border: `2px solid ${colors.chiliRed}`,
               borderRadius: "5px",
               display: "flex",
-              alignItems: "center",
               justifyContent: "center",
-              padding: "4px",
+              paddingTop: "8px",
             }}
           >
-            <LazyImage
-              src="/cifz.png"
-              alt="CIFZ Logo"
-              priority={true}
-              style={{
-                width: "100%",
-                height: "100%",
-                objectFit: "contain",
-              }}
-            />
-          </div>
-          <div style={{ textAlign: "left" }}>
             <div
               style={{
-                color: colors.white,
-                fontWeight: "700",
-                fontSize: "0.875rem",
-                lineHeight: "1.2",
+                width: "4px",
+                height: "12px",
+                background: colors.chiliRed,
+                borderRadius: "5px",
               }}
-            >
-              Proud Class A Member
-            </div>
-            <div
-              style={{
-                color: "rgba(255, 255, 255, 0.85)",
-                fontSize: "0.75rem",
-                lineHeight: "1.2",
-              }}
-            >
-              Construction Industry Federation of Zimbabwe
-            </div>
+            ></div>
           </div>
-        </div>
-      </motion.div>
-
-      <motion.h1
-        initial={{ opacity: 0, y: 50 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.3, duration: 0.8 }}
-        style={{
-          fontSize: "clamp(3rem, 8vw, 5rem)",
-          fontWeight: "900",
-          lineHeight: "1.1",
-          color: colors.white,
-          marginBottom: "24px",
-          textShadow: "0 2px 20px rgba(0, 0, 0, 0.3)",
-        }}
-      >
-        {t("home.hero.title")}{" "}
-        <span
-          style={{
-            display: "",
-            marginTop: "12px",
-            background: `linear-gradient(90deg, ${colors.mustardLight} 0%, ${colors.amber} 50%, ${colors.brightOrange} 100%)`,
-            WebkitBackgroundClip: "text",
-            WebkitTextFillColor: "transparent",
-            backgroundClip: "text",
-            fontWeight: "900",
-          }}
-        >
-          {t("home.hero.titleHighlight")}
-        </span>
-      </motion.h1>
-
-      <motion.p
-        initial={{ opacity: 0, y: 50 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.5, duration: 0.8 }}
-        style={{
-          fontSize: "clamp(1.125rem, 3vw, 1.5rem)",
-          color: "rgba(255, 255, 255, 0.95)",
-          lineHeight: "1.7",
-          maxWidth: "768px",
-          margin: "0 auto 48px",
-          fontWeight: "500",
-          textShadow: "0 1px 10px rgba(0, 0, 0, 0.2)",
-        }}
-      >
-        {t("home.hero.subtitle")}{" "}
-      </motion.p>
-
-      <motion.div
-        initial={{ opacity: 0, y: 50 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.7, duration: 0.8 }}
-        style={{
-          display: "flex",
-          flexWrap: "wrap",
-          gap: "16px",
-          justifyContent: "center",
-        }}
-      >
-        <Link
-          to="/services"
-          style={buttonPrimaryStyle}
-          onMouseEnter={(e) => {
-            e.currentTarget.style.transform =
-              "translateY(-2px) scale(1.05)";
-            e.currentTarget.style.boxShadow =
-              "0 6px 20px rgba(227, 24, 13, 0.5)";
-          }}
-          onMouseLeave={(e) => {
-            e.currentTarget.style.transform = "translateY(0) scale(1)";
-            e.currentTarget.style.boxShadow =
-              "0 4px 15px rgba(227, 24, 13, 0.4)";
-          }}
-        >
-          <span>{t("home.hero.cta1")}</span>
-          <ArrowRight size={20} />
-        </Link>
-        <Link
-          to="/projects"
-          style={{
-            ...buttonSecondaryStyle,
-            background: "transparent",
-            border: "2px solid white",
-          }}
-          onMouseEnter={(e) => {
-            e.currentTarget.style.background = colors.white;
-            e.currentTarget.style.color = colors.darkGray;
-            e.currentTarget.style.transform =
-              "translateY(-2px) scale(1.05)";
-          }}
-          onMouseLeave={(e) => {
-            e.currentTarget.style.background = "transparent";
-            e.currentTarget.style.color = colors.white;
-            e.currentTarget.style.transform = "translateY(0) scale(1)";
-          }}
-        >
-          <span>{t("home.hero.cta2")}</span>
-          <ArrowRight size={20} />
-        </Link>
-      </motion.div>
-    </motion.div>
-  </div>
-
-  {/* Scroll Indicator */}
-  <motion.div
-    animate={{ y: [0, 10, 0] }}
-    transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-    style={{
-      position: "absolute",
-      bottom: "40px",
-      left: "50%",
-      transform: "translateX(-50%)",
-      zIndex: 50,
-    }}
-  >
-    <div
-      style={{
-        width: "24px",
-        height: "40px",
-        border: "2px solid rgba(255, 255, 255, 0.3)",
-        borderRadius: "5px",
-        display: "flex",
-        justifyContent: "center",
-        paddingTop: "8px",
-      }}
-    >
-      <div
-        style={{
-          width: "4px",
-          height: "12px",
-          background: "rgba(255, 255, 255, 0.5)",
-          borderRadius: "5px",
-        }}
-      ></div>
-    </div>
-  </motion.div>
-</section>
+        </motion.div>
+      </section>
 
       {/* Stats Section with Count-Up Effect */}
       <section style={{ ...sectionStyle, background: colors.white }}>

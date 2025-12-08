@@ -38,7 +38,7 @@ export const translations = {
         projects: 'Projects Completed',
         clients: 'Happy Clients',
         experience: 'Years Experience',
-        satisfaction: 'Satisfaction Rate',
+        satisfaction: 'Unresolved Issues',
       },
       services: {
         title: 'Our Standards',
