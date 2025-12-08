@@ -70,7 +70,7 @@ const ScrollingColumn = ({ images, direction, delay = 0 }) => {
           >
             <img src={img} alt="" className="w-full h-full object-cover" />
             {/* Lighter gradient overlay on individual images */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
+          
           </div>
         ))}
       </motion.div>
@@ -501,7 +501,7 @@ const Home = () => {
         </div>
 
         {/* Lighter Dark Overlay - Reduced opacity */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/60" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/10 via-black/30 to-black/10" />
 
         {/* Animated Grid Overlay - Reduced opacity */}
         <div className="absolute inset-0 opacity-3">
