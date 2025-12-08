@@ -202,50 +202,48 @@ const About = () => {
 
   return (
     <div style={{ overflow: "hidden" }}>
-{/* Enhanced Hero Section with Light Background */}
-<section style={heroSectionStyle}>
-  {/* Background Image Layer - Mobile Optimized with Tailwind */}
-  <div
-    className="absolute inset-0 bg-cover bg-no-repeat bg-[top] sm:bg-[top] md:bg-[top]"
-    style={{
-      backgroundImage: 'url("/about.jpeg")',
-    }}
-  ></div>
-
-  {/* Dark Overlay for Better Text Contrast */}
-  <div
-    className="absolute inset-0 bg-black/40"
-  ></div>
-
-  <div style={{ ...containerStyle, position: "relative", zIndex: 10 }}>
-    <motion.div
-      initial={{ opacity: 0, y: 30 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8 }}
-      style={{ textAlign: "center", maxWidth: "896px", margin: "0 auto" }}
-    >
-      <motion.div
-        initial={{ opacity: 0, scale: 0.5 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ delay: 0.2, duration: 0.6 }}
-        style={heroBadgeStyle}
-      >
-        <span
+      {/* Enhanced Hero Section with Light Background */}
+      <section style={heroSectionStyle}>
+        {/* Background Image Layer - Mobile Optimized with Tailwind */}
+        <div
+          className="absolute inset-0 bg-cover bg-no-repeat bg-[top] sm:bg-[top] md:bg-[top]"
           style={{
-            background: `linear-gradient(90deg, ${colors.chiliRed} 0%, ${colors.amber} 100%)`,
-            WebkitBackgroundClip: "text",
-            WebkitTextFillColor: "white",
-            backgroundClip: "text",
+            backgroundImage: 'url("/about.jpeg")',
           }}
-        >
-          Established 2000 • Zimbabwe's Trusted Partner
-        </span>
-      </motion.div>
+        ></div>
 
-      <h1 style={heroTitleStyle}>About Global Shopfitters Zimbabwe</h1>
-    </motion.div>
-  </div>
-</section>
+        {/* Dark Overlay for Better Text Contrast */}
+        <div className="absolute inset-0 bg-black/40"></div>
+
+        <div style={{ ...containerStyle, position: "relative", zIndex: 10 }}>
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            style={{ textAlign: "center", maxWidth: "896px", margin: "0 auto" }}
+          >
+            <motion.div
+              initial={{ opacity: 0, scale: 0.5 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.2, duration: 0.6 }}
+              style={heroBadgeStyle}
+            >
+              <span
+                style={{
+                  background: `linear-gradient(90deg, ${colors.chiliRed} 0%, ${colors.amber} 100%)`,
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "white",
+                  backgroundClip: "text",
+                }}
+              >
+                Established 2000 • Zimbabwe's Trusted Shopfitting Partner
+              </span>
+            </motion.div>
+
+            <h1 style={heroTitleStyle}>About Global Shopfitters Zimbabwe</h1>
+          </motion.div>
+        </div>
+      </section>
       {/* Creative Company Story Section */}
       <section
         style={{
@@ -297,7 +295,7 @@ const About = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
             >
-<motion.div
+              <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -348,25 +346,56 @@ const About = () => {
                     color: colors.darkGray,
                   }}
                 >
-                  Global Shopfitters (trading as Mukuvisi Manufacturing Private) Limited, is Zimbabwe's premium shopfitting company.
+                  Mukuvisi Manufacturing Private Limited(trading as Global Shopfitters Zimbabwe)
+                  is Zimbabwe's premium shopfitting company.
                 </p>
                 <p>
-                  Founded in 2000 by a group of seasoned industry professionals, our company was established with a vision to deliver excellence in shopfitting and commercial construction. We acquired the assets of DK Manufacturing and later, in 2003, expanded our capabilities by acquiring The Workbench, a long-established company with Italian heritage.
+                  Founded in 2000 by a group of seasoned industry professionals,
+                  our company was established with a vision to deliver
+                  excellence in shopfitting and commercial finishes construction. We
+                  acquired the assets of DK Manufacturing and later, in 2003,
+                  expanded our capabilities by acquiring The Workbench, a
+                  long-established shopfitting company with Italian heritage.
                 </p>
                 <p>
-                  We specialize in creating innovative spaces that combine functionality with aesthetic appeal. Our foundation was built by a dedicated team of technical experts, estimators, site managers, and skilled craftsmen who brought decades of combined experience to establish new standards in the industry.
+                  We specialize in creating innovative spaces that combine
+                  functionality with aesthetic appeal. Our foundation was built
+                  by a dedicated team of technical experts, estimators, site
+                  managers, and skilled craftsmen who brought decades of
+                  combined experience dominantly from Fredk Sage, then the largest shopfitting company in the country to establish new standards in the
+                  industry.
                 </p>
                 <p>
-                  Throughout our journey, we've had the privilege of executing major national rollouts for emerging financial institutions including Trust Bank, Trust Towers, Century Bank, Intermarket Bank, and Barbican, as well as refurbishment projects for established banks such as ZB Bank, CBZ, Barclays, and POSB. At our peak, we grew to employ over 400 people across two factory locations.
+                  Throughout our journey, we've had the privilege of executing
+                  major national rollouts for emerging financial institutions
+                  including Trust Bank, Century Bank, Intermarket
+                  Bank, and Barbican, as well as refurbishment projects for
+                  established banks such as Barclays , CBZ, POSB, and ZB Bank At
+                  our peak, we grew to employ over 400 people across two factory
+                  locations.
                 </p>
                 <p>
-                  Like many Zimbabwean businesses, we weathered significant economic challenges, including the banking sector crisis and currency instability. However, our resilience and commitment to excellence saw us through these difficult times. The stabilization period from 2009 onwards marked our rehabilitation, and by 2015, we had successfully regained our strong footing in the market.
+                  Like many Zimbabwean businesses, we weathered significant
+                  economic challenges, including the banking sector crisis of 2004 - 2006 and
+                  currency instability. However, our resilience and commitment
+                  to excellence saw us through these difficult times. The political
+                  stabilisation period from 2009 onwards marked our
+                  increasing vigour, and by 2015, we had successfully 
+                  strong footing in the market.
                 </p>
                 <p>
-                  Today, we continue our commitment to delivering excellence in every project. Our team of skilled craftsmen and designers work tirelessly to create commercial and residential spaces that not only look impressive but also function efficiently to drive business success.
+                  Today, we continue our commitment to delivering excellence in
+                  every project. Our team of skilled craftsmen and designers
+                  work tirelessly to create commercial and residential spaces
+                  that not only look impressive but also function efficiently to
+                  drive business success.
                 </p>
                 <p>
-                  From small boutique stores to large commercial spaces, we have successfully completed hundreds of projects across Zimbabwe, establishing ourselves as leaders in the construction industry and proud members of the Construction Industry Federation of Zimbabwe (CIFZ).
+                  From small boutique stores to large commercial spaces, we have
+                  successfully completed hundreds of projects across Zimbabwe,
+                  establishing ourselves as leaders in the construction industry
+                  and proud members of the Construction Industry Federation of
+                  Zimbabwe (CIFZ).
                 </p>
               </div>
 
@@ -1054,8 +1083,12 @@ const About = () => {
                   logo: "/logos/nb.png",
                 },
                 { name: "Ecobank", category: "Banking", logo: "/logos/eb.png" },
-                 { name: "Cimas", category: "Health", logo: "/logos/cm.webp" },
-                  { name: "First Capital", category: "Banking", logo: "/logos/fc.jpg" },
+                { name: "Cimas", category: "Health", logo: "/logos/cm.webp" },
+                {
+                  name: "First Capital",
+                  category: "Banking",
+                  logo: "/logos/fc.jpg",
+                },
               ].map((client, index) => (
                 <motion.div
                   key={index}

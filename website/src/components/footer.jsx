@@ -57,8 +57,8 @@ const Footer = () => {
     t("services.engineering.title"),
     t("services.design.title"),
     t("services.production.title"),
-    t("services.testing.title"),
     t("services.installation.title"),
+    t("services.testing.title"),
     t("services.projectManagement.title"),
     t("services.afterService.title"),
   ];
@@ -371,6 +371,46 @@ const Footer = () => {
             <div
               style={{ display: "flex", flexDirection: "column", gap: "16px" }}
             >
+<div
+                style={{
+                  display: "flex",
+                  alignItems: "flex-start",
+                  gap: "12px",
+                }}
+              >
+                <MapPin
+                  size={20}
+                  style={{
+                    color: colors.amber,
+                    marginTop: "4px",
+                    flexShrink: 0,
+                  }}
+                />
+                <div>
+                  <p
+                    style={{
+                      color: "rgba(255, 255, 255, 0.9)",
+                      fontSize: "14px",
+                      margin: "0 0 4px 0",
+                      fontWeight: "500",
+                    }}
+                  >
+                    Factory Address
+                  </p>
+                  <p
+                    style={{
+                      color: "rgba(255, 255, 255, 0.7)",
+                      fontSize: "14px",
+                      margin: 0,
+                      lineHeight: "1.6",
+                    }}
+                  >
+                    No. 3, 18 Whitesway,
+                    <br />
+                    Harare Zimbabwe
+                  </p>
+                </div>
+              </div>
               <div
                 style={{
                   display: "flex",
@@ -389,13 +429,23 @@ const Footer = () => {
                 <div>
                   <p
                     style={{
+                      color: "rgba(255, 255, 255, 0.9)",
+                      fontSize: "14px",
+                      margin: "0 0 4px 0",
+                      fontWeight: "500",
+                    }}
+                  >
+                    Administration Address
+                  </p>
+                  <p
+                    style={{
                       color: "rgba(255, 255, 255, 0.7)",
                       fontSize: "14px",
                       margin: 0,
                       lineHeight: "1.6",
                     }}
                   >
-                    No. 3, 18 Whitesway,
+                    48 Midlothian Avenue, Eastlea,
                     <br />
                     Harare Zimbabwe
                   </p>

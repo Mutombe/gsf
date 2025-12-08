@@ -85,7 +85,7 @@ export const translations = {
     // Services Page
     services: {
       title: 'Our Standards',
-      subtitle: 'Comprehensive Solutions for everyday needs',
+      subtitle: 'Comprehensive solutions for everyday needs',
       consulting: {
         title: 'Consulting',
         desc: 'Expert consultation services to understand your needs, assess feasibility, and plan your perfect space.',
@@ -96,11 +96,11 @@ export const translations = {
       },
       design: {
         title: 'Design',
-        desc: 'Creative and functional design services bringing your vision to life with 3D visualization and detailed planning.',
+        desc: 'Creative and functional design services bringing your vision to life with 3D visualisation and detailed planning.',
       },
       testing: {
-        title: 'Quality',
-        desc: 'Rigorous Quality control procedures to ensure all fit-outs meet the highest standards',
+        title: 'Quality Control',
+        desc: 'Rigorous quality control procedures to ensure all fit-outs meet the highest standards',
       },
       production: {
         title: 'Production',
@@ -108,11 +108,11 @@ export const translations = {
       },
       afterService: {
         title: 'After Service Support',
-        desc: 'We do not abandon you. We attend to all and any snags post Installation to ensure you are 100% satisfied.',
+        desc: 'We do not abandon you. We attend to all and any snags post installation to ensure you are 100% satisfied.',
       },
       projectManagement: {
         title: 'Project Management',
-        desc: 'End-to-end project coordination ensuring timely delivery, budget control, and quality assurance.',
+        desc: 'End-to-end project coordination ensuring timely delivery, budget control, and quality assurance. We have a 100% record in resolved issues.',
       },
       installation: {
         title: 'Installation',
@@ -147,7 +147,7 @@ export const translations = {
         sending: 'Sending...',
       },
       info: {
-        address: 'Our Address',
+        address: 'Our Factory Address',
         phone: 'Phone',
         email: 'Email',
         hours: 'Business Hours',

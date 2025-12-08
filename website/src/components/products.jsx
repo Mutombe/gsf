@@ -108,13 +108,14 @@ const Products = () => {
       id: 8,
       name: "Aluminum Shopfronts",
       category: "windows-doors",
-      description: "Modern aluminum storefront systems",
+      description: "Modern aluminum shopfront systems",
       fullDescription:
         "Contemporary aluminum shopfront systems combining security with style. Features powder-coated frames, large glass panels, and integrated door systems. Perfect for retail stores, showrooms, and commercial premises.",
       features: [
         "Powder coated finish",
         "Large glass areas",
         "Integrated doors",
+        "Anodised finish",
         "Weather resistant",
         "Low maintainance",
       ],

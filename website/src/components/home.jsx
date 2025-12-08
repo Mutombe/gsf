@@ -299,19 +299,18 @@ const Home = () => {
       colorTo: colors.mustardYellow,
     },
     {
-      icon: FlaskConical,
-      title: t("services.testing.title"),
-      description: t("services.testing.desc"),
-      colorFrom: colors.flame,
-      colorTo: colors.safetyOrange,
-    },
-
-    {
       icon: Settings,
       title: t("services.installation.title"),
       description: t("services.installation.desc"),
       colorFrom: colors.chiliRed,
       colorTo: colors.darkOrange,
+    },
+        {
+      icon: FlaskConical,
+      title: t("services.testing.title"),
+      description: t("services.testing.desc"),
+      colorFrom: colors.flame,
+      colorTo: colors.safetyOrange,
     },
     {
       icon: FolderKanban,
