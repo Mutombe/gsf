@@ -29,12 +29,12 @@ import {
   Eye,
   Heart,
 } from "lucide-react";
-import { useLanguage } from "./lunguageContext";
+import { useNavigate } from 'react-router-dom'
 
 const Resources = () => {
-  const { t } = useLanguage();
   const [activeCategory, setActiveCategory] = useState("all");
   const [searchQuery, setSearchQuery] = useState("");
+  const navigate = useNavigate()
 
   const categories = [
     { id: "all", name: "All Resources", icon: Layers },
@@ -45,283 +45,153 @@ const Resources = () => {
   ];
 
   const resources = [
-    // Books & Blogs
+    // Industry News from web search
     {
       id: 1,
-      category: "books",
-      type: "Technical Guide",
-      title: "Aluminum Shopfitting Systems Handbook",
-      author: "International Shopfitting Institute",
-      description:
-        "Comprehensive technical guide covering aluminum shopfront systems, curtain walling, and commercial glazing solutions with installation specifications.",
-      excerpt:
-        "Understanding aluminum alloy properties and thermal break technology is essential for creating high-performance commercial facades.",
-      image: "/placeh.png",
-      date: "2023",
-      tags: ["Aluminum Systems", "Shopfronts", "Technical Standards"],
-      link: "#",
+      category: "news",
+      type: "Industry Report",
+      title: "Global Shopfitting Industry Report 2024: Detailed Analysis of 600+ Leading Companies",
+      author: "Research and Markets",
+      description: "Comprehensive analysis of 610 leading shopfitting companies worldwide including market trends, financial performance, and industry forecasts. Covers shop furniture, fixtures, and displays.",
+      excerpt: "The Shopfitting Analysis provides a detailed overview of the global shopfitting market and delivers a comprehensive individual analysis on the top 610 companies.",
+      image: "https://ml.globenewswire.com/media/MDVlNTk4NzUtZmFhMy00ZjZjLThiNWYtMDJjNjk3YmI5N2E4LTEwMjY3Mzc=/tiny/Research-and-Markets.png",
+      date: "January 25, 2024",
+      tags: ["Market Analysis", "Global Industry", "Financial Trends"],
+      link: "https://www.globenewswire.com/news-release/2024/01/25/2816639/0/en/Global-Shopfitting-Industry-Report-2024-Detailed-Analysis-of-600-Leading-Companies.html",
       featured: true,
       hero: true,
-      rating: 4.8,
-      reads: "12.5K",
+      trending: true,
+      readTime: "15 min",
+      source: "GlobeNewswire",
+      sourceLogo: "https://ml.globenewswire.com/media/MDVlNTk4NzUtZmFhMy00ZjZjLThiNWYtMDJjNjk3YmI5N2E4LTEwMjY3Mzc=/tiny/Research-and-Markets.png",
     },
-    {
-      id: 2,
-      category: "books",
-      type: "Blog",
-      title: "Modern Demountable Partition Systems",
-      author: "Commercial Interiors Magazine",
-      description:
-        "Explore the latest innovations in demountable partition systems, including frameless glass partitions and modular wall solutions for flexible office spaces.",
-      excerpt:
-        "The future of commercial interiors lies in flexibility - spaces that adapt as quickly as businesses evolve.",
-      image: "/placeh.png",
-      date: "February 2024",
-      tags: ["Partitions", "Office Design", "Flexibility"],
-      link: "#",
-      featured: true,
-      rating: 4.5,
-      reads: "8.3K",
-    },
-    {
-      id: 3,
-      category: "books",
-      type: "eBook",
-      title: "Powder Coating & Aluminum Finishing Techniques",
-      author: "Surface Finishing Association",
-      description:
-        "Technical guide covering powder coating processes, anodizing, and various aluminum finishing techniques for commercial fixtures and architectural elements.",
-      excerpt:
-        "Quality finishing transforms aluminum from a raw material into a premium architectural element that stands the test of time.",
-      image: "/placeh.png",
-      date: "2023",
-      tags: ["Powder Coating", "Finishing", "Aluminum"],
-      link: "#",
-      featured: true,
-      rating: 4.9,
-      reads: "15.7K",
-    },
-    {
-      id: 4,
-      category: "books",
-      type: "Blog",
-      title: "Bank Teller Counter Design Standards",
-      author: "Financial Architecture Review",
-      description:
-        "Essential guide to designing and installing bank teller counters with bulletproof glass, transaction trays, and security compliance requirements.",
-      image: "/placeh.png",
-      date: "January 2024",
-      tags: ["Banking", "Security", "Counter Design"],
-      link: "#",
-      featured: false,
-      rating: 4.6,
-      reads: "6.2K",
-    },
-
-    // Videos
     {
       id: 5,
-      category: "videos",
-      type: "Tutorial",
-      title: "Installing Aluminum Shopfronts: Complete Guide",
-      author: "Shopfitting Academy",
-      description:
-        "Professional installation tutorial covering aluminum shopfront systems from frame assembly to glazing, including weather sealing and hardware installation.",
-      image: "/placeh.png",
-      duration: "45:30",
-      date: "March 2024",
-      tags: ["Installation", "Shopfronts", "Aluminum"],
-      link: "#",
+      category: "papers",
+      type: "Market Research",
+      title: "Customized Shopfitting Materials Market - Industry Share Report 2025",
+      author: "Global Market Insights",
+      description: "Aluminum market anticipated to surpass $165 billion by 2022. Metals including aluminum preferred for shelves due to cost-efficiency and durability. Asia Pacific expected to dominate.",
+      excerpt: "Aluminum-based shopfitting materials are gaining preference due to their lightweight properties, durability, and design flexibility.",
+      image: "https://images.unsplash.com/photo-1565008576549-57569a49371d?w=800",
+      date: "2025",
+      tags: ["Aluminum", "Customization", "Market Share"],
+      link: "https://www.gminsights.com/industry-analysis/customized-shopfitting-materials-market",
       featured: true,
-      hero: true,
-      views: "125K",
-      likes: "8.5K",
+      citations: 245,
+      pages: 78,
+      source: "Global Market Insights",
+      sourceLogo: "https://via.placeholder.com/100x30/1976D2/FFFFFF?text=GMI",
     },
     {
       id: 6,
-      category: "videos",
-      type: "Webinar",
-      title: "Curtain Walling Systems & Thermal Performance",
-      author: "Architectural Glazing Summit",
-      description:
-        "Expert discussion on high-performance curtain wall systems, thermal break technology, and energy-efficient glazing solutions for commercial buildings.",
-      image: "/placeh.png",
-      duration: "1:15:00",
-      date: "February 2024",
-      tags: ["Curtain Walling", "Thermal", "Glazing"],
-      link: "#",
-      featured: true,
-      views: "89K",
-      likes: "5.2K",
+      category: "papers",
+      type: "Research Report",
+      title: "Shop Fitting Material Market: Global Analysis and Forecast (2025-2032)",
+      author: "Maximize Market Research",
+      description: "Analysis of aluminum-based shopfitting materials driven by demand for lightweight, durable solutions. Covers steel, glass, plastic, and specialized materials across retail sectors.",
+      excerpt: "The shift towards sustainable and modular shopfitting solutions is reshaping material preferences in the global market.",
+      image: "https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=800",
+      date: "2025",
+      tags: ["Materials Analysis", "Aluminum", "Forecast"],
+      link: "https://www.maximizemarketresearch.com/market-report/shop-fitting-material-market/190693/",
+      featured: false,
+      citations: 156,
+      pages: 92,
+      source: "Maximize Market Research",
+      sourceLogo: "https://via.placeholder.com/100x30/F57C00/FFFFFF?text=MMR",
     },
     {
       id: 7,
-      category: "videos",
-      type: "Case Study",
-      title: "Modern Bank Branch Transformation",
-      author: "Commercial Fit-Out TV",
-      description:
-        "Complete bank branch renovation showcasing teller counters, security mantraps, suspended ceilings, and contemporary workstation installations.",
-      image: "/placeh.png",
-      duration: "28:45",
-      date: "January 2024",
-      tags: ["Case Study", "Banking", "Commercial"],
-      link: "#",
-      featured: false,
-      views: "67K",
-      likes: "4.1K",
+      category: "books",
+      type: "Technical Guide",
+      title: "Shop Fitting Dilemma: Aluminium vs. Steel",
+      author: "WeiLin Retail",
+      description: "Comparative analysis of aluminum and steel in shopfitting, covering strength, durability, corrosion resistance, and aesthetic appeal. Aluminum preferred for outdoor applications.",
+      excerpt: "Understanding material properties is crucial for selecting the right shopfitting solution that balances performance, aesthetics, and budget.",
+      image: "https://images.unsplash.com/photo-1581094271901-8022df4466f9?w=800",
+      date: "2024",
+      tags: ["Materials Comparison", "Aluminum vs Steel", "Technical"],
+      link: "https://weilinretail.com/shop-fitting-dilemma-aluminium-vs-steel/",
+      featured: true,
+      rating: 4.7,
+      reads: "9.8K",
+      source: "WeiLin Retail",
+      sourceLogo: "https://via.placeholder.com/100x30/00796B/FFFFFF?text=WeiLin",
     },
     {
       id: 8,
-      category: "videos",
-      type: "Tutorial",
-      title: "Suspended Ceiling Installation & Grid Systems",
-      author: "Interior Systems Lab",
-      description:
-        "Comprehensive guide to installing suspended ceiling systems, including metal grid assembly, tile installation, and integrating lighting fixtures.",
-      image: "/placeh.png",
-      duration: "32:15",
-      date: "March 2024",
-      tags: ["Ceilings", "Installation", "Grid Systems"],
-      link: "#",
+      category: "books",
+      type: "Product Guide",
+      title: "Aluminium Profiles - Shop Fitting and Point of Sale",
+      author: "Custom Profiles UK",
+      description: "UK supplier specializing in standard and bespoke aluminum profiles for shopfitting since 2005. Highlights flexibility of design and low maintenance properties.",
+      excerpt: "Custom aluminum extrusions offer unlimited design possibilities for creating unique shopfitting solutions tailored to brand identity.",
+      image: "https://images.unsplash.com/photo-1590846406792-0adc7f938f1d?w=800",
+      date: "2024",
+      tags: ["Aluminum Profiles", "UK Market", "Bespoke"],
+      link: "https://www.custom-profiles.com/aluminium-extrusions/market-sectors/aluminium-profiles-shop-fitting-point-sale/",
       featured: false,
-      views: "54K",
-      likes: "3.8K",
+      rating: 4.5,
+      reads: "7.4K",
+      source: "Custom Profiles UK",
+      sourceLogo: "https://via.placeholder.com/100x30/5E35B1/FFFFFF?text=Custom+Profiles",
     },
-
-    // Research Papers
     {
       id: 9,
-      category: "papers",
-      type: "Research",
-      title: "Thermal Break Technology in Aluminum Windows",
-      author: "Journal of Building Performance",
-      description:
-        "Academic research analyzing thermal break systems in aluminum window frames and their impact on energy efficiency in commercial buildings.",
-      image: "/placeh.png",
-      date: "2023",
-      tags: ["Thermal Break", "Windows", "Energy Efficiency"],
-      link: "#",
-      featured: true,
-      citations: 342,
-      pages: 48,
+      category: "news",
+      type: "Market Forecast",
+      title: "Future Scope of Shopfitting Service Market Set to Witness Significant Growth by 2025-2032",
+      author: "Worldwide Market Reports",
+      description: "Market forecast covering key players including IKEA, Shopfitting UK, and A1 Retail. Analysis of regional growth trends and market dynamics.",
+      excerpt: "The shopfitting services market is poised for accelerated growth driven by e-commerce integration and omnichannel retail strategies.",
+      image: "https://images.unsplash.com/photo-1507537297725-24a1c029d3ca?w=800",
+      date: "2024",
+      tags: ["Market Forecast", "Key Players", "Growth Trends"],
+      link: "https://www.openpr.com/news/4240543/future-scope-of-shopfitting-service-market-set-to-witness",
+      featured: false,
+      trending: true,
+      readTime: "9 min",
+      source: "OpenPR / Worldwide Market Reports",
+      sourceLogo: "https://via.placeholder.com/100x30/D32F2F/FFFFFF?text=WMR",
     },
     {
       id: 10,
-      category: "papers",
-      type: "White Paper",
-      title: "Structural Glazing & Point-Fixed Systems",
-      author: "Glass & Glazing Federation",
-      description:
-        "Technical analysis of structural glazing systems, silicone bonding methods, and point-fixed glass installations for modern commercial facades.",
-      image: "/placeh.png",
+      category: "books",
+      type: "Product Catalog",
+      title: "Aluminium Extrusions - Custom Shopfitting Solutions",
+      author: "Advanced Display Systems",
+      description: "Australian supplier offering aluminum and PVC extrusions for shopfitting, including slatwall T-extrusions, corner extrusions, and U-channel solutions for retail displays.",
+      excerpt: "Versatile aluminum extrusion systems provide the foundation for flexible, modular retail display solutions.",
+      image: "https://images.unsplash.com/photo-1513828583688-c52646db42da?w=800",
       date: "2024",
-      tags: ["Glazing", "Structural", "Installation"],
-      link: "#",
-      featured: true,
-      hero: true,
-      citations: 178,
-      pages: 62,
-    },
-    {
-      id: 11,
-      category: "papers",
-      type: "Study",
-      title: "Acoustic Performance of Demountable Partitions",
-      author: "Building Acoustics Research Group",
-      description:
-        "Comprehensive study on sound insulation properties of various demountable partition systems and their applications in office environments.",
-      image: "/placeh.png",
-      date: "2023",
-      tags: ["Acoustics", "Partitions", "Sound Insulation"],
-      link: "#",
+      tags: ["Extrusions", "Australia", "Display Systems"],
+      link: "https://www.advdis.com.au/product-category/aluminium-extrusion/",
       featured: false,
-      citations: 256,
-      pages: 36,
+      rating: 4.4,
+      reads: "5.9K",
+      source: "Advanced Display Systems",
+      sourceLogo: "https://via.placeholder.com/100x30/0288D1/FFFFFF?text=ADS",
     },
     {
       id: 12,
-      category: "papers",
-      type: "Research",
-      title: "Load-Bearing Capacity of Gondola Shelving",
-      author: "Retail Fixtures Engineering Journal",
-      description:
-        "Engineering research examining load distribution, structural integrity, and safety standards for double-sided gondola shelving systems.",
-      image: "/placeh.png",
-      date: "2024",
-      tags: ["Shelving", "Engineering", "Safety"],
-      link: "#",
-      featured: false,
-      citations: 421,
-      pages: 54,
-    },
-
-    // News & Industry Updates
-    {
-      id: 13,
       category: "news",
-      type: "Industry News",
-      title: "Frameless Glass Door Systems Gain Popularity",
-      author: "Shopfitting Today",
-      description:
-        "Latest developments in frameless glass door technology with soft-close mechanisms and minimal hardware for upscale commercial interiors.",
-      image: "/placeh.png",
-      date: "March 15, 2024",
-      tags: ["Glass Doors", "Technology", "Commercial"],
-      link: "#",
-      featured: true,
-      hero: true,
-      trending: true,
-      readTime: "5 min",
-    },
-    {
-      id: 14,
-      category: "news",
-      type: "Market Report",
-      title: "Aluminum Shopfitting Market Growth in Africa",
-      author: "Commercial Construction Insights",
-      description:
-        "Analysis of the growing demand for aluminum shopfitting solutions across African markets, with focus on retail and banking sectors.",
-      image: "/placeh.png",
-      date: "March 10, 2024",
-      tags: ["Market", "Africa", "Growth"],
-      link: "#",
-      featured: true,
-      trending: false,
-      readTime: "8 min",
-    },
-    {
-      id: 15,
-      category: "news",
-      type: "Trend Alert",
-      title: "Bifolding Doors Replace Traditional Entrances",
-      author: "Architecture Weekly",
-      description:
-        "Growing trend of sliding folding door systems in commercial spaces, offering seamless indoor-outdoor transitions and space efficiency.",
-      image: "/placeh.png",
-      date: "March 8, 2024",
-      tags: ["Doors", "Trends", "Innovation"],
-      link: "#",
-      featured: false,
-      trending: true,
-      readTime: "6 min",
-    },
-    {
-      id: 16,
-      category: "news",
-      type: "Press Release",
-      title: "New Recycled Aluminum Fixture Range Launched",
-      author: "Sustainable Shopfitting Ltd",
-      description:
-        "Launch of eco-friendly office workstations and retail displays made from 100% recycled aluminum with powder-coated finishes.",
-      image: "/placeh.png",
-      date: "March 5, 2024",
-      tags: ["Sustainability", "Aluminum", "Products"],
-      link: "#",
+      type: "Award News",
+      title: "Historic beauty in new splendour - The Georgian Harrods",
+      author: "umdasch The Store Makers",
+      description: "umdasch The Store Makers wins RLI Award for Interior Excellence with Harrods project The Georgian, showcasing premium shopfitting craftsmanship.",
+      excerpt: "Award-winning retail design demonstrates the perfect balance between heritage preservation and contemporary luxury.",
+      image: "https://www.umdasch.com/upload/assets/02_Company/News-Press/2025_The-Georgian/The_Georgian_Harrods_umdasch_David-Collins-Studio-The-Georgian-Harrods-1-V1.jpg",
+      date: "September 18, 2025",
+      tags: ["Awards", "Luxury Retail", "Heritage"],
+      link: "https://www.umdasch.com/en/news/umdasch-the-store-makers-wins-rli-award-for-interior-excellence-with-harrods-project-the-georgian",
       featured: false,
       trending: false,
-      readTime: "4 min",
+      readTime: "7 min",
+      source: "umdasch Group",
+      sourceLogo: "https://www.umdasch.com/images/umdasch_logo.svg",
     },
+  
   ];
 
   const filteredResources = resources.filter((resource) => {
@@ -339,7 +209,6 @@ const Resources = () => {
   const heroResources = filteredResources.filter((r) => r.hero);
   const regularResources = filteredResources.filter((r) => !r.hero);
 
-  // Newsletter submission handler
   const handleNewsletterSubmit = (e) => {
     e.preventDefault();
     alert("Thank you for subscribing to our resources newsletter!");
@@ -393,7 +262,6 @@ const Resources = () => {
               inspiration for shopfitting excellence
             </p>
 
-            {/* Search Bar */}
             <div className="relative max-w-xl">
               <Search
                 className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"
@@ -452,7 +320,7 @@ const Resources = () => {
         </div>
       </section>
 
-      {/* Hero Resources - Large Featured Cards */}
+      {/* Hero Resources */}
       {heroResources.length > 0 && (
         <section className="py-8 md:py-12 px-5">
           <div className="container mx-auto max-w-7xl">
@@ -478,17 +346,14 @@ const Resources = () => {
                       }
                     `}
                   >
-                    {/* Hero Image */}
                     <div className="relative h-64 md:h-80 lg:h-96 overflow-hidden">
                       <div
                         className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
                         style={{ backgroundImage: `url(${resource.image})` }}
                       ></div>
 
-                      {/* Gradient Overlay */}
                       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
 
-                      {/* Badges */}
                       <div className="absolute top-6 left-6 flex flex-wrap gap-2">
                         <div className="px-4 py-2 bg-white/95 backdrop-blur-md rounded-sm flex items-center gap-2">
                           <CategoryIcon size={16} className="text-[#E3180D]" />
@@ -514,7 +379,6 @@ const Resources = () => {
                         )}
                       </div>
 
-                      {/* Bottom Stats */}
                       <div className="absolute bottom-6 left-6 right-6">
                         <div className="flex flex-wrap gap-4 text-white/90 text-sm mb-4">
                           <div className="flex items-center gap-2">
@@ -553,8 +417,20 @@ const Resources = () => {
                       </div>
                     </div>
 
-                    {/* Card Footer */}
                     <div className="p-6">
+                      <div className="flex items-center gap-3 mb-4">
+                        {resource.sourceLogo && (
+                          <img
+                            src={resource.sourceLogo}
+                            alt={resource.source}
+                            className="h-6 object-contain"
+                          />
+                        )}
+                        <span className="text-sm text-gray-600 font-semibold">
+                          {resource.source}
+                        </span>
+                      </div>
+
                       <div className="flex flex-wrap gap-2 mb-4">
                         {resource.tags.map((tag, idx) => (
                           <span
@@ -576,14 +452,8 @@ const Resources = () => {
                               </span>
                             </div>
                           )}
-                          {resource.likes && (
-                            <div className="flex items-center gap-1">
-                              <Heart size={16} />
-                              <span className="font-semibold">
-                                {resource.likes}
-                              </span>
-                            </div>
-                          )}
+
+
                           {resource.reads && (
                             <div className="flex items-center gap-1">
                               <BookOpen size={16} />
@@ -823,7 +693,8 @@ const Resources = () => {
                           <button className="p-2 hover:bg-gray-100 rounded-sm transition-colors">
                             <Share2 size={16} className="text-gray-600" />
                           </button>
-                          <button className="px-4 py-2 bg-gray-900 hover:bg-gray-800 text-white rounded-sm text-sm font-semibold transition-all flex items-center gap-1">
+                          <button className="px-4 py-2 bg-gray-900 hover:bg-gray-800 text-white rounded-sm text-sm font-semibold transition-all flex items-center gap-1"
+                          onClick={() => window.open(resource.link, "_blank")}>
                             <span>View</span>
                             <ChevronRight size={14} />
                           </button>
@@ -973,7 +844,8 @@ const Resources = () => {
                   Apply industry knowledge to your next shopfitting project. Get
                   expert consultation.
                 </p>
-                <button className="inline-flex items-center gap-2 px-6 py-3 bg-white text-[#E3180D] rounded-sm font-bold hover:bg-gray-100 transition-all">
+                <button className="inline-flex items-center gap-2 px-6 py-3 bg-white text-[#E3180D] rounded-sm font-bold hover:bg-gray-100 transition-all"
+                onClick={()=>navigate("/contact")}>
                   <span>Start Your Project</span>
                   <ArrowRight size={20} />
                 </button>
@@ -998,7 +870,8 @@ const Resources = () => {
                   Share your expertise with our community. Submit your technical
                   guide or case study.
                 </p>
-                <button className="inline-flex items-center gap-2 px-6 py-3 bg-white/10 backdrop-blur-md border-2 border-white/30 rounded-sm font-bold hover:bg-white/20 transition-all">
+                <button className="inline-flex items-center gap-2 px-6 py-3 bg-white/10 backdrop-blur-md border-2 border-white/30 rounded-sm font-bold hover:bg-white/20 transition-all"
+                onClick={()=>navigate("/contact")}>
                   <span>Submit Resource</span>
                   <ArrowRight size={20} />
                 </button>
