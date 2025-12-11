@@ -113,9 +113,9 @@ const Products = () => {
         "Contemporary aluminum shopfront systems combining security with style. Features powder-coated frames, large glass panels, and integrated door systems. Perfect for retail stores, showrooms, and commercial premises.",
       features: [
         "Powder coated finish",
+        "Anodised finish",
         "Large glass areas",
         "Integrated doors",
-        "Anodised finish",
         "Weather resistant",
         "Low maintainance",
       ],
