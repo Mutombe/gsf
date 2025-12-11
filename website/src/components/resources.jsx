@@ -390,7 +390,7 @@ const Resources = () => {
 
             <p className="text-lg md:text-xl text-white/95 leading-relaxed mb-8">
               Curated collection of industry knowledge, research, and
-              inspiration for aluminum shopfitting excellence
+              inspiration for shopfitting excellence
             </p>
 
             {/* Search Bar */}
