@@ -346,42 +346,45 @@ const About = () => {
                     color: colors.darkGray,
                   }}
                 >
-                  Mukuvisi Manufacturing Private Limited, trading as Global Shopfitters Zimbabwe
-                  is Zimbabwe's premium shopfitting company.
+                  Mukuvisi Manufacturing Private Limited, trading as Global
+                  Shopfitters Zimbabwe is Zimbabwe's premium shopfitting
+                  company.
                 </p>
                 <p>
                   Founded in 2000 by a group of seasoned industry professionals,
                   our company was established with a vision to deliver
-                  excellence in shopfitting and commercial finishes construction. We
-                  acquired the assets of DK Manufacturing and later, in 2003,
-                  expanded our capabilities by acquiring The Workbench, a
-                  long-established shopfitting company with Italian heritage.
+                  excellence in shopfitting and commercial finishes
+                  construction. We acquired the assets of DK Manufacturing and
+                  later, in 2003, expanded our capabilities by acquiring The
+                  Workbench, a long-established shopfitting company with Italian
+                  heritage.
                 </p>
                 <p>
                   We specialize in creating innovative spaces that combine
                   functionality with aesthetic appeal. Our foundation was built
                   by a dedicated team of technical experts, estimators, site
                   managers, and skilled craftsmen who brought decades of
-                  combined experience dominantly from Fredk Sage, then the largest shopfitting company in the country to establish new standards in the
-                  industry.
+                  combined experience dominantly from Fredk Sage, then the
+                  largest shopfitting company in the country to establish new
+                  standards in the industry.
                 </p>
                 <p>
                   Throughout our journey, we've had the privilege of executing
                   major national rollouts for emerging financial institutions
-                  including Barbican, Century Bank, Intermarket
-                  Bank and Trust Bank as well as refurbishment projects for
-                  established banks such as Barclays, Beverly Building Society, CBZ, Founders Building Society, POSB, and ZB Bank At
-                  our peak, we grew to employ over 400 people across two factory
-                  locations.
+                  including Barbican, Century Bank, Intermarket Bank and Trust
+                  Bank as well as refurbishment projects for established banks
+                  such as Barclays, Beverly Building Society, CBZ, Founders
+                  Building Society, POSB, and ZB Bank At our peak, we grew to
+                  employ over 400 people across two factory locations.
                 </p>
                 <p>
                   Like many Zimbabwean businesses, we weathered significant
-                  economic challenges, including the banking sector crisis of 2004 - 2006 and
-                  currency instability. However, our resilience and commitment
-                  to excellence saw us through these difficult times. The political
-                  stabilisation period from 2009 onwards marked our
-                  increasing vigour, and by 2015, we had established a
-                  strong footing in the market.
+                  economic challenges, including the banking sector crisis of
+                  2004 - 2006 and currency instability. However, our resilience
+                  and commitment to excellence saw us through these difficult
+                  times. The political stabilisation period from 2009 onwards
+                  marked our increasing vigour, and by 2015, we had established
+                  a strong footing in the market.
                 </p>
                 <p>
                   Today, we continue our commitment to delivering excellence in

@@ -574,7 +574,6 @@ const Products = () => {
       },
     },
 
-
     // Office Work Stations (id: 2)
     {
       id: 2,
