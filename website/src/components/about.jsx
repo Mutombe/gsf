@@ -346,7 +346,7 @@ const About = () => {
                     color: colors.darkGray,
                   }}
                 >
-                  Mukuvisi Manufacturing Private Limited(trading as Global Shopfitters Zimbabwe)
+                  Mukuvisi Manufacturing Private Limited, trading as Global Shopfitters Zimbabwe
                   is Zimbabwe's premium shopfitting company.
                 </p>
                 <p>
@@ -368,9 +368,9 @@ const About = () => {
                 <p>
                   Throughout our journey, we've had the privilege of executing
                   major national rollouts for emerging financial institutions
-                  including Trust Bank, Century Bank, Intermarket
-                  Bank, and Barbican, as well as refurbishment projects for
-                  established banks such as Barclays , CBZ, POSB, and ZB Bank At
+                  including Barbican, Century Bank, Intermarket
+                  Bank and Trust Bank as well as refurbishment projects for
+                  established banks such as Barclays, Beverly Building Society, CBZ, Founders Building Society, POSB, and ZB Bank At
                   our peak, we grew to employ over 400 people across two factory
                   locations.
                 </p>
@@ -380,7 +380,7 @@ const About = () => {
                   currency instability. However, our resilience and commitment
                   to excellence saw us through these difficult times. The political
                   stabilisation period from 2009 onwards marked our
-                  increasing vigour, and by 2015, we had successfully 
+                  increasing vigour, and by 2015, we had established a
                   strong footing in the market.
                 </p>
                 <p>
