@@ -147,7 +147,7 @@ export const translations = {
         sending: 'Sending...',
       },
       info: {
-        address: 'Our Factory Address',
+        address: 'Factory Address',
         phone: 'Phone',
         email: 'Email',
         hours: 'Business Hours',

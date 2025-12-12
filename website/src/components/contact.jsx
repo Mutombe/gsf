@@ -174,12 +174,21 @@ ${formData.message}
   const contactInfo = [
     {
       icon: MapPin,
+      title: ["Adminstration Office", " Address"],
+      content: ["48 Midlothian Avenue, Eastlea,", "Harare, Zimbabwe"],
+      colorFrom: colors.chiliRed,
+      colorTo: colors.brightOrange,
+      link: "https://maps.google.com/?q=Harare,Zimbabwe",
+    },
+    {
+      icon: MapPin,
       title: t("contact.info.address"),
       content: ["No. 3, 18 Whitesway", "Harare, Zimbabwe"],
       colorFrom: colors.chiliRed,
       colorTo: colors.brightOrange,
       link: "https://maps.google.com/?q=Harare,Zimbabwe",
     },
+
     {
       icon: Phone,
       title: t("contact.info.phone"),
