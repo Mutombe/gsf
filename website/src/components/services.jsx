@@ -116,17 +116,17 @@ const Services = () => {
       description: t("services.installation.desc"),
       features: [
         "Certified installation teams",
-        "Minimal business disruption",
-        "Ongoing maintainance contracts",
-        "Post-installation cleanup",
         "Professional on-site installation",
         "System testing and commissioning",
+        "Post-installation cleanup",
+        "Minimal business disruption",
+        "Ongoing maintainance contracts",
       ],
       colorFrom: colors.chiliRed,
       colorTo: colors.darkOrange,
       size: "large",
     },
-        {
+    {
       icon: FlaskConical,
       title: t("services.testing.title"),
       description: t("services.testing.desc"),
