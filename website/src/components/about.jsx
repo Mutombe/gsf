@@ -442,35 +442,9 @@ const About = () => {
                   style={{
                     position: "absolute",
                     inset: 0,
-                    background: `url(/h.jpg)`,
+                    background: `url(/q.jpg)`,
                     backgroundSize: "cover",
                     backgroundPosition: "center",
-                  }}
-                ></div>
-
-                {/* Decorative Circles */}
-                <div
-                  style={{
-                    position: "absolute",
-                    top: "10%",
-                    right: "10%",
-                    width: "150px",
-                    height: "150px",
-                    background: "rgba(255, 255, 255, 0.1)",
-                    borderRadius: "5%",
-                    backdropFilter: "blur(10px)",
-                  }}
-                ></div>
-                <div
-                  style={{
-                    position: "absolute",
-                    bottom: "15%",
-                    left: "15%",
-                    width: "200px",
-                    height: "200px",
-                    background: "rgba(255, 255, 255, 0.08)",
-                    borderRadius: "5%",
-                    backdropFilter: "blur(10px)",
                   }}
                 ></div>
 
