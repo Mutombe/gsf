@@ -368,7 +368,7 @@ const navbarStyle = {
               <div style={{ display: "flex", alignItems: "center", gap: "16px" }}>
                 <div style={{ display: "flex", alignItems: "center", gap: "8px", color: colors.mediumGray }}>
                   <MapPin size={14} />
-                  <span>No. 3, 18 Whitesway, Harare</span>
+                  <span>Bay 3, 18 Whitesway, Harare</span>
                 </div>
                 <div
                   style={{

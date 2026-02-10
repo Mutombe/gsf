@@ -183,7 +183,7 @@ ${formData.message}
     {
       icon: MapPin,
       title: t("contact.info.address"),
-      content: ["No. 3, 18 Whitesway", "Harare, Zimbabwe"],
+      content: ["Bay 3, 18 Whitesway", "Harare, Zimbabwe"],
       colorFrom: colors.chiliRed,
       colorTo: colors.brightOrange,
       link: "https://maps.google.com/?q=Harare,Zimbabwe",
@@ -1121,7 +1121,7 @@ ${formData.message}
                             margin: 0,
                           }}
                         >
-                          No. 3, 18 Whitesway
+                          Bay 3, 18 Whitesway
                           <br />
                           Harare, Zimbabwe
                         </p>
@@ -1159,7 +1159,7 @@ ${formData.message}
                     marginBottom: "16px",
                   }}
                 >
-                  No. 3, 18 Whitesway, Harare Zimbabwe
+                  Bay 3, 18 Whitesway, Harare, Zimbabwe
                 </p>
                 <motion.a
                   href="https://maps.google.com/?q=Whitesway,Msasa,Harare,Zimbabwe"

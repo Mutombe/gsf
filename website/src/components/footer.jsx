@@ -405,7 +405,7 @@ const Footer = () => {
                       lineHeight: "1.6",
                     }}
                   >
-                    No. 3, 18 Whitesway,
+                    Bay 3, 18 Whitesway,
                     <br />
                     Harare Zimbabwe
                   </p>

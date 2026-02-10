@@ -112,7 +112,7 @@ export const translations = {
       },
       projectManagement: {
         title: 'Project Management',
-        desc: 'End-to-end project coordination ensuring timely delivery, budget control, and quality assurance. We have a 100% record in resolved issues.',
+        desc: 'End-to-end project coordination ensuring timely delivery, budget control, and quality assurance. We have a 100% record in resolving issues.',
       },
       installation: {
         title: 'Installation',

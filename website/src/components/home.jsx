@@ -581,7 +581,7 @@ const Home = () => {
                 >
                   <LazyImage
                     src="/cifz.png"
-                    alt="CIFZ Logo"
+                    alt="CIFoZ Logo"
                     priority={true}
                     style={{
                       width: "100%",

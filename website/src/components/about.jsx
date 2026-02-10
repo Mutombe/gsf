@@ -103,14 +103,6 @@ const About = () => {
       color: "#6B7280",
     },
     {
-      year: "2015",
-      event: "New Management",
-      description: "Acquired by NM Holdings, strengthening capabilities",
-      icon: TrendingUp,
-      image: "/k.jpg",
-      color: "#06B6D4",
-    },
-    {
       year: "2025",
       event: "Industry Leader",
       description: "Zimbabwe's undisputed shopfitting leader",
@@ -295,26 +287,6 @@ const About = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
             >
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.2 }}
-                style={{
-                  display: "inline-block",
-                  padding: "8px 20px",
-                  background: `linear-gradient(90deg, ${colors.chiliRed}, ${colors.brightOrange})`,
-                  color: colors.white,
-                  borderRadius: "5px",
-                  fontSize: "14px",
-                  fontWeight: "600",
-                  marginBottom: "24px",
-                  letterSpacing: "1px",
-                }}
-              >
-                OUR STORY
-              </motion.div>
-
               <h2
                 style={{
                   fontSize: "clamp(2.5rem, 6vw, 4rem)",
@@ -346,7 +318,7 @@ const About = () => {
                     color: colors.darkGray,
                   }}
                 >
-                  Mukuvisi Manufacturing Private Limited, trading as Global
+                  Mukuvisi Manufacturing (Private) Limited, trading as Global
                   Shopfitters Zimbabwe is Zimbabwe's premium shopfitting
                   company.
                 </p>
@@ -354,8 +326,7 @@ const About = () => {
                   Founded in 2000 by a group of seasoned industry professionals,
                   our company was established with a vision to deliver
                   excellence in shopfitting and commercial finishes
-                  construction. We acquired the assets of DK Manufacturing and
-                  later, in 2003, expanded our capabilities by acquiring The
+                  construction. In 2003, expanded our capabilities by acquiring The
                   Workbench, a long-established shopfitting company with Italian
                   heritage.
                 </p>
@@ -370,8 +341,8 @@ const About = () => {
                 </p>
                 <p>
                   Throughout our journey, we've had the privilege of executing
-                  major national rollouts for emerging financial institutions
-                  including Barbican, Century Bank, Intermarket Bank and Trust
+                  major national rollouts for then emerging financial institutions
+                  including banks such as Barbican, Century Bank, Intermarket Bank and Trust
                   Bank as well as refurbishment projects for established banks
                   such as Barclays, Beverly Building Society, CBZ, Founders
                   Building Society, POSB, and ZB Bank At our peak, we grew to
@@ -395,10 +366,10 @@ const About = () => {
                 </p>
                 <p>
                   From small boutique stores to large commercial spaces, we have
-                  successfully completed hundreds of projects across Zimbabwe,
+                  successfully completed thousands of projects across Zimbabwe,
                   establishing ourselves as leaders in the construction industry
                   and proud members of the Construction Industry Federation of
-                  Zimbabwe (CIFZ).
+                  Zimbabwe (CIFoZ).
                 </p>
               </div>
 
@@ -601,7 +572,7 @@ const About = () => {
                   >
                     <img
                       src="/cifz.png"
-                      alt="CIFZ Logo"
+                      alt="CIFoZ Logo"
                       style={{
                         width: "100%",
                         height: "100%",
@@ -613,7 +584,7 @@ const About = () => {
                         e.target.parentElement.innerHTML =
                           '<span style="font-size: 20px; font-weight: 800; color: ' +
                           colors.chiliRed +
-                          '">CIFZ</span>';
+                          '">CIFoZ</span>';
                       }}
                     />
                   </div>
@@ -1040,11 +1011,6 @@ const About = () => {
               }}
             >
               {[
-                {
-                  name: "OK Zimbabwe",
-                  category: "Supermarkets",
-                  logo: "/logos/ok.png",
-                },
                 {
                   name: "Pick n Pay",
                   category: "Retail",
