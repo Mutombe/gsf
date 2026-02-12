@@ -79,7 +79,7 @@ const Gallery = () => {
     {
       id: "workshop",
       name: "Workshop Fabrication",
-      description: "Professional aluminum fabrication and welding",
+      description: "Professional aluminium fabrication and welding",
       icon: Wrench,
       count: 46,
       color: colors.chiliRed,
@@ -123,7 +123,7 @@ const Gallery = () => {
         id: "os4",
         folder: "onsite",
         category: "Frame Installation",
-        title: "Aluminum Frame Setup",
+        title: "Aluminium Frame Setup",
         url: "/GSZOn-site/4.jpeg",
         size: "large",
         color: colors.scarlet,
@@ -529,7 +529,7 @@ const Gallery = () => {
       {
         id: 1,
         folder: "workshop",
-        category: "Aluminum Welding",
+        category: "Aluminium Welding",
         title: "Precision TIG Welding",
         url: "/8WhiteswayWorkshop-20251115T121447Z-1-001/IMG-20251111-WA0061.jpg",
         size: "large",
@@ -548,7 +548,7 @@ const Gallery = () => {
         id: 3,
         folder: "workshop",
         category: "Metal Cutting",
-        title: "Aluminum Profile Cutting",
+        title: "Aluminium Profile Cutting",
         url: "/8WhiteswayWorkshop-20251115T121447Z-1-001/IMG-20251111-WA0039.jpg",
         size: "small",
         color: colors.amber,
@@ -557,7 +557,7 @@ const Gallery = () => {
         id: 4,
         folder: "workshop",
         category: "Workshop Fabrication",
-        title: "Custom Aluminum Work",
+        title: "Custom Aluminium Work",
         url: "/8WhiteswayWorkshop-20251115T121447Z-1-001/IMG-20251111-WA0047.jpg",
         size: "medium",
         color: colors.scarlet,
@@ -575,7 +575,7 @@ const Gallery = () => {
         id: 6,
         folder: "workshop",
         category: "Profile Processing",
-        title: "Aluminum Extrusion Work",
+        title: "Aluminium Extrusion Work",
         url: "/8WhiteswayWorkshop-20251115T121447Z-1-001/IMG-20251111-WA0049.jpg",
         size: "small",
         color: colors.safetyOrange,
@@ -592,7 +592,7 @@ const Gallery = () => {
       {
         id: 8,
         folder: "workshop",
-        category: "Aluminum Finishing",
+        category: "Aluminium Finishing",
         title: "Surface Preparation",
         url: "/8WhiteswayWorkshop-20251115T121447Z-1-001/IMG-20251111-WA0041.jpg",
         size: "large",
@@ -619,7 +619,7 @@ const Gallery = () => {
       {
         id: 11,
         folder: "workshop",
-        category: "Aluminum Welding",
+        category: "Aluminium Welding",
         title: "MIG Welding Process",
         url: "/8WhiteswayWorkshop-20251115T121447Z-1-001/IMG-20251111-WA0065.jpg",
         size: "large",
@@ -664,7 +664,7 @@ const Gallery = () => {
       {
         id: 16,
         folder: "workshop",
-        category: "Aluminum Cutting",
+        category: "Aluminium Cutting",
         title: "Profile Sectioning",
         url: "/8WhiteswayWorkshop-20251115T121447Z-1-001/IMG-20251111-WA0045.jpg",
         size: "small",
@@ -692,7 +692,7 @@ const Gallery = () => {
         id: 19,
         folder: "workshop",
         category: "Custom Frames",
-        title: "Bespoke Aluminum Work",
+        title: "Bespoke Aluminium Work",
         url: "/8WhiteswayWorkshop-20251115T121447Z-1-001/IMG-20251111-WA0077.jpg",
         size: "small",
         color: colors.mustardYellow,
@@ -710,7 +710,7 @@ const Gallery = () => {
         id: 21,
         folder: "workshop",
         category: "Metal Processing",
-        title: "Aluminum Shaping",
+        title: "Aluminium Shaping",
         url: "/8WhiteswayWorkshop-20251115T121447Z-1-001/IMG-20251111-WA0081.jpg",
         size: "large",
         color: colors.flame,
@@ -727,7 +727,7 @@ const Gallery = () => {
       {
         id: 23,
         folder: "workshop",
-        category: "Aluminum Welding",
+        category: "Aluminium Welding",
         title: "Arc Welding Process",
         url: "/8WhiteswayWorkshop-20251115T121447Z-1-001/IMG-20251111-WA0092.jpg",
         size: "small",
@@ -781,7 +781,7 @@ const Gallery = () => {
       {
         id: 29,
         folder: "workshop",
-        category: "Aluminum Assembly",
+        category: "Aluminium Assembly",
         title: "Component Integration",
         url: "/8WhiteswayWorkshop-20251115T121447Z-1-001/IMG-20251111-WA0104.jpg",
         size: "small",
@@ -809,7 +809,7 @@ const Gallery = () => {
         id: 32,
         folder: "workshop",
         category: "Custom Fabrication",
-        title: "Specialty Aluminum Work",
+        title: "Specialty Aluminium Work",
         url: "/8WhiteswayWorkshop-20251115T121447Z-1-001/IMG-20251111-WA0112.jpg",
         size: "medium",
         color: colors.flame,
@@ -826,7 +826,7 @@ const Gallery = () => {
       {
         id: 34,
         folder: "workshop",
-        category: "Aluminum Processing",
+        category: "Aluminium Processing",
         title: "Profile Modification",
         url: "/8WhiteswayWorkshop-20251115T121447Z-1-001/IMG-20251111-WA0120.jpg",
         size: "medium",
@@ -871,7 +871,7 @@ const Gallery = () => {
       {
         id: 39,
         folder: "workshop",
-        category: "Aluminum Welding",
+        category: "Aluminium Welding",
         title: "Corner Joint Welding",
         url: "/8WhiteswayWorkshop-20251115T121447Z-1-001/IMG-20251111-WA0132.jpg",
         size: "small",
@@ -916,7 +916,7 @@ const Gallery = () => {
       {
         id: 44,
         folder: "workshop",
-        category: "Aluminum Work",
+        category: "Aluminium Work",
         title: "Profile Assembly",
         url: "/8WhiteswayWorkshop-20251115T121447Z-1-001/IMG-20251111-WA0142.jpg",
         size: "medium",
@@ -1165,7 +1165,7 @@ const Gallery = () => {
                 color: colors.white,
               }}
             >
-              Aluminum{" "}
+              Aluminium{" "}
               <span
                 style={{
                   background: `linear-gradient(90deg, ${colors.chiliRed}, ${colors.amber})`,
@@ -1187,7 +1187,7 @@ const Gallery = () => {
                 margin: "0 auto",
               }}
             >
-              Professional aluminum fabrication and welding services for
+              Professional aluminium fabrication and welding services for
               commercial shopfitting projects
             </p>
           </motion.div>

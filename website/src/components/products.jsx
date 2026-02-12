@@ -71,8 +71,6 @@ const Products = () => {
     { id: "windows-doors", name: "Windows & Doors", icon: DoorOpen },
     { id: "glass-glazing", name: "Aluminium & Glazing", icon: Sparkles },
     { id: "atm-lobbies", name: "ATM & Lobbies", icon: Grid },
-    { id: "partitions", name: "Partitions", icon: Grid },
-    { id: "other", name: "Other", icon: Layers },
   ];
 
   const products = [
@@ -103,14 +101,14 @@ const Products = () => {
       },
     },
 
-    // Aluminum Shopfronts (id: 8)
+    // Aluminium Shopfronts (id: 8)
     {
       id: 8,
-      name: "Aluminum Shopfronts",
+      name: "Aluminium Shopfronts",
       category: "windows-doors",
-      description: "Modern aluminum shopfront systems",
+      description: "Modern aluminium shopfront systems",
       fullDescription:
-        "Contemporary aluminum shopfront systems combining security with style. Features powder-coated frames, large glass panels, and integrated door systems. Perfect for retail stores, showrooms, and commercial premises.",
+        "Contemporary aluminium shopfront systems combining security with style. Features powder-coated frames, large glass panels, and integrated door systems. Perfect for retail stores, showrooms, and commercial premises.",
       features: [
         "Powder coated finish",
         "Anodised finish",
@@ -124,21 +122,21 @@ const Products = () => {
       reviews: 143,
       images: ["/003.jpeg", "/placeh.png", "/placeh.png"],
       specifications: {
-        material: "Aluminum with powder coating",
+        material: "Aluminium with powder coating",
         glassType: "10mm toughened glass",
         windLoad: "Up to 2.4 kPa",
         warranty: "10 years",
       },
     },
 
-    // Aluminum Windows (id: 11)
+    // Aluminium Windows (id: 11)
     {
       id: 11,
-      name: "Aluminum Windows",
+      name: "Aluminium Windows",
       category: "windows-doors",
-      description: "Versatile aluminum window systems",
+      description: "Versatile aluminium window systems",
       fullDescription:
-        "High-quality aluminum windows available in various styles including sliding, casement, and awning. Features powder-coated frames, double glazing, and excellent weather performance. Suitable for all building types.",
+        "High-quality aluminium windows available in various styles including sliding, casement, and awning. Features powder-coated frames, double glazing, and excellent weather performance. Suitable for all building types.",
       features: [
         "Various opening styles",
         "Double glazing",
@@ -151,7 +149,7 @@ const Products = () => {
       reviews: 267,
       images: ["/999.jpeg", "/random/21.jpeg", "/random/22.jpeg"],
       specifications: {
-        material: "Aluminum with thermal break",
+        material: "Aluminium with thermal break",
         glassType: "6mm + 12mm air + 6mm",
         uValue: "2.0 W/m²K",
         warranty: "10 years",
@@ -162,7 +160,7 @@ const Products = () => {
     {
       id: 26,
       name: "ATM Lobbies",
-      category: "windows-doors",
+      category: "atm-lobbies",
       description: "Secure 24-hour ATM enclosure systems",
       fullDescription:
         "Fully integrated ATM lobby solutions providing secure 24-hour access. Features include bulletproof glass, access control systems, surveillance integration, climate control, and vandal-resistant construction. Complete turnkey installation.",
@@ -238,7 +236,7 @@ const Products = () => {
       reviews: 91,
       images: ["/444.jpeg", "/random/1.jpeg", "/random/20.jpeg"],
       specifications: {
-        material: "Gypsum board or aluminum composite",
+        material: "Gypsum board or aluminium composite",
         depth: "150mm - 600mm",
         lighting: "LED strip integration available",
         warranty: "3 years",
@@ -265,7 +263,7 @@ const Products = () => {
       reviews: 76,
       images: ["/placeh.png", "/placeh.png", "/placeh.png"],
       specifications: {
-        material: "Aluminum with thermal break",
+        material: "Aluminium with thermal break",
         glassType: "Double or triple glazed",
         uValue: "1.2 - 1.8 W/m²K",
         warranty: "10 years",
@@ -281,7 +279,7 @@ const Products = () => {
       fullDescription:
         "Custom-designed furniture tailored to your specific requirements. From reception desks to executive suites, we create unique pieces that match your brand identity and functional needs. Full design consultation and installation service included.",
       features: [
-        "Fully customizable",
+        "Fully customised",
         "Brand integration",
         "Premium materials",
         "Professional installation",
@@ -319,7 +317,7 @@ const Products = () => {
       reviews: 156,
       images: ["/002.jpeg", "/placeh.png", "/placeh.png"],
       specifications: {
-        material: "Aluminum frame with MDF or glass panels",
+        material: "Aluminium frame with MDF or glass panels",
         thickness: "65mm - 100mm",
         soundRating: "Up to 42dB",
         warranty: "5 years",
@@ -486,7 +484,7 @@ const Products = () => {
       reviews: 112,
       images: ["/111.jpeg", "/placeh.png", "/placeh.png"],
       specifications: {
-        material: "Aluminum with double glazing",
+        material: "Aluminium with double glazing",
         glassType: "6mm Low-E + 16mm argon + 6mm",
         uValue: "1.6 W/m²K",
         warranty: "10 years",
@@ -514,7 +512,7 @@ const Products = () => {
       images: ["/333.jpeg", "/placeh.png", "/placeh.png"],
       specifications: {
         material: "10mm or 12mm toughened glass",
-        frameOptions: "Frameless or aluminum framed",
+        frameOptions: "Frameless or aluminium framed",
         soundRating: "Up to 38dB",
         warranty: "5 years",
       },
@@ -648,7 +646,7 @@ const Products = () => {
       reviews: 92,
       images: ["/placeh.png", "/placeh.png", "/placeh.png"],
       specifications: {
-        material: "Aluminum frame with double glazing",
+        material: "Aluminium frame with double glazing",
         glassType: "Low-E with solar control",
         uValue: "1.4 W/m²K",
         warranty: "10 years",
@@ -675,7 +673,7 @@ const Products = () => {
       reviews: 98,
       images: ["/placeh.png", "/placeh.png", "/placeh.png"],
       specifications: {
-        material: "Aluminum with double glazing",
+        material: "Aluminium with double glazing",
         glassType: "6mm + 12mm air gap + 6mm",
         hardware: "Stainless steel rollers",
         warranty: "5 years",

@@ -407,7 +407,7 @@ const Footer = () => {
                   >
                     Bay 3, 18 Whitesway,
                     <br />
-                    Harare Zimbabwe
+                    Harare, Zimbabwe
                   </p>
                 </div>
               </div>
@@ -447,7 +447,7 @@ const Footer = () => {
                   >
                     48 Midlothian Avenue, Eastlea,
                     <br />
-                    Harare Zimbabwe
+                    Harare, Zimbabwe
                   </p>
                 </div>
               </div>

@@ -511,6 +511,7 @@ const navbarStyle = {
                   src="/gsf.png"
                   alt="Logo"
                   className="w-30 h-12"
+                  loading='eager'
                   priority={true}
                 />
               </div>

@@ -68,7 +68,7 @@ const Projects = () => {
     white: "#FFFFFF",
   };
 
-  const filters = ["all", "retail", "hospitality", "commercial"];
+  const filters = ["all", "retail", "hospitality", "commercial", "industrial", "residential"];
 
   const projects = [
     {

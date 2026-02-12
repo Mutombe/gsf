@@ -100,7 +100,7 @@ export const translations = {
       },
       testing: {
         title: 'Quality Control',
-        desc: 'Rigorous quality control procedures to ensure all fit-outs meet the highest standards',
+        desc: 'Rigorous quality control procedures to ensure all fit-outs meet the highest standards.',
       },
       production: {
         title: 'Production',

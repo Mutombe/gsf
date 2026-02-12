@@ -103,6 +103,15 @@ const About = () => {
       color: "#6B7280",
     },
     {
+      year: "2022",
+      event: "Contractor Of The Year",
+      description:
+        "Awarded 2022 Contractor Of The Year in recognition of outstanding project delivery and industry leadership",
+      icon: Award,
+      image: "/27.jpg",
+      color: "#F3B900",
+    },
+    {
       year: "2025",
       event: "Industry Leader",
       description: "Zimbabwe's undisputed shopfitting leader",
@@ -116,11 +125,11 @@ const About = () => {
     {
       name: "Leadership Team",
       role: "Experienced Professionals",
-      count: "25+",
+      count: "10",
     },
-    { name: "Craftsmen", role: "Skilled Artisans", count: "50+" },
-    { name: "Designers", role: "Creative Minds", count: "20+" },
-    { name: "Support Staff", role: "Dedicated Team", count: "30+" },
+    { name: "Craftsmen", role: "Skilled Artisans", count: "25" },
+    { name: "Designers", role: "Creative Minds", count: "4" },
+    { name: "Support Staff", role: "Dedicated Team", count: "35" },
   ];
 
   // Styles
@@ -326,7 +335,7 @@ const About = () => {
                   Founded in 2000 by a group of seasoned industry professionals,
                   our company was established with a vision to deliver
                   excellence in shopfitting and commercial finishes
-                  construction. In 2003, expanded our capabilities by acquiring The
+                  construction. In 2003, we expanded our capabilities by acquiring The
                   Workbench, a long-established shopfitting company with Italian
                   heritage.
                 </p>
@@ -342,10 +351,10 @@ const About = () => {
                 <p>
                   Throughout our journey, we've had the privilege of executing
                   major national rollouts for then emerging financial institutions
-                  including banks such as Barbican, Century Bank, Intermarket Bank and Trust
-                  Bank as well as refurbishment projects for established banks
+                  including banks such as Barbican, Century, Intermarket and Trust
+                   as well as refurbishment projects for established banks
                   such as Barclays, Beverly Building Society, CBZ, Founders
-                  Building Society, POSB, and ZB Bank At our peak, we grew to
+                  Building Society, POSB, and ZB. At our peak, we grew to
                   employ over 400 people across two factory locations.
                 </p>
                 <p>
@@ -991,11 +1000,6 @@ const About = () => {
                   logo: "/logos/pp.png",
                 },
                 {
-                  name: "Nedbank",
-                  category: "Banking",
-                  logo: "/logos/nb.png",
-                },
-                {
                   name: "Stanbic Bank",
                   category: "Banking",
                   logo: "/logos/sb.png",
@@ -1096,6 +1100,161 @@ const About = () => {
                   </div>
                 </motion.div>
               ))}
+            </div>
+
+            {/* Malls & Shopping Centres */}
+            <div
+              style={{
+                marginTop: "48px",
+                borderTop: `2px solid ${colors.lightGray}`,
+                paddingTop: "40px",
+              }}
+            >
+              <h3
+                style={{
+                  fontSize: "1.5rem",
+                  fontWeight: "700",
+                  color: colors.darkGray,
+                  textAlign: "center",
+                  marginBottom: "32px",
+                }}
+              >
+                Malls & Shopping Centres
+              </h3>
+              <div
+                style={{
+                  display: "grid",
+                  gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))",
+                  gap: "32px",
+                  alignItems: "center",
+                  justifyContent: "center",
+                }}
+              >
+                {[
+                  {
+                    name: "Madokero Mall",
+                    logo: "/logos/madokero.jpg",
+                  },
+                  {
+                    name: "Highland Park Mall",
+                    logo: null,
+                    initials: "HP",
+                  },
+                  {
+                    name: "Greenfields Retail Centre",
+                    logo: null,
+                    initials: "GRC",
+                  },
+                  {
+                    name: "Sam Levy's Village",
+                    logo: null,
+                    initials: "SLV",
+                  },
+                ].map((mall, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.05, duration: 0.4 }}
+                    whileHover={{ y: -4, transition: { duration: 0.2 } }}
+                    style={{
+                      textAlign: "center",
+                      padding: "24px",
+                      background: colors.lightGray,
+                      borderRadius: "5px",
+                      transition: "all 0.3s ease",
+                      cursor: "pointer",
+                      display: "flex",
+                      flexDirection: "column",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      minHeight: "140px",
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.background = colors.white;
+                      e.currentTarget.style.boxShadow =
+                        "0 8px 24px rgba(0, 0, 0, 0.1)";
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.background = colors.lightGray;
+                      e.currentTarget.style.boxShadow = "none";
+                    }}
+                  >
+                    {mall.logo ? (
+                      <img
+                        src={mall.logo}
+                        alt={`${mall.name} logo`}
+                        style={{
+                          width: "100%",
+                          maxWidth: "120px",
+                          height: "60px",
+                          objectFit: "contain",
+                          marginBottom: "12px",
+                          filter: "grayscale(100%)",
+                          opacity: "0.7",
+                          transition: "all 0.3s ease",
+                        }}
+                        onMouseEnter={(e) => {
+                          e.currentTarget.style.filter = "grayscale(0%)";
+                          e.currentTarget.style.opacity = "1";
+                        }}
+                        onMouseLeave={(e) => {
+                          e.currentTarget.style.filter = "grayscale(100%)";
+                          e.currentTarget.style.opacity = "0.7";
+                        }}
+                      />
+                    ) : (
+                      <div
+                        style={{
+                          width: "120px",
+                          height: "60px",
+                          background: `linear-gradient(135deg, ${colors.chiliRed}20, ${colors.amber}20)`,
+                          borderRadius: "5px",
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                          marginBottom: "12px",
+                          border: `1px solid ${colors.chiliRed}15`,
+                          transition: "all 0.3s ease",
+                        }}
+                      >
+                        <span
+                          style={{
+                            fontSize: "1.5rem",
+                            fontWeight: "800",
+                            background: `linear-gradient(135deg, ${colors.chiliRed}, ${colors.amber})`,
+                            WebkitBackgroundClip: "text",
+                            WebkitTextFillColor: "transparent",
+                            backgroundClip: "text",
+                          }}
+                        >
+                          {mall.initials}
+                        </span>
+                      </div>
+                    )}
+                    <div
+                      style={{
+                        fontSize: "0.95rem",
+                        fontWeight: "600",
+                        color: colors.darkGray,
+                        marginBottom: "4px",
+                      }}
+                    >
+                      {mall.name}
+                    </div>
+                    <div
+                      style={{
+                        fontSize: "0.875rem",
+                        color: colors.mediumGray,
+                        fontWeight: "500",
+                      }}
+                    >
+                      Malls
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
             </div>
           </motion.div>
         </div>

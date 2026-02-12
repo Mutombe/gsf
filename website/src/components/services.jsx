@@ -180,27 +180,27 @@ const Services = () => {
       step: "01",
       title: "Consultation",
       description:
-        "We meet with you to understand your needs, vision, and budget",
+        "We meet with you to understand your needs, vision, and budget.",
       icon: MessageCircle,
     },
     {
       step: "02",
       title: "Design",
-      description: "Our team creates detailed designs and 3D visualisations",
+      description: "Our team creates detailed designs and 3D visualisations.",
       icon: PenTool,
     },
     {
       step: "03",
       title: "Production",
       description:
-        "We manufacture your fixtures with precision and quality materials",
+        "We manufacture your fixtures with precision and quality materials.",
       icon: Factory,
     },
     {
       step: "04",
       title: "Installation",
       description:
-        "Professional installation ensuring everything fits perfectly",
+        "Professional installation ensuring everything fits perfectly.",
       icon: Wrench,
     },
   ];
@@ -209,22 +209,22 @@ const Services = () => {
     {
       icon: Clock,
       title: "Fast Turnaround",
-      description: "Projects completed on time, every time",
+      description: "Projects completed on time, every time.",
     },
     {
       icon: Award,
       title: "Premium Quality",
-      description: "High-quality materials and craftsmanship",
+      description: "High-quality materials and craftsmanship.",
     },
     {
       icon: Shield,
       title: "Warranty Included",
-      description: "Comprehensive warranty on all work",
+      description: "Comprehensive warranty on all work.",
     },
     {
       icon: CheckCircle2,
       title: "Full Support",
-      description: "Ongoing support and maintainance",
+      description: "Ongoing support and maintainance.",
     },
   ];
 
@@ -296,18 +296,19 @@ const Services = () => {
     transition: "all 0.3s ease",
   };
 
-  // Grid area assignments for masonry layout
-  const getGridArea = (size) => {
-    switch (size) {
-      case "large":
-        return { gridColumn: "span 2", gridRow: "span 2" };
-      case "medium":
-        return { gridColumn: "span 1", gridRow: "span 2" };
-      case "small":
-        return { gridColumn: "span 1", gridRow: "span 1" };
-      default:
-        return { gridColumn: "span 1", gridRow: "span 1" };
-    }
+  // Symmetric zigzag bento grid positions (3 columns, alternating wide/narrow)
+  const getGridPosition = (index) => {
+    const positions = [
+      { gridColumn: "1 / 3", gridRow: "1 / 3" },   // 0: wide left
+      { gridColumn: "3 / 4", gridRow: "1 / 3" },   // 1: narrow right
+      { gridColumn: "1 / 2", gridRow: "3 / 5" },   // 2: narrow left
+      { gridColumn: "2 / 4", gridRow: "3 / 5" },   // 3: wide right
+      { gridColumn: "1 / 3", gridRow: "5 / 7" },   // 4: wide left
+      { gridColumn: "3 / 4", gridRow: "5 / 7" },   // 5: narrow right
+      { gridColumn: "1 / 2", gridRow: "7 / 9" },   // 6: narrow left
+      { gridColumn: "2 / 4", gridRow: "7 / 9" },   // 7: wide right
+    ];
+    return positions[index] || { gridColumn: "span 1", gridRow: "span 1" };
   };
 
   return (
@@ -395,37 +396,38 @@ const Services = () => {
           >
             <style>{`
               .services-grid {
-                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-                grid-auto-rows: 200px;
+                grid-template-columns: repeat(3, 1fr);
               }
 
               @media (max-width: 768px) {
                 .services-grid {
                   grid-template-columns: 1fr !important;
-                  grid-auto-rows: auto !important;
                 }
                 .services-grid > * {
                   grid-column: span 1 !important;
                   grid-row: span 1 !important;
-                  min-height: 380px;
                 }
               }
 
               @media (min-width: 769px) and (max-width: 1024px) {
                 .services-grid {
                   grid-template-columns: repeat(2, 1fr) !important;
-                  grid-auto-rows: 220px;
+                }
+                .services-grid > * {
+                  grid-column: span 1 !important;
+                  grid-row: span 1 !important;
                 }
               }
             `}</style>
             {services.map((service, index) => {
-              const gridArea = getGridArea(service.size);
+              const position = getGridPosition(index);
+              const isWide = [0, 3, 4, 7].includes(index);
               const cardStyle = {
-                gridColumn: gridArea.gridColumn,
-                gridRow: gridArea.gridRow,
+                gridColumn: position.gridColumn,
+                gridRow: position.gridRow,
                 background: colors.white,
                 borderRadius: "5px",
-                padding: service.size === "large" ? "32px" : "24px",
+                padding: isWide ? "32px" : "24px",
                 boxShadow: "0 4px 20px rgba(0, 0, 0, 0.08)",
                 transition: "all 0.4s cubic-bezier(0.4, 0, 0.2, 1)",
                 display: "flex",
@@ -468,14 +470,22 @@ const Services = () => {
                     }}
                   ></div>
 
-                  <div style={{ position: "relative", zIndex: 1 }}>
+                  <div
+                    style={{
+                      position: "relative",
+                      zIndex: 1,
+                      flex: 1,
+                      display: "flex",
+                      flexDirection: "column",
+                    }}
+                  >
                     {/* Icon */}
                     <motion.div
                       whileHover={{ rotate: 360, scale: 1.1 }}
                       transition={{ duration: 0.6 }}
                       style={{
-                        width: service.size === "large" ? "80px" : "64px",
-                        height: service.size === "large" ? "80px" : "64px",
+                        width: isWide ? "80px" : "64px",
+                        height: isWide ? "80px" : "64px",
                         background: `linear-gradient(135deg, ${service.colorFrom}, ${service.colorTo})`,
                         borderRadius: "5px",
                         display: "inline-flex",
@@ -486,7 +496,7 @@ const Services = () => {
                       }}
                     >
                       <service.icon
-                        size={service.size === "large" ? 36 : 28}
+                        size={isWide ? 36 : 28}
                         style={{ color: colors.white }}
                       />
                     </motion.div>
@@ -494,8 +504,7 @@ const Services = () => {
                     {/* Content */}
                     <h3
                       style={{
-                        fontSize:
-                          service.size === "large" ? "1.75rem" : "1.5rem",
+                        fontSize: isWide ? "1.75rem" : "1.5rem",
                         fontWeight: "700",
                         color: colors.darkGray,
                         marginBottom: "12px",
@@ -509,49 +518,47 @@ const Services = () => {
                         color: colors.mediumGray,
                         marginBottom: "20px",
                         lineHeight: "1.6",
-                        fontSize: service.size === "small" ? "14px" : "15px",
+                        fontSize: "15px",
                       }}
                     >
                       {service.description}
                     </p>
 
-                    {/* Features List - Show more for larger cards */}
-                    {service.size !== "small" && (
-                      <ul
-                        style={{
-                          listStyle: "none",
-                          padding: 0,
-                          margin: "0 0 24px 0",
-                          flex: 1,
-                        }}
-                      >
-                        {service.features
-                          .slice(0, service.size === "large" ? 6 : 4)
-                          .map((feature, idx) => (
-                            <li
-                              key={idx}
+                    {/* Features List */}
+                    <ul
+                      style={{
+                        listStyle: "none",
+                        padding: 0,
+                        margin: "0 0 24px 0",
+                        flex: 1,
+                      }}
+                    >
+                      {service.features
+                        .slice(0, isWide ? 6 : 5)
+                        .map((feature, idx) => (
+                          <li
+                            key={idx}
+                            style={{
+                              display: "flex",
+                              alignItems: "flex-start",
+                              gap: "8px",
+                              fontSize: "14px",
+                              color: colors.mediumGray,
+                              marginBottom: "8px",
+                            }}
+                          >
+                            <CheckCircle2
+                              size={16}
                               style={{
-                                display: "flex",
-                                alignItems: "flex-start",
-                                gap: "8px",
-                                fontSize: "14px",
-                                color: colors.mediumGray,
-                                marginBottom: "8px",
+                                color: service.colorFrom,
+                                marginTop: "2px",
+                                flexShrink: 0,
                               }}
-                            >
-                              <CheckCircle2
-                                size={16}
-                                style={{
-                                  color: service.colorFrom,
-                                  marginTop: "2px",
-                                  flexShrink: 0,
-                                }}
-                              />
-                              <span>{feature}</span>
-                            </li>
-                          ))}
-                      </ul>
-                    )}
+                            />
+                            <span>{feature}</span>
+                          </li>
+                        ))}
+                    </ul>
 
                     {/* CTA Link */}
                     <Link
@@ -735,7 +742,7 @@ const Services = () => {
             style={{ marginBottom: "48px", textAlign: "center" }}
           >
             <h2 style={sectionTitleStyle}>Why choose us</h2>
-            <p style={sectionSubtitleStyle}>
+            <p  className="text-white">
               The benefits of working with professionals
             </p>
           </motion.div>
