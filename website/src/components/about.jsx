@@ -1137,18 +1137,13 @@ const About = () => {
                   },
                   {
                     name: "Highland Park Mall",
-                    logo: null,
+                    logo: "/logos/hp.png",
                     initials: "HP",
                   },
                   {
                     name: "Greenfields Retail Centre",
-                    logo: null,
+                    logo: "/logos/gf.png",
                     initials: "GRC",
-                  },
-                  {
-                    name: "Sam Levy's Village",
-                    logo: null,
-                    initials: "SLV",
                   },
                 ].map((mall, index) => (
                   <motion.div
@@ -1192,7 +1187,7 @@ const About = () => {
                           objectFit: "contain",
                           marginBottom: "12px",
                           filter: "grayscale(100%)",
-                          opacity: "0.7",
+                          opacity: "0.9",
                           transition: "all 0.3s ease",
                         }}
                         onMouseEnter={(e) => {
@@ -1201,7 +1196,7 @@ const About = () => {
                         }}
                         onMouseLeave={(e) => {
                           e.currentTarget.style.filter = "grayscale(100%)";
-                          e.currentTarget.style.opacity = "0.7";
+                          e.currentTarget.style.opacity = "0.9";
                         }}
                       />
                     ) : (
