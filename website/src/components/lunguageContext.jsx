@@ -45,12 +45,12 @@ export const translations = {
         subtitle: 'Comprehensive shopfitting solutions tailored to your business needs',
       },
       whyUs: {
-        title: 'Why choose Global Shopfitters Zimbabwe',
-        subtitle: 'Excellence in every detail',
+        title: 'Why choose Global Shopfitters Zimbabwe.',
+        subtitle: 'Excellence in every detail.',
       },
       cta: {
         title: 'Ready to Transform Your Space?',
-        subtitle: 'Let\'s discuss your project and bring your vision to life',
+        subtitle: 'Let\'s discuss your project and bring your vision to life.',
         button: 'Contact Us Today',
       },
     },
@@ -85,7 +85,7 @@ export const translations = {
     // Services Page
     services: {
       title: 'Our Standards',
-      subtitle: 'Comprehensive solutions for everyday needs',
+      subtitle: 'Comprehensive solutions for everyday needs.',
       consulting: {
         title: 'Consulting',
         desc: 'Expert consultation services to understand your needs, assess feasibility, and plan your perfect space.',

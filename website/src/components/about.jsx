@@ -81,7 +81,7 @@ const About = () => {
       year: "2000",
       event: "Company Founded",
       description:
-        "Global Shopfitters Zimbabwe established by ex Fredic Sage team",
+        "Global Shopfitters Zimbabwe established by ex Fredic Sage team.",
       icon: Award,
       image: "/m.jpg",
       color: "#FDDB3A",
@@ -89,7 +89,7 @@ const About = () => {
     {
       year: "2005",
       event: "Industry Recognition",
-      description: "Became a Class A member of CIFoZ",
+      description: "Became a Class A member of CIFoZ.",
       icon: Award,
       image: "/27.jpg",
       color: "#10B981",
@@ -97,7 +97,7 @@ const About = () => {
     {
       year: "2010",
       event: "Major Partnerships",
-      description: "Partnered with leading banks and retail chains",
+      description: "Partnered with leading banks and retail chains.",
       icon: Users,
       image: "/h.jpg",
       color: "#6B7280",
@@ -106,7 +106,7 @@ const About = () => {
       year: "2022",
       event: "Contractor Of The Year",
       description:
-        "Awarded 2022 Contractor Of The Year in recognition of outstanding project delivery and industry leadership",
+        "Awarded 2022 Contractor Of The Year in recognition of outstanding project delivery and industry leadership.",
       icon: Award,
       image: "/27.jpg",
       color: "#F3B900",
@@ -114,7 +114,7 @@ const About = () => {
     {
       year: "2025",
       event: "Industry Leader",
-      description: "Zimbabwe's undisputed shopfitting leader",
+      description: "Zimbabwe's undisputed shopfitting leader.",
       icon: Award,
       image: "/f.jpg",
       color: "#3B82F6",
@@ -345,7 +345,7 @@ const About = () => {
                   by a dedicated team of technical experts, estimators, site
                   managers, and skilled craftsmen who brought decades of
                   combined experience dominantly from Fredk Sage, then the
-                  largest shopfitting company in the country to establish new
+                  largest shopfitting company in the country, to establish new
                   standards in the industry.
                 </p>
                 <p>
@@ -823,7 +823,7 @@ const About = () => {
           >
             <h2 style={sectionTitleStyle}>Beliefs, Values, Ethics</h2>
             <p style={sectionSubtitleStyle}>
-              The principles that guide everything we do
+              The principles that guide everything we do.
             </p>
           </motion.div>
 
@@ -955,7 +955,7 @@ const About = () => {
           >
             <h2 style={sectionTitleStyle}>Visible Trading History</h2>
             <p style={sectionSubtitleStyle}>
-              Trusted by Zimbabwe's leading brands and businesses
+              Trusted by Zimbabwe's leading brands and businesses.
             </p>
           </motion.div>
 
@@ -1527,7 +1527,7 @@ const About = () => {
             viewport={{ once: true }}
           >
             <h2 style={sectionTitleStyle}>Our Team</h2>
-            <p style={sectionSubtitleStyle}>The people behind our success</p>
+            <p style={sectionSubtitleStyle}>The people behind our success.</p>
           </motion.div>
 
           <div

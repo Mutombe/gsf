@@ -382,7 +382,7 @@ const Services = () => {
           >
             <h2 style={sectionTitleStyle}>Our Standards</h2>
             <p style={sectionSubtitleStyle}>
-              Complete end-to-end solutions for your project
+              Complete end-to-end solutions for your project.
             </p>
           </motion.div>
 
@@ -891,7 +891,7 @@ const Services = () => {
                 opacity: 0.95,
               }}
             >
-              Let's discuss your project and create something amazing together
+              Let's discuss your project and create something amazing together.
             </p>
             <Link
               to="/contact"

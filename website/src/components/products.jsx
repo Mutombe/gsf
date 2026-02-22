@@ -1528,7 +1528,7 @@ const Products = () => {
             </h2>
             <p className="text-base md:text-lg lg:text-xl mb-8 opacity-95">
               We design and manufacture custom shopfitting solutions tailored to
-              your exact requirements
+              your exact requirements.
             </p>
             <Link
               to="/contact"

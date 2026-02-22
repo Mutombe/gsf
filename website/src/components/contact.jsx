@@ -249,17 +249,17 @@ ${formData.message}
     {
       icon: Building2,
       title: "Visit Our Showroom",
-      description: "See our latest designs and completed projects",
+      description: "See our latest designs and completed projects.",
     },
     {
       icon: MessageSquare,
       title: "24/7 Support",
-      description: "Get quick responses to your inquiries",
+      description: "Get quick responses to your inquiries.",
     },
     {
       icon: CheckCircle,
       title: "Free Consultation",
-      description: "Schedule a free consultation with our experts",
+      description: "Schedule a free consultation with our experts.",
     },
   ];
 
@@ -523,7 +523,7 @@ ${formData.message}
                 color: colors.mediumGray,
               }}
             >
-              Multiple ways to reach us
+              Multiple ways to reach us.
             </p>
           </motion.div>
 
