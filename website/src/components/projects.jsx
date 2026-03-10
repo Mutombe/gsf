@@ -399,7 +399,7 @@ const Projects = () => {
         budget: "$185K",
       },
       beforeImage: "/placeh.png",
-      afterImage: "/greenfieldssmokehouse/1.jpg",
+      afterImage: "/greenfieldssmokehouse/5.jpeg",
       gallery: [
         "/greenfieldssmokehouse/2.jpg",
         "/greenfieldssmokehouse/3.jpg",
