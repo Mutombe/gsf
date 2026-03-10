@@ -76,7 +76,7 @@ const Projects = () => {
       title: "CBZ Learning Centre",
       category: "commercial",
       location: "Harare CBD",
-      date: "2024",
+      date: "2023",
       description:
         "Complete aluminium partitioning and custom joinery for educational facility",
       fullDescription:
@@ -105,7 +105,7 @@ const Projects = () => {
       title: "CBZ Pomona Branch",
       category: "commercial",
       location: "Pomona, Harare",
-      date: "2024",
+      date: "2023",
       description:
         "Banking hall fitout with teller counters and security screens",
       fullDescription:
@@ -139,7 +139,7 @@ const Projects = () => {
       title: "First Capital Borrowdale",
       category: "commercial",
       location: "Borrowdale, Harare",
-      date: "2024",
+      date: "2025",
       description:
         "Premium banking hall with custom counters and aluminium facades",
       fullDescription:
@@ -175,7 +175,7 @@ const Projects = () => {
       title: "Ecobank Borrowdale",
       category: "commercial",
       location: "Borrowdale, Harare",
-      date: "2024",
+      date: "2025",
       description:
         "Modern banking facility with full aluminium and glass frontage",
       fullDescription:
@@ -246,7 +246,7 @@ const Projects = () => {
       title: "NMB Malborough",
       category: "commercial",
       location: "Malborough, Harare",
-      date: "2024",
+      date: "2025",
       description: "Banking hall refurbishment with modern aluminium finishes",
       fullDescription:
         "Bank branch renovation featuring new laminated counters, aluminium-framed glass partitions, and ACP external cladding. Installation comprised suspended ceiling grid system, commercial-grade vinyl flooring, LED lighting fixtures, and custom-fabricated stainless steel and aluminium fittings throughout.",
@@ -386,7 +386,7 @@ const Projects = () => {
       title: "Greenfields Smoke House",
       category: "hospitality",
       location: "Greenfields Shopping Centre",
-      date: "2024",
+      date: "2025",
       description:
         "Restaurant fitout with custom bar and kitchen installations",
       fullDescription:
@@ -421,7 +421,7 @@ const Projects = () => {
       title: "Smoke House Sam Levy's",
       category: "hospitality",
       location: "Sam Levy's Village",
-      date: "2024",
+      date: "2025",
       description:
         "Upscale restaurant with premium finishes and custom joinery",
       fullDescription:
@@ -489,7 +489,7 @@ const Projects = () => {
       title: "Avenues Clinic",
       category: "commercial",
       location: "Avenues, Harare",
-      date: "2024",
+      date: "2026",
       description:
         "Medical facility with reception counters and consultation rooms",
       fullDescription:
